@@ -1,0 +1,173 @@
+window.WISDOM_BRIDGE = {
+  title: "The Wisdom Bridge",
+  subtitle: "Nine Principles to a Life that Echoes in the Hearts of Your Loved Ones",
+  author: "Daaji Kamlesh D. Patel",
+  opening: {
+    title: "Dear Parents",
+    page: "xiii",
+    learnings: [],
+  },
+  closing: [
+    { title: "Thank You for Your Time", page: 291, learnings: [] },
+    { title: "Appendix", page: 295, learnings: [] },
+    { title: "Notes", page: 297, learnings: [] },
+  ],
+  principles: [
+    {
+      id: 1,
+      short: "Village",
+      title: "Raising a Child Still Takes a Village",
+      color: "#8a5a3b",
+      chapters: [
+        { n: 1, title: "A Village Is the People, Not the Place", page: 3, learnings: [] },
+        { n: 2, title: "Halo Parenting: Rebuilding the Village", page: 16, learnings: [] },
+      ],
+      learnings: [],
+    },
+    {
+      id: 2,
+      short: "Wisdom",
+      title: "Be Guided by Wisdom. Seek It. Cultivate It. Share It.",
+      color: "#b0893e",
+      chapters: [
+        {
+          n: 3,
+          title: "Wayfinders, Shamans and Grandparents: The Wisdom Bridge",
+          page: 29,
+          learnings: [],
+        },
+        { n: 4, title: "We All Pay the Price for Lost Wisdom", page: 39, learnings: [] },
+      ],
+      learnings: [],
+    },
+    {
+      id: 3,
+      short: "Preparation",
+      title: "Preparation Begins Long before the Children Arrive",
+      color: "#6b7a4a",
+      chapters: [
+        { n: 5, title: "Becoming a Parent: Approach and Attitude", page: 53, learnings: [] },
+        { n: 6, title: "All Parents Are Adopted", page: 64, learnings: [] },
+      ],
+      learnings: [],
+    },
+    {
+      id: 4,
+      short: "Mothers",
+      title: "Happy Mothers Make Happy Families",
+      color: "#a85a3a",
+      chapters: [
+        { n: 7, title: "D-Day, Dutch Hunger Winter and Epigenetics", page: 77, learnings: [] },
+        {
+          n: 8,
+          title: "Ashtavakra, Abhimanyu and the Scientific Theory of Foetal Origins",
+          page: 86,
+          learnings: [],
+        },
+        {
+          n: 9,
+          title: "Japanese Fishing Village, Oxytocin and Mother-Child Bonding",
+          page: 96,
+          learnings: [],
+        },
+      ],
+      learnings: [],
+    },
+    {
+      id: 5,
+      short: "Early Childhood",
+      title: "Early Childhood Is the Foundation",
+      color: "#3d6b63",
+      chapters: [
+        {
+          n: 10,
+          title: "Early Childhood: The Neural Goldrush and the Art of Relaxed Efforts",
+          page: 109,
+          learnings: [],
+        },
+        {
+          n: 11,
+          title: "I Once Asked a Three-Year-Old Her Favourite Colour. Her Answer Still Makes Me Smile",
+          page: 119,
+          learnings: [],
+        },
+        {
+          n: 12,
+          title: "East Meets West, Massage Meets Research: The Story of Touch",
+          page: 134,
+          learnings: [],
+        },
+        { n: 13, title: "Explore the World Together, See More", page: 145, learnings: [] },
+      ],
+      learnings: [],
+    },
+    {
+      id: 6,
+      short: "Character",
+      title: "Character Builds Personality",
+      color: "#4a5c7a",
+      chapters: [
+        {
+          n: 14,
+          title: "Character Is the Foundation of Life: The Role of Parents in Laying the Foundation",
+          page: 157,
+          learnings: [],
+        },
+        {
+          n: 15,
+          title: "As You Do, So They Learn: The Story of Mirror Neurons",
+          page: 169,
+          learnings: [],
+        },
+        { n: 16, title: "Interest and Observation Are Twins", page: 175, learnings: [] },
+        { n: 17, title: "The Strength of Humility", page: 189, learnings: [] },
+      ],
+      learnings: [],
+    },
+    {
+      id: 7,
+      short: "Youth",
+      title: "Youth Are the Future. Guide Them, Don't Break Them.",
+      color: "#6a4a78",
+      chapters: [
+        { n: 18, title: "Youth: A Time of Promise and Potential", page: 203, learnings: [] },
+        {
+          n: 19,
+          title: "Experimentation, Thrill-Seeking and Friendships in Teen Years",
+          page: 218,
+          learnings: [],
+        },
+      ],
+      learnings: [],
+    },
+    {
+      id: 8,
+      short: "Lifestyle",
+      title: "Lifestyle Is an Expression of One's Attitudes",
+      color: "#3d5c5a",
+      chapters: [
+        { n: 20, title: "Sleep Cycles Are an Investment", page: 229, learnings: [] },
+        { n: 21, title: "Poverty and Prosperity Paradox", page: 240, learnings: [] },
+        { n: 22, title: "Conscious Eating Habits", page: 253, learnings: [] },
+      ],
+      learnings: [],
+    },
+    {
+      id: 9,
+      short: "Discipline",
+      title: "Discipline Your Love, Not Love Your Discipline",
+      color: "#7a3d4a",
+      chapters: [
+        { n: 23, title: "Discipline and Guidance for Your Child", page: 267, learnings: [] },
+        {
+          n: 24,
+          title: "Self-Discipline and the Magic Habit to Cultivate It",
+          page: 274,
+          learnings: [],
+        },
+        { n: 25, title: "The Highest Discipline: A Gift from Above", page: 283, learnings: [] },
+      ],
+      learnings: [],
+    },
+  ],
+};
