@@ -430,7 +430,7 @@
     return `
       <p class="idea">${escapeHtml(notes.idea)}</p>
       ${list("Why it works", notes.why)}
-      ${list("Versus the slower version", notes.versus)}
+      ${list("Contrast", notes.versus)}
       ${list("What every recursive function needs", notes.mustHave)}
       <div class="block"><h3>Python</h3>${code}</div>
       ${list("Language bits", notes.pythonBits)}
