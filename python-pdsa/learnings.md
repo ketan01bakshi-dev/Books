@@ -6,7 +6,7 @@
 
 Living notebook for the course. Capture what you want to recall in an interview. The visual map in `index.html` uses the same eight-week structure; filled lectures light up as notes arrive.
 
-**Ready now:** Euclid's remainder algorithm (Week 1, Lecture 3) and Recursion (Week 3, Lecture 8).
+**Ready now:** Euclid's remainder algorithm (Week 1, Lecture 3), numeric types int/float/bool (Week 2, Lecture 5), and Recursion (Week 3, Lecture 8).
 
 ---
 
@@ -96,9 +96,71 @@ def gcd(m, n):
 
 ## Week 2 — Basics of Python
 
-### Lecture 5. Assignment, int, float, bool
+### Lecture 5. Assignment, int, float, bool — numeric values
 
-- 
+**One line.** Numbers come in two flavours: `int` (integers) and `float` (fractional / floating-point). They are different types because the bits are read differently.
+
+**Why two types.** Every value is a finite sequence of 0s and 1s.
+
+- **int** — the whole sequence is one binary number. `178`, `-3`, `4283829`.
+- **float** — the sequence splits into **mantissa** and **exponent**, like scientific notation `0.602 × 10^24`. The lecture calls this *floating point*. `37.82`, `-0.01`, `28.7998`.
+
+Finite bits in the mantissa mean many decimals are stored only approximately — that is why `0.1 + 0.2` can fail `== 0.3`.
+
+**Operations.**
+
+```python
+7 / 3.5      # 2.0   — / always produces a float
+7 / 2        # 3.5
+9 // 5       # 1     — quotient
+9 % 5        # 4     — remainder
+3 ** 4       # 81    — exponentiation
+```
+
+- `+`, `-`, `*`, `/` — usual arithmetic. In Python 3, `/` always returns a float.
+- `//` quotient, `%` remainder. Euclid uses `%`. Check: `9 = (9//5)*5 + (9%5)`.
+- `**` is power (`3**4` is `81`). Not `*`.
+
+**math library.** `log()`, `sqrt()`, `sin()` are built into Python but not loaded by default.
+
+```python
+from math import *
+sqrt(9)      # 3.0
+```
+
+**Boolean from a comparison.** `=` assigns; `==` compares. The comparison itself is a `bool`.
+
+```python
+divisor = (m % n == 0)   # True iff n divides m
+```
+
+Same test as Euclid's base case: if `divisor` is true, return `n`.
+
+**Hand traces.**
+
+- `7 / 2` → `3.5` (float, not `3`)
+- `9 // 5` → `1`, `9 % 5` → `4`
+- `3 ** 4` → `81`
+- `m, n = 14, 7` → `(14 % 7 == 0)` → `True`
+- `m, n = 14, 5` → `(14 % 5 == 0)` → `False`
+
+**Interview questions.**
+
+1. Why int vs float? → Same bits, different reading: whole binary integer vs mantissa + exponent.
+2. What does `/` return in Python 3? → Always float. `7/2` is `3.5`. Use `//` for quotient.
+3. `/` vs `//` vs `%`? → True division, floor quotient, remainder.
+4. How do you write 3⁴? → `3 ** 4` → `81`.
+5. Why `sqrt(9)` fails in a fresh interpreter? → Need `from math import *` (or `import math`).
+6. Type of `divisor = (m % n == 0)`? → `bool`. Euclid's “does n divide m?”
+7. Why can `0.1 + 0.2 != 0.3`? → Finite mantissa. Do not `==` floats for exact tests.
+
+**Pitfalls.**
+
+- Python 3 `/` is not integer division (Python 2 muscle memory).
+- `**` not `*` for powers.
+- math functions need an import; `from math import *` pollutes the namespace — `import math` is cleaner in real code.
+- `=` vs `==`.
+- Euclid's `%` test is for ints, not floats. 
 
 ### Lecture 6. Strings
 

@@ -37,4 +37,5 @@ Add learnings in `learnings.md`. They show up on the map and in the side panel, 
 Filled so far:
 
 - Euclid's remainder algorithm (Week 1, Lecture 3 — second version)
+- Numeric values: int, float, operations, bool (Week 2, Lecture 5)
 - Recursion (Week 3, Lecture 8)

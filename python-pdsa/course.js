@@ -7,7 +7,7 @@ window.PDSA_COURSE = {
   opening: {
     title: "How to use these notes",
     blurb:
-      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Recursion and Euclid's remainder algorithm are filled for interview revision.",
+      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid's remainder gcd, int vs float, and recursion are filled for interview revision.",
   },
   weeks: [
     {
@@ -119,7 +119,92 @@ window.PDSA_COURSE = {
       title: "Basics of Python",
       color: "#b0893e",
       lectures: [
-        { n: 5, title: "Assignment, int, float, bool", notes: null },
+        {
+          n: 5,
+          title: "Assignment, int, float, bool",
+          topic: "Numeric values — int, float, operations, bool",
+          notes: {
+            idea: "Python numbers come in two flavours: int (integers) and float (fractional / floating-point). They are different types because the bits are read differently — a whole binary integer vs a mantissa and exponent, like scientific notation.",
+            why: [
+              "Every value is a finite sequence of 0s and 1s (bits).",
+              "For an int the whole sequence is read as a binary number: 178, -3, 4283829.",
+              "For a float the sequence splits into mantissa and exponent, the same idea as 0.602 × 10^24. That is why the lecture writes “floating point”.",
+              "Examples of float: 37.82, -0.01, 28.7998.",
+            ],
+            versus: [
+              "int: exact whole values; bits are one integer.",
+              "float: approximate reals; bits store scientific notation (mantissa | exponent). Finite bits mean many decimals cannot be stored exactly.",
+            ],
+            code: [
+              {
+                title: "Arithmetic, floor division, remainder, power",
+                source:
+                  "7 / 3.5      # 2.0   — / always produces a float\n7 / 2        # 3.5\n9 // 5       # 1     — quotient (floor division)\n9 % 5        # 4     — remainder\n3 ** 4       # 81    — exponentiation, 3 to the 4",
+              },
+              {
+                title: "math library — built in, not loaded by default",
+                source:
+                  "from math import *\nlog(100)     # needs math\nsqrt(9)      # 3.0\nsin(0)       # 0.0",
+              },
+              {
+                title: "Store a comparison as a bool (Euclid's test)",
+                source:
+                  "divisor = (m % n == 0)   # True iff n divides m\n# = assigns; == compares; the whole (m % n == 0) is a bool",
+              },
+            ],
+            pythonBits: [
+              "+, -, *, / are the usual four. In Python 3, / always produces a float, even 7/2 → 3.5.",
+              "// is quotient, % is remainder. Euclid's gcd uses %; 9//5 is 1 and 9%5 is 4.",
+              "** is exponentiation (3**4 is 81). Do not confuse * (multiply) with ** (power).",
+              "log, sqrt, sin live in the math library: from math import *. They are built in but not available until you import.",
+              "A boolean expression can be named: divisor = (m % n == 0). That name holds True or False.",
+            ],
+            trace: [
+              "7 / 2 → 3.5 (float, not 3)",
+              "9 // 5 → 1, 9 % 5 → 4, because 9 = 1×5 + 4",
+              "3 ** 4 → 3×3×3×3 → 81",
+              "m, n = 14, 7 → divisor = (14 % 7 == 0) → (0 == 0) → True",
+              "m, n = 14, 5 → divisor = (14 % 5 == 0) → (4 == 0) → False",
+            ],
+            interview: [
+              {
+                q: "Why are int and float different types?",
+                a: "Same bits, different reading. int: the bits are one binary integer. float: the bits split into mantissa and exponent (scientific notation / floating point). That is why 178 is int and 37.82 is float.",
+              },
+              {
+                q: "What does / return in Python 3?",
+                a: "Always a float. 7/2 is 3.5, 7/3.5 is 2.0. Use // if you want the integer quotient.",
+              },
+              {
+                q: "What is the difference between / , // and % ?",
+                a: "/ is true division (float). // is floor-division quotient. % is remainder. 9 = (9//5)*5 + (9%5) → 1*5 + 4.",
+              },
+              {
+                q: "How do you write 3 to the power 4?",
+                a: "3 ** 4, which is 81. Not 3*4.",
+              },
+              {
+                q: "Why does sqrt(9) fail in a fresh interpreter?",
+                a: "sqrt is in the math library. It is built into Python but not imported by default. from math import * (or import math; math.sqrt(9)).",
+              },
+              {
+                q: "What type is divisor = (m % n == 0)?",
+                a: "bool. = assigns the result of the comparison ==. True when n divides m — the same test Euclid uses as a base case.",
+              },
+              {
+                q: "Why can 0.1 + 0.2 fail to equal 0.3?",
+                a: "A float has finitely many bits for mantissa and exponent, so most decimals are stored approximately. Never use == on floats for money or gcd-style exact tests; use int or a tolerance.",
+              },
+            ],
+            pitfalls: [
+              "Python 3 / is not integer division. 7/2 is 3.5. Interviews still trip people who remember Python 2.",
+              "** not * for powers. * is multiply.",
+              "from math import * dumps names into the current namespace; import math is cleaner in real code. Either way, you must import.",
+              "= assigns, == compares. divisor = (m%n == 0) needs both.",
+              "Do not test floats with ==. Euclid's m % n == 0 is for ints.",
+            ],
+          },
+        },
         { n: 6, title: "Strings", notes: null },
         { n: 7, title: "Lists", notes: null },
         { n: 8, title: "Control flow", notes: null },
