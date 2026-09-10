@@ -177,15 +177,15 @@ svg.trace {
 
 .center-title {
   font-family: var(--serif);
-  font-size: 22px;
-  fill: var(--ink);
+  font-size: 20px;
+  fill: var(--cream);
 }
 
 .center-sub {
   font-family: var(--serif);
   font-style: italic;
   font-size: 13px;
-  fill: var(--ink-soft);
+  fill: var(--gold-2);
 }
 
 .panel {
@@ -253,12 +253,10 @@ svg.trace {
   gap: 10px;
 }
 
-.chapters li,
-.chapter-btn {
-  padding: 12px 14px;
-  border-radius: 16px;
-  background: rgba(233, 220, 196, 0.45);
-  border: 1px solid transparent;
+.chapters li {
+  padding: 0;
+  background: none;
+  border: none;
 }
 
 .chapter-btn {
@@ -268,6 +266,10 @@ svg.trace {
   font: inherit;
   color: inherit;
   cursor: pointer;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(233, 220, 196, 0.45);
+  border: 1px solid transparent;
 }
 
 .chapter-btn:hover,

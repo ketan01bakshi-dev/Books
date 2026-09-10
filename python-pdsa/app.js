@@ -170,10 +170,14 @@
       svg.appendChild(g);
 
       if (active) {
-        week.lectures.forEach((lecture, lectureIndex) => {
-          const spread = Math.min(26, 140 / Math.max(week.lectures.length, 1));
-          const start = angle - ((week.lectures.length - 1) * spread) / 2;
-          const lecturePos = polar(pos.x, pos.y, 108, start + lectureIndex * spread);
+        const filledLectures = week.lectures.filter(hasNotes);
+        const toShow =
+          week.lectures.length > 5 && filledLectures.length ? filledLectures : week.lectures;
+        toShow.forEach((lecture, lectureIndex) => {
+          const spread = Math.min(34, 110 / Math.max(toShow.length, 1));
+          const inward = angle + 180;
+          const start = inward - ((toShow.length - 1) * spread) / 2;
+          const lecturePos = polar(pos.x, pos.y, 86, start + lectureIndex * spread);
           const link = document.createElementNS(ns, "line");
           link.setAttribute("x1", pos.x);
           link.setAttribute("y1", pos.y);
@@ -191,6 +195,13 @@
           ch.addEventListener("click", (event) => {
             event.stopPropagation();
             selectLecture(week.id, lecture.n);
+          });
+          ch.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              event.stopPropagation();
+              selectLecture(week.id, lecture.n);
+            }
           });
           const filled = hasNotes(lecture);
           const chosen = selected.type === "lecture" && selected.lecture === lecture.n;
@@ -451,8 +462,10 @@
             .map((week) => {
               const ready = weekNoteCount(week);
               return `<li>
-                <span class="ch-n">Week ${week.id}${ready ? " · notes" : ""}</span>
-                <span class="ch-title">${escapeHtml(week.title)}</span>
+                <button type="button" class="chapter-btn" data-week="${week.id}">
+                  <span class="ch-n">Week ${week.id}${ready ? " · notes" : ""}</span>
+                  <span class="ch-title">${escapeHtml(week.title)}</span>
+                </button>
               </li>`;
             })
             .join("")}
@@ -462,6 +475,9 @@
           <p class="empty">Filled lectures light up on the map. Empty ones stay as placeholders until you add them in learnings.md.</p>
         </div>
       `;
+      panel.querySelectorAll("[data-week]").forEach((button) => {
+        button.addEventListener("click", () => selectWeek(Number(button.dataset.week)));
+      });
       return;
     }
 
