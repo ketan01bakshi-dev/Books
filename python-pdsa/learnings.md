@@ -6,7 +6,7 @@
 
 Living notebook for the course. Capture what you want to recall in an interview. The visual map in `index.html` uses the same eight-week structure; filled lectures light up as notes arrive.
 
-**Ready now:** Euclid's remainder algorithm (Week 1, Lecture 3), numeric types int/float/bool (Week 2, Lecture 5), and Recursion (Week 3, Lecture 8).
+**Ready now:** Euclid's remainder algorithm (Week 1, Lecture 3), numeric types (Week 2, Lecture 5), string slices and immutability (Week 2, Lecture 6), and Recursion (Week 3, Lecture 8).
 
 ---
 
@@ -162,9 +162,43 @@ Same test as Euclid's base case: if `divisor` is true, return `n`.
 - `=` vs `==`.
 - Euclid's `%` test is for ints, not floats. 
 
-### Lecture 6. Strings
+### Lecture 6. Strings — slices and immutability
 
-- 
+**One line.** A slice is a segment of a string. The end index is excluded (same rule as `range(1, m+1)`). Strings are **immutable** — you cannot update them in place.
+
+**Slice.** Positions start at 0.
+
+```python
+s = "hello"     # indices  0 1 2 3 4
+                # letters   h e l l o
+s[1:4]          # "ell"  — start in, end out, like range(1, 4)
+```
+
+`s[1:4]` takes indices 1, 2, 3. The handwritten `range(1, m+1)` on the slide is the same half-open convention: include the start, exclude the stop.
+
+**Cannot modify in place.**
+
+```python
+s = "hello"
+# s[3] = "p"          # TypeError — 'str' does not support item assignment
+s = s[0:3] + "p!"     # "hel" + "p!" → "help!"
+```
+
+You keep the prefix you want (`s[0:3]` is `"hel"`), concatenate the new tail, and rebind the name. That creates a **new** string; the old `"hello"` is unchanged.
+
+**Interview questions.**
+
+1. `s = "hello"`; what is `s[1:4]`? → `"ell"` (indices 1, 2, 3).
+2. Why does the lecturer write `range(1, m+1)` next to slices? → Both are half-open. Forgetting the excluded end is the off-by-one.
+3. What does `s[3] = "p"` do? → `TypeError`. Strings are immutable.
+4. How do you turn `"hello"` into `"help!"`? → `s = s[0:3] + "p!"`.
+5. Does that assignment mutate `"hello"`? → No. New string, name `s` now points at it.
+
+**Pitfalls.**
+
+- `s[1:4]` is three characters, not four. The `4` is a fence.
+- `s[3] = "p"` looks like a list update and is a favourite interview trap.
+- Lists (later) *are* mutable; strings stay immutable. 
 
 ### Lecture 7. Lists
 

@@ -7,7 +7,7 @@ window.PDSA_COURSE = {
   opening: {
     title: "How to use these notes",
     blurb:
-      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid's remainder gcd, int vs float, and recursion are filled for interview revision.",
+      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid remainder, int vs float, string slices, and recursion are filled for interview revision.",
   },
   weeks: [
     {
@@ -205,7 +205,76 @@ window.PDSA_COURSE = {
             ],
           },
         },
-        { n: 6, title: "Strings", notes: null },
+        {
+          n: 6,
+          title: "Strings",
+          topic: "String slices and immutability",
+          notes: {
+            idea: "A slice is a segment of a string. Indexing is half-open — start included, end excluded — the same convention as range(1, m+1). Strings cannot be updated in place; they are immutable.",
+            why: [
+              "Positions are counted from 0. For s = \"hello\" the letters sit at 0 1 2 3 4.",
+              "s[1:4] takes from index 1 up to but not including 4, so \"ell\". Same idea as range(1, 4): 1, 2, 3.",
+              "You cannot write s[3] = \"p\". That would change the string in place, and strings do not allow it.",
+              "To get a new value, slice and concatenate: s = s[0:3] + \"p!\" turns \"hello\" into \"help!\". The name s now points at a new string; the old one is unchanged.",
+            ],
+            versus: [
+              "s[i] is one character. s[i:j] is a segment from i (included) to j (excluded).",
+              "Lists (later) are mutable — you can assign to an index. Strings are not. That TypeError is the interview signal for immutability.",
+            ],
+            code: [
+              {
+                title: "Slice — start in, end out",
+                source:
+                  "s = \"hello\"     # indices  0 1 2 3 4\n                 # letters   h e l l o\ns[1:4]         # \"ell\"  — like range(1, 4)",
+              },
+              {
+                title: "Cannot update in place — build a new string",
+                source:
+                  "s = \"hello\"\n# s[3] = \"p\"          # TypeError: 'str' object does not support item assignment\ns = s[0:3] + \"p!\"     # \"hel\" + \"p!\" → \"help!\"",
+              },
+            ],
+            pythonBits: [
+              "s[a:b] is half-open: includes a, excludes b. The handwritten reminder on the slide is range(1, m+1) — same off-by-one rule.",
+              "s[0:3] is \"hel\" (indices 0, 1, 2). Concatenate with + to glue strings.",
+              "Assigning s = s[0:3] + \"p!\" rebinds the name. It does not mutate the old \"hello\".",
+              "Strings are immutable values. You will meet mutability again with lists.",
+            ],
+            trace: [
+              "s = \"hello\" → index 0:h 1:e 2:l 3:l 4:o",
+              "s[1:4] → indices 1,2,3 → \"ell\"",
+              "s[0:3] → \"hel\", then \"hel\" + \"p!\" → \"help!\"",
+              "s[3] = \"p\" → TypeError (immutable)",
+            ],
+            interview: [
+              {
+                q: "What is s[1:4] if s = \"hello\"?",
+                a: "\"ell\". Start 1 is included, end 4 is excluded. Positions 1, 2, 3 — same as range(1, 4).",
+              },
+              {
+                q: "Why is a slice written like range(1, m+1)?",
+                a: "Both are half-open intervals. range(1, m+1) yields 1..m; s[1:4] yields indices 1..3. Forgetting that the end is excluded is the classic off-by-one.",
+              },
+              {
+                q: "What happens if you do s[3] = \"p\" on a string?",
+                a: "TypeError: strings do not support item assignment. They are immutable. You cannot update in place.",
+              },
+              {
+                q: "How do you change \"hello\" into \"help!\"?",
+                a: "Build a new string: s = s[0:3] + \"p!\". Slice the prefix you want to keep, concatenate the new tail, rebind s.",
+              },
+              {
+                q: "Does s = s[0:3] + \"p!\" mutate the original string?",
+                a: "No. Concatenation creates a new string and the assignment makes s refer to it. The old \"hello\" is unchanged (and may be discarded if nothing else names it).",
+              },
+            ],
+            pitfalls: [
+              "s[1:4] is not letters 1 through 4 inclusive. The 4 is a fence, not a letter. Result is three characters, not four.",
+              "s[3] = \"p\" looks like list syntax and is a common TypeError in interviews.",
+              "s[0:3] + \"p\" would be \"help\" without the !. The lecture concatenates \"p!\".",
+              "Rebinding s is not in-place edit. Later, lists will let you assign to an index; strings still will not.",
+            ],
+          },
+        },
         { n: 7, title: "Lists", notes: null },
         { n: 8, title: "Control flow", notes: null },
         { n: 9, title: "Functions", notes: null },
