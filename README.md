@@ -40,4 +40,5 @@ Filled so far:
 - Numeric values: int, float, operations, bool (Week 2, Lecture 5)
 - String slices and immutability (Week 2, Lecture 6)
 - Lists: index vs slice, aliasing, copy, is vs == (Week 2, Lecture 7)
+- Repeating n times: range() (Week 2, Lecture 8)
 - Recursion (Week 3, Lecture 8)

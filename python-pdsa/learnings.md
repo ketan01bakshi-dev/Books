@@ -6,7 +6,7 @@
 
 Living notebook for the course. Capture what you want to recall in an interview. The visual map in `index.html` uses the same eight-week structure; filled lectures light up as notes arrive.
 
-**Ready now:** Euclid remainder (W1 L3), int/float/bool (W2 L5), string slices (W2 L6), lists aliasing and `is` vs `==` (W2 L7), recursion (W3 L8).
+**Ready now:** Euclid remainder (W1 L3), int/float/bool (W2 L5), string slices (W2 L6), lists aliasing and `is` vs `==` (W2 L7), `range()` (W2 L8), recursion (W3 L8).
 
 ---
 
@@ -277,9 +277,43 @@ list1 = list1 + [9]        # rebinds list1; list2 still [1,3,5,7]
 - `l[:]` is shallow: inner lists still shared.
 - Using `is` to compare list contents. 
 
-### Lecture 8. Control flow
+### Lecture 8. Control flow — repeating n times with range()
 
-- 
+**One line.** To do something exactly n times, use `range`. `range(0, n)` is `0, 1, …, n−1` (n values, **stop excluded**). Same half-open rule as a slice.
+
+**The idea vs the Python.**
+
+```python
+# idea:  for i in [1, 2, ..., n]:
+
+for i in range(0, n):     # i = 0, 1, ..., n-1   — n repetitions
+    ...
+
+# range(i, j) → i, i+1, ..., j-1
+for i in range(1, n + 1): # i = 1, 2, ..., n     — if you want 1..n
+    ...
+```
+
+`range(n)` is the same as `range(0, n)`. More on `range()` in Week 3, Lecture 11.
+
+**Hand traces.**
+
+- `n = 4` → `range(0, 4)` → `0, 1, 2, 3` (four passes)
+- `range(1, 4)` → `1, 2, 3` — not `1..4`
+- `range(2, 2)` → empty; body never runs
+
+**Interview questions.**
+
+1. Repeat a block n times? → `for i in range(n):`
+2. What does `range(i, j)` yield? → `i .. j−1` (start in, stop out)
+3. Does `range(0, n)` include n? → No; last is `n−1`
+4. Loop `i` from 1 to n inclusive? → `range(1, n+1)`
+
+**Pitfalls.**
+
+- Building `[1,2,…,n]` just to count — use `range`
+- `range(1, n)` when you wanted n trips from 1 — that is n−1 trips
+- Mixing 0-based `range(n)` with 1-based “from 1 to m” (gcd loops used `range(1, m+1)`) 
 
 ### Lecture 9. Functions
 

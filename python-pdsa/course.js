@@ -7,7 +7,7 @@ window.PDSA_COURSE = {
   opening: {
     title: "How to use these notes",
     blurb:
-      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid remainder, types, strings, lists, and recursion are filled for interview revision.",
+      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid remainder, types, strings, lists, range, and recursion are filled for interview revision.",
   },
   weeks: [
     {
@@ -364,7 +364,64 @@ window.PDSA_COURSE = {
             ],
           },
         },
-        { n: 8, title: "Control flow", notes: null },
+        {
+          n: 8,
+          title: "Control flow",
+          topic: "Repeating n times — range()",
+          notes: {
+            idea: "To do something exactly n times, loop over a sequence of n values. Do not build [1,2,…,n] by hand — range(0, n) gives 0, 1, …, n−1 (n numbers, stop excluded).",
+            why: [
+              "The naive picture is for i in [1, 2, …, n]. Writing that list is the wrong tool; range generates the sequence without storing every integer up front.",
+              "range(0, n) is half-open: start 0 included, stop n excluded, so you get n values: 0 through n−1. Same fence as a slice s[0:n].",
+              "range(i, j) is i, i+1, …, j−1. If you want 1 through n inclusive, that is range(1, n+1) — the m+1 from the string-slice lecture.",
+            ],
+            versus: [
+              "for i in [1, 2, …, n] names the idea. for i in range(0, n) is how you write it in Python (0-based, stop excluded).",
+              "range(0, n) has n iterations. range(1, n) has n−1 iterations — a classic off-by-one.",
+            ],
+            code: [
+              {
+                title: "n repetitions — 0 through n-1",
+                source:
+                  "for i in range(0, n):\n    ...          # runs n times; i = 0, 1, ..., n-1\n\n# range(i, j) → i, i+1, ..., j-1\nfor i in range(1, n + 1):\n    ...          # i = 1, 2, ..., n  (if you really want 1..n)",
+              },
+            ],
+            pythonBits: [
+              "range(0, n) can be written range(n). The start defaults to 0.",
+              "The stop is never yielded. range(0, 5) is 0,1,2,3,4 — five numbers, not including 5.",
+              "range is lazy: it is not a list. list(range(0, 5)) if you need a list.",
+              "The lecturer flags more details about range() later (Week 3, Lecture 11).",
+            ],
+            trace: [
+              "n = 4 → range(0, 4) → 0, 1, 2, 3  (four passes)",
+              "range(1, 4) → 1, 2, 3  — not 1..4",
+              "range(2, 2) → empty; the loop body never runs",
+            ],
+            interview: [
+              {
+                q: "How do you repeat a block exactly n times?",
+                a: "for i in range(0, n): or for i in range(n):. That yields n values, 0 through n−1.",
+              },
+              {
+                q: "What sequence does range(i, j) generate?",
+                a: "i, i+1, …, j−1. Start in, stop out — same half-open rule as slices and as range(1, m+1).",
+              },
+              {
+                q: "Does range(0, n) include n?",
+                a: "No. Last value is n−1. Including n would be n+1 iterations.",
+              },
+              {
+                q: "How do you loop i from 1 to n inclusive?",
+                a: "range(1, n+1). range(1, n) stops at n−1.",
+              },
+            ],
+            pitfalls: [
+              "Building [1,2,…,n] as a real list just to count — use range.",
+              "range(1, n) when you wanted n trips starting at 1 — you got n−1 trips.",
+              "Using i as a 1-based counter when range started at 0 (off-by-one in gcd-style 1..m loops).",
+            ],
+          },
+        },
         { n: 9, title: "Functions", notes: null },
         { n: 10, title: "Examples", notes: null },
       ],
