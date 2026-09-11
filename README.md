@@ -39,4 +39,5 @@ Filled so far:
 - Euclid's remainder algorithm (Week 1, Lecture 3 — second version)
 - Numeric values: int, float, operations, bool (Week 2, Lecture 5)
 - String slices and immutability (Week 2, Lecture 6)
+- Lists: index vs slice, aliasing, copy, is vs == (Week 2, Lecture 7)
 - Recursion (Week 3, Lecture 8)

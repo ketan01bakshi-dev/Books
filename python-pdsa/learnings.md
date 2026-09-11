@@ -6,7 +6,7 @@
 
 Living notebook for the course. Capture what you want to recall in an interview. The visual map in `index.html` uses the same eight-week structure; filled lectures light up as notes arrive.
 
-**Ready now:** Euclid's remainder algorithm (Week 1, Lecture 3), numeric types (Week 2, Lecture 5), string slices and immutability (Week 2, Lecture 6), and Recursion (Week 3, Lecture 8).
+**Ready now:** Euclid remainder (W1 L3), int/float/bool (W2 L5), string slices (W2 L6), lists aliasing and `is` vs `==` (W2 L7), recursion (W3 L8).
 
 ---
 
@@ -200,9 +200,82 @@ You keep the prefix you want (`s[0:3]` is `"hel"`), concatenate the new tail, an
 - `s[3] = "p"` looks like a list update and is a favourite interview trap.
 - Lists (later) *are* mutable; strings stay immutable. 
 
-### Lecture 7. Lists
+### Lecture 7. Lists — index vs slice, aliasing, copy, is vs ==
 
-- 
+**One line.** A list index returns an element; a list slice returns a list. `list2 = list1` is an alias, not a copy. Copy with `list1[:]`. `==` is value; `is` is identity.
+
+**Lists vs strings.**
+
+```python
+h = "hello"
+h[0] == h[0:1] == "h"     # both strings
+
+factors = [1, 2, 5, 10]
+factors[0]                 # 1     — a value
+factors[0:1]               # [1]   — a list
+# 1 != [1]
+```
+
+**Nested lists.** Top-level of `nested = [[2, [37]], 4, ["hello"]]` has three items.
+
+```python
+nested[0]          # [2, [37]]
+nested[1]          # 4
+nested[2][0][3]    # "l"
+nested[0][1:2]     # [[37]]  — slice, so still a list, not 37
+```
+
+**Aliasing.** Assignment does **not** copy a mutable value.
+
+```python
+list1 = [1, 3, 5, 7]
+list2 = list1              # two names, one list
+list1[2] = 4               # list2[2] is also 4
+```
+
+**Copy with a full slice.** A slice always makes a new list. `l[:k]` is `l[0:k]`, `l[k:]` is `l[k:len(l)]`, `l[:]` is `l[0:len(l)]`.
+
+```python
+list2 = list1[:]           # copy — later edits to list1 miss list2
+```
+
+**`==` vs `is`.**
+
+```python
+list1 = [1, 3, 5, 7]
+list2 = [1, 3, 5, 7]
+list3 = list2
+list1 == list2             # True   same value
+list2 is list3             # True   same object
+list1 is list2             # False  two lists that just look alike
+```
+
+**Concatenation.** `+` glues lists like strings and **always** produces a new list.
+
+```python
+list3 = list1 + list2      # [1,3,5,7,4,5,6,8]
+
+list1 = [1, 3, 5, 7]
+list2 = list1
+list1 = list1 + [9]        # rebinds list1; list2 still [1,3,5,7]
+```
+
+**Interview questions.**
+
+1. `factors[0]` vs `factors[0:1]`? → `1` vs `[1]`. Strings do not make that distinction.
+2. `nested[0][1:2]`? → `[[37]]`, not `37`.
+3. `list2 = list1; list1[2] = 4`. `list2[2]`? → `4`. Same object.
+4. How do you copy? → `list2 = list1[:]`.
+5. `==` vs `is`? → value vs identity.
+6. `list1 = list1 + [9]` after aliasing? → new list; alias broken.
+
+**Pitfalls.**
+
+- Wanting the number `1` and writing a slice.
+- Thinking a nested slice unwraps to `37`.
+- `list2 = list1` is not a copy — the classic mutation bug.
+- `l[:]` is shallow: inner lists still shared.
+- Using `is` to compare list contents. 
 
 ### Lecture 8. Control flow
 

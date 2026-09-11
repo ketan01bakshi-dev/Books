@@ -7,7 +7,7 @@ window.PDSA_COURSE = {
   opening: {
     title: "How to use these notes",
     blurb:
-      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid remainder, int vs float, string slices, and recursion are filled for interview revision.",
+      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid remainder, types, strings, lists, and recursion are filled for interview revision.",
   },
   weeks: [
     {
@@ -275,7 +275,95 @@ window.PDSA_COURSE = {
             ],
           },
         },
-        { n: 7, title: "Lists", notes: null },
+        {
+          n: 7,
+          title: "Lists",
+          topic: "Lists — indexing, aliasing, copy, is vs ==",
+          notes: {
+            idea: "A list index returns an element; a list slice returns a list. Assignment copies a name, not the list. Two names can point at the same mutable object — that is aliasing. Copy with a full slice l[:]. == is value; is is identity.",
+            why: [
+              "For strings, h[0] and h[0:1] are both the string \"h\". For lists they differ: factors[0] is 1, factors[0:1] is [1]. The slide marks that ≠.",
+              "Lists nest. nested = [[2, [37]], 4, [\"hello\"]] has three top-level items. nested[0][1:2] is [[37]] — a slice, so still a list, not 37.",
+              "list2 = list1 does not copy. list1[2] = 4 also changes list2[2]. Two names, one list.",
+              "A slice always builds a new list. l[:] is the full slice, equal to l[0:len(l)]. list2 = list1[:] is a copy, so later edits to list1 miss list2.",
+              "+ concatenates like strings and always produces a new list. After list1 = list1 + [9], list1 and list2 no longer share an object.",
+            ],
+            versus: [
+              "str: index and one-length slice are both strings. list: index is an element; slice is a list. 1 ≠ [1].",
+              "list2 = list1 aliases. list2 = list1[:] copies (shallow). list1 = list1 + [9] rebinds list1 to a new list and breaks the alias.",
+              "== asks “same value?”. is asks “same object?”. Equal lists can fail is.",
+            ],
+            code: [
+              {
+                title: "Index vs slice — 1 is not [1]",
+                source:
+                  "h = \"hello\"\nh[0] == h[0:1] == \"h\"     # both strings\n\nfactors = [1, 2, 5, 10]\nfactors[0]                 # 1     — a value\nfactors[0:1]               # [1]   — a list\n# 1 != [1]",
+              },
+              {
+                title: "Nested lists — slice still returns a list",
+                source:
+                  "nested = [[2, [37]], 4, [\"hello\"]]\nnested[0]          # [2, [37]]\nnested[1]          # 4\nnested[2][0][3]    # \"l\"     — \"hello\"[3]\nnested[0][1:2]     # [[37]]  — not 37",
+              },
+              {
+                title: "Aliasing vs copy vs +",
+                source:
+                  "list1 = [1, 3, 5, 7]\nlist2 = list1              # same object\nlist1[2] = 4               # list2[2] is also 4\n\nlist2 = list1[:]           # full slice = copy\n\nlist1 = [1, 3, 5, 7]\nlist2 = list1\nlist1 = list1 + [9]        # new list; list2 unchanged",
+              },
+              {
+                title: "== value vs is identity",
+                source:
+                  "list1 = [1, 3, 5, 7]\nlist2 = [1, 3, 5, 7]\nlist3 = list2\nlist1 == list2             # True   same value\nlist2 == list3             # True\nlist2 is list3             # True   same object\nlist1 is list2             # False  two lists that just look alike",
+              },
+            ],
+            pythonBits: [
+              "l[:k] is l[0:k]. l[k:] is l[k:len(l)]. l[:] is l[0:len(l)] — the full slice used to copy.",
+              "list2 = list1[:] is a shallow copy: a new outer list, same inner objects if they are nested.",
+              "+ always builds a new list. That is why list1 = list1 + [9] breaks the alias, unlike list1[2] = 4.",
+              "Keep this next to string immutability: strings cannot be updated in place; lists can, so aliasing actually bites.",
+            ],
+            trace: [
+              "factors = [1,2,5,10] → factors[0] is 1, factors[0:1] is [1]",
+              "nested[2][0][3] → [\"hello\"] then \"hello\" then \"l\"",
+              "nested[0][1:2] → [2,[37]] sliced at [1:2] → [[37]]",
+              "list2 = list1; list1[2] = 4 → both names see [1,3,4,7]",
+              "list1 == list2 True, list1 is list2 False when they are two equal lists",
+              "list1 = list1 + [9] after aliasing → list1 is [1,3,5,7,9], list2 still [1,3,5,7]",
+            ],
+            interview: [
+              {
+                q: "What is the difference between factors[0] and factors[0:1]?",
+                a: "Index returns the element 1. Slice returns a list [1]. For strings, h[0] and h[0:1] are both \"h\". That mismatch is a favourite trap.",
+              },
+              {
+                q: "What is nested[0][1:2] if nested = [[2, [37]], 4, [\"hello\"]]?",
+                a: "[[37]]. nested[0] is [2, [37]]; the slice [1:2] keeps a list, so you get a one-element list containing [37], not the integer 37.",
+              },
+              {
+                q: "list2 = list1; list1[2] = 4. What is list2[2]?",
+                a: "4. Assignment does not copy a mutable value. list1 and list2 are two names for the same list.",
+              },
+              {
+                q: "How do you copy a list so later edits do not leak?",
+                a: "Full slice: list2 = list1[:]. A slice always creates a new list. l[:] means l[0:len(l)].",
+              },
+              {
+                q: "What is the difference between == and is?",
+                a: "== tests same value. is tests same object. Two separately built [1,3,5,7] lists compare equal but is is False. Aliases compare True for both.",
+              },
+              {
+                q: "list2 = list1; list1 = list1 + [9]. Do they still share an object?",
+                a: "No. + always produces a new list, then the assignment rebinds list1. list2 still names the old list.",
+              },
+            ],
+            pitfalls: [
+              "Writing factors[0:1] when you wanted the number 1 — you got a list.",
+              "nested[0][1:2] looks like it should be [37] or 37; it is [[37]] because a slice keeps the list wrapper.",
+              "list2 = list1 is not a copy. Mutating through either name surprises you later — classic interview bug.",
+              "l[:] is a shallow copy. Nested inner lists are still shared unless you copy deeper.",
+              "Confusing == with is. Use is for None (x is None); use == for list contents.",
+            ],
+          },
+        },
         { n: 8, title: "Control flow", notes: null },
         { n: 9, title: "Functions", notes: null },
         { n: 10, title: "Examples", notes: null },
