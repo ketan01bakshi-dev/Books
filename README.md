@@ -42,4 +42,5 @@ Filled so far:
 - Lists: index vs slice, aliasing, copy, is vs == (Week 2, Lecture 7)
 - Repeating n times: range() (Week 2, Lecture 8)
 - Functions: local scope, define-before-call, factorial (Week 2, Lecture 9)
+- Examples: first n primes, while loop, unconditional progress (Week 2, Lecture 10)
 - Recursion (Week 3, Lecture 8)

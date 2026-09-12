@@ -6,7 +6,7 @@
 
 Living notebook for the course. Capture what you want to recall in an interview. The visual map in `index.html` uses the same eight-week structure; filled lectures light up as notes arrive.
 
-**Ready now:** Euclid remainder (W1 L3), int/float/bool (W2 L5), string slices (W2 L6), lists (W2 L7), `range()` (W2 L8), functions/scope/factorial (W2 L9), recursion (W3 L8).
+**Ready now:** Euclid remainder (W1 L3), int/float/bool (W2 L5), string slices (W2 L6), lists (W2 L7), `range()` (W2 L8), functions/scope/factorial (W2 L9), first n primes (W2 L10), recursion (W3 L8).
 
 ---
 
@@ -375,9 +375,55 @@ def factorial(n):
 - Calling in between two defs that use each other.
 - No base case → infinite recursion. 
 
-### Lecture 10. Examples
+### Lecture 10. Examples — first n primes with while loop and tuple assignment
 
-- 
+**One line.** When you don't know ahead of time how many numbers you must scan to find $n$ primes, use a `while(count < n)` loop. Simultaneous tuple assignment initializes and updates counters, while `i = i + 1` must advance **unconditionally**.
+
+**The problem: "How many to scan?"**
+Unlike `range(n)` where iteration count is fixed upfront, the $n$-th prime's magnitude is not known beforehand. A `while` loop checks `count < n` dynamically.
+
+**The code (lecture).**
+
+```python
+def nprimes(n):
+    (count, i, plist) = (0, 1, [])
+    while (count < n):
+        if isprime(i):
+            (count, plist) = (count + 1, plist + [i])
+        i = i + 1
+    return plist
+```
+
+**Key details from the slide annotations.**
+1. **Tuple assignment initialization:** `(count, i, plist) = (0, 1, [])` sets `count = 0`, candidate `i = 1`, and empty prime list `plist = []` in one atomic expression.
+2. **Loop condition:** `while (count < n)` stops precisely when $n$ primes have been found.
+3. **Simultaneous update:** `(count, plist) = (count + 1, plist + [i])` increments the prime count and creates an extended list with `+ [i]`.
+4. **Unconditional progress:** `i = i + 1` is outside the `if` block. It must execute on *every* loop iteration regardless of whether $i$ was prime, otherwise composite numbers would trap the program in an infinite loop!
+
+**Hand trace ($n = 3$).**
+- Start: `(count, i, plist) = (0, 1, [])`
+- `i = 1`: `isprime(1)` is `False` $\rightarrow$ `i` becomes `2`
+- `i = 2`: `isprime(2)` is `True`  $\rightarrow$ `count = 1, plist = [2]`, `i` becomes `3`
+- `i = 3`: `isprime(3)` is `True`  $\rightarrow$ `count = 2, plist = [2, 3]`, `i` becomes `4`
+- `i = 4`: `isprime(4)` is `False` $\rightarrow$ `i` becomes `5`
+- `i = 5`: `isprime(5)` is `True`  $\rightarrow$ `count = 3, plist = [2, 3, 5]`, `i` becomes `6`
+- `count < 3` is now `False` $\rightarrow$ returns `[2, 3, 5]`.
+
+**Interview questions.**
+
+1. *Why use while instead of for for finding the first n primes?*
+   $\rightarrow$ We do not know in advance what the $n$-th prime value will be. A `while (count < n)` loop runs dynamically until the termination condition is met.
+2. *Why is `i = i + 1` called "unconditional"?*
+   $\rightarrow$ It is placed outside the `if isprime(i):` check so that non-primes are skipped and the search space continuously advances. Putting it inside causes an infinite loop on the first composite number.
+3. *What is the memory and time drawback of `plist + [i]`?*
+   $\rightarrow$ `+` creates and copies an entirely new list of length $k$ each time, adding $O(n^2)$ copying overhead over $n$ steps. In production, `plist.append(i)` operates in $O(1)$ amortized time.
+4. *How does `(count, plist) = (count + 1, plist + [i])` execute?*
+   $\rightarrow$ Python computes the entire right-hand tuple first, then unpacks and assigns to the left-hand targets simultaneously.
+
+**Pitfalls.**
+- Indenting `i = i + 1` under `if isprime(i):` — freezes execution on $i = 1$ or $i = 4$.
+- Using `count <= n` instead of `count < n` — produces $n + 1$ primes.
+- Confusing list concatenation `plist + [i]` (needs bracket `[i]`) with integer addition. 
 
 ---
 

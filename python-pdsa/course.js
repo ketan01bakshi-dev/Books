@@ -7,7 +7,7 @@ window.PDSA_COURSE = {
   opening: {
     title: "How to use these notes",
     blurb:
-      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid remainder, types, strings, lists, range, functions, and recursion are filled for interview revision.",
+      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid remainder, types, strings, lists, range, functions, first n primes, and recursion are filled for interview revision.",
   },
   weeks: [
     {
@@ -491,7 +491,74 @@ window.PDSA_COURSE = {
             ],
           },
         },
-        { n: 10, title: "Examples", notes: null },
+        {
+          n: 10,
+          title: "Examples",
+          topic: "First n primes — while loop, tuple assignment, unconditionally scanning",
+          notes: {
+            idea: "Finding the first n primes requires a while loop because we don't know ahead of time how many numbers we must scan. Simultaneous tuple assignment initializes and updates counters, while i increments unconditionally on every loop pass.",
+            why: [
+              "Unlike range(n) which runs a known number of times, we cannot predict the nth prime's value before searching ('How many to scan?'). A while loop driven by (count < n) terminates exactly when n primes are collected.",
+              "Simultaneous tuple assignment (count, i, plist) = (0, 1, []) sets up the initial state cleanly in one atomic line without separate assignments.",
+              "Inside the loop: if isprime(i): (count, plist) = (count + 1, plist + [i]). Both the found prime count and the accumulator list update together.",
+              "Crucial control flow: i = i + 1 happens UNCONDITIONALLY at the end of the while loop body, outside the if block, ensuring progress across every integer.",
+            ],
+            versus: [
+              "for with range(n): used when iteration count is fixed and known beforehand.",
+              "while(count < n): required when loop termination depends on accumulating a dynamic target condition whose stopping index is unknown.",
+              "plist + [i] vs plist.append(i): lecture builds lists with concatenation +; in later weeks, .append(i) mutates in place without copying the whole list every step.",
+            ],
+            code: [
+              {
+                title: "First n primes (lecture code)",
+                source:
+                  "def nprimes(n):\n    (count, i, plist) = (0, 1, [])\n    while (count < n):\n        if isprime(i):\n            (count, plist) = (count + 1, plist + [i])\n        i = i + 1\n    return plist",
+              },
+              {
+                title: "Helper: naive isprime test",
+                source:
+                  "def isprime(n):\n    if n <= 1:\n        return False\n    for i in range(2, n):\n        if n % i == 0:\n            return False\n    return True\n\n# nprimes(5) → [2, 3, 5, 7, 11]",
+              },
+            ],
+            pythonBits: [
+              "(count, i, plist) = (0, 1, []) uses tuple unpacking to assign all 3 initial names simultaneously.",
+              "(count, plist) = (count + 1, plist + [i]) simultaneously updates count and appends i using list concatenation.",
+              "Notice i starts at 1, so the candidate sequence tested is 1, 2, 3, 4, ...",
+              "i = i + 1 is unindented from the if — it must run unconditionally on every loop iteration to guarantee progress and prevent infinite looping.",
+            ],
+            trace: [
+              "n = 3, (count, i, plist) = (0, 1, [])",
+              "i=1: isprime(1) False → i becomes 2",
+              "i=2: isprime(2) True  → count=1, plist=[2], i becomes 3",
+              "i=3: isprime(3) True  → count=2, plist=[2, 3], i becomes 4",
+              "i=4: isprime(4) False → i becomes 5",
+              "i=5: isprime(5) True  → count=3, plist=[2, 3, 5], count < 3 is False → loop exits, returns [2, 3, 5]",
+            ],
+            interview: [
+              {
+                q: "Why does nprimes use a while loop instead of a for loop?",
+                a: "Because we do not know in advance how large the nth prime will be (how many numbers we need to scan). A while(count < n) loop runs dynamically until n primes are found.",
+              },
+              {
+                q: "Why must i = i + 1 be unconditional?",
+                a: "If i = i + 1 were inside the if block, whenever a composite number like 4 was encountered, i would never advance, locking the function in an infinite loop.",
+              },
+              {
+                q: "What is the complexity consequence of plist + [i] inside the loop?",
+                a: "plist + [i] creates a new list of length k at each step (costing O(k) copies). For n primes, repeated concatenation takes O(n²) list copying overhead, whereas plist.append(i) takes O(1) amortized.",
+              },
+              {
+                q: "How does tuple assignment (count, plist) = (count + 1, plist + [i]) work?",
+                a: "Python evaluates all expressions on the right-hand side first into an anonymous tuple (count + 1, plist + [i]), then unpacks and rebinds them to the names on the left.",
+              },
+            ],
+            pitfalls: [
+              "Accidentally indenting i = i + 1 under if isprime(i): — freezes loop on the first non-prime (i = 1 or 4).",
+              "Initializing i = 0 or i = 2 — lecture starts at i = 1 (assuming isprime handles 1 correctly as False).",
+              "Thinking count < n includes n — count runs 0, 1, ..., n-1, collecting exactly n primes.",
+            ],
+          },
+        },
       ],
     },
     {
@@ -712,6 +779,18 @@ window.PDSA_COURSE = {
       target: { weekId: 3, lectureN: 18 },
       label: "Call stack & scope",
       concept: "Function namespaces and call frames introduced in Week 2 form the recursive unwind stack in Week 3.",
+    },
+    {
+      source: { weekId: 2, lectureN: 10 },
+      target: { weekId: 1, lectureN: 3 },
+      label: "While loop termination",
+      concept: "Both Euclid's gcd while(m % n != 0) and nprimes while(count < n) require unconditional progression to guarantee termination.",
+    },
+    {
+      source: { weekId: 2, lectureN: 10 },
+      target: { weekId: 2, lectureN: 7 },
+      label: "List concatenation vs append",
+      concept: "nprimes accumulates primes via plist + [i] creating a new list each time, contrasting with in-place mutation.",
     },
     {
       source: { weekId: 3, lectureN: 18 },
