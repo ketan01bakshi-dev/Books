@@ -110,14 +110,22 @@
       const pos = polar(cx, cy, r, angle);
       const path = document.createElementNS(ns, "path");
       const mid = polar(cx, cy, r * 0.55, angle + (index % 2 === 0 ? 8 : -8));
+      let weekOpacity = "0.7";
+      let weekStrokeWidth = "1.6";
+      if (selected.type !== "center") {
+        if (selected.id === week.id) {
+          weekOpacity = "1";
+          weekStrokeWidth = "2.2";
+        } else {
+          weekOpacity = "0.12";
+        }
+      }
+
       path.setAttribute("d", `M ${cx} ${cy} Q ${mid.x} ${mid.y} ${pos.x} ${pos.y}`);
       path.setAttribute("fill", "none");
       path.setAttribute("stroke", week.color);
-      path.setAttribute(
-        "stroke-opacity",
-        selected.type !== "center" && selected.id !== week.id ? "0.22" : "0.7"
-      );
-      path.setAttribute("stroke-width", "1.6");
+      path.setAttribute("stroke-opacity", weekOpacity);
+      path.setAttribute("stroke-width", weekStrokeWidth);
       svg.appendChild(path);
     });
 
@@ -138,8 +146,11 @@
         }
       });
 
-      const circle = document.createElementNS(ns, "circle");
       const active = isWeekActive(week);
+      const isDimmed = selected.type !== "center" && !active;
+      g.setAttribute("opacity", isDimmed ? "0.25" : "1");
+
+      const circle = document.createElementNS(ns, "circle");
       circle.setAttribute("cx", pos.x);
       circle.setAttribute("cy", pos.y);
       circle.setAttribute("r", active ? 46 : 40);
@@ -176,22 +187,28 @@
         toShow.forEach((lecture, lectureIndex) => {
           const spread = Math.min(34, 110 / Math.max(toShow.length, 1));
           const inward = angle + 180;
-          const start = inward - ((toShow.length - 1) * spread) / 2;
-          const lecturePos = polar(pos.x, pos.y, 86, start + lectureIndex * spread);
-          const link = document.createElementNS(ns, "line");
-          link.setAttribute("x1", pos.x);
-          link.setAttribute("y1", pos.y);
-          link.setAttribute("x2", lecturePos.x);
-          link.setAttribute("y2", lecturePos.y);
+          const lectureAngle = inward - ((toShow.length - 1) * spread) / 2 + lectureIndex * spread;
+          const lecturePos = polar(pos.x, pos.y, 86, lectureAngle);
+          
+          const chosen = selected.type === "lecture" && selected.lecture === lecture.n;
+          const isOtherLecture = selected.type === "lecture" && !chosen;
+
+          const link = document.createElementNS(ns, "path");
+          const cp1 = polar(pos.x, pos.y, 35, inward);
+          const cp2 = polar(lecturePos.x, lecturePos.y, 35, lectureAngle + 180);
+          link.setAttribute("d", `M ${pos.x} ${pos.y} C ${cp1.x} ${cp1.y} ${cp2.x} ${cp2.y} ${lecturePos.x} ${lecturePos.y}`);
+          link.setAttribute("fill", "none");
           link.setAttribute("stroke", week.color);
-          link.setAttribute("stroke-opacity", "0.35");
-          svg.appendChild(link);
+          link.setAttribute("stroke-opacity", chosen ? "0.9" : isOtherLecture ? "0.15" : "0.4");
+          link.setAttribute("stroke-width", chosen ? "2" : "1.2");
+          svg.insertBefore(link, svg.firstChild);
 
           const ch = document.createElementNS(ns, "g");
           ch.setAttribute("class", "node");
           ch.setAttribute("tabindex", "0");
           ch.setAttribute("role", "button");
           ch.setAttribute("aria-label", lecture.title);
+          ch.setAttribute("style", `opacity: ${isOtherLecture ? "0.2" : "1"}`);
           ch.addEventListener("click", (event) => {
             event.stopPropagation();
             selectLecture(week.id, lecture.n);
@@ -204,7 +221,6 @@
             }
           });
           const filled = hasNotes(lecture);
-          const chosen = selected.type === "lecture" && selected.lecture === lecture.n;
           const dot = document.createElementNS(ns, "circle");
           dot.setAttribute("cx", lecturePos.x);
           dot.setAttribute("cy", lecturePos.y);

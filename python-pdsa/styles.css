@@ -161,8 +161,15 @@ svg.trace {
   cursor: pointer;
 }
 
+svg.map path,
+svg.map circle,
+svg.map text,
+svg.map g {
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
 .node circle {
-  transition: filter 0.25s ease;
+  transition: filter 0.25s ease, r 0.4s cubic-bezier(0.25, 1, 0.5, 1), fill 0.4s ease;
 }
 
 .node:hover circle,
