@@ -1,34 +1,34 @@
 window.PDSA_COURSE = {
-  title: "PDSA using Python",
-  subtitle: "Programming, Data Structures and Algorithms using Python",
-  author: "Prof. Madhavan Mukund, Chennai Mathematical Institute",
-  source: "NPTEL 106106145",
+  title: "PDSA & Python Knowledge Map",
+  subtitle: "Programming, Data Structures and Algorithms — an evolving knowledge map for quick reference & interview prep",
+  author: "Living Knowledge Graph (curated & evolving)",
+  source: "Foundations & Beyond",
   sourceUrl: "https://nptel.ac.in/courses/106106145",
   opening: {
-    title: "How to use these notes",
+    title: "How to explore this knowledge map",
     blurb:
-      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid remainder, types, strings, lists, range, functions, first n primes, and recursion are filled for interview revision.",
+      "Click any domain node to explore its topics. Filled topics open full interview flashcards with derivations, code, and pitfalls. Dashed cross-links bridge connected concepts across domains.",
   },
-  weeks: [
+  domains: [
     {
-      id: 1,
-      short: "GCD",
-      title: "Algorithms through gcd",
+      id: "gcd",
+      short: "Number Theory",
+      title: "Algorithms & Greatest Common Divisor",
       color: "#8a5a3b",
-      lectures: [
+      topics: [
         {
-          n: 1,
-          title: "Algorithms and programming: simple gcd",
+          id: "gcd-naive",
+          title: "Simple GCD & Factor Listings",
           notes: null,
         },
         {
-          n: 2,
-          title: "Improving naive gcd",
+          id: "gcd-naive-improve",
+          title: "Improving Naive GCD (Reverse Scan)",
           notes: null,
         },
         {
-          n: 3,
-          title: "Euclid's algorithm for gcd",
+          id: "gcd-euclid",
+          title: "Euclid's Remainder Algorithm",
           topic: "Euclid's 2nd version — remainder",
           notes: {
             idea: "If n does not divide m, gcd(m, n) is the same as gcd(n, m % n). That is Euclid's actual algorithm — the remainder version, not the difference version.",
@@ -44,7 +44,7 @@ window.PDSA_COURSE = {
             ],
             code: [
               {
-                title: "Recursive remainder gcd (lecture version)",
+                title: "Recursive remainder gcd",
                 source:
                   "def gcd(m, n):\n    # Assume m >= n\n    if m < n:\n        (m, n) = (n, m)\n    if (m % n) == 0:\n        return n\n    else:\n        return gcd(n, m % n)",
               },
@@ -61,7 +61,7 @@ window.PDSA_COURSE = {
             ],
             complexity: [
               "Naive factor scan: time proportional to min(m, n).",
-              "Lecture claim for remainder Euclid: time proportional to the number of digits of max(m, n).",
+              "Mathematical property of remainder Euclid: time proportional to the number of digits of max(m, n).",
               "Interview phrasing: O(log min(m, n)). A billion (about 10 digits) may take ~10 remainder steps instead of ~10⁹ factor checks.",
               "Worst case: consecutive Fibonacci numbers (Lamé's theorem). Still logarithmic in the value.",
             ],
@@ -87,7 +87,7 @@ window.PDSA_COURSE = {
               },
               {
                 q: "What is the time complexity?",
-                a: "O(log min(m, n)), or as the lecture puts it, proportional to the number of digits. Contrast with naive gcd, which is proportional to the numbers themselves.",
+                a: "O(log min(m, n)), or proportional to the number of digits. Contrast with naive gcd, which is proportional to the numbers themselves.",
               },
               {
                 q: "How do you write it without recursion?",
@@ -107,28 +107,28 @@ window.PDSA_COURSE = {
           },
         },
         {
-          n: 4,
-          title: "Downloading and installing Python",
+          id: "env-setup",
+          title: "Environment & Interpreter Setup",
           notes: null,
         },
       ],
     },
     {
-      id: 2,
-      short: "Python",
-      title: "Basics of Python",
+      id: "types",
+      short: "Foundations",
+      title: "Core Types & Language Foundations",
       color: "#b0893e",
-      lectures: [
+      topics: [
         {
-          n: 5,
-          title: "Assignment, int, float, bool",
+          id: "numeric-types",
+          title: "Numeric Values — int, float, bool",
           topic: "Numeric values — int, float, operations, bool",
           notes: {
             idea: "Python numbers come in two flavours: int (integers) and float (fractional / floating-point). They are different types because the bits are read differently — a whole binary integer vs a mantissa and exponent, like scientific notation.",
             why: [
               "Every value is a finite sequence of 0s and 1s (bits).",
               "For an int the whole sequence is read as a binary number: 178, -3, 4283829.",
-              "For a float the sequence splits into mantissa and exponent, the same idea as 0.602 × 10^24. That is why the lecture writes “floating point”.",
+              "For a float the sequence splits into mantissa and exponent, the same idea as 0.602 × 10^24 (floating point representation).",
               "Examples of float: 37.82, -0.01, 28.7998.",
             ],
             versus: [
@@ -206,8 +206,8 @@ window.PDSA_COURSE = {
           },
         },
         {
-          n: 6,
-          title: "Strings",
+          id: "strings",
+          title: "Strings — Slices & Immutability",
           topic: "String slices and immutability",
           notes: {
             idea: "A slice is a segment of a string. Indexing is half-open — start included, end excluded — the same convention as range(1, m+1). Strings cannot be updated in place; they are immutable.",
@@ -270,14 +270,14 @@ window.PDSA_COURSE = {
             pitfalls: [
               "s[1:4] is not letters 1 through 4 inclusive. The 4 is a fence, not a letter. Result is three characters, not four.",
               "s[3] = \"p\" looks like list syntax and is a common TypeError in interviews.",
-              "s[0:3] + \"p\" would be \"help\" without the !. The lecture concatenates \"p!\".",
+              "s[0:3] + \"p\" would be \"help\" without the !. Concatenate \"p!\" for the full string.",
               "Rebinding s is not in-place edit. Later, lists will let you assign to an index; strings still will not.",
             ],
           },
         },
         {
-          n: 7,
-          title: "Lists",
+          id: "lists",
+          title: "Lists — Indexing, Aliasing & Identity",
           topic: "Lists — indexing, aliasing, copy, is vs ==",
           notes: {
             idea: "A list index returns an element; a list slice returns a list. Assignment copies a name, not the list. Two names can point at the same mutable object — that is aliasing. Copy with a full slice l[:]. == is value; is is identity.",
@@ -365,15 +365,15 @@ window.PDSA_COURSE = {
           },
         },
         {
-          n: 8,
-          title: "Control flow",
+          id: "range-loops",
+          title: "Repeating n Times — range()",
           topic: "Repeating n times — range()",
           notes: {
             idea: "To do something exactly n times, loop over a sequence of n values. Do not build [1,2,…,n] by hand — range(0, n) gives 0, 1, …, n−1 (n numbers, stop excluded).",
             why: [
               "The naive picture is for i in [1, 2, …, n]. Writing that list is the wrong tool; range generates the sequence without storing every integer up front.",
               "range(0, n) is half-open: start 0 included, stop n excluded, so you get n values: 0 through n−1. Same fence as a slice s[0:n].",
-              "range(i, j) is i, i+1, …, j−1. If you want 1 through n inclusive, that is range(1, n+1) — the m+1 from the string-slice lecture.",
+              "range(i, j) is i, i+1, …, j−1. If you want 1 through n inclusive, that is range(1, n+1) — same fence as string slicing.",
             ],
             versus: [
               "for i in [1, 2, …, n] names the idea. for i in range(0, n) is how you write it in Python (0-based, stop excluded).",
@@ -390,7 +390,7 @@ window.PDSA_COURSE = {
               "range(0, n) can be written range(n). The start defaults to 0.",
               "The stop is never yielded. range(0, 5) is 0,1,2,3,4 — five numbers, not including 5.",
               "range is lazy: it is not a list. list(range(0, 5)) if you need a list.",
-              "The lecturer flags more details about range() later (Week 3, Lecture 11).",
+              "Detailed stepping is also supported: range(start, stop, step).",
             ],
             trace: [
               "n = 4 → range(0, 4) → 0, 1, 2, 3  (four passes)",
@@ -423,8 +423,8 @@ window.PDSA_COURSE = {
           },
         },
         {
-          n: 9,
-          title: "Functions",
+          id: "functions-scope",
+          title: "Functions — Scope & Call Order",
           topic: "Scope, define-before-call, first recursion",
           notes: {
             idea: "Names inside a function are local — they do not change a same-spelled name outside. A function must exist before you call it, but its body may mention a function that is defined later, as long as that later def has run before the call. A function may call itself: recursion needs a base case.",
@@ -458,7 +458,7 @@ window.PDSA_COURSE = {
             pythonBits: [
               "Assignment inside a function makes that name local for the whole function (unless you later use global). The outer n is untouched.",
               "def only binds the function name. The body waits until a call. That is why f may mention g in its body before g is defined, if the call comes after both defs.",
-              "Base case must run. factorial uses n <= 0 so 0 (and negatives) stop. Week 3 Lecture 18 goes deeper (lists, insertion sort, RecursionError).",
+              "Base case must run. factorial uses n <= 0 so 0 (and negatives) stop. Recursion on sequences and insertion sort are detailed under the recursion domain.",
             ],
             trace: [
               "n = 7; stupid(28) sets a local n = 17, returns 28; outer n is still 7",
@@ -492,8 +492,8 @@ window.PDSA_COURSE = {
           },
         },
         {
-          n: 10,
-          title: "Examples",
+          id: "primes-while",
+          title: "First n Primes — While Loops & Invariant Progression",
           topic: "First n primes — while loop, tuple assignment, unconditionally scanning",
           notes: {
             idea: "Finding the first n primes requires a while loop because we don't know ahead of time how many numbers we must scan. Simultaneous tuple assignment initializes and updates counters, while i increments unconditionally on every loop pass.",
@@ -506,11 +506,11 @@ window.PDSA_COURSE = {
             versus: [
               "for with range(n): used when iteration count is fixed and known beforehand.",
               "while(count < n): required when loop termination depends on accumulating a dynamic target condition whose stopping index is unknown.",
-              "plist + [i] vs plist.append(i): lecture builds lists with concatenation +; in later weeks, .append(i) mutates in place without copying the whole list every step.",
+              "plist + [i] vs plist.append(i): concatenation creates a new list each time; in contrast, .append(i) mutates in place without copying the whole list every step.",
             ],
             code: [
               {
-                title: "First n primes (lecture code)",
+                title: "First n primes",
                 source:
                   "def nprimes(n):\n    (count, i, plist) = (0, 1, [])\n    while (count < n):\n        if isprime(i):\n            (count, plist) = (count + 1, plist + [i])\n        i = i + 1\n    return plist",
               },
@@ -554,7 +554,7 @@ window.PDSA_COURSE = {
             ],
             pitfalls: [
               "Accidentally indenting i = i + 1 under if isprime(i): — freezes loop on the first non-prime (i = 1 or 4).",
-              "Initializing i = 0 or i = 2 — lecture starts at i = 1 (assuming isprime handles 1 correctly as False).",
+              "Initializing i = 0 or i = 2 — start at candidate 1 (isprime handles 1 correctly as False).",
               "Thinking count < n includes n — count runs 0, 1, ..., n-1, collecting exactly n primes.",
             ],
           },
@@ -562,21 +562,21 @@ window.PDSA_COURSE = {
       ],
     },
     {
-      id: 3,
+      id: "recursion",
       short: "Recursion",
-      title: "Lists, induction, sorting, recursion",
+      title: "Inductive Definitions & Recursion",
       color: "#3d6b63",
-      lectures: [
-        { n: 11, title: "More about range()", notes: null },
-        { n: 12, title: "Manipulating lists", notes: null },
-        { n: 13, title: "Breaking out of a loop", notes: null },
-        { n: 14, title: "Arrays vs lists, binary search", notes: null },
-        { n: 15, title: "Efficiency", notes: null },
-        { n: 16, title: "Selection sort", notes: null },
-        { n: 17, title: "Insertion sort", notes: null },
+      topics: [
+        { id: "range-advanced", title: "Range Slices & Stepping", notes: null },
+        { id: "list-mutation", title: "Manipulating Lists in Memory", notes: null },
+        { id: "loop-control", title: "Loop Breaking & Early Exit", notes: null },
+        { id: "binary-search", title: "Arrays vs Lists & Binary Search", notes: null },
+        { id: "efficiency-intro", title: "Algorithmic Efficiency & Orders of Growth", notes: null },
+        { id: "selection-sort", title: "Selection Sort", notes: null },
+        { id: "insertion-sort", title: "Insertion Sort", notes: null },
         {
-          n: 18,
-          title: "Recursion",
+          id: "recursion-core",
+          title: "Recursive Functions & Induction",
           topic: "Recursion from inductive definitions",
           notes: {
             idea: "An inductive definition — base case plus a step that uses a smaller argument — translates directly into a recursive Python function.",
@@ -612,7 +612,7 @@ window.PDSA_COURSE = {
                   "def sumlist(l):\n    if l == []:\n        return 0\n    else:\n        return l[0] + sumlist(l[1:])",
               },
               {
-                title: "Recursive insertion sort (lecture)",
+                title: "Recursive insertion sort",
                 source:
                   "def InsertionSort(seq):\n    isort(seq, len(seq))\n\ndef isort(seq, k):  # sort slice seq[0:k]\n    if k > 1:\n        isort(seq, k - 1)\n        insert(seq, k - 1)\n\ndef insert(seq, k):  # insert seq[k] into sorted seq[0:k-1]\n    pos = k\n    while pos > 0 and seq[pos] < seq[pos - 1]:\n        (seq[pos], seq[pos - 1]) = (seq[pos - 1], seq[pos])\n        pos = pos - 1",
               },
@@ -625,7 +625,7 @@ window.PDSA_COURSE = {
             complexity: [
               "Recursive insertion sort: T(n) = (n − 1) + T(n − 1), T(1) = 1. Unrolls to 1 + 2 + … + (n − 1) = n(n − 1)/2 = O(n²).",
               "Selection sort is also O(n²). Among the two, insertion sort is usually faster, especially on nearly sorted input.",
-              "O(n²) sorting is already painful for n over about 5000. Next week: merge sort.",
+              "O(n²) sorting is already painful for n over about 5000. Divide-and-conquer (Merge Sort) solves this in O(n log n).",
               "factorial(n) and length(l) are O(n) calls. Watch the Python depth limit, not just Big-O.",
             ],
             trace: [
@@ -642,7 +642,7 @@ window.PDSA_COURSE = {
               },
               {
                 q: "How does recursion relate to a while loop?",
-                a: "They are the same reduction. Recursion must hit a base case; a while must make its condition false. Euclid's remainder gcd was written both ways in Week 1.",
+                a: "They are the same reduction. Recursion must hit a base case; a while must make its condition false. Euclid's remainder gcd was formulated both ways.",
               },
               {
                 q: "Write factorial recursively.",
@@ -667,7 +667,7 @@ window.PDSA_COURSE = {
             ],
             pitfalls: [
               "Missing base case, or a base case that is never reached → RecursionError.",
-              "multiply's lecture base is n == 1, not n == 0. 0 as a multiplier needs its own case.",
+              "multiply base is n == 1, not n == 0. 0 as a multiplier needs its own case.",
               "l[1:] on every call is O(n) extra work per level; total can become O(n²) even if the recurrence looks linear.",
               "Recursive insertion sort still O(n²) — recursion did not make it faster, only clearer. Efficiency comes from a better algorithm (merge sort).",
             ],
@@ -676,137 +676,137 @@ window.PDSA_COURSE = {
       ],
     },
     {
-      id: 4,
+      id: "sorting",
       short: "Sorting",
-      title: "Mergesort, quicksort, tuples",
+      title: "Divide & Conquer Sorting",
       color: "#4a5c7a",
-      lectures: [
-        { n: 19, title: "Mergesort", notes: null },
-        { n: 20, title: "Mergesort, analysis", notes: null },
-        { n: 21, title: "Quicksort", notes: null },
-        { n: 22, title: "Quicksort analysis", notes: null },
-        { n: 23, title: "Tuples and dictionaries", notes: null },
-        { n: 24, title: "Function definitions", notes: null },
-        { n: 25, title: "List comprehension", notes: null },
+      topics: [
+        { id: "mergesort", title: "Merge Sort Algorithm", notes: null },
+        { id: "mergesort-analysis", title: "Merge Sort Analysis — O(n log n)", notes: null },
+        { id: "quicksort", title: "Quick Sort Algorithm", notes: null },
+        { id: "quicksort-analysis", title: "Quick Sort Partitioning & Worst Case", notes: null },
+        { id: "tuples-dicts", title: "Tuples & Dictionaries", notes: null },
+        { id: "higher-order", title: "Function Arguments & Lambda", notes: null },
+        { id: "comprehensions", title: "List Comprehensions", notes: null },
       ],
     },
     {
-      id: 5,
-      short: "Files",
-      title: "Exceptions, I/O, files, strings",
+      id: "io",
+      short: "I/O & Files",
+      title: "Exceptions, File I/O & Formatting",
       color: "#a85a3a",
-      lectures: [
-        { n: 26, title: "Exception handling", notes: null },
-        { n: 27, title: "Standard input and output", notes: null },
-        { n: 28, title: "Handling files", notes: null },
-        { n: 29, title: "String functions", notes: null },
-        { n: 30, title: "Formatting printed output", notes: null },
-        { n: 31, title: "pass, del() and None", notes: null },
+      topics: [
+        { id: "exceptions", title: "Exception Handling (try-except-finally)", notes: null },
+        { id: "stdio", title: "Standard Input and Output", notes: null },
+        { id: "files", title: "File Operations & Context Managers", notes: null },
+        { id: "strings-adv", title: "String Methods & Formatting", notes: null },
+        { id: "print-format", title: "Formatted Output & String Interpolation", notes: null },
+        { id: "special-names", title: "Special Names: pass, del(), None", notes: null },
       ],
     },
     {
-      id: 6,
-      short: "Search",
-      title: "Backtracking, scope, heaps",
+      id: "backtracking",
+      short: "Search & Heaps",
+      title: "Backtracking & Priority Queues",
       color: "#6a4a78",
-      lectures: [
-        { n: 32, title: "Backtracking, N queens", notes: null },
-        { n: 33, title: "Global scope, nested functions", notes: null },
-        { n: 34, title: "Generating permutations", notes: null },
-        { n: 35, title: "Sets, stacks, queues", notes: null },
-        { n: 36, title: "Priority queues and heaps", notes: null },
+      topics: [
+        { id: "nqueens", title: "Backtracking & N-Queens Problem", notes: null },
+        { id: "scope-nested", title: "Global, Local & Nonlocal Scopes", notes: null },
+        { id: "permutations", title: "Permutations Generation", notes: null },
+        { id: "stacks-queues", title: "Abstract Stacks & Queues", notes: null },
+        { id: "heaps", title: "Priority Queues & Binary Heaps", notes: null },
       ],
     },
     {
-      id: 7,
-      short: "Objects",
-      title: "Classes, lists, search trees",
+      id: "datastructures",
+      short: "Classes & Trees",
+      title: "User-Defined Types & Search Trees",
       color: "#6b7a4a",
-      lectures: [
-        { n: 37, title: "Abstract datatypes, classes and objects", notes: null },
-        { n: 38, title: "Classes and objects in Python", notes: null },
-        { n: 39, title: "User defined lists", notes: null },
-        { n: 40, title: "Search trees", notes: null },
+      topics: [
+        { id: "adt-classes", title: "Abstract Data Types & Object-Oriented Design", notes: null },
+        { id: "classes-python", title: "Classes, Methods & Objects in Python", notes: null },
+        { id: "linked-lists", title: "User-Defined Linked Lists", notes: null },
+        { id: "bst", title: "Binary Search Trees (Insert, Delete, Search)", notes: null },
       ],
     },
     {
-      id: 8,
-      short: "DP",
-      title: "Memoization and dynamic programming",
+      id: "dp",
+      short: "Dynamic Prog",
+      title: "Dynamic Programming & Optimization",
       color: "#7a3d4a",
-      lectures: [
-        { n: 41, title: "Memoization and dynamic programming", notes: null },
-        { n: 42, title: "Grid paths", notes: null },
-        { n: 43, title: "Longest common subsequence", notes: null },
-        { n: 44, title: "Matrix multiplication", notes: null },
-        { n: 45, title: "Wrap-up, Python vs other languages", notes: null },
+      topics: [
+        { id: "memoization", title: "Memoization & Dynamic Programming Principles", notes: null },
+        { id: "grid-paths", title: "Grid Paths Optimization", notes: null },
+        { id: "lcs", title: "Longest Common Subsequence (LCS)", notes: null },
+        { id: "matrix-chain", title: "Matrix Chain Multiplication", notes: null },
+        { id: "paradigms-wrapup", title: "Language Wrap-Up & Paradigm Comparisons", notes: null },
       ],
     },
   ],
   crossLinks: [
     {
-      source: { weekId: 1, lectureN: 3 },
-      target: { weekId: 3, lectureN: 18 },
+      source: { domainId: "gcd", topicId: "gcd-euclid" },
+      target: { domainId: "recursion", topicId: "recursion-core" },
       label: "Inductive reduction",
-      concept: "Euclid's gcd(m,n)=gcd(n,m%n) was the course's first recursive formulation, formalized in Week 3.",
+      concept: "Euclid's gcd(m,n)=gcd(n,m%n) was the first inductive reduction, formalized under recursive functions.",
     },
     {
-      source: { weekId: 1, lectureN: 3 },
-      target: { weekId: 2, lectureN: 5 },
+      source: { domainId: "gcd", topicId: "gcd-euclid" },
+      target: { domainId: "types", topicId: "numeric-types" },
       label: "Modulo divisibility",
       concept: "The base case test in Euclid uses the % remainder and == comparison introduced in numeric types.",
     },
     {
-      source: { weekId: 2, lectureN: 6 },
-      target: { weekId: 2, lectureN: 7 },
+      source: { domainId: "types", topicId: "strings" },
+      target: { domainId: "types", topicId: "lists" },
       label: "Immutable vs Mutable",
       concept: "Strings reject in-place assignment (TypeError); lists are mutable and create aliasing.",
     },
     {
-      source: { weekId: 2, lectureN: 6 },
-      target: { weekId: 2, lectureN: 8 },
+      source: { domainId: "types", topicId: "strings" },
+      target: { domainId: "types", topicId: "range-loops" },
       label: "Half-open intervals",
       concept: "Slices s[1:4] and range(1, 4) both use half-open intervals: start included, stop excluded.",
     },
     {
-      source: { weekId: 2, lectureN: 7 },
-      target: { weekId: 3, lectureN: 18 },
+      source: { domainId: "types", topicId: "lists" },
+      target: { domainId: "recursion", topicId: "recursion-core" },
       label: "Sequence recursion",
       concept: "Recursive functions on lists decompose using slices (l[1:]) or mutate elements in-place (insertion sort).",
     },
     {
-      source: { weekId: 2, lectureN: 9 },
-      target: { weekId: 3, lectureN: 18 },
+      source: { domainId: "types", topicId: "functions-scope" },
+      target: { domainId: "recursion", topicId: "recursion-core" },
       label: "Call stack & scope",
-      concept: "Function namespaces and call frames introduced in Week 2 form the recursive unwind stack in Week 3.",
+      concept: "Function namespaces and call frames form the recursive unwind stack in recursion.",
     },
     {
-      source: { weekId: 2, lectureN: 10 },
-      target: { weekId: 1, lectureN: 3 },
+      source: { domainId: "types", topicId: "primes-while" },
+      target: { domainId: "gcd", topicId: "gcd-euclid" },
       label: "While loop termination",
       concept: "Both Euclid's gcd while(m % n != 0) and nprimes while(count < n) require unconditional progression to guarantee termination.",
     },
     {
-      source: { weekId: 2, lectureN: 10 },
-      target: { weekId: 2, lectureN: 7 },
+      source: { domainId: "types", topicId: "primes-while" },
+      target: { domainId: "types", topicId: "lists" },
       label: "List concatenation vs append",
       concept: "nprimes accumulates primes via plist + [i] creating a new list each time, contrasting with in-place mutation.",
     },
     {
-      source: { weekId: 3, lectureN: 18 },
-      target: { weekId: 4, lectureN: 19 },
+      source: { domainId: "recursion", topicId: "recursion-core" },
+      target: { domainId: "sorting", topicId: "mergesort" },
       label: "Divide-and-conquer",
       concept: "Recursive insertion sort is O(n²); Mergesort applies recursion to halves for O(n log n).",
     },
     {
-      source: { weekId: 2, lectureN: 7 },
-      target: { weekId: 7, lectureN: 39 },
+      source: { domainId: "types", topicId: "lists" },
+      target: { domainId: "datastructures", topicId: "linked-lists" },
       label: "Array vs Linked List",
-      concept: "Python's contiguous mutable lists contrast with recursive Node/Linked list data structures in Week 7.",
+      concept: "Python's contiguous mutable lists contrast with recursive Node/Linked list data structures.",
     },
     {
-      source: { weekId: 3, lectureN: 18 },
-      target: { weekId: 8, lectureN: 41 },
+      source: { domainId: "recursion", topicId: "recursion-core" },
+      target: { domainId: "dp", topicId: "memoization" },
       label: "Memoization & DP",
       concept: "Naive recursion recalculates overlapping subproblems; DP memoizes recursive results for efficiency.",
     },

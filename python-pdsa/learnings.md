@@ -1,42 +1,41 @@
-# PDSA using Python — Learnings
+# Algorithms & Python — Evolving Knowledge Notebook
 
-> Programming, Data Structures and Algorithms using Python
-> Prof. Madhavan Mukund, Chennai Mathematical Institute
-> [NPTEL 106106145](https://nptel.ac.in/courses/106106145)
+> Topic-based reference for Data Structures, Algorithms, and Core Python
+> Designed to evolve across books, courses, and interview preparation
 
-Living notebook for the course. Capture what you want to recall in an interview. The visual map in `index.html` uses the same eight-week structure; filled lectures light up as notes arrive.
+Living notebook for core algorithms and language mechanics. The visual knowledge graph in `index.html` connects these conceptual domains; filled topics light up and provide instant interview flashcards.
 
-**Ready now:** Euclid remainder (W1 L3), int/float/bool (W2 L5), string slices (W2 L6), lists (W2 L7), `range()` (W2 L8), functions/scope/factorial (W2 L9), first n primes (W2 L10), recursion (W3 L8).
-
----
-
-## How to use this file
-
-- Add bullets under a lecture as you watch.
-- Keep one idea per bullet so the map can fold it in cleanly.
-- For interview topics, aim for: one-line idea, why it works, code, complexity, a hand trace, questions, pitfalls.
+**Ready topics:** Euclid's remainder algorithm, numeric values (int/float/bool), string slices & immutability, list operations & aliasing, loop repetition with `range()`, function namespaces & execution order, dynamic scanning with `while` (first n primes), and inductive recursion.
 
 ---
 
-## Week 1 — Algorithms through gcd
+## How to use this notebook
 
-### Lecture 1. Algorithms and programming: simple gcd
+- Add bullet points and code notes under any conceptual domain.
+- When learning from new books or tutorials, append new sections or deepen existing topics.
+- For interview topics, capture: one-line intuition, mathematical/runtime proof, clean code snippet, asymptotic complexity, hand traces, and pitfalls.
+
+---
+
+## Number Theory & Greatest Common Divisor
+
+### Simple GCD & Factor Listings
 
 - 
 
-### Lecture 2. Improving naive gcd
+### Improving Naive GCD (Reverse Scan)
 
 - 
 
-### Lecture 3. Euclid's algorithm for gcd — remainder version (2nd version)
+### Euclid's Algorithm for GCD (Remainder Version)
 
-**One line.** If `n` divides `m`, `gcd(m, n) = n`. Otherwise `gcd(m, n) = gcd(n, m % n)`. This remainder form is Euclid's actual algorithm. The difference form (`m - n`) is only a slower first version.
+**One line.** If `n` divides `m`, `gcd(m, n) = n`. Otherwise `gcd(m, n) = gcd(n, m % n)`. This remainder form is Euclid's actual algorithm. The difference form (`m - n`) is only a slower initial formulation.
 
 **Why it works.** Write `m = qn + r` with remainder `r` strictly smaller than `n`. If `d` divides both `m` and `n`, then `d` divides `qn`, so `d` also divides `r = m - qn`. Every common divisor of `m` and `n` is a common divisor of `n` and `r`, so the greatest one is shared.
 
-**Why not version 1.** Subtracting peels `n` off one copy at a time. `gcd(101, 2)` needs about 50 subtractions. Remainder jumps: `101 % 2 = 1`, then `gcd(2, 1) = 1` in one step. Remainder is already `< n`, so you do not take max/min after the first call.
+**Why not subtraction.** Subtracting peels `n` off one copy at a time. `gcd(101, 2)` needs about 50 subtractions. Remainder jumps: `101 % 2 = 1`, then `gcd(2, 1) = 1` in one step. Remainder is already `< n`, so you do not take max/min after the first call.
 
-**Recursive (lecture).**
+**Recursive implementation.**
 
 ```python
 def gcd(m, n):
@@ -88,22 +87,22 @@ def gcd(m, n):
 - `n == 0` blows up on `%`. Guard if you need `gcd(0, n) = n`.
 - `math.gcd` exists; you still write Euclid in an interview.
 
-### Lecture 4. Downloading and installing Python
+### Environment & Interpreter Setup
 
 - 
 
 ---
 
-## Week 2 — Basics of Python
+## Core Types & Language Foundations
 
-### Lecture 5. Assignment, int, float, bool — numeric values
+### Numeric Values — int, float, bool
 
 **One line.** Numbers come in two flavours: `int` (integers) and `float` (fractional / floating-point). They are different types because the bits are read differently.
 
 **Why two types.** Every value is a finite sequence of 0s and 1s.
 
 - **int** — the whole sequence is one binary number. `178`, `-3`, `4283829`.
-- **float** — the sequence splits into **mantissa** and **exponent**, like scientific notation `0.602 × 10^24`. The lecture calls this *floating point*. `37.82`, `-0.01`, `28.7998`.
+- **float** — the sequence splits into **mantissa** and **exponent**, like scientific notation `0.602 × 10^24` (*floating point*). `37.82`, `-0.01`, `28.7998`.
 
 Finite bits in the mantissa mean many decimals are stored only approximately — that is why `0.1 + 0.2` can fail `== 0.3`.
 
@@ -162,7 +161,7 @@ Same test as Euclid's base case: if `divisor` is true, return `n`.
 - `=` vs `==`.
 - Euclid's `%` test is for ints, not floats. 
 
-### Lecture 6. Strings — slices and immutability
+### Strings — Slices & Immutability
 
 **One line.** A slice is a segment of a string. The end index is excluded (same rule as `range(1, m+1)`). Strings are **immutable** — you cannot update them in place.
 
@@ -174,7 +173,7 @@ s = "hello"     # indices  0 1 2 3 4
 s[1:4]          # "ell"  — start in, end out, like range(1, 4)
 ```
 
-`s[1:4]` takes indices 1, 2, 3. The handwritten `range(1, m+1)` on the slide is the same half-open convention: include the start, exclude the stop.
+`s[1:4]` takes indices 1, 2, 3. The `range(1, m+1)` convention is half-open: include the start, exclude the stop.
 
 **Cannot modify in place.**
 
@@ -189,7 +188,7 @@ You keep the prefix you want (`s[0:3]` is `"hel"`), concatenate the new tail, an
 **Interview questions.**
 
 1. `s = "hello"`; what is `s[1:4]`? → `"ell"` (indices 1, 2, 3).
-2. Why does the lecturer write `range(1, m+1)` next to slices? → Both are half-open. Forgetting the excluded end is the off-by-one.
+2. Why is a slice like `range(1, m+1)`? → Both are half-open. Forgetting the excluded end is the off-by-one.
 3. What does `s[3] = "p"` do? → `TypeError`. Strings are immutable.
 4. How do you turn `"hello"` into `"help!"`? → `s = s[0:3] + "p!"`.
 5. Does that assignment mutate `"hello"`? → No. New string, name `s` now points at it.
@@ -198,9 +197,9 @@ You keep the prefix you want (`s[0:3]` is `"hel"`), concatenate the new tail, an
 
 - `s[1:4]` is three characters, not four. The `4` is a fence.
 - `s[3] = "p"` looks like a list update and is a favourite interview trap.
-- Lists (later) *are* mutable; strings stay immutable. 
+- Lists *are* mutable; strings stay immutable.
 
-### Lecture 7. Lists — index vs slice, aliasing, copy, is vs ==
+### Lists — Indexing, Aliasing & Identity
 
 **One line.** A list index returns an element; a list slice returns a list. `list2 = list1` is an alias, not a copy. Copy with `list1[:]`. `==` is value; `is` is identity.
 
@@ -275,9 +274,9 @@ list1 = list1 + [9]        # rebinds list1; list2 still [1,3,5,7]
 - Thinking a nested slice unwraps to `37`.
 - `list2 = list1` is not a copy — the classic mutation bug.
 - `l[:]` is shallow: inner lists still shared.
-- Using `is` to compare list contents. 
+- Using `is` to compare list contents.
 
-### Lecture 8. Control flow — repeating n times with range()
+### Repeating n Times — range()
 
 **One line.** To do something exactly n times, use `range`. `range(0, n)` is `0, 1, …, n−1` (n values, **stop excluded**). Same half-open rule as a slice.
 
@@ -294,7 +293,7 @@ for i in range(1, n + 1): # i = 1, 2, ..., n     — if you want 1..n
     ...
 ```
 
-`range(n)` is the same as `range(0, n)`. More on `range()` in Week 3, Lecture 11.
+`range(n)` is the same as `range(0, n)`.
 
 **Hand traces.**
 
@@ -313,9 +312,9 @@ for i in range(1, n + 1): # i = 1, 2, ..., n     — if you want 1..n
 
 - Building `[1,2,…,n]` just to count — use `range`
 - `range(1, n)` when you wanted n trips from 1 — that is n−1 trips
-- Mixing 0-based `range(n)` with 1-based “from 1 to m” (gcd loops used `range(1, m+1)`) 
+- Mixing 0-based `range(n)` with 1-based “from 1 to m”
 
-### Lecture 9. Functions — scope, define-before-call, first recursion
+### Functions — Scope & Call Order
 
 **One line.** Names inside a function are **local**. A function must be defined before you **call** it (mentioning another function in the body is fine). A function may call itself — **recursion** — if it has a base case.
 
@@ -360,7 +359,7 @@ def factorial(n):
         return val
 ```
 
-`factorial(3)` → `3 * factorial(2)` → `2 * factorial(1)` → `1 * factorial(0)` → `1`, then unwind to `6`. More in Week 3, Lecture 18.
+`factorial(3)` → `3 * factorial(2)` → `2 * factorial(1)` → `1 * factorial(0)` → `1`, then unwind to `6`.
 
 **Interview questions.**
 
@@ -373,16 +372,16 @@ def factorial(n):
 
 - Thinking assignment inside a function writes the global of the same name.
 - Calling in between two defs that use each other.
-- No base case → infinite recursion. 
+- No base case → infinite recursion.
 
-### Lecture 10. Examples — first n primes with while loop and tuple assignment
+### First n Primes — While Loops & Invariant Progression
 
 **One line.** When you don't know ahead of time how many numbers you must scan to find $n$ primes, use a `while(count < n)` loop. Simultaneous tuple assignment initializes and updates counters, while `i = i + 1` must advance **unconditionally**.
 
 **The problem: "How many to scan?"**
 Unlike `range(n)` where iteration count is fixed upfront, the $n$-th prime's magnitude is not known beforehand. A `while` loop checks `count < n` dynamically.
 
-**The code (lecture).**
+**The code.**
 
 ```python
 def nprimes(n):
@@ -394,7 +393,7 @@ def nprimes(n):
     return plist
 ```
 
-**Key details from the slide annotations.**
+**Key details.**
 1. **Tuple assignment initialization:** `(count, i, plist) = (0, 1, [])` sets `count = 0`, candidate `i = 1`, and empty prime list `plist = []` in one atomic expression.
 2. **Loop condition:** `while (count < n)` stops precisely when $n$ primes have been found.
 3. **Simultaneous update:** `(count, plist) = (count + 1, plist + [i])` increments the prime count and creates an extended list with `+ [i]`.
@@ -423,41 +422,41 @@ def nprimes(n):
 **Pitfalls.**
 - Indenting `i = i + 1` under `if isprime(i):` — freezes execution on $i = 1$ or $i = 4$.
 - Using `count <= n` instead of `count < n` — produces $n + 1$ primes.
-- Confusing list concatenation `plist + [i]` (needs bracket `[i]`) with integer addition. 
+- Confusing list concatenation `plist + [i]` (needs bracket `[i]`) with integer addition.
 
 ---
 
-## Week 3 — Lists, induction, sorting, recursion
+## Inductive Definitions & Recursion
 
-### Lecture 11. More about range()
-
-- 
-
-### Lecture 12. Manipulating lists
+### Range Slices & Stepping
 
 - 
 
-### Lecture 13. Breaking out of a loop
+### Manipulating Lists in Memory
 
 - 
 
-### Lecture 14. Arrays vs lists, binary search
+### Loop Breaking & Early Exit
 
 - 
 
-### Lecture 15. Efficiency
+### Arrays vs Lists & Binary Search
 
 - 
 
-### Lecture 16. Selection sort
+### Algorithmic Efficiency & Orders of Growth
 
 - 
 
-### Lecture 17. Insertion sort
+### Selection Sort
 
 - 
 
-### Lecture 18. Recursion
+### Insertion Sort
+
+- 
+
+### Recursive Functions & Induction
 
 **One line.** An inductive definition (base case + a step on a smaller argument) becomes a recursive Python function.
 
@@ -467,9 +466,9 @@ def nprimes(n):
 2. Progress: each call gets a strictly smaller problem (smaller `n`, shorter list, smaller `k`).
 3. The base case must be reachable in finitely many steps — the same contract as a `while` loop.
 
-You already used this in Euclid: `gcd(m, n)` reduces to `gcd(n, m % n)` until `n` divides `m`. Week 3 names the pattern.
+You already used this in Euclid: `gcd(m, n)` reduces to `gcd(n, m % n)` until `n` divides `m`.
 
-**Arithmetic (lecture).**
+**Arithmetic.**
 
 ```python
 def factorial(n):
@@ -503,7 +502,7 @@ def sumlist(l):
         return l[0] + sumlist(l[1:])
 ```
 
-**Recursive insertion sort (lecture).** Sort `seq[0:k-1]`, then insert `seq[k-1]`.
+**Recursive insertion sort.** Sort `seq[0:k-1]`, then insert `seq[k-1]`.
 
 ```python
 def InsertionSort(seq):
@@ -523,7 +522,7 @@ def insert(seq, k):  # insert seq[k] into sorted seq[0:k-1]
 
 **Python depth.** Recursion limit is about 1000. `InsertionSort(list(range(1000, 0, -1)))` raises `RecursionError`. `import sys; sys.setrecursionlimit(10000)` raises the ceiling. Prefer a loop in real code. CPython does not do tail-call optimisation.
 
-**Complexity.** Recursive insertion sort: `T(n) = (n − 1) + T(n − 1)`, `T(1) = 1` → `n(n − 1)/2 = O(n²)`. Selection sort is also `O(n²)`; insertion is usually faster, especially on nearly sorted input. `O(n²)` hurts for `n` over ~5000 — next week is merge sort. Recursion made insertion sort clearer, not faster.
+**Complexity.** Recursive insertion sort: `T(n) = (n − 1) + T(n − 1)`, `T(1) = 1` → `n(n − 1)/2 = O(n²)`. Selection sort is also `O(n²)`; insertion is usually faster, especially on nearly sorted input. `O(n²)` hurts for `n` over ~5000 — divide-and-conquer (merge sort) is next. Recursion made insertion sort clearer, not faster.
 
 `l[1:]` copies a list each call, so naive list recursion can be extra `O(n)` memory/time per level.
 
@@ -536,7 +535,7 @@ def insert(seq, k):  # insert seq[k] into sorted seq[0:k-1]
 **Interview questions.**
 
 1. Two parts of a recursive function? → Base case + smaller recursive step.
-2. Recursion vs `while`? → Same reduction. Euclid was written both ways in Week 1.
+2. Recursion vs `while`? → Same reduction. Euclid was formulated both ways.
 3. Write `factorial`. → `n == 0` return 1, else `n * factorial(n - 1)`.
 4. Inductive list functions? → Head + tail; base `[]`; examples `length`, `sumlist`.
 5. Too deep? → `RecursionError` at ~1000 frames; raise the limit or rewrite as a loop.
@@ -546,134 +545,134 @@ def insert(seq, k):  # insert seq[k] into sorted seq[0:k-1]
 **Pitfalls.**
 
 - Missing or unreachable base case → infinite recursion / `RecursionError`.
-- Lecture `multiply` bases on `n == 1`, not `0`.
+- `multiply` bases on `n == 1`, not `0`.
 - Slice recursion `l[1:]` can silently become `O(n²)`.
 - Recursive insertion sort is still quadratic — wait for merge sort for speed.
 
 ---
 
-## Week 4 — Mergesort, quicksort, tuples
+## Divide & Conquer Sorting
 
-### Lecture 19. Mergesort
-
-- 
-
-### Lecture 20. Mergesort, analysis
+### Merge Sort Algorithm
 
 - 
 
-### Lecture 21. Quicksort
+### Merge Sort Analysis — O(n log n)
 
 - 
 
-### Lecture 22. Quicksort analysis
+### Quick Sort Algorithm
 
 - 
 
-### Lecture 23. Tuples and dictionaries
+### Quick Sort Partitioning & Worst Case
 
 - 
 
-### Lecture 24. Function definitions
+### Tuples & Dictionaries
 
 - 
 
-### Lecture 25. List comprehension
+### Function Arguments & Lambda
 
 - 
 
----
-
-## Week 5 — Exceptions, I/O, files, strings
-
-### Lecture 26. Exception handling
-
-- 
-
-### Lecture 27. Standard input and output
-
-- 
-
-### Lecture 28. Handling files
-
-- 
-
-### Lecture 29. String functions
-
-- 
-
-### Lecture 30. Formatting printed output
-
-- 
-
-### Lecture 31. pass, del() and None
+### List Comprehensions
 
 - 
 
 ---
 
-## Week 6 — Backtracking, scope, heaps
+## Exceptions, File I/O & Formatting
 
-### Lecture 32. Backtracking, N queens
-
-- 
-
-### Lecture 33. Global scope, nested functions
+### Exception Handling (try-except-finally)
 
 - 
 
-### Lecture 34. Generating permutations
+### Standard Input and Output
 
 - 
 
-### Lecture 35. Sets, stacks, queues
+### File Operations & Context Managers
 
 - 
 
-### Lecture 36. Priority queues and heaps
+### String Methods & Formatting
 
 - 
 
----
-
-## Week 7 — Classes, lists, search trees
-
-### Lecture 37. Abstract datatypes, classes and objects
+### Formatted Output & String Interpolation
 
 - 
 
-### Lecture 38. Classes and objects in Python
-
-- 
-
-### Lecture 39. User defined lists
-
-- 
-
-### Lecture 40. Search trees
+### Special Names: pass, del(), None
 
 - 
 
 ---
 
-## Week 8 — Memoization and dynamic programming
+## Backtracking & Priority Queues
 
-### Lecture 41. Memoization and dynamic programming
-
-- 
-
-### Lecture 42. Grid paths
+### Backtracking & N-Queens Problem
 
 - 
 
-### Lecture 43. Longest common subsequence
+### Global, Local & Nonlocal Scopes
 
 - 
 
-### Lecture 44. Matrix multiplication
+### Permutations Generation
 
 - 
 
-### Lecture 45. Wrap-up, Python vs other languages
+### Abstract Stacks & Queues
+
+- 
+
+### Priority Queues & Binary Heaps
+
+- 
+
+---
+
+## User-Defined Types & Search Trees
+
+### Abstract Data Types & Object-Oriented Design
+
+- 
+
+### Classes, Methods & Objects in Python
+
+- 
+
+### User-Defined Linked Lists
+
+- 
+
+### Binary Search Trees (Insert, Delete, Search)
+
+- 
+
+---
+
+## Dynamic Programming & Optimization
+
+### Memoization & Dynamic Programming Principles
+
+- 
+
+### Grid Paths Optimization
+
+- 
+
+### Longest Common Subsequence (LCS)
+
+- 
+
+### Matrix Chain Multiplication
+
+- 
+
+### Language Wrap-Up & Paradigm Comparisons
 
 - 

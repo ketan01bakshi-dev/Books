@@ -25,15 +25,19 @@
     damping: 0.78,
   };
 
-  // Physics simulation state for the 8 week nodes
-  const weekNodes = course.weeks.map((week, index) => {
-    const angleDeg = -90 + index * 45;
+  // Support both domains and legacy weeks if any
+  const domainList = course.domains || course.weeks || [];
+
+  // Physics simulation state for the domain hub nodes
+  const domainNodes = domainList.map((domain, index) => {
+    const angleDeg = -90 + index * (360 / Math.max(domainList.length, 1));
     const angleRad = (angleDeg * Math.PI) / 180;
     const targetX = graphSettings.cx + graphSettings.radius * Math.cos(angleRad);
     const targetY = graphSettings.cy + graphSettings.radius * Math.sin(angleRad);
     return {
-      id: week.id,
-      week,
+      id: domain.id,
+      domain,
+      index: index + 1,
       angleDeg,
       angleRad,
       targetX,
@@ -46,31 +50,37 @@
     };
   });
 
-  // Active lecture positions state
-  let lectureNodes = [];
+  // Active topic positions state
+  let topicNodes = [];
   let animFrameId = null;
   let isSimActive = true;
-  let dragSubject = null; // { type: 'week'|'lecture', data: node, startX, startY, hasMoved }
+  let dragSubject = null; // { type: 'domain'|'topic', data: node, startX, startY, hasMoved }
 
-  function hasNotes(lecture) {
-    return Boolean(lecture.notes);
+  function getDomainItems(domain) {
+    return domain.topics || domain.lectures || [];
   }
 
-  function weekNoteCount(week) {
-    return week.lectures.filter(hasNotes).length;
+  function hasNotes(topic) {
+    return Boolean(topic.notes);
+  }
+
+  function domainNoteCount(domain) {
+    return getDomainItems(domain).filter(hasNotes).length;
   }
 
   function totalNotes() {
-    return course.weeks.reduce((n, week) => n + weekNoteCount(week), 0);
+    return domainList.reduce((n, domain) => n + domainNoteCount(domain), 0);
   }
 
-  function getWeek(id) {
-    return course.weeks.find((week) => week.id === id);
+  function getDomain(id) {
+    return domainList.find((domain) => String(domain.id) === String(id));
   }
 
-  function getLecture(weekId, lectureN) {
-    const week = getWeek(weekId);
-    return week ? week.lectures.find((lecture) => lecture.n === lectureN) : null;
+  function getTopic(domainId, topicId) {
+    const domain = getDomain(domainId);
+    if (!domain) return null;
+    const items = getDomainItems(domain);
+    return items.find((t) => String(t.id || t.n) === String(topicId));
   }
 
   function polar(cx, cy, r, angleDeg) {
@@ -86,37 +96,37 @@
       .replace(/"/g, "&quot;");
   }
 
-  function isWeekActive(week) {
+  function isDomainActive(domain) {
     return (
-      (selected.type === "week" || selected.type === "lecture") &&
-      selected.id === week.id
+      (selected.type === "domain" || selected.type === "topic") &&
+      String(selected.id) === String(domain.id)
     );
   }
 
-  function selectWeek(id) {
-    selected = { type: "week", id };
-    rebuildLectureNodes();
+  function selectDomain(id) {
+    selected = { type: "domain", id };
+    rebuildTopicNodes();
     wakePhysics();
     render();
   }
 
-  function selectLecture(weekId, lectureN) {
-    selected = { type: "lecture", id: weekId, lecture: lectureN };
-    rebuildLectureNodes();
+  function selectTopic(domainId, topicId) {
+    selected = { type: "topic", id: domainId, topicId };
+    rebuildTopicNodes();
     wakePhysics();
     render();
   }
 
   function selectCenter() {
     selected = { type: "center" };
-    lectureNodes = [];
+    topicNodes = [];
     wakePhysics();
     render();
   }
 
   // Trigger elastic bloom animation
   function bloomNodes() {
-    weekNodes.forEach((node) => {
+    domainNodes.forEach((node) => {
       node.x = graphSettings.cx + 25 * Math.cos(node.angleRad);
       node.y = graphSettings.cy + 25 * Math.sin(node.angleRad);
       node.vx = (Math.random() - 0.5) * 8;
@@ -132,28 +142,30 @@
     }
   }
 
-  function rebuildLectureNodes() {
-    lectureNodes = [];
-    if (selected.type !== "week" && selected.type !== "lecture") return;
+  function rebuildTopicNodes() {
+    topicNodes = [];
+    if (selected.type !== "domain" && selected.type !== "topic") return;
 
-    const weekNode = weekNodes.find((w) => w.id === selected.id);
-    if (!weekNode) return;
+    const domainNode = domainNodes.find((d) => String(d.id) === String(selected.id));
+    if (!domainNode) return;
 
-    const week = weekNode.week;
-    const filledLectures = week.lectures.filter(hasNotes);
+    const domain = domainNode.domain;
+    const allTopics = getDomainItems(domain);
+    const filledTopics = allTopics.filter(hasNotes);
     const toShow =
-      week.lectures.length > 5 && filledLectures.length ? filledLectures : week.lectures;
+      allTopics.length > 5 && filledTopics.length ? filledTopics : allTopics;
 
     const spread = Math.min(34, 110 / Math.max(toShow.length, 1));
-    const inward = weekNode.angleDeg + 180;
+    const inward = domainNode.angleDeg + 180;
 
-    toShow.forEach((lecture, lectureIndex) => {
-      const lectureAngle = inward - ((toShow.length - 1) * spread) / 2 + lectureIndex * spread;
-      const targetPos = polar(weekNode.targetX, weekNode.targetY, 88, lectureAngle);
-      lectureNodes.push({
-        weekId: week.id,
-        lecture,
-        angleDeg: lectureAngle,
+    toShow.forEach((topic, topicIndex) => {
+      const topicAngle = inward - ((toShow.length - 1) * spread) / 2 + topicIndex * spread;
+      const targetPos = polar(domainNode.targetX, domainNode.targetY, 88, topicAngle);
+      topicNodes.push({
+        domainId: domain.id,
+        topic,
+        topicKey: topic.id || topic.n,
+        angleDeg: topicAngle,
         relRadius: 88,
         x: targetPos.x,
         y: targetPos.y,
@@ -173,11 +185,11 @@
 
     let maxVelocity = 0;
 
-    // Update week nodes spring simulation
-    weekNodes.forEach((node) => {
+    // Update domain nodes spring simulation
+    domainNodes.forEach((node) => {
       if (!node.isDragging) {
         // Subtle organic float
-        const floatOffset = Math.sin((time || 0) * 0.0016 + node.id * 1.3) * 1.5;
+        const floatOffset = Math.sin((time || 0) * 0.0016 + node.index * 1.3) * 1.5;
         const currentTargetY = node.targetY + floatOffset;
 
         const fx = (node.targetX - node.x) * graphSettings.springK;
@@ -194,23 +206,23 @@
       }
     });
 
-    // Update lecture satellite nodes spring physics attached to active week
-    if (lectureNodes.length > 0) {
-      const parentWeek = weekNodes.find((w) => w.id === selected.id);
-      if (parentWeek) {
-        lectureNodes.forEach((lec) => {
-          if (!lec.isDragging) {
-            const desiredPos = polar(parentWeek.x, parentWeek.y, lec.relRadius, lec.angleDeg);
-            const fx = (desiredPos.x - lec.x) * 0.12;
-            const fy = (desiredPos.y - lec.y) * 0.12;
+    // Update topic satellite nodes spring physics attached to active domain
+    if (topicNodes.length > 0) {
+      const parentDomain = domainNodes.find((d) => String(d.id) === String(selected.id));
+      if (parentDomain) {
+        topicNodes.forEach((top) => {
+          if (!top.isDragging) {
+            const desiredPos = polar(parentDomain.x, parentDomain.y, top.relRadius, top.angleDeg);
+            const fx = (desiredPos.x - top.x) * 0.12;
+            const fy = (desiredPos.y - top.y) * 0.12;
 
-            lec.vx = (lec.vx + fx) * 0.75;
-            lec.vy = (lec.vy + fy) * 0.75;
+            top.vx = (top.vx + fx) * 0.75;
+            top.vy = (top.vy + fy) * 0.75;
 
-            lec.x += lec.vx;
-            lec.y += lec.vy;
+            top.x += top.vx;
+            top.y += top.vy;
 
-            const speed = Math.abs(lec.vx) + Math.abs(lec.vy);
+            const speed = Math.abs(top.vx) + Math.abs(top.vy);
             if (speed > maxVelocity) maxVelocity = speed;
           }
         });
@@ -236,17 +248,17 @@
     const cx = graphSettings.cx;
     const cy = graphSettings.cy;
 
-    // Update primary center-to-week Bezier curves
-    weekNodes.forEach((node) => {
+    // Update primary center-to-domain Bezier curves
+    domainNodes.forEach((node) => {
       const pathEl = svg.querySelector(`#tree-edge-${node.id}`);
       const flowEl = svg.querySelector(`#tree-flow-${node.id}`);
-      const groupEl = svg.querySelector(`#week-node-${node.id}`);
+      const groupEl = svg.querySelector(`#domain-node-${node.id}`);
 
       if (groupEl) {
         groupEl.setAttribute("transform", `translate(${node.x}, ${node.y})`);
       }
 
-      // Smooth organic cubic Bezier from center to week
+      // Smooth organic cubic Bezier from center to domain
       const angle = Math.atan2(node.y - cy, node.x - cx) * (180 / Math.PI);
       const dist = Math.hypot(node.x - cx, node.y - cy);
       const cp1 = polar(cx, cy, dist * 0.42, angle - 18);
@@ -257,21 +269,22 @@
       if (flowEl) flowEl.setAttribute("d", d);
     });
 
-    // Update secondary week-to-lecture Bezier curves
-    const parentWeek = weekNodes.find((w) => w.id === selected.id);
-    if (parentWeek) {
-      lectureNodes.forEach((lec) => {
-        const pathEl = svg.querySelector(`#lec-edge-${lec.lecture.n}`);
-        const flowEl = svg.querySelector(`#lec-flow-${lec.lecture.n}`);
-        const groupEl = svg.querySelector(`#lec-node-${lec.lecture.n}`);
+    // Update secondary domain-to-topic Bezier curves
+    const parentDomain = domainNodes.find((d) => String(d.id) === String(selected.id));
+    if (parentDomain) {
+      topicNodes.forEach((top) => {
+        const key = top.topicKey;
+        const pathEl = svg.querySelector(`#topic-edge-${key}`);
+        const flowEl = svg.querySelector(`#topic-flow-${key}`);
+        const groupEl = svg.querySelector(`#topic-node-${key}`);
 
         if (groupEl) {
-          groupEl.setAttribute("transform", `translate(${lec.x}, ${lec.y})`);
+          groupEl.setAttribute("transform", `translate(${top.x}, ${top.y})`);
         }
 
-        const cp1 = polar(parentWeek.x, parentWeek.y, 35, lec.angleDeg);
-        const cp2 = polar(lec.x, lec.y, 35, lec.angleDeg + 180);
-        const d = `M ${parentWeek.x} ${parentWeek.y} C ${cp1.x} ${cp1.y} ${cp2.x} ${cp2.y} ${lec.x} ${lec.y}`;
+        const cp1 = polar(parentDomain.x, parentDomain.y, 35, top.angleDeg);
+        const cp2 = polar(top.x, top.y, 35, top.angleDeg + 180);
+        const d = `M ${parentDomain.x} ${parentDomain.y} C ${cp1.x} ${cp1.y} ${cp2.x} ${cp2.y} ${top.x} ${top.y}`;
 
         if (pathEl) pathEl.setAttribute("d", d);
         if (flowEl) flowEl.setAttribute("d", d);
@@ -285,8 +298,13 @@
       const badgeEl = svg.querySelector(`#cross-badge-${idx}`);
       if (!linkEl) return;
 
-      const pos1 = getNodeCoords(link.source.weekId, link.source.lectureN);
-      const pos2 = getNodeCoords(link.target.weekId, link.target.lectureN);
+      const sDom = link.source.domainId || link.source.weekId;
+      const sTop = link.source.topicId !== undefined ? link.source.topicId : link.source.lectureN;
+      const tDom = link.target.domainId || link.target.weekId;
+      const tTop = link.target.topicId !== undefined ? link.target.topicId : link.target.lectureN;
+
+      const pos1 = getNodeCoords(sDom, sTop);
+      const pos2 = getNodeCoords(tDom, tTop);
 
       // Calculate arched curve bulging away from center
       const mx = (pos1.x + pos2.x) / 2;
@@ -308,16 +326,16 @@
     });
   }
 
-  // Helper to find exact render position for any lecture or week
-  function getNodeCoords(weekId, lectureN) {
-    if (selected.type === "week" || selected.type === "lecture") {
-      if (selected.id === weekId && lectureNodes.length > 0) {
-        const foundLec = lectureNodes.find((l) => l.lecture.n === lectureN);
-        if (foundLec) return { x: foundLec.x, y: foundLec.y };
+  // Helper to find exact render position for any topic or domain
+  function getNodeCoords(domainId, topicId) {
+    if (selected.type === "domain" || selected.type === "topic") {
+      if (String(selected.id) === String(domainId) && topicNodes.length > 0) {
+        const foundTop = topicNodes.find((t) => String(t.topicKey) === String(topicId));
+        if (foundTop) return { x: foundTop.x, y: foundTop.y };
       }
     }
-    const foundWeek = weekNodes.find((w) => w.id === weekId);
-    if (foundWeek) return { x: foundWeek.x, y: foundWeek.y };
+    const foundDomain = domainNodes.find((d) => String(d.id) === String(domainId));
+    if (foundDomain) return { x: foundDomain.x, y: foundDomain.y };
     return { x: graphSettings.cx, y: graphSettings.cy };
   }
 
@@ -348,7 +366,7 @@
     svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
     svg.setAttribute("class", "map");
     svg.setAttribute("role", "img");
-    svg.setAttribute("aria-label", "Interactive knowledge graph of the course");
+    svg.setAttribute("aria-label", "Interactive knowledge graph of topics and domains");
 
     // Definitions for gradients and glow filters
     const defs = document.createElementNS(ns, "defs");
@@ -400,18 +418,18 @@
     crossLinksGroup.setAttribute("class", "cross-links-layer");
     if (!graphSettings.showCrossLinks) crossLinksGroup.setAttribute("display", "none");
 
-    // Create center-to-week primary edges
-    weekNodes.forEach((node) => {
-      const isSelectedWeek = isWeekActive(node.week);
-      let weekOpacity = "0.7";
-      let weekStrokeWidth = "1.8";
+    // Create center-to-domain primary edges
+    domainNodes.forEach((node) => {
+      const isSelectedDomain = isDomainActive(node.domain);
+      let domainOpacity = "0.7";
+      let domainStrokeWidth = "1.8";
 
       if (selected.type !== "center") {
-        if (isSelectedWeek) {
-          weekOpacity = "1";
-          weekStrokeWidth = "2.8";
+        if (isSelectedDomain) {
+          domainOpacity = "1";
+          domainStrokeWidth = "2.8";
         } else {
-          weekOpacity = "0.14";
+          domainOpacity = "0.14";
         }
       }
 
@@ -419,10 +437,10 @@
       path.setAttribute("id", `tree-edge-${node.id}`);
       path.setAttribute("class", "tree-edge");
       path.setAttribute("fill", "none");
-      path.setAttribute("stroke", node.week.color);
-      path.setAttribute("stroke-opacity", weekOpacity);
-      path.setAttribute("stroke-width", weekStrokeWidth);
-      if (isSelectedWeek) path.setAttribute("filter", "url(#active-glow)");
+      path.setAttribute("stroke", node.domain.color);
+      path.setAttribute("stroke-opacity", domainOpacity);
+      path.setAttribute("stroke-width", domainStrokeWidth);
+      if (isSelectedDomain) path.setAttribute("filter", "url(#active-glow)");
       treeEdgesGroup.appendChild(path);
 
       // Data flow pulse overlay
@@ -432,33 +450,34 @@
       flowPath.setAttribute("fill", "none");
       flowPath.setAttribute("stroke", "#ffffff");
       const shouldFlow =
-        isSelectedWeek || (selected.type === "center" && weekNoteCount(node.week) > 0);
+        isSelectedDomain || (selected.type === "center" && domainNoteCount(node.domain) > 0);
       flowPath.setAttribute("stroke-opacity", shouldFlow ? "0.85" : "0");
       flowPath.setAttribute("stroke-width", "2");
       flowLayerGroup.appendChild(flowPath);
     });
 
-    // Create secondary week-to-lecture edges
-    if (lectureNodes.length > 0) {
-      const parentWeek = weekNodes.find((w) => w.id === selected.id);
-      if (parentWeek) {
-        lectureNodes.forEach((lec) => {
-          const chosen = selected.type === "lecture" && selected.lecture === lec.lecture.n;
-          const isOther = selected.type === "lecture" && !chosen;
+    // Create secondary domain-to-topic edges
+    if (topicNodes.length > 0) {
+      const parentDomain = domainNodes.find((d) => String(d.id) === String(selected.id));
+      if (parentDomain) {
+        topicNodes.forEach((top) => {
+          const key = top.topicKey;
+          const chosen = selected.type === "topic" && String(selected.topicId) === String(key);
+          const isOther = selected.type === "topic" && !chosen;
 
           const path = document.createElementNS(ns, "path");
-          path.setAttribute("id", `lec-edge-${lec.lecture.n}`);
+          path.setAttribute("id", `topic-edge-${key}`);
           path.setAttribute("class", "tree-edge");
           path.setAttribute("fill", "none");
-          path.setAttribute("stroke", parentWeek.week.color);
+          path.setAttribute("stroke", parentDomain.domain.color);
           path.setAttribute("stroke-opacity", chosen ? "1" : isOther ? "0.15" : "0.45");
           path.setAttribute("stroke-width", chosen ? "2.6" : "1.4");
           if (chosen) path.setAttribute("filter", "url(#active-glow)");
           treeEdgesGroup.appendChild(path);
 
-          // Lecture data flow pulse
+          // Topic data flow pulse
           const flowPath = document.createElementNS(ns, "path");
-          flowPath.setAttribute("id", `lec-flow-${lec.lecture.n}`);
+          flowPath.setAttribute("id", `topic-flow-${key}`);
           flowPath.setAttribute("class", "edge-flow");
           flowPath.setAttribute("fill", "none");
           flowPath.setAttribute("stroke", "#ffffff");
@@ -471,12 +490,17 @@
 
     // Create Cross-Links across the graph
     (course.crossLinks || []).forEach((link, idx) => {
+      const sDom = String(link.source.domainId || link.source.weekId);
+      const sTop = String(link.source.topicId !== undefined ? link.source.topicId : link.source.lectureN);
+      const tDom = String(link.target.domainId || link.target.weekId);
+      const tTop = String(link.target.topicId !== undefined ? link.target.topicId : link.target.lectureN);
+
       const isLinkedToSelected =
-        (selected.type === "week" &&
-          (link.source.weekId === selected.id || link.target.weekId === selected.id)) ||
-        (selected.type === "lecture" &&
-          ((link.source.weekId === selected.id && link.source.lectureN === selected.lecture) ||
-            (link.target.weekId === selected.id && link.target.lectureN === selected.lecture)));
+        (selected.type === "domain" &&
+          (sDom === String(selected.id) || tDom === String(selected.id))) ||
+        (selected.type === "topic" &&
+          ((sDom === String(selected.id) && sTop === String(selected.topicId)) ||
+            (tDom === String(selected.id) && tTop === String(selected.topicId))));
 
       const path = document.createElementNS(ns, "path");
       path.setAttribute("id", `cross-link-${idx}`);
@@ -490,7 +514,7 @@
       path.setAttribute("stroke-width", isLinkedToSelected ? "2.2" : "1.2");
 
       path.addEventListener("click", () => {
-        selectLecture(link.source.weekId, link.source.lectureN);
+        selectTopic(sDom, sTop);
       });
       path.addEventListener("mouseenter", () => {
         path.setAttribute("stroke-opacity", "1");
@@ -552,29 +576,30 @@
     const nodesLayerGroup = document.createElementNS(ns, "g");
     nodesLayerGroup.setAttribute("class", "nodes-layer");
 
-    // Render Lecture Satellites
-    lectureNodes.forEach((lec) => {
-      const chosen = selected.type === "lecture" && selected.lecture === lec.lecture.n;
-      const isOther = selected.type === "lecture" && !chosen;
-      const filled = hasNotes(lec.lecture);
+    // Render Topic Satellites
+    topicNodes.forEach((top) => {
+      const key = top.topicKey;
+      const chosen = selected.type === "topic" && String(selected.topicId) === String(key);
+      const isOther = selected.type === "topic" && !chosen;
+      const filled = hasNotes(top.topic);
 
       const ch = document.createElementNS(ns, "g");
-      ch.setAttribute("id", `lec-node-${lec.lecture.n}`);
+      ch.setAttribute("id", `topic-node-${key}`);
       ch.setAttribute("class", "node draggable");
       ch.setAttribute("tabindex", "0");
       ch.setAttribute("role", "button");
-      ch.setAttribute("aria-label", lec.lecture.title);
+      ch.setAttribute("aria-label", top.topic.title);
       ch.setAttribute("style", `opacity: ${isOther ? "0.22" : "1"}`);
 
-      attachDragHandlers(ch, lec, () => {
-        selectLecture(lec.weekId, lec.lecture.n);
+      attachDragHandlers(ch, top, () => {
+        selectTopic(top.domainId, key);
       });
 
       const dot = document.createElementNS(ns, "circle");
       dot.setAttribute("cx", 0);
       dot.setAttribute("cy", 0);
       dot.setAttribute("r", chosen ? "11" : filled ? "8" : "6");
-      const parentColor = getWeek(lec.weekId).color;
+      const parentColor = getDomain(top.domainId).color;
       dot.setAttribute("fill", filled ? parentColor : "#fbf6ec");
       dot.setAttribute("stroke", parentColor);
       dot.setAttribute("stroke-width", chosen ? "3" : "2");
@@ -587,64 +612,63 @@
       chLabel.setAttribute("text-anchor", "middle");
       chLabel.setAttribute("font-size", "11");
       chLabel.setAttribute("fill", "#5d4f3c");
-      chLabel.textContent = filled ? "notes" : `L${lec.lecture.n}`;
+      chLabel.textContent = filled ? "notes" : "topic";
       ch.appendChild(chLabel);
 
       nodesLayerGroup.appendChild(ch);
     });
 
-    // Render Week Hub Nodes
-    weekNodes.forEach((node) => {
-      const active = isWeekActive(node.week);
+    // Render Domain Hub Nodes
+    domainNodes.forEach((node) => {
+      const active = isDomainActive(node.domain);
       const isDimmed = selected.type !== "center" && !active;
 
       const g = document.createElementNS(ns, "g");
-      g.setAttribute("id", `week-node-${node.id}`);
+      g.setAttribute("id", `domain-node-${node.id}`);
       g.setAttribute("class", "node draggable");
       g.setAttribute("tabindex", "0");
       g.setAttribute("role", "button");
-      g.setAttribute("aria-label", `Week ${node.week.id}: ${node.week.title}`);
+      g.setAttribute("aria-label", `Domain: ${node.domain.title}`);
       g.setAttribute("opacity", isDimmed ? "0.2" : "1");
 
       attachDragHandlers(g, node, () => {
-        selectWeek(node.week.id);
+        selectDomain(node.domain.id);
       });
 
       const circle = document.createElementNS(ns, "circle");
       circle.setAttribute("cx", 0);
       circle.setAttribute("cy", 0);
       circle.setAttribute("r", active ? 46 : 40);
-      circle.setAttribute("fill", active ? node.week.color : "#fbf6ec");
-      circle.setAttribute("stroke", node.week.color);
-      circle.setAttribute("stroke-width", weekNoteCount(node.week) ? "3.2" : "2.2");
+      circle.setAttribute("fill", active ? node.domain.color : "#fbf6ec");
+      circle.setAttribute("stroke", node.domain.color);
+      circle.setAttribute("stroke-width", domainNoteCount(node.domain) ? "3.2" : "2.2");
       circle.setAttribute("filter", "url(#node-shadow)");
       if (active) circle.setAttribute("filter", "url(#active-glow)");
       g.appendChild(circle);
 
-      const num = document.createElementNS(ns, "text");
-      num.setAttribute("x", 0);
-      num.setAttribute("y", -6);
-      num.setAttribute("text-anchor", "middle");
-      num.setAttribute("fill", active ? "#fbf6ec" : node.week.color);
-      num.setAttribute("font-size", "11");
-      num.setAttribute("letter-spacing", "0.12em");
-      num.textContent = `W${String(node.week.id).padStart(2, "0")}`;
-      g.appendChild(num);
+      const icon = document.createElementNS(ns, "text");
+      icon.setAttribute("x", 0);
+      icon.setAttribute("y", -4);
+      icon.setAttribute("text-anchor", "middle");
+      icon.setAttribute("fill", active ? "#fbf6ec" : node.domain.color);
+      icon.setAttribute("font-size", "14");
+      icon.textContent = "◆";
+      g.appendChild(icon);
 
       const label = document.createElementNS(ns, "text");
       label.setAttribute("x", 0);
-      label.setAttribute("y", 12);
+      label.setAttribute("y", 14);
       label.setAttribute("text-anchor", "middle");
       label.setAttribute("fill", active ? "#fbf6ec" : "#2a2218");
-      label.setAttribute("font-size", "13");
+      label.setAttribute("font-size", "12");
       label.setAttribute("font-weight", "500");
-      label.textContent = node.week.short;
+      label.textContent = node.domain.short;
       g.appendChild(label);
 
       nodesLayerGroup.appendChild(g);
     });
 
-    // Central Core Hub (PDSA Python)
+    // Central Core Hub (Knowledge Core)
     const core = document.createElementNS(ns, "g");
     core.setAttribute("class", "node");
     core.setAttribute("tabindex", "0");
@@ -673,7 +697,7 @@
     t1.setAttribute("text-anchor", "middle");
     t1.setAttribute("class", "center-title");
     t1.setAttribute("fill", "#fbf6ec");
-    t1.textContent = "PDSA Python";
+    t1.textContent = "Knowledge Map";
     core.appendChild(t1);
 
     const t2 = document.createElementNS(ns, "text");
@@ -784,28 +808,28 @@
     svg.setAttribute("viewBox", "0 0 1100 720");
     svg.setAttribute("class", "trace");
     svg.setAttribute("role", "img");
-    svg.setAttribute("aria-label", "The eight weeks as steps from a hard problem to a base case");
+    svg.setAttribute("aria-label", "The knowledge domains on the path from problems to base cases");
 
     svg.innerHTML = `
       <rect x="0" y="0" width="1100" height="720" fill="#f7efde"/>
       <path d="M0 430 C 180 390, 280 470, 420 430 S 700 390, 1100 450 L 1100 720 L 0 720 Z" fill="#d9c7a5" opacity="0.55"/>
       <path d="M0 510 C 220 470, 360 560, 540 520 S 860 470, 1100 540 L 1100 720 L 0 720 Z" fill="#7a9a96" opacity="0.28"/>
-      <text x="70" y="180" fill="#8a7a64" font-size="14" letter-spacing="0.18em">THE PROBLEM</text>
-      <text x="820" y="180" fill="#8a7a64" font-size="14" letter-spacing="0.18em">THE BASE CASE</text>
+      <text x="70" y="180" fill="#8a7a64" font-size="14" letter-spacing="0.18em">COMPLEX PROBLEMS</text>
+      <text x="820" y="180" fill="#8a7a64" font-size="14" letter-spacing="0.18em">BASE PRINCIPLES</text>
       <path d="M90 250 C 300 210, 800 210, 1010 250" fill="none" stroke="#b0893e" stroke-width="3"/>
       <path d="M90 250 L 90 430 M1010 250 L 1010 430" stroke="#8a5a3b" stroke-width="8"/>
       <path d="M90 250 L 1010 250" stroke="#5d4f3c" stroke-width="10"/>
       <path d="M90 262 L 1010 262" stroke="#d4b36a" stroke-width="2"/>
     `;
 
-    course.weeks.forEach((week, index) => {
+    domainList.forEach((domain, index) => {
       const x = 170 + index * 102;
       const g = document.createElementNS(ns, "g");
       g.setAttribute("class", "node");
       g.setAttribute("tabindex", "0");
       g.setAttribute("role", "button");
-      g.setAttribute("aria-label", `Week ${week.id}: ${week.short}`);
-      const choose = () => selectWeek(week.id);
+      g.setAttribute("aria-label", `Domain: ${domain.short}`);
+      const choose = () => selectDomain(domain.id);
       g.addEventListener("click", choose);
       g.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -820,26 +844,26 @@
       pier.setAttribute("width", "20");
       pier.setAttribute("height", "210");
       pier.setAttribute("rx", "4");
-      pier.setAttribute("fill", week.color);
+      pier.setAttribute("fill", domain.color);
       g.appendChild(pier);
 
       const cap = document.createElementNS(ns, "circle");
       cap.setAttribute("cx", x);
       cap.setAttribute("cy", "248");
-      cap.setAttribute("r", isWeekActive(week) ? "16" : weekNoteCount(week) ? "14" : "12");
+      cap.setAttribute("r", isDomainActive(domain) ? "16" : domainNoteCount(domain) ? "14" : "12");
       cap.setAttribute("fill", "#fbf6ec");
-      cap.setAttribute("stroke", week.color);
-      cap.setAttribute("stroke-width", weekNoteCount(week) ? "4" : "3");
+      cap.setAttribute("stroke", domain.color);
+      cap.setAttribute("stroke-width", domainNoteCount(domain) ? "4" : "3");
       g.appendChild(cap);
 
-      const num = document.createElementNS(ns, "text");
-      num.setAttribute("x", x);
-      num.setAttribute("y", "488");
-      num.setAttribute("text-anchor", "middle");
-      num.setAttribute("fill", week.color);
-      num.setAttribute("font-size", "13");
-      num.textContent = String(week.id);
-      g.appendChild(num);
+      const icon = document.createElementNS(ns, "text");
+      icon.setAttribute("x", x);
+      icon.setAttribute("y", "488");
+      icon.setAttribute("text-anchor", "middle");
+      icon.setAttribute("fill", domain.color);
+      icon.setAttribute("font-size", "14");
+      icon.textContent = "◆";
+      g.appendChild(icon);
 
       const label = document.createElementNS(ns, "text");
       label.setAttribute("x", x);
@@ -847,7 +871,7 @@
       label.setAttribute("text-anchor", "middle");
       label.setAttribute("fill", "#2a2218");
       label.setAttribute("font-size", "12");
-      label.textContent = week.short;
+      label.textContent = domain.short;
       g.appendChild(label);
 
       svg.appendChild(g);
@@ -863,25 +887,27 @@
 
     const wrap = document.createElement("div");
     wrap.className = "journey visible";
-    wrap.innerHTML = course.weeks
-      .map((week) => {
-        const ready = weekNoteCount(week);
+    wrap.innerHTML = domainList
+      .map((domain, idx) => {
+        const ready = domainNoteCount(domain);
+        const count = getDomainItems(domain).length;
         return `
-        <article class="p-card" data-id="${week.id}">
-          <div class="p-num">${String(week.id).padStart(2, "0")}</div>
+        <article class="p-card" data-id="${domain.id}">
+          <div class="p-num" style="font-size: 1.4rem;">◆</div>
           <div>
-            <h3>${escapeHtml(week.title)}</h3>
-            <p>${week.lectures.length} lectures · ${ready} topic${ready === 1 ? "" : "s"} ready</p>
+            <h3>${escapeHtml(domain.title)}</h3>
+            <p>${count} topic${count === 1 ? "" : "s"} · ${ready} note card${ready === 1 ? "" : "s"} ready</p>
           </div>
         </article>`;
       })
       .join("");
     wrap.querySelectorAll(".p-card").forEach((card) => {
-      card.addEventListener("click", () => selectWeek(Number(card.dataset.id)));
+      card.addEventListener("click", () => selectDomain(card.dataset.id));
     });
     canvas.innerHTML = "";
     canvas.appendChild(wrap);
   }
+
   // Main render dispatcher
   function render() {
     if (view === "map") {
@@ -894,22 +920,21 @@
     renderPanel();
   }
 
-
-  function lectureButtons(week) {
-    return week.lectures
-      .map((lecture) => {
+  function topicButtons(domain) {
+    return getDomainItems(domain)
+      .map((topic) => {
+        const key = topic.id || topic.n;
         const active =
-          selected.type === "lecture" &&
-          selected.id === week.id &&
-          selected.lecture === lecture.n;
-        const ready = hasNotes(lecture)
-          ? `<span class="ch-ready">${escapeHtml(lecture.topic || "Notes ready")}</span>`
+          selected.type === "topic" &&
+          String(selected.id) === String(domain.id) &&
+          String(selected.topicId) === String(key);
+        const ready = hasNotes(topic)
+          ? `<span class="ch-ready">${escapeHtml(topic.topic || "Notes ready")}</span>`
           : "";
         return `
           <li>
-            <button type="button" class="chapter-btn${active ? " active" : ""}" data-lecture="${lecture.n}">
-              <span class="ch-n">Lecture ${lecture.n}</span>
-              <span class="ch-title">${escapeHtml(lecture.title)}</span>
+            <button type="button" class="chapter-btn${active ? " active" : ""}" data-topic="${key}">
+              <span class="ch-title">${escapeHtml(topic.title)}</span>
               ${ready}
             </button>
           </li>`;
@@ -917,48 +942,64 @@
       .join("");
   }
 
-  function bindLectureButtons(week) {
-    panel.querySelectorAll("[data-lecture]").forEach((button) => {
+  function bindTopicButtons(domain) {
+    panel.querySelectorAll("[data-topic]").forEach((button) => {
       button.addEventListener("click", () => {
-        selectLecture(week.id, Number(button.dataset.lecture));
+        selectTopic(domain.id, button.dataset.topic);
       });
     });
   }
 
-  // Find relevant cross-links for a specific lecture or week
-  function getConnectedLinks(weekId, lectureN) {
+  // Find relevant cross-links for a specific topic or domain
+  function getConnectedLinks(domainId, topicId) {
     if (!course.crossLinks) return [];
-    if (lectureN !== undefined) {
-      return course.crossLinks.filter(
-        (link) =>
-          (link.source.weekId === weekId && link.source.lectureN === lectureN) ||
-          (link.target.weekId === weekId && link.target.lectureN === lectureN)
-      );
+    if (topicId !== undefined) {
+      return course.crossLinks.filter((link) => {
+        const sDom = String(link.source.domainId || link.source.weekId);
+        const sTop = String(link.source.topicId !== undefined ? link.source.topicId : link.source.lectureN);
+        const tDom = String(link.target.domainId || link.target.weekId);
+        const tTop = String(link.target.topicId !== undefined ? link.target.topicId : link.target.lectureN);
+        return (
+          (sDom === String(domainId) && sTop === String(topicId)) ||
+          (tDom === String(domainId) && tTop === String(topicId))
+        );
+      });
     }
-    return course.crossLinks.filter(
-      (link) => link.source.weekId === weekId || link.target.weekId === weekId
-    );
+    return course.crossLinks.filter((link) => {
+      const sDom = String(link.source.domainId || link.source.weekId);
+      const tDom = String(link.target.domainId || link.target.weekId);
+      return sDom === String(domainId) || tDom === String(domainId);
+    });
   }
 
-  function renderConnectedLinks(links, currentWeekId, currentLectureN) {
+  function renderConnectedLinks(links, currentDomainId, currentTopicId) {
     if (!links || links.length === 0) return "";
 
     const pills = links
       .map((link) => {
+        const sDom = String(link.source.domainId || link.source.weekId);
+        const sTop = String(link.source.topicId !== undefined ? link.source.topicId : link.source.lectureN);
+        const tDom = String(link.target.domainId || link.target.weekId);
+        const tTop = String(link.target.topicId !== undefined ? link.target.topicId : link.target.lectureN);
+
         const isSource =
-          currentLectureN !== undefined
-            ? link.source.weekId === currentWeekId && link.source.lectureN === currentLectureN
-            : link.source.weekId === currentWeekId;
-        const other = isSource ? link.target : link.source;
-        const targetWeek = getWeek(other.weekId);
-        const targetLecture = getLecture(other.weekId, other.lectureN);
-        const targetTitle = targetLecture ? targetLecture.title : targetWeek.title;
+          currentTopicId !== undefined
+            ? sDom === String(currentDomainId) && sTop === String(currentTopicId)
+            : sDom === String(currentDomainId);
+
+        const otherDomainId = isSource ? tDom : sDom;
+        const otherTopicId = isSource ? tTop : sTop;
+
+        const targetDomain = getDomain(otherDomainId);
+        const targetTopic = getTopic(otherDomainId, otherTopicId);
+        const targetTitle = targetTopic ? targetTopic.title : targetDomain ? targetDomain.title : "Topic";
+        const domainLabel = targetDomain ? targetDomain.short : "Domain";
 
         return `
-          <button type="button" class="concept-pill" data-link-week="${other.weekId}" data-link-lec="${other.lectureN}">
+          <button type="button" class="concept-pill" data-link-domain="${otherDomainId}" data-link-topic="${otherTopicId}">
             <span class="pill-label">🔗 ${escapeHtml(link.label)}</span>
             <span class="pill-desc">${escapeHtml(link.concept)}</span>
-            <span class="pill-target">Week ${other.weekId} · L${other.lectureN}: ${escapeHtml(targetTitle)} →</span>
+            <span class="pill-target">${escapeHtml(domainLabel)} · ${escapeHtml(targetTitle)} →</span>
           </button>
         `;
       })
@@ -973,16 +1014,16 @@
   }
 
   function bindConnectedLinks() {
-    panel.querySelectorAll("[data-link-week]").forEach((btn) => {
+    panel.querySelectorAll("[data-link-domain]").forEach((btn) => {
       btn.addEventListener("click", () => {
-        const weekId = Number(btn.dataset.linkWeek);
-        const lecId = Number(btn.dataset.linkLec);
-        selectLecture(weekId, lecId);
+        const domId = btn.dataset.linkDomain;
+        const topId = btn.dataset.linkTopic;
+        selectTopic(domId, topId);
       });
     });
   }
 
-  function renderNotes(notes, weekId, lectureN) {
+  function renderNotes(notes, domainId, topicId) {
     const code = (notes.code || [])
       .map(
         (block) => `
@@ -1014,7 +1055,7 @@
           .join("")}</ul></div>`
       : "";
 
-    const connections = renderConnectedLinks(getConnectedLinks(weekId, lectureN), weekId, lectureN);
+    const connections = renderConnectedLinks(getConnectedLinks(domainId, topicId), domainId, topicId);
 
     return `
       <p class="idea">${escapeHtml(notes.idea)}</p>
@@ -1039,7 +1080,7 @@
   function renderPanel() {
     if (selected.type === "center") {
       panel.innerHTML = `
-        <p class="panel-kicker">The map</p>
+        <p class="panel-kicker">The Knowledge Map</p>
         <h2>${escapeHtml(course.title)}</h2>
         <p class="lead">${escapeHtml(course.opening.blurb)}</p>
         <div class="badges">
@@ -1048,68 +1089,69 @@
           <span class="badge">Interactive Physics</span>
         </div>
         <ul class="chapters">
-          ${course.weeks
-            .map((week) => {
-              const ready = weekNoteCount(week);
+          ${domainList
+            .map((domain) => {
+              const ready = domainNoteCount(domain);
               return `<li>
-                <button type="button" class="chapter-btn" data-week="${week.id}">
-                  <span class="ch-n">Week ${week.id}${ready ? " · notes" : ""}</span>
-                  <span class="ch-title">${escapeHtml(week.title)}</span>
+                <button type="button" class="chapter-btn" data-domain="${domain.id}">
+                  <span class="ch-n">${ready ? "ready · notes" : "domain"}</span>
+                  <span class="ch-title">${escapeHtml(domain.title)}</span>
                 </button>
               </li>`;
             })
             .join("")}
         </ul>
         <div class="learnings">
-          <h3>Knowledge Graph Guide</h3>
-          <p class="empty">Drag nodes to explore elastic physics. Dashed arcs bridge concepts across weeks. Click any node to focus its learning lineage.</p>
+          <h3>Evolving Graph Guide</h3>
+          <p class="empty">Drag nodes to explore elastic physics. Dashed arcs bridge concepts across domains. Click any domain or topic to focus its learning lineage.</p>
         </div>
       `;
-      panel.querySelectorAll("[data-week]").forEach((button) => {
-        button.addEventListener("click", () => selectWeek(Number(button.dataset.week)));
+      panel.querySelectorAll("[data-domain]").forEach((button) => {
+        button.addEventListener("click", () => selectDomain(button.dataset.domain));
       });
       return;
     }
 
-    const week = getWeek(selected.id);
-    if (selected.type === "week") {
-      const weekConnections = renderConnectedLinks(getConnectedLinks(week.id), week.id);
+    const domain = getDomain(selected.id);
+    if (selected.type === "domain") {
+      const domainConnections = renderConnectedLinks(getConnectedLinks(domain.id), domain.id);
+      const count = getDomainItems(domain).length;
       panel.innerHTML = `
-        <button type="button" class="back" data-back="center">← Course</button>
-        <p class="panel-kicker">Week ${String(week.id).padStart(2, "0")}</p>
-        <h2>${escapeHtml(week.title)}</h2>
-        <p class="lead">${week.lectures.length} lectures in this span. Open a filled lecture for the interview sheet.</p>
-        ${weekConnections}
-        <ul class="chapters">${lectureButtons(week)}</ul>
+        <button type="button" class="back" data-back="center">← Knowledge Map</button>
+        <p class="panel-kicker">Knowledge Domain</p>
+        <h2>${escapeHtml(domain.title)}</h2>
+        <p class="lead">${count} topics in this domain. Open a highlighted topic for the revision flashcard.</p>
+        ${domainConnections}
+        <ul class="chapters">${topicButtons(domain)}</ul>
         <div class="learnings">
-          <h3>Notes in this week</h3>
+          <h3>Notes in this domain</h3>
           ${
-            weekNoteCount(week)
-              ? `<p class="empty">Gold-marked lectures below have a full revision card.</p>`
-              : `<p class="empty">No notes yet. Add them in learnings.md as you watch, and they will fold into this week.</p>`
+            domainNoteCount(domain)
+              ? `<p class="empty">Gold-marked topics have a full revision card.</p>`
+              : `<p class="empty">No notes yet. Add them in learnings.md as you learn, and they will fold into this domain.</p>`
           }
         </div>
       `;
       panel.querySelector("[data-back]").addEventListener("click", selectCenter);
-      bindLectureButtons(week);
+      bindTopicButtons(domain);
       bindConnectedLinks();
       return;
     }
 
-    const lecture = getLecture(selected.id, selected.lecture);
+    const topic = getTopic(selected.id, selected.topicId);
     panel.innerHTML = `
-      <button type="button" class="back" data-back="week">← Week ${week.id}</button>
-      <p class="panel-kicker">Week ${week.id} · Lecture ${lecture.n}</p>
-      <h2>${escapeHtml(lecture.topic || lecture.title)}</h2>
+      <button type="button" class="back" data-back="domain">← ${escapeHtml(domain.short)}</button>
+      <p class="panel-kicker">${escapeHtml(domain.title)}</p>
+      <h2>${escapeHtml(topic.topic || topic.title)}</h2>
       ${
-        lecture.notes
-          ? `<div class="badges"><span class="badge ready">Interview ready</span><span class="badge">${escapeHtml(lecture.title)}</span></div>
-             ${renderNotes(lecture.notes, week.id, lecture.n)}`
-          : `<p class="lead">${escapeHtml(lecture.title)}</p>
-             <div class="learnings"><p class="empty">No notes yet. Capture them in learnings.md under this lecture, and they will appear here for revision.</p></div>`
+        topic.notes
+          ? `<div class="badges"><span class="badge ready">Interview ready</span><span class="badge">${escapeHtml(topic.title)}</span></div>
+             ${renderNotes(topic.notes, domain.id, topic.id || topic.n)}`
+          : `<p class="lead">${escapeHtml(topic.title)}</p>
+             <div class="learnings"><p class="empty">No notes yet. Capture them in learnings.md under this topic, and they will appear here for revision.</p></div>`
       }
     `;
-    panel.querySelector("[data-back]").addEventListener("click", () => selectWeek(week.id));
+    panel.querySelector("[data-back]").addEventListener("click", () => selectDomain(domain.id));
     bindConnectedLinks();
   }
 

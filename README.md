@@ -18,29 +18,29 @@ The map has three views of the same nine principles:
 
 Add learnings in `learnings.md`. They will be folded into the visual as they arrive.
 
-## Programming, Data Structures and Algorithms using Python
+## Programming, Data Structures and Algorithms — Evolving Knowledge Map
 
-[Prof. Madhavan Mukund](https://www.cmi.ac.in/~madhavan/), Chennai Mathematical Institute — [NPTEL 106106145](https://nptel.ac.in/courses/106106145)
+A generalized, topic-based knowledge graph for Python, data structures, and algorithms. Organised by conceptual domains rather than course weeks or lectures so it can freely expand with material from other books and courses.
 
 Open the living map: [python-pdsa/index.html](python-pdsa/index.html)
 
 Capture notes as you study: [python-pdsa/learnings.md](python-pdsa/learnings.md)
 
-The map has three views of the same eight weeks:
+The map has three views of the knowledge domains:
 
-- **Mind map / Knowledge Graph** — interactive force-directed spring physics with draggable nodes, organic cubic Bezier curves, dashed cross-concept arcs connecting related lectures across weeks (e.g. Euclid ↔ Recursion), animated data-flow pulses, and bloom animations
-- **Trace** — weeks as pillars on the path from a hard problem to a smaller one (the way recursion and Euclid actually work)
-- **Journey** — a readable outline from Week 1 to Week 8
+- **Knowledge Graph** — interactive force-directed spring physics with draggable domain nodes, organic cubic Bezier curves, dashed cross-concept arcs connecting related topics across domains (e.g. Euclid ↔ Recursion, Immutability ↔ Aliasing), animated data-flow pulses, and bloom animations
+- **Trace** — domains as pillars on the path from complex problems to base principles
+- **Journey** — a readable outline across all knowledge domains
 
 Add learnings in `learnings.md`. They show up on the map and in the side panel, written for quick revision and interview prep.
 
-Filled so far:
+Filled topics so far:
 
-- Euclid's remainder algorithm (Week 1, Lecture 3 — second version)
-- Numeric values: int, float, operations, bool (Week 2, Lecture 5)
-- String slices and immutability (Week 2, Lecture 6)
-- Lists: index vs slice, aliasing, copy, is vs == (Week 2, Lecture 7)
-- Repeating n times: range() (Week 2, Lecture 8)
-- Functions: local scope, define-before-call, factorial (Week 2, Lecture 9)
-- Examples: first n primes, while loop, unconditional progress (Week 2, Lecture 10)
-- Recursion (Week 3, Lecture 8)
+- Euclid's remainder algorithm (Number Theory & GCD)
+- Numeric values: int, float, operations, bool (Core Types & Foundations)
+- String slices and immutability (Core Types & Foundations)
+- Lists: index vs slice, aliasing, copy, is vs == (Core Types & Foundations)
+- Repeating n times: range() (Core Types & Foundations)
+- Functions: local scope, define-before-call, factorial (Core Types & Foundations)
+- First n primes: while loop & unconditional progress (Core Types & Foundations)
+- Recursive functions from inductive definitions (Inductive Definitions & Recursion)
