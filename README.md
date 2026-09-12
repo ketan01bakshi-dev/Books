@@ -28,7 +28,7 @@ Capture notes as you study: [python-pdsa/learnings.md](python-pdsa/learnings.md)
 
 The map has three views of the same eight weeks:
 
-- **Mind map** — the course at the center, weeks as branches, lectures unfolding from the one you choose
+- **Mind map / Knowledge Graph** — interactive force-directed spring physics with draggable nodes, organic cubic Bezier curves, dashed cross-concept arcs connecting related lectures across weeks (e.g. Euclid ↔ Recursion), animated data-flow pulses, and bloom animations
 - **Trace** — weeks as pillars on the path from a hard problem to a smaller one (the way recursion and Euclid actually work)
 - **Journey** — a readable outline from Week 1 to Week 8
 

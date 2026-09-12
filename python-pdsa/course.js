@@ -676,4 +676,60 @@ window.PDSA_COURSE = {
       ],
     },
   ],
+  crossLinks: [
+    {
+      source: { weekId: 1, lectureN: 3 },
+      target: { weekId: 3, lectureN: 18 },
+      label: "Inductive reduction",
+      concept: "Euclid's gcd(m,n)=gcd(n,m%n) was the course's first recursive formulation, formalized in Week 3.",
+    },
+    {
+      source: { weekId: 1, lectureN: 3 },
+      target: { weekId: 2, lectureN: 5 },
+      label: "Modulo divisibility",
+      concept: "The base case test in Euclid uses the % remainder and == comparison introduced in numeric types.",
+    },
+    {
+      source: { weekId: 2, lectureN: 6 },
+      target: { weekId: 2, lectureN: 7 },
+      label: "Immutable vs Mutable",
+      concept: "Strings reject in-place assignment (TypeError); lists are mutable and create aliasing.",
+    },
+    {
+      source: { weekId: 2, lectureN: 6 },
+      target: { weekId: 2, lectureN: 8 },
+      label: "Half-open intervals",
+      concept: "Slices s[1:4] and range(1, 4) both use half-open intervals: start included, stop excluded.",
+    },
+    {
+      source: { weekId: 2, lectureN: 7 },
+      target: { weekId: 3, lectureN: 18 },
+      label: "Sequence recursion",
+      concept: "Recursive functions on lists decompose using slices (l[1:]) or mutate elements in-place (insertion sort).",
+    },
+    {
+      source: { weekId: 2, lectureN: 9 },
+      target: { weekId: 3, lectureN: 18 },
+      label: "Call stack & scope",
+      concept: "Function namespaces and call frames introduced in Week 2 form the recursive unwind stack in Week 3.",
+    },
+    {
+      source: { weekId: 3, lectureN: 18 },
+      target: { weekId: 4, lectureN: 19 },
+      label: "Divide-and-conquer",
+      concept: "Recursive insertion sort is O(n²); Mergesort applies recursion to halves for O(n log n).",
+    },
+    {
+      source: { weekId: 2, lectureN: 7 },
+      target: { weekId: 7, lectureN: 39 },
+      label: "Array vs Linked List",
+      concept: "Python's contiguous mutable lists contrast with recursive Node/Linked list data structures in Week 7.",
+    },
+    {
+      source: { weekId: 3, lectureN: 18 },
+      target: { weekId: 8, lectureN: 41 },
+      label: "Memoization & DP",
+      concept: "Naive recursion recalculates overlapping subproblems; DP memoizes recursive results for efficiency.",
+    },
+  ],
 };

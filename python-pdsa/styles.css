@@ -150,6 +150,53 @@ h1 {
   position: relative;
 }
 
+.graph-toolbar {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: rgba(251, 246, 236, 0.85);
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(42, 34, 24, 0.06);
+}
+
+.graph-btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 4px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.graph-btn:hover {
+  background: rgba(212, 179, 106, 0.18);
+  color: var(--ink);
+}
+
+.graph-btn[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.graph-btn.reset-btn:hover {
+  background: rgba(42, 34, 24, 0.08);
+}
+
 svg.map,
 svg.trace {
   width: 100%;
@@ -158,14 +205,122 @@ svg.trace {
 }
 
 .node {
-  cursor: pointer;
+  cursor: grab;
 }
 
-svg.map path,
-svg.map circle,
-svg.map text,
-svg.map g {
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+.node:active,
+.node.dragging {
+  cursor: grabbing;
+}
+
+svg.map path.tree-edge,
+svg.map path.cross-link,
+svg.map g.node {
+  transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1), stroke-opacity 0.35s ease;
+}
+
+svg.map g.node.dragging {
+  transition: none !important;
+}
+
+@keyframes flowDash {
+  from {
+    stroke-dashoffset: 48;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(212, 179, 106, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(212, 179, 106, 0.85));
+  }
+}
+
+.edge-flow {
+  stroke-dasharray: 6 14;
+  animation: flowDash 1.4s linear infinite;
+  pointer-events: none;
+}
+
+.cross-link {
+  cursor: pointer;
+  stroke-dasharray: 5 4;
+}
+
+.cross-link:hover {
+  stroke-opacity: 1 !important;
+  stroke-width: 2.6 !important;
+  filter: drop-shadow(0 0 6px var(--gold));
+}
+
+.cross-link.active-link {
+  stroke-dasharray: 6 6;
+  animation: flowDash 1.8s linear infinite;
+  filter: drop-shadow(0 0 5px rgba(212, 179, 106, 0.8));
+}
+
+.cross-link-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  fill: var(--ink-soft);
+  pointer-events: none;
+}
+
+.concept-links {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.concept-pill {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: rgba(233, 220, 196, 0.55);
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  transition: all 0.2s ease;
+}
+
+.concept-pill:hover,
+.concept-pill:focus-visible {
+  border-color: var(--gold-2);
+  background: rgba(212, 179, 106, 0.22);
+  transform: translateX(2px);
+}
+
+.pill-label {
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.pill-desc {
+  font-size: 11px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.pill-target {
+  align-self: flex-start;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
 }
 
 .node circle {

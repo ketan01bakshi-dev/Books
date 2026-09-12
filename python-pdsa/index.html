@@ -34,7 +34,14 @@
       </header>
 
       <main class="stage">
-        <section class="canvas-card" id="canvas" aria-label="Visual map"></section>
+        <section class="canvas-card" id="canvas-card" aria-label="Visual map">
+          <div class="graph-toolbar" id="graph-toolbar" role="toolbar" aria-label="Graph controls">
+            <button type="button" class="graph-btn" id="toggle-flow" aria-pressed="true" title="Toggle animated data flow pulses">⚡ Flow</button>
+            <button type="button" class="graph-btn" id="toggle-links" aria-pressed="true" title="Toggle cross-concept links">🔗 Cross-links</button>
+            <button type="button" class="graph-btn reset-btn" id="reset-physics" title="Bloom nodes & reset positions">↺ Bloom / Reset</button>
+          </div>
+          <div id="canvas" style="width: 100%; height: 100%;"></div>
+        </section>
         <aside class="panel" id="panel"></aside>
       </main>
 
