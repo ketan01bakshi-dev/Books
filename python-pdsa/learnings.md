@@ -6,7 +6,7 @@
 
 Living notebook for the course. Capture what you want to recall in an interview. The visual map in `index.html` uses the same eight-week structure; filled lectures light up as notes arrive.
 
-**Ready now:** Euclid remainder (W1 L3), int/float/bool (W2 L5), string slices (W2 L6), lists aliasing and `is` vs `==` (W2 L7), `range()` (W2 L8), recursion (W3 L8).
+**Ready now:** Euclid remainder (W1 L3), int/float/bool (W2 L5), string slices (W2 L6), lists (W2 L7), `range()` (W2 L8), functions/scope/factorial (W2 L9), recursion (W3 L8).
 
 ---
 
@@ -315,9 +315,65 @@ for i in range(1, n + 1): # i = 1, 2, ..., n     — if you want 1..n
 - `range(1, n)` when you wanted n trips from 1 — that is n−1 trips
 - Mixing 0-based `range(n)` with 1-based “from 1 to m” (gcd loops used `range(1, m+1)`) 
 
-### Lecture 9. Functions
+### Lecture 9. Functions — scope, define-before-call, first recursion
 
-- 
+**One line.** Names inside a function are **local**. A function must be defined before you **call** it (mentioning another function in the body is fine). A function may call itself — **recursion** — if it has a base case.
+
+**Scope.** Inner `n` is not outer `n`.
+
+```python
+def stupid(x):
+    n = 17          # local
+    return x
+
+n = 7
+v = stupid(28)
+# n is still 7; v is 28
+```
+
+**Define before invoke.** Lookup happens when the call **runs**, not when `def` is read.
+
+```python
+# OK — both defs finish before z = f(77)
+def f(x):
+    return g(x + 1)
+def g(y):
+    return y + 3
+z = f(77)              # g(78) → 81
+
+# NOT OK — call sits between the two defs
+# def f(x):
+#     return g(x + 1)
+# z = f(77)            # NameError: g is not defined
+# def g(y):
+#     return y + 3
+```
+
+**Recursion.** `n! = n × (n−1) × … × 1`, and `0! = 1`. The tail `(n−1)×…×1` is `(n−1)!`, so `n! = n × (n−1)!`.
+
+```python
+def factorial(n):
+    if n <= 0:                 # base case
+        return 1
+    else:
+        val = n * factorial(n - 1)
+        return val
+```
+
+`factorial(3)` → `3 * factorial(2)` → `2 * factorial(1)` → `1 * factorial(0)` → `1`, then unwind to `6`. More in Week 3, Lecture 18.
+
+**Interview questions.**
+
+1. After `stupid` assigns `n = 17`, is outer `n` 17? → No, still 7. Local vs outer are different boxes.
+2. Can `f` mention `g` if `g` is defined later in the file? → Yes, if `g`'s `def` has run before you call `f`.
+3. Two parts of `factorial`? → Base `n <= 0` → 1; step `n * factorial(n-1)`.
+4. `factorial(3)`? → 6.
+
+**Pitfalls.**
+
+- Thinking assignment inside a function writes the global of the same name.
+- Calling in between two defs that use each other.
+- No base case → infinite recursion. 
 
 ### Lecture 10. Examples
 

@@ -41,4 +41,5 @@ Filled so far:
 - String slices and immutability (Week 2, Lecture 6)
 - Lists: index vs slice, aliasing, copy, is vs == (Week 2, Lecture 7)
 - Repeating n times: range() (Week 2, Lecture 8)
+- Functions: local scope, define-before-call, factorial (Week 2, Lecture 9)
 - Recursion (Week 3, Lecture 8)

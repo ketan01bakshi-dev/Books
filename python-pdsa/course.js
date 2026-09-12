@@ -7,7 +7,7 @@ window.PDSA_COURSE = {
   opening: {
     title: "How to use these notes",
     blurb:
-      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid remainder, types, strings, lists, range, and recursion are filled for interview revision.",
+      "Eight weeks. Click a week, then a lecture. Notes you add in learnings.md show up on this map. Euclid remainder, types, strings, lists, range, functions, and recursion are filled for interview revision.",
   },
   weeks: [
     {
@@ -422,7 +422,75 @@ window.PDSA_COURSE = {
             ],
           },
         },
-        { n: 9, title: "Functions", notes: null },
+        {
+          n: 9,
+          title: "Functions",
+          topic: "Scope, define-before-call, first recursion",
+          notes: {
+            idea: "Names inside a function are local — they do not change a same-spelled name outside. A function must exist before you call it, but its body may mention a function that is defined later, as long as that later def has run before the call. A function may call itself: recursion needs a base case.",
+            why: [
+              "In stupid(x), n = 17 is a local name. The outer n = 7 is a different name. After v = stupid(28), n is still 7. The function returns x (28), not n.",
+              "Python looks up names when the line runs, not when def is read. def f that returns g(x+1) is fine if g is defined before anyone actually calls f. If you call f(77) before def g, g is missing — NameError.",
+              "factorial(n) is n × (n−1) × … × 1, and 0! = 1. That product from (n−1) down is (n−1)!. So n! = n × (n−1)!, with base 0! = 1 (the code uses n <= 0).",
+            ],
+            versus: [
+              "OK: def f, def g, then z = f(77). Both defs finish before the call.",
+              "Not OK: def f, z = f(77), then def g. The call happens while g does not exist yet.",
+              "Local n vs global n: same spelling, two boxes. Assignment inside the function does not write the outer n.",
+            ],
+            code: [
+              {
+                title: "Local scope — inner n is not outer n",
+                source:
+                  "def stupid(x):\n    n = 17          # local; not the n below\n    return x\n\nn = 7\nv = stupid(28)\n# n is still 7; v is 28",
+              },
+              {
+                title: "Define both functions before the call",
+                source:
+                  "# OK — g exists by the time f(77) runs\ndef f(x):\n    return g(x + 1)\ndef g(y):\n    return y + 3\nz = f(77)          # g(78) → 81\n\n# NOT OK — f(77) runs before g is defined\n# def f(x):\n#     return g(x + 1)\n# z = f(77)        # NameError: g is not defined\n# def g(y):\n#     return y + 3",
+              },
+              {
+                title: "Recursion — factorial, base case first",
+                source:
+                  "def factorial(n):\n    if n <= 0:                 # base case; 0! = 1\n        return 1\n    else:\n        val = n * factorial(n - 1)\n        return val\n\n# factorial(3) → 3*factorial(2) → 2*factorial(1) → 1*factorial(0) → 1\n# unwind: 1, then 2, then 6",
+              },
+            ],
+            pythonBits: [
+              "Assignment inside a function makes that name local for the whole function (unless you later use global). The outer n is untouched.",
+              "def only binds the function name. The body waits until a call. That is why f may mention g in its body before g is defined, if the call comes after both defs.",
+              "Base case must run. factorial uses n <= 0 so 0 (and negatives) stop. Week 3 Lecture 18 goes deeper (lists, insertion sort, RecursionError).",
+            ],
+            trace: [
+              "n = 7; stupid(28) sets a local n = 17, returns 28; outer n is still 7",
+              "f(77) with g defined → g(78) → 81",
+              "factorial(3) → 3 * factorial(2) → 2 * factorial(1) → 1 * factorial(0) → 1, then 1, 2, 6",
+            ],
+            interview: [
+              {
+                q: "After n = 7 and stupid sets n = 17 inside, what is n?",
+                a: "Still 7. The n inside the function is a local name, a separate box from n outside.",
+              },
+              {
+                q: "Can f call g if g is defined below f in the file?",
+                a: "Yes, if both defs have run before you call f. Lookup happens at call time. Calling f before def g raises NameError.",
+              },
+              {
+                q: "What two parts does factorial need?",
+                a: "Base case: n <= 0 returns 1 (0! = 1). Recursive step: n * factorial(n-1), which is n × (n−1)!.",
+              },
+              {
+                q: "What is factorial(3)?",
+                a: "6. Unwind 3×(2×(1×1)).",
+              },
+            ],
+            pitfalls: [
+              "Expecting an assignment inside a function to change a global with the same name. It does not (without global).",
+              "Calling a function in the middle of a pair of mutually used defs. Order of def is free; order of the first call is not.",
+              "Missing the base case — factorial without n <= 0 never stops.",
+              "Confusing return(x) in stupid with 'it must have used n'. The local n was unused except as a demo of scope.",
+            ],
+          },
+        },
         { n: 10, title: "Examples", notes: null },
       ],
     },
