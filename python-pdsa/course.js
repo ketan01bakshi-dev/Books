@@ -365,6 +365,104 @@ window.PDSA_COURSE = {
           },
         },
         {
+          id: "list-methods",
+          title: "List Methods — append, extend, remove, sort, index",
+          topic: "List methods — grow, shrink, search, reorder",
+          notes: {
+            idea: "Lists grow, shrink, reorder, and search with methods. append adds one value; extend concatenates a sequence in place; remove deletes the first match; reverse and sort reorder the same object; index finds the leftmost position.",
+            why: [
+              "list1.append(v) extends list1 by a single value v. The list object stays the same; it just gets one more slot.",
+              "list1.extend(list2) extends list1 by a list of values — the in-place equivalent of list1 = list1 + list2, without allocating a new list or rebinding the name.",
+              "list1.remove(x) removes the first occurrence of x. It is an error if no copy of x exists in list1 (ValueError).",
+              "l.reverse() reverses l in place. l.sort() sorts l in ascending order, also in place. Both return None — do not assign the result back.",
+              "l.index(x) is the leftmost position of x in l. Guard with if x in l, or you get ValueError when x is missing.",
+            ],
+            versus: [
+              "append(v) adds v as one element. append([1, 2]) makes a nested list. extend([1, 2]) adds 1 then 2.",
+              "extend(list2) mutates list1. list1 = list1 + list2 builds a new list and rebinds the name — aliases keep the old object.",
+              "remove(x) deletes by value (first hit). del l[i] / pop(i) delete by index.",
+              "l.index(x) is leftmost. Strings have rindex for the rightmost character; lists do not. Walk from the end, or use a reverse scan.",
+              "l.sort() mutates. sorted(l) returns a new list and leaves l alone.",
+            ],
+            code: [
+              {
+                title: "append one value, extend a sequence",
+                source:
+                  "list1 = [1, 3, 5]\nlist1.append(7)            # [1, 3, 5, 7]  — one value\nlist1.append([9, 11])      # [1, 3, 5, 7, [9, 11]]  — nested\nlist1 = [1, 3, 5]\nlist1.extend([7, 9])       # [1, 3, 5, 7, 9]  — flattened in\n# in-place equivalent of list1 = list1 + [7, 9]",
+              },
+              {
+                title: "remove first occurrence — error if missing",
+                source:
+                  "list1 = [3, 1, 3, 2]\nlist1.remove(3)            # [1, 3, 2]  — first 3 only\n# list1.remove(99)         # ValueError: list.remove(x): x not in list\nif 99 in list1:\n    list1.remove(99)",
+              },
+              {
+                title: "reverse and sort in place",
+                source:
+                  "l = [3, 1, 4, 1]\nl.reverse()                # [1, 4, 1, 3]\nl.sort()                   # [1, 1, 3, 4]\n# wrong: l = l.sort()      # l becomes None",
+              },
+              {
+                title: "index — leftmost; guard the miss",
+                source:
+                  "l = [\"a\", \"b\", \"a\"]\nl.index(\"a\")               # 0  — leftmost\nif \"c\" in l:\n    l.index(\"c\")\nelse:\n    # missing — do not call index\n    pass\n\n# rightmost on a list (there is no list.rindex)\ndef rindex(l, x):\n    for i in range(len(l) - 1, -1, -1):\n        if l[i] == x:\n            return i\n    raise ValueError(f\"{x!r} is not in list\")",
+              },
+            ],
+            pythonBits: [
+              "append, extend, remove, reverse, sort all mutate and return None. Printing l.sort() prints None; the list is sorted anyway.",
+              "index and remove raise ValueError if x is not in the list. The slide's dodge is if x in l first — that is a second linear scan.",
+              "str has index and rindex. list has index only. The slide writes l.rindex(x) for the idea “rightmost position”; that method is not on list.",
+              "list.index(x, start, end) can restrict the search window. Still leftmost inside that window.",
+              "extend(iterable) walks any iterable, not just lists: extend(\"ab\") appends \"a\" then \"b\".",
+            ],
+            complexity: [
+              "append is O(1) amortized. extend of k items is O(k).",
+              "index, remove, and x in l are O(n) scans.",
+              "reverse is O(n). sort is O(n log n) (Timsort).",
+              "Repeated list1 = list1 + [v] inside a loop is O(n²) copying; append is the fix (same point as collecting primes).",
+            ],
+            trace: [
+              "[1, 3, 5].append(7) → [1, 3, 5, 7]; same object",
+              "[1, 3, 5].append([7, 9]) → [1, 3, 5, [7, 9]]",
+              "[1, 3, 5].extend([7, 9]) → [1, 3, 5, 7, 9]",
+              "[3, 1, 3].remove(3) → [1, 3]  — only the first 3",
+              "[3, 1, 4].reverse() → [4, 1, 3]; then .sort() → [1, 3, 4]",
+              "[\"a\", \"b\", \"a\"].index(\"a\") → 0, not 2",
+            ],
+            interview: [
+              {
+                q: "What is the difference between append and extend?",
+                a: "append(v) adds one element v. extend(seq) adds each item of seq. append([1, 2]) nests; extend([1, 2]) flattens those two values in.",
+              },
+              {
+                q: "How is extend related to + ?",
+                a: "list1.extend(list2) is the in-place equivalent of list1 = list1 + list2. extend mutates the same object; + allocates a new list and rebinds the name.",
+              },
+              {
+                q: "What does remove(x) do if x appears twice? If it is missing?",
+                a: "Deletes the first occurrence only. If x is not in the list, ValueError. Guard with if x in l, or catch the error.",
+              },
+              {
+                q: "Does l.sort() return the sorted list?",
+                a: "No. It sorts in place and returns None. Same for reverse(). Use sorted(l) if you need a new list.",
+              },
+              {
+                q: "How do you find the leftmost vs rightmost position of x?",
+                a: "l.index(x) is leftmost. Lists have no rindex (strings do). Scan from the end, or compute len(l) - 1 - l[::-1].index(x) after checking membership.",
+              },
+              {
+                q: "How do you avoid index / remove crashing?",
+                a: "Check if x in l first. Both membership and index walk the list, so you pay two scans — still clearer than a bare call in interview code.",
+              },
+            ],
+            pitfalls: [
+              "append(list2) when you meant extend(list2) — you nested a list instead of concatenating.",
+              "l = l.sort() or l = l.reverse() — l is now None.",
+              "remove or index without a membership check — ValueError on a miss.",
+              "Assuming list.rindex exists because the slide wrote l.rindex(x). That method is on str.",
+              "Using + in a grow-the-list loop instead of append — quadratic copies, and aliases do not see the new list.",
+            ],
+          },
+        },
+        {
           id: "range-loops",
           title: "Repeating n Times — range()",
           topic: "Repeating n times — range()",
@@ -568,8 +666,151 @@ window.PDSA_COURSE = {
       color: "#3d6b63",
       topics: [
         { id: "range-advanced", title: "Range Slices & Stepping", notes: null },
-        { id: "list-mutation", title: "Manipulating Lists in Memory", notes: null },
-        { id: "loop-control", title: "Loop Breaking & Early Exit", notes: null },
+        {
+          id: "list-mutation",
+          title: "Manipulating Lists in Memory",
+          topic: "In-place list mutation vs new lists",
+          notes: {
+            idea: "append, extend, remove, reverse, and sort edit the existing list object. Every alias sees the change. Concatenation with + allocates a new list and rebinds one name — other names keep the old object.",
+            why: [
+              "A list is a mutable object in memory. Methods that work in place overwrite that object; they do not return a replacement.",
+              "That is why list2 = list1 followed by list1.append(9) or list1.reverse() also changes list2: two names, one object.",
+              "list1 = list1 + list2 looks similar to extend but is not: + builds a new list, then assignment points list1 at it. list2 is untouched.",
+              "If you need a mutated copy and a pristine original, copy first (list2 = list1[:]) then mutate one of them.",
+            ],
+            versus: [
+              "In place: append, extend, remove, reverse, sort. Same id(), aliases updated.",
+              "New list: +, slicing, sorted(l), list(reversed(l)). New id(), aliases unchanged.",
+              "l.sort() vs sorted(l): mutate vs copy. l.reverse() vs l[::-1]: mutate vs copy.",
+            ],
+            code: [
+              {
+                title: "In-place methods leak through aliases",
+                source:
+                  "list1 = [1, 3, 5]\nlist2 = list1              # alias\nlist1.append(7)\nlist1.extend([9])\nlist1.reverse()\n# list2 is [9, 7, 5, 3, 1] — same object",
+              },
+              {
+                title: "+ rebinds; extend does not",
+                source:
+                  "list1 = [1, 3, 5]\nlist2 = list1\nlist1 = list1 + [7]        # new list; list2 still [1, 3, 5]\n\nlist1 = [1, 3, 5]\nlist2 = list1\nlist1.extend([7])          # same list; list2 is [1, 3, 5, 7]",
+              },
+              {
+                title: "Copy, then mutate one side",
+                source:
+                  "list1 = [3, 1, 2]\nlist2 = list1[:]\nlist1.sort()\n# list1 is [1, 2, 3]; list2 is still [3, 1, 2]",
+              },
+            ],
+            pythonBits: [
+              "id(list1) is unchanged after append/extend/remove/reverse/sort. It changes after list1 = list1 + extra.",
+              "None is the return value of in-place methods. The list in memory is the result.",
+              "Shallow copy ([:]) duplicates the outer list only. Nested lists inside are still shared.",
+            ],
+            trace: [
+              "list2 = list1; list1.append(9) → both […, 9]",
+              "list2 = list1; list1 = list1 + [9] → list1 has 9, list2 does not",
+              "list2 = list1[:]; list1.sort() → only list1 is sorted",
+              "l = l.reverse() → l is None, original order still reversed in the orphaned object if anything else names it",
+            ],
+            interview: [
+              {
+                q: "list2 = list1; list1.extend([9]). What is list2?",
+                a: "The extended list. extend mutates the shared object. Contrast with list1 = list1 + [9], which leaves list2 unchanged.",
+              },
+              {
+                q: "Why does the primes example prefer append over + ?",
+                a: "plist + [i] copies the whole accumulator each time (O(n²) over n primes) and rebinds the name. append grows the same object in amortized O(1).",
+              },
+              {
+                q: "How do you sort without destroying the original?",
+                a: "sorted(l), or copy then sort: copy = l[:]; copy.sort(). Do not write l = l.sort().",
+              },
+            ],
+            pitfalls: [
+              "Mutating through an alias and wondering why “the other list” changed — there is only one list.",
+              "Believing extend and + are interchangeable when other names still point at the original.",
+              "Sorting or reversing a list you still needed in input order.",
+            ],
+          },
+        },
+        {
+          id: "loop-control",
+          title: "Loop Breaking & Early Exit",
+          topic: "for-else: break vs normal termination",
+          notes: {
+            idea: "A for loop can have an else. That else runs only on normal termination — the loop finished without hitting break. Use it to mean “never found”, not as an if-else.",
+            why: [
+              "Searching a list: on a match, record the index and break. If the loop runs to the end, the value is absent.",
+              "Python attaches else to the loop, not to the if inside. No break ⇒ else runs. break ⇒ else is skipped.",
+              "Do not initialise pos = -1 before the loop. The else clause is that assignment. The slide crosses out the pre-loop pos = -1.",
+            ],
+            versus: [
+              "for-else else: “loop was not broken”. if-else else: “condition was false”. Easy to misread.",
+              "findpos with for-else vs l.index(v): index raises ValueError on a miss; findpos returns -1.",
+              "Immediate return on match is equivalent and often clearer; for-else is the language feature the slide is teaching.",
+            ],
+            code: [
+              {
+                title: "findpos — else means no break",
+                source:
+                  "def findpos(l, v):\n    for i in range(len(l)):\n        if l[i] == v:      # exit, report position\n            pos = i\n            break\n    else:\n        pos = -1           # no break, v not in l\n    return pos",
+              },
+              {
+                title: "Same idea with early return (else optional)",
+                source:
+                  "def findpos(l, v):\n    for i in range(len(l)):\n        if l[i] == v:\n            return i\n    return -1",
+              },
+              {
+                title: "Wrong: pre-seed pos = -1 (slide crosses this out)",
+                source:
+                  "# pos = -1   ← redundant if the for-else is present\n# the else *is* the not-found path",
+              },
+            ],
+            pythonBits: [
+              "else on for/while runs when the loop condition fails naturally — including when the sequence was empty (zero iterations, no break).",
+              "return(pos) with parentheses is legal; return pos is the usual spelling.",
+              "while loops have the same else. break skips it; a failing condition runs it.",
+              "l.index(v) is the library form of “leftmost position”. findpos is how you write the scan, and how you return -1 instead of raising.",
+            ],
+            complexity: [
+              "findpos is O(n): one pass, stop at the first match (best O(1), worst O(n)).",
+              "if v in l before l.index(v) is two scans in the hit-at-the-end / miss cases. A single loop (or try/except around index) does the work once.",
+            ],
+            trace: [
+              "findpos([4, 7, 2], 7) → i=0 miss, i=1 hit, pos=1, break, else skipped, return 1",
+              "findpos([4, 7, 2], 9) → i=0,1,2 all miss, no break, else sets pos=-1, return -1",
+              "findpos([], 1) → range(0) is empty, else runs immediately, return -1",
+              "findpos([5, 5], 5) → leftmost 0, not 1",
+            ],
+            interview: [
+              {
+                q: "When does a for-loop else run?",
+                a: "When the loop terminates normally — it did not break. Empty sequences run the else immediately.",
+              },
+              {
+                q: "Write findpos(l, v) with for-else.",
+                a: "Loop i over range(len(l)); on l[i] == v set pos = i and break. else: pos = -1. Return pos. Do not seed pos = -1 before the loop.",
+              },
+              {
+                q: "Why not pos = -1 before the for?",
+                a: "The else already means “no break, v not in l”. Pre-initialising duplicates that path and hides what for-else is for. The slide marks it as wrong.",
+              },
+              {
+                q: "How does this differ from l.index(v)?",
+                a: "index raises ValueError if v is missing. findpos returns -1. Same leftmost-match scan.",
+              },
+              {
+                q: "Is the else attached to the if?",
+                a: "No. Indentation hangs it on for. if l[i] == v has no else in this pattern.",
+              },
+            ],
+            pitfalls: [
+              "Reading for-else as if-else: thinking else means “the if was false on this iteration”. It means the loop never broke.",
+              "Initialising pos = -1 and also using else — the slide’s crossed-out version.",
+              "Forgetting break after a hit — the loop keeps going and else never runs, but pos becomes the last match instead of the first.",
+              "Calling l.index without a guard when the interview asked for a -1 miss sentinel.",
+            ],
+          },
+        },
         { id: "binary-search", title: "Arrays vs Lists & Binary Search", notes: null },
         { id: "efficiency-intro", title: "Algorithmic Efficiency & Orders of Growth", notes: null },
         { id: "selection-sort", title: "Selection Sort", notes: null },
@@ -791,6 +1032,42 @@ window.PDSA_COURSE = {
       target: { domainId: "types", topicId: "lists" },
       label: "List concatenation vs append",
       concept: "nprimes accumulates primes via plist + [i] creating a new list each time, contrasting with in-place mutation.",
+    },
+    {
+      source: { domainId: "types", topicId: "list-methods" },
+      target: { domainId: "types", topicId: "lists" },
+      label: "Methods vs + / slice",
+      concept: "append, extend, remove, reverse, and sort mutate the same object that aliasing already made dangerous; + and [:] allocate new lists.",
+    },
+    {
+      source: { domainId: "types", topicId: "list-methods" },
+      target: { domainId: "types", topicId: "primes-while" },
+      label: "append vs + in a loop",
+      concept: "Growing a list with + copies every time; append is the amortized O(1) in-place grow used instead of plist + [i].",
+    },
+    {
+      source: { domainId: "types", topicId: "list-methods" },
+      target: { domainId: "recursion", topicId: "list-mutation" },
+      label: "In-place vs rebind",
+      concept: "The method list (append/extend/remove/sort) is what actually overwrites the object in memory; mutation vs + is the aliasing punchline.",
+    },
+    {
+      source: { domainId: "types", topicId: "list-methods" },
+      target: { domainId: "recursion", topicId: "loop-control" },
+      label: "index vs findpos",
+      concept: "l.index(x) raises on a miss; findpos with for-else returns -1. Both are a leftmost linear scan.",
+    },
+    {
+      source: { domainId: "types", topicId: "lists" },
+      target: { domainId: "recursion", topicId: "loop-control" },
+      label: "Search a list",
+      concept: "Linear search walks list indices; for-else is the control-flow form of “found at i / not in l”.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "list-mutation" },
+      target: { domainId: "types", topicId: "lists" },
+      label: "Aliases see in-place edits",
+      concept: "list2 = list1 plus append/reverse/sort changes list2; list1 = list1 + extra does not.",
     },
     {
       source: { domainId: "recursion", topicId: "recursion-core" },

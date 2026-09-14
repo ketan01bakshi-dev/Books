@@ -5,7 +5,7 @@
 
 Living notebook for core algorithms and language mechanics. The visual knowledge graph in `index.html` connects these conceptual domains; filled topics light up and provide instant interview flashcards.
 
-**Ready topics:** Euclid's remainder algorithm, numeric values (int/float/bool), string slices & immutability, list operations & aliasing, loop repetition with `range()`, function namespaces & execution order, dynamic scanning with `while` (first n primes), and inductive recursion.
+**Ready topics:** Euclid's remainder algorithm, numeric values (int/float/bool), string slices & immutability, list operations & aliasing, list methods (`append` / `extend` / `remove` / `sort` / `index`), in-place mutation vs new lists, `for`-`else` search (`findpos`), loop repetition with `range()`, function namespaces & execution order, dynamic scanning with `while` (first n primes), and inductive recursion.
 
 ---
 
@@ -276,6 +276,69 @@ list1 = list1 + [9]        # rebinds list1; list2 still [1,3,5,7]
 - `l[:]` is shallow: inner lists still shared.
 - Using `is` to compare list contents.
 
+### List Methods — append, extend, remove, sort, index
+
+**One line.** `append` adds one value; `extend` concatenates in place; `remove` deletes the first match; `reverse` / `sort` reorder the same object; `index` is the leftmost position.
+
+**Grow.**
+
+```python
+list1 = [1, 3, 5]
+list1.append(7)            # [1, 3, 5, 7]  — one value
+list1.append([9, 11])      # [1, 3, 5, 7, [9, 11]]  — nested
+list1 = [1, 3, 5]
+list1.extend([7, 9])       # [1, 3, 5, 7, 9]
+# in-place equivalent of list1 = list1 + [7, 9]
+```
+
+**Shrink.** `remove(x)` deletes the **first** occurrence. Error if `x` is not in the list.
+
+```python
+list1 = [3, 1, 3, 2]
+list1.remove(3)            # [1, 3, 2]
+# list1.remove(99)         # ValueError
+if 99 in list1:
+    list1.remove(99)
+```
+
+**Reorder in place.** Both return `None` — do not assign the result back.
+
+```python
+l = [3, 1, 4, 1]
+l.reverse()                # [1, 4, 1, 3]
+l.sort()                   # [1, 1, 3, 4]
+# wrong: l = l.sort()      # l becomes None
+```
+
+**Search.** `l.index(x)` is leftmost. Guard with `if x in l`. Lists have **no** `rindex` (strings do).
+
+```python
+l = ["a", "b", "a"]
+l.index("a")               # 0
+
+def rindex(l, x):
+    for i in range(len(l) - 1, -1, -1):
+        if l[i] == x:
+            return i
+    raise ValueError(f"{x!r} is not in list")
+```
+
+**Interview questions.**
+
+1. `append` vs `extend`? → one element vs each item of a sequence. `append([1, 2])` nests.
+2. `extend` vs `+`? → mutate same object vs new list and rebind.
+3. `remove` twice / missing? → first hit only; `ValueError` if absent.
+4. Does `sort()` return the list? → No, `None`. Use `sorted(l)` for a copy.
+5. Leftmost vs rightmost? → `index`; walk from the end (`rindex` is a `str` method).
+6. Avoid crash on `index` / `remove`? → `if x in l` first.
+
+**Pitfalls.**
+
+- `append(list2)` when you meant `extend`.
+- `l = l.sort()` or `l = l.reverse()` → `None`.
+- Bare `index` / `remove` → `ValueError`.
+- Believing `list.rindex` exists because a slide wrote `l.rindex(x)`.
+
 ### Repeating n Times — range()
 
 **One line.** To do something exactly n times, use `range`. `range(0, n)` is `0, 1, …, n−1` (n values, **stop excluded**). Same half-open rule as a slice.
@@ -434,11 +497,95 @@ def nprimes(n):
 
 ### Manipulating Lists in Memory
 
-- 
+**One line.** `append`, `extend`, `remove`, `reverse`, and `sort` edit the existing list object. Every alias sees the change. `+` allocates a new list and rebinds one name.
+
+**In-place leaks through aliases.**
+
+```python
+list1 = [1, 3, 5]
+list2 = list1              # alias
+list1.append(7)
+list1.extend([9])
+list1.reverse()
+# list2 is [9, 7, 5, 3, 1] — same object
+```
+
+**`+` rebinds; `extend` does not.**
+
+```python
+list1 = [1, 3, 5]
+list2 = list1
+list1 = list1 + [7]        # new list; list2 still [1, 3, 5]
+
+list1 = [1, 3, 5]
+list2 = list1
+list1.extend([7])          # same list; list2 is [1, 3, 5, 7]
+```
+
+**Copy, then mutate one side.**
+
+```python
+list1 = [3, 1, 2]
+list2 = list1[:]
+list1.sort()
+# list1 is [1, 2, 3]; list2 is still [3, 1, 2]
+```
+
+**Interview questions.**
+
+1. `list2 = list1; list1.extend([9])`. `list2`? → the extended list. Contrast `list1 = list1 + [9]`.
+2. Why prefer `append` over `+` when collecting primes? → `+` copies each time (`O(n²)`); `append` is amortized `O(1)` on the same object.
+3. Sort without destroying the original? → `sorted(l)`, or copy then `.sort()`. Never `l = l.sort()`.
+
+**Pitfalls.**
+
+- Mutating through an alias and thinking there were two lists.
+- Treating `extend` and `+` as interchangeable while another name still points at the original.
+- Sorting or reversing a list still needed in input order.
 
 ### Loop Breaking & Early Exit
 
-- 
+**One line.** A `for` loop may have an `else`. That `else` runs only on **normal termination** (no `break`) — “never found”. Do **not** seed `pos = -1` before the loop.
+
+**`findpos` — `else` means no `break`.**
+
+```python
+def findpos(l, v):
+    for i in range(len(l)):
+        if l[i] == v:      # exit, report position
+            pos = i
+            break
+    else:
+        pos = -1           # no break, v not in l
+    return pos
+```
+
+The slide crosses out `pos = -1` above the `for`. The `else` *is* that assignment.
+
+**Same idea with early return.**
+
+```python
+def findpos(l, v):
+    for i in range(len(l)):
+        if l[i] == v:
+            return i
+    return -1
+```
+
+**Interview questions.**
+
+1. When does `for`-`else` run? → the loop did not `break` (including zero iterations).
+2. Write `findpos(l, v)` with `for`-`else`. → match: `pos = i; break`. `else: pos = -1`.
+3. Why not `pos = -1` before the loop? → duplicates the `else` and hides the feature.
+4. vs `l.index(v)`? → `index` raises `ValueError` on a miss; `findpos` returns `-1`.
+5. Is the `else` attached to the `if`? → No. It hangs on `for`.
+
+**Pitfalls.**
+
+- Reading `for`-`else` as `if`-`else`.
+- Initialising `pos = -1` *and* using `else`.
+- Forgetting `break` after a hit — you report the last match, not the first.
+- Using unguarded `l.index` when the miss sentinel should be `-1`. 
 
 ### Arrays vs Lists & Binary Search
 
