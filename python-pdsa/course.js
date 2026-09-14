@@ -931,12 +931,12 @@ window.PDSA_COURSE = {
               {
                 title: "Growth classes we actually name",
                 source:
-                  "# T(n) ~  log n | n | n log n | n^2 | n^3 | 2^n | n!\n# search miss:     linear scan O(n)\n#                 binary search O(log n)  — sorted array\n#\n# rule of thumb: Python ≈ 10**7 steps / second\n# 2**10 == 1024\n# 2**20 ≈ 10**6\n# 2**30 ≈ 10**9",
+                  "# classes:  log n | n | n log n | n^2 | 2^n | n!\n# miss:     linear O(n)\n#           binary O(log n)  — sorted array\n# Python ≈ 1e7 steps / second\n# 2^10 = 1024    2^20 ≈ 1e6    2^30 ≈ 1e9",
               },
               {
                 title: "What one second of Python can finish",
                 source:
-                  "# n = 10**6  →  n is 10**6        (~0.1 s)\n#             n log2 n ≈ 2*10**7  (~2 s)   still talkable\n#             n**2 = 10**12       (~1e5 s) no\n# n = 10     →  2**n = 1024, n! = 3_628_800\n# n = 100    →  2**n ≈ 10**30     fantasy",
+                  "# n = 1e6   n          ~ 0.1 s\n#           n log2 n   ~ 2 s\n#           n^2 = 1e12   no\n# n = 10    2^n = 1024,  10! ≈ 3.6e6\n# n = 100   2^n ≈ 1e30   fantasy",
               },
             ],
             pythonBits: [
