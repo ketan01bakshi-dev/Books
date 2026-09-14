@@ -907,7 +907,92 @@ window.PDSA_COURSE = {
             ],
           },
         },
-        { id: "efficiency-intro", title: "Algorithmic Efficiency & Orders of Growth", notes: null },
+        {
+          id: "efficiency-intro",
+          title: "Algorithmic Efficiency & Orders of Growth",
+          topic: "Worst-case T(n), Big-O classes, and why we sort",
+          notes: {
+            idea: "Efficiency is T(n): time as a function of input size n, usually in the worst case. Big-O names the growth class — log n, n, n log n, n², 2ⁿ — not the exact constant. Python does about 10⁷ elementary steps per second; that budget is why n² dies at a million and 2ⁿ dies immediately.",
+            why: [
+              "T(n) asks how the running time scales when the input grows, not how many seconds one laptop took yesterday.",
+              "We report worst-case behaviour. For search, that is “v is not in seq”: every cell (linear) or every halving (binary) until the empty interval.",
+              "Worst case is easier to calculate than average case, which needs a distribution over inputs.",
+              "O() ignores constants and lower-order terms. The question is: is T(n) proportional to log n, n, n log n, n², n³, 2ⁿ, …?",
+              "Linear scan is O(n) for both arrays and linked lists (you look at each value once). Binary search is O(log n) only for sorted arrays.",
+              "Sorting is not only for pretty output. After an O(n log n) sort you get O(log n) search, the median as the midpoint, adjacent-duplicate checks, and a frequency table in one ordered pass.",
+            ],
+            versus: [
+              "Worst case vs average case: missing element vs “typical” hit. Interviews want worst case unless they say otherwise.",
+              "O(n) linear scan vs O(log n) binary search: unsorted vs already sorted array. Paying to sort first is worth it if you search many times.",
+              "Polynomial (n, n log n, n²) vs exponential/factorial (2ⁿ, n!): the table’s red wall. n=100 is fine for linear; 2¹⁰⁰ is not a number you run.",
+              "This course writes T(n)=O(f(n)) to mean “grows like f”. Strictly, O is an upper bound; Θ is “same order”. Interviewers often say O for both.",
+            ],
+            code: [
+              {
+                title: "Growth classes we actually name",
+                source:
+                  "# T(n) ~  log n | n | n log n | n^2 | n^3 | 2^n | n!\n# search miss:     linear scan O(n)\n#                 binary search O(log n)  — sorted array\n#\n# rule of thumb: Python ≈ 10**7 steps / second\n# 2**10 == 1024\n# 2**20 ≈ 10**6\n# 2**30 ≈ 10**9",
+              },
+              {
+                title: "What one second of Python can finish",
+                source:
+                  "# n = 10**6  →  n is 10**6        (~0.1 s)\n#             n log2 n ≈ 2*10**7  (~2 s)   still talkable\n#             n**2 = 10**12       (~1e5 s) no\n# n = 10     →  2**n = 1024, n! = 3_628_800\n# n = 100    →  2**n ≈ 10**30     fantasy",
+              },
+            ],
+            pythonBits: [
+              "The 10⁷ steps/s figure is a teaching budget, not a benchmark. C is faster; I/O is slower; the shape of T(n) is what matters.",
+              "log n in the table is log₂ n: 2¹⁰=1024 so log₂(10⁶)≈20. An extra 10 in the exponent of n adds about 3.3 to log₂ n.",
+              "n log n at n=10⁶ is about 20×10⁶ = 2×10⁷ — the circled 10⁷ on the slide is the same order as one Python second.",
+              "Empty cells past the staircase mean “do not bother”: n² at 10⁵ is already 10¹⁰ steps; 2ⁿ at 100 is 10³⁰.",
+            ],
+            complexity: [
+              "Linear scan (findpos, v in seq, unsorted): O(n) worst case — v absent.",
+              "Binary search on a sorted array: O(log n) worst case — v absent, interval shrinks to empty.",
+              "Comparison sort (later): O(n log n) typical optimal worst case; then median, unique, frequencies are O(n) on the sorted data.",
+              "Feasible in ~1s of Python (order-of-magnitude): log n and n up to 10⁷–10⁸; n log n up to ~10⁶; n² up to ~10³–10⁴; n³ smaller; 2ⁿ only tiny n; n! even tinier.",
+            ],
+            trace: [
+              "Search miss in 10⁶ cells, linear: ~10⁶ steps, under a second",
+              "Same miss, sorted + binary: ~20 comparisons (log₂ 10⁶≈20)",
+              "Sort 10⁶ items at n log n ≈ 2×10⁷ steps — about one Python second, then every later search is cheap",
+              "n=10: 2¹⁰=1024, 10!≈3.6×10⁶ — factorial already near the 1s budget",
+              "n=100: 2¹⁰⁰≈10³⁰, 100! is 10¹⁵⁷-scale — not runnable",
+            ],
+            interview: [
+              {
+                q: "What is T(n)? Which case do we quote?",
+                a: "Running time as a function of input size n. Usually worst case. For search, that is “v not present”. Worst case is easier than a genuine average.",
+              },
+              {
+                q: "What does T(n)=O(n) mean here?",
+                a: "Time grows proportionally to n — the linear class. Same language for O(log n), O(n log n), O(n²), O(2ⁿ). Constants are stripped so we can compare shapes.",
+              },
+              {
+                q: "Linear scan vs binary search?",
+                a: "Unsorted array (or any list you must walk): O(n). Sorted array with O(1) index: O(log n). Linear scan is O(n) for arrays and linked lists alike.",
+              },
+              {
+                q: "Python budget?",
+                a: "About 10⁷ elementary steps per second. n=10⁶ linear is fine; n=10⁶ quadratic is 10¹² steps. 2ⁿ and n! leave the table almost immediately.",
+              },
+              {
+                q: "Why sort if you only wanted to search?",
+                a: "One O(n log n) sort, then each search is O(log n). Also: median is the middle of the sorted sequence; duplicates sit next to each other; a frequency table is a single grouped pass.",
+              },
+              {
+                q: "Name the powers of two on the slide.",
+                a: "2¹⁰=1024, 2²⁰≈10⁶, 2³⁰≈10⁹. So log₂ of a million is 20.",
+              },
+            ],
+            pitfalls: [
+              "Quoting best-case search (“found at index 0”) as the complexity.",
+              "Writing O(log n) for binary search on a linked list or on unsorted data.",
+              "Treating O(n) and O(n²) as “both polynomial so both fine” at n=10⁶.",
+              "Memorising 10⁷ as a law of physics rather than a Python-order budget.",
+              "Forgetting that sorting pays rent: median, duplicates, histograms, not only binary search.",
+            ],
+          },
+        },
         { id: "selection-sort", title: "Selection Sort", notes: null },
         { id: "insertion-sort", title: "Insertion Sort", notes: null },
         {
@@ -1199,6 +1284,30 @@ window.PDSA_COURSE = {
       target: { domainId: "datastructures", topicId: "linked-lists" },
       label: "Algorithms may not transfer",
       concept: "Binary search is O(log n) only with O(1) seq[i]. On a linked list the same idea is not logarithmic.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "efficiency-intro" },
+      target: { domainId: "recursion", topicId: "binary-search" },
+      label: "O(n) vs O(log n)",
+      concept: "Linear scan is O(n) even on arrays; binary search is O(log n) and only on sorted arrays. Worst case is a miss.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "efficiency-intro" },
+      target: { domainId: "recursion", topicId: "loop-control" },
+      label: "Worst-case linear scan",
+      concept: "findpos returning -1 is the worst case T(n)=Θ(n) that Big-O analysis quotes for search.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "efficiency-intro" },
+      target: { domainId: "gcd", topicId: "gcd-euclid" },
+      label: "Logarithmic T(n)",
+      concept: "Euclid’s remainder gcd is O(log min(m,n)), the same growth class as binary search, not the naive linear scan of candidates.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "efficiency-intro" },
+      target: { domainId: "sorting", topicId: "mergesort" },
+      label: "Pay n log n to sort",
+      concept: "Sorting is the n log n investment that unlocks log n search, the median, duplicate checks, and frequency tables.",
     },
     {
       source: { domainId: "recursion", topicId: "recursion-core" },

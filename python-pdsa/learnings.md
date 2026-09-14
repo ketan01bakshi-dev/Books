@@ -5,7 +5,7 @@
 
 Living notebook for core algorithms and language mechanics. The visual knowledge graph in `index.html` connects these conceptual domains; filled topics light up and provide instant interview flashcards.
 
-**Ready topics:** Euclid's remainder algorithm, numeric values (int/float/bool), string slices & immutability, list operations & aliasing, list methods (`append` / `extend` / `remove` / `sort` / `index`), in-place mutation vs new lists, `for`-`else` search (`findpos`), arrays vs linked lists & binary search (`O(log n)` only with `O(1)` index), loop repetition with `range()`, function namespaces & execution order, dynamic scanning with `while` (first n primes), and inductive recursion.
+**Ready topics:** Euclid's remainder algorithm, numeric values (int/float/bool), string slices & immutability, list operations & aliasing, list methods (`append` / `extend` / `remove` / `sort` / `index`), in-place mutation vs new lists, `for`-`else` search (`findpos`), arrays vs linked lists & binary search (`O(log n)` only with `O(1)` index), worst-case `T(n)` and Big-O growth (Python ~`10^7` steps/s), loop repetition with `range()`, function namespaces & execution order, dynamic scanning with `while` (first n primes), and inductive recursion.
 
 ---
 
@@ -648,11 +648,33 @@ def contains(seq, v):
 - `/` instead of `//`, or inclusive bounds that stall on a miss.
 - Copying `T(n)=1+T(n/2)` onto a linked list.
 
-### Algorithmic Efficiency & Orders of Growth 
-
 ### Algorithmic Efficiency & Orders of Growth
 
-- 
+**One line.** `T(n)` is time as a function of input size, usually **worst case**. Big-O names the growth class. Python does about **10⁷ steps per second** — that is why `n²` dies at a million and `2ⁿ` dies immediately.
+
+**Worst case.** For search, that is “`v` is not in `seq`”. Worst case is easier to compute than a genuine average (which needs a distribution).
+
+**O() notation.** We care whether `T(n)` is proportional to `log n`, `n`, `n log n`, `n²`, `n³`, `2ⁿ`, … Linear scan is `O(n)` for arrays **and** lists. Binary search is `O(log n)` for **sorted arrays**.
+
+**Python budget (~10⁷ steps/s).** `2¹⁰=1024`, `2²⁰≈10⁶`, `2³⁰≈10⁹`. So `log₂(10⁶)≈20`. At `n=10⁶`, `n log n ≈ 2×10⁷` (about a second); `n²=10¹²` is not. `2ⁿ` and `n!` leave the table almost at once (`n=10` already: `2¹⁰=1024`, `10!≈3.6×10⁶`; `n=100` is fantasy).
+
+**Why sort.** Unsorted search is `O(n)`; sorted array search is `O(log n)`. Also: **median** = midpoint of the sorted sequence; **duplicates** sit next to each other; a **frequency table** is one grouped pass.
+
+**Interview questions.**
+
+1. What is `T(n)`? Which case? → time vs input size; usually worst case; for search, a miss.
+2. `T(n)=O(n)`? → grows like `n`; constants stripped.
+3. Linear vs binary? → `O(n)` unsorted / any walk; `O(log n)` sorted array.
+4. Python budget? → ~10⁷ steps/s; `n=10⁶` linear yes, quadratic no.
+5. Why sort besides searching? → median, duplicates, frequencies.
+6. Powers of two? → `2¹⁰=1024`, `2²⁰≈10⁶`, `2³⁰≈10⁹`.
+
+**Pitfalls.**
+
+- Best-case “found at 0” as the quoted complexity.
+- `O(log n)` on a linked list or unsorted data.
+- “Both polynomial” so `n²` at `n=10⁶` is fine.
+- Treating 10⁷ as a law of physics rather than a Python-order budget.
 
 ### Selection Sort
 
