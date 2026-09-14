@@ -835,7 +835,7 @@ window.PDSA_COURSE = {
               {
                 title: "bsearch — sorted seq[l:r], half-open",
                 source:
-                  "def bsearch(seq, v, l, r):\n    # search for v in seq[l:r]; seq is sorted\n    if r - l == 0:          # empty slice\n        return False\n    mid = (l + r) // 2      # integer division\n    if v == seq[mid]:\n        return True\n    if v < seq[mid]:\n        return bsearch(seq, v, l, mid)       # [l, mid)\n    else:\n        return bsearch(seq, v, mid + 1, r)   # [mid+1, r)\n\ndef contains(seq, v):\n    return bsearch(seq, v, 0, len(seq))",
+                  "def bsearch(seq, v, l, r):\n    # v in sorted seq[l:r]\n    if r - l == 0:\n        return False\n    mid = (l + r) // 2\n    if v == seq[mid]:\n        return True\n    if v < seq[mid]:\n        return bsearch(seq, v, l, mid)\n    else:\n        return bsearch(seq, v, mid + 1, r)\n\ndef contains(seq, v):\n    return bsearch(seq, v, 0, len(seq))",
               },
             ],
             pythonBits: [
