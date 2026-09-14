@@ -5,7 +5,7 @@
 
 Living notebook for core algorithms and language mechanics. The visual knowledge graph in `index.html` connects these conceptual domains; filled topics light up and provide instant interview flashcards.
 
-**Ready topics:** Euclid's remainder algorithm, numeric values (int/float/bool), string slices & immutability, list operations & aliasing, list methods (`append` / `extend` / `remove` / `sort` / `index`), in-place mutation vs new lists, `for`-`else` search (`findpos`), loop repetition with `range()`, function namespaces & execution order, dynamic scanning with `while` (first n primes), and inductive recursion.
+**Ready topics:** Euclid's remainder algorithm, numeric values (int/float/bool), string slices & immutability, list operations & aliasing, list methods (`append` / `extend` / `remove` / `sort` / `index`), in-place mutation vs new lists, `for`-`else` search (`findpos`), arrays vs linked lists & binary search (`O(log n)` only with `O(1)` index), loop repetition with `range()`, function namespaces & execution order, dynamic scanning with `while` (first n primes), and inductive recursion.
 
 ---
 
@@ -589,7 +589,66 @@ def findpos(l, v):
 
 ### Arrays vs Lists & Binary Search
 
-- 
+**One line.** An array is one contiguous block — `seq[i]` is an offset, `O(1)`. A linked list scatters nodes — `seq[i]` follows `i` pointers. Binary search halves a **sorted array**. It needs cheap indexing, so it does not transfer to linked lists. A Python `list` is a dynamic array; this course pretends it is an array.
+
+**Array.** Single block, uniform cells, size typically fixed in the abstract model. Indexing computes an offset from the start. Inserting between `seq[i]` and `seq[i+1]` shifts the tail; shrinking the block also moves cells — both expensive.
+
+**Linked list.** Values scattered; each node points to the next; size is flexible. Access `seq[i]` costs `i` links. Insert or delete is “plumbing” (retarget pointers) **if you are already at** `seq[i]`.
+
+**Operations.**
+
+| | Array | Linked list |
+|---|---|---|
+| `seq[i]` | `O(1)` | `O(i)` |
+| Swap `seq[i]`, `seq[j]` | `O(1)` | linear (walk to both) |
+| Insert/delete at known `seq[i]` | linear (shift) | `O(1)` pointers |
+
+Algorithms on one structure may not transfer. Flagged example: **binary search**.
+
+**Search problem.** Is `v` in `seq`? Structure (array vs list) matters. Organisation (sorted vs unsorted) matters.
+
+**Binary search** (sorted `seq`). Compare `v` to the midpoint. Equal → found. `v` smaller → left half. `v` larger → right half.
+
+```python
+def bsearch(seq, v, l, r):
+    # search for v in seq[l:r]; seq is sorted
+    if r - l == 0:          # empty slice
+        return False
+    mid = (l + r) // 2      # integer division
+    if v == seq[mid]:
+        return True
+    if v < seq[mid]:
+        return bsearch(seq, v, l, mid)       # [l, mid)
+    else:
+        return bsearch(seq, v, mid + 1, r)   # [mid+1, r)
+
+def contains(seq, v):
+    return bsearch(seq, v, 0, len(seq))
+```
+
+**Recurrence.** `T(0) = 1`, `T(n) = 1 + T(n/2)`. Unwind: `T(n) = k + T(n/2^k)` with `k = log₂ n` → `O(log n)`. That leading `1` is one **constant-time** `seq[mid]`. On a linked list, `T(n) = Θ(n) + T(n/2) = Θ(n)`.
+
+**Python lists.** Docs call them lists (efficient expand/contract at the end). Positional indexing lets us treat them as arrays. A real linked list is a later explicit type.
+
+**Interview questions.**
+
+1. Why is `seq[i]` `O(1)` in an array? → offset from the start of one block.
+2. Insert in the middle? → array shifts; list plumbing if already at the node.
+3. Swap costs? → `O(1)` array, linear list.
+4. Binary search on a linked list? → no `O(log n)`; needs `O(1)` `seq[mid]`.
+5. Write `bsearch` on `seq[l:r]`. → empty if `r-l==0`; `mid=(l+r)//2`; left `[l,mid)`, right `[mid+1,r)`.
+6. Why `//` and `mid+1`? → int index; exclude already-tested `mid`; make progress on length 1.
+7. Derive `O(log n)`. → unwind `1+T(n/2)` about `log₂ n` times. `2¹⁰ = 1024`.
+8. Python list: list or array? → dynamic array; course pretends array.
+
+**Pitfalls.**
+
+- Calling a Python `list` a linked list.
+- Binary search on unsorted data.
+- `/` instead of `//`, or inclusive bounds that stall on a miss.
+- Copying `T(n)=1+T(n/2)` onto a linked list.
+
+### Algorithmic Efficiency & Orders of Growth 
 
 ### Algorithmic Efficiency & Orders of Growth
 

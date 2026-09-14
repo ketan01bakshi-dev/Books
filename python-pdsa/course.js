@@ -811,7 +811,102 @@ window.PDSA_COURSE = {
             ],
           },
         },
-        { id: "binary-search", title: "Arrays vs Lists & Binary Search", notes: null },
+        {
+          id: "binary-search",
+          title: "Arrays vs Lists & Binary Search",
+          topic: "Arrays vs linked lists; binary search is O(log n) only with O(1) index",
+          notes: {
+            idea: "An array is one contiguous block of uniform cells — seq[i] is an arithmetic offset, O(1). A linked list scatters nodes; seq[i] follows i pointers, O(i). Binary search halves a sorted array. It needs cheap indexing, so it does not transfer to linked lists. Python’s list is an array we pretend is one.",
+            why: [
+              "Array: one memory block, typically fixed length in the abstract model. Address of seq[i] = start + i × cell size. Any i is constant time.",
+              "Inserting between seq[i] and seq[i+1] shifts the tail. Contracting (delete) also shifts. Both are linear in the number of cells moved.",
+              "Linked list: each node holds a value and a pointer to the next. Size is flexible. Insert or delete is plumbing — retarget two pointers — if you are already at seq[i]. Getting there costs i links.",
+              "Swap seq[i] and seq[j]: O(1) in an array, O(i+j) (linear) in a list because you must walk to both nodes.",
+              "Search question: is v in seq? The structure matters (array vs list) and so does organisation (sorted vs unsorted). Unsorted array still needs a linear scan. Sorted array can binary-search.",
+              "Binary search: compare v to the midpoint. Equal → found. Smaller → left half. Larger → right half. Empty slice → absent.",
+            ],
+            versus: [
+              "Array: O(1) index, O(n) insert/delete in the middle. Linked list: O(i) index, O(1) insert/delete at a known node.",
+              "findpos / l.index: linear scan, works on unsorted data. bsearch: logarithmic comparisons, requires sorted array and O(1) seq[mid].",
+              "T(n) = 1 + T(n/2) counts one comparison plus a half-size call. That 1 is honest only if seq[mid] is O(1). On a linked list the same code (or walking to mid) is not O(log n).",
+              "Python list vs course “list”: Python list is a dynamic array (contiguous, O(1) index, cheap append). The course “list” is a linked list. Later we implement that type for real; until then we treat Python lists as arrays.",
+            ],
+            code: [
+              {
+                title: "bsearch — sorted seq[l:r], half-open",
+                source:
+                  "def bsearch(seq, v, l, r):\n    # search for v in seq[l:r]; seq is sorted\n    if r - l == 0:          # empty slice\n        return False\n    mid = (l + r) // 2      # integer division\n    if v == seq[mid]:\n        return True\n    if v < seq[mid]:\n        return bsearch(seq, v, l, mid)       # [l, mid)\n    else:\n        return bsearch(seq, v, mid + 1, r)   # [mid+1, r)\n\ndef contains(seq, v):\n    return bsearch(seq, v, 0, len(seq))",
+              },
+            ],
+            pythonBits: [
+              "The interval is half-open, same fence as a slice: seq[l:r]. Empty means r - l == 0, not r < l as a special extra case if you keep r >= l.",
+              "Left recurse uses mid, not mid-1: mid is already not v, and [l:mid] excludes mid. Right recurse is mid+1, not mid.",
+              "(l + r) // 2 is floor division. 11 // 2 is 5. Do not use / — that would make mid a float.",
+              "Python lists document themselves as lists (grow and shrink cheaply at the end) but seq[i] is array indexing. This course pretends they are arrays until the linked-list implementation.",
+              "bisect in the standard library is the production binary search. Interviews still want you to write bsearch.",
+            ],
+            complexity: [
+              "Array seq[i]: O(1). Linked-list seq[i]: O(i).",
+              "Array insert/delete in the middle, or shrink the block: O(n) moves. Linked-list insert/delete at a known node: O(1) pointer updates.",
+              "Swap seq[i], seq[j]: O(1) array, linear in a list.",
+              "Binary search on an array: T(0) = 1, T(n) = 1 + T(n/2). Unwinds to 1+1+…+1 (log₂ n times) + T(1) = O(log n).",
+              "Seeing only a logarithmic fraction of the array is enough to prove an element is absent — that conclusion is illegal if you cannot jump to mid.",
+              "Same recurrence written for a linked list is a lie: each seq[mid] (or walk to mid) is Θ(n) from the head, and T(n) = Θ(n) + T(n/2) = Θ(n).",
+            ],
+            trace: [
+              "Array: seq[i] → offset i cells from the start of the block, any i",
+              "Insert at i in an array of 100: shift cells i..99 up by one",
+              "Linked list 0→2→1: seq[2] follows two pointers; insert after the node holding 2 is two pointer writes",
+              "bsearch([4,5,6,7], 6, 0, 4) → mid = 2, seq[2] == 6 → True",
+              "bsearch([4,5,6,7], 8, 0, 4) → mid=2 (6), 8>6 → [3,4] → mid=3 (7), 8>7 → [4,4] empty → False",
+              "T(8) = 1+T(4) = 2+T(2) = 3+T(1) = 4+T(0) → about log₂ 8 + 1 comparisons",
+              "2¹⁰ = 1024: twenty comparisons already cover a million-scale sorted array (2²⁰)",
+            ],
+            terminate:
+              "Each call shrinks [l, r) to a strictly smaller half (mid − l or r − (mid+1) is < r − l when r − l ≥ 1). Empty slice is the base case. If you recurse on [l, r] unchanged, or use / instead of //, you never hit r - l == 0.",
+            interview: [
+              {
+                q: "Why is seq[i] O(1) in an array and not in a linked list?",
+                a: "Array: one block, index is start + i × cell size. Linked list: values are scattered; you walk i next-pointers. Cost proportional to i.",
+              },
+              {
+                q: "Why is insert in the middle expensive in an array and cheap in a list?",
+                a: "Array: open a gap by shifting every later cell. List: if you already sit on seq[i], retarget pointers (“plumbing”). Finding that node is the expensive part.",
+              },
+              {
+                q: "Swap seq[i] and seq[j] — costs?",
+                a: "Constant in an array (two cells). Linear in a linked list (walk to i and to j, then swap values or relink).",
+              },
+              {
+                q: "Does binary search work on a linked list?",
+                a: "The algorithm needs seq[mid] in constant time. Linked lists do not give that, so the O(log n) bound dies. Algorithms on one structure may not transfer. Example the slides flag: binary search.",
+              },
+              {
+                q: "Write recursive binary search on seq[l:r].",
+                a: "Empty if r-l==0. mid=(l+r)//2. Equal → True. v < seq[mid] → [l,mid). Else [mid+1,r). seq must already be sorted.",
+              },
+              {
+                q: "Why // and why mid vs mid+1?",
+                a: "// keeps mid an int. Left interval excludes mid (already tested). Right starts at mid+1 so you do not retest mid and you make progress when the interval has length 1.",
+              },
+              {
+                q: "Derive T(n) = 1 + T(n/2) = O(log n).",
+                a: "T(0)=1. Unwind: T(n)=1+T(n/2)=k+T(n/2^k). Stop when n/2^k is constant, so k=Θ(log n). About log₂ n comparisons. 2¹⁰=1024.",
+              },
+              {
+                q: "Is a Python list a list or an array?",
+                a: "Docs call it a list and it grows/shrinks efficiently at the end (dynamic array). Indexing is array-like, O(1). This course pretends Python lists are arrays; a real linked list is a later, explicit type.",
+              },
+            ],
+            pitfalls: [
+              "Calling Python list a linked list. seq[i] being fast is the giveaway that it is an array.",
+              "Binary search on unsorted data — the left/right decision is a lie.",
+              "Using / instead of // for mid, or searching [l, mid] inclusive on both sides and looping forever on a miss.",
+              "Writing T(n)=1+T(n/2) for a linked list as if indexing were free.",
+              "Thinking “I only look at log n nodes, so any structure is O(log n)” — looking at seq[mid] may itself be linear.",
+            ],
+          },
+        },
         { id: "efficiency-intro", title: "Algorithmic Efficiency & Orders of Growth", notes: null },
         { id: "selection-sort", title: "Selection Sort", notes: null },
         { id: "insertion-sort", title: "Insertion Sort", notes: null },
@@ -1079,7 +1174,31 @@ window.PDSA_COURSE = {
       source: { domainId: "types", topicId: "lists" },
       target: { domainId: "datastructures", topicId: "linked-lists" },
       label: "Array vs Linked List",
-      concept: "Python's contiguous mutable lists contrast with recursive Node/Linked list data structures.",
+      concept: "Python lists are dynamic arrays (O(1) index). The course “list” is a linked chain of nodes; that type is built later.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "binary-search" },
+      target: { domainId: "types", topicId: "lists" },
+      label: "Python list is an array",
+      concept: "seq[i] is an offset in a contiguous block. That is why we can treat Python lists as arrays for binary search.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "binary-search" },
+      target: { domainId: "recursion", topicId: "loop-control" },
+      label: "Linear vs binary search",
+      concept: "findpos scans every cell, unsorted OK. bsearch halves a sorted array and needs O(1) mid access.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "binary-search" },
+      target: { domainId: "recursion", topicId: "recursion-core" },
+      label: "Halving recurrence",
+      concept: "bsearch is the same inductive shrink as recursion: empty slice is the base; each call is a strictly smaller [l,r).",
+    },
+    {
+      source: { domainId: "recursion", topicId: "binary-search" },
+      target: { domainId: "datastructures", topicId: "linked-lists" },
+      label: "Algorithms may not transfer",
+      concept: "Binary search is O(log n) only with O(1) seq[i]. On a linked list the same idea is not logarithmic.",
     },
     {
       source: { domainId: "recursion", topicId: "recursion-core" },

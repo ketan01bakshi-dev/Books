@@ -47,3 +47,4 @@ Filled topics so far:
 - Functions: local scope, define-before-call, factorial (Core Types & Foundations)
 - First n primes: while loop & unconditional progress (Core Types & Foundations)
 - Recursive functions from inductive definitions (Inductive Definitions & Recursion)
+- Arrays vs linked lists & binary search (Inductive Definitions & Recursion)
