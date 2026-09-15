@@ -712,7 +712,27 @@ def InsertionSort(seq):
             pos = pos - 1
 ```
 
-`sliceEnd = 0` is a no-op. Same sliding as recursive `isort` / `insert`.
+`sliceEnd = 0` is a no-op. Recursion is the same algorithm: sort the prefix, then insert the last cell.
+
+**Recursive form.** Base: length 0 or 1, done. Step: sort `l[0:len(l)-1]`, insert `l[len(l)-1]` (not `l[len(l)]`). `isort(seq, k)` sorts `seq[0:k]` in place; then `insert(seq, k-1)`.
+
+```python
+def InsertionSort(seq):
+    isort(seq, len(seq))
+
+def isort(seq, k):     # sort seq[0:k]
+    if k > 1:
+        isort(seq, k - 1)
+        insert(seq, k - 1)
+
+def insert(seq, k):    # seq[k] into sorted seq[0:k]
+    pos = k
+    while pos > 0 and seq[pos] < seq[pos - 1]:
+        (seq[pos], seq[pos - 1]) = (seq[pos - 1], seq[pos])
+        pos = pos - 1
+```
+
+**Recurrence.** `T(n) = (n-1) + T(n-1)`, `T(1)=1`. Unwind: `(n-1)+…+1 = n(n-1)/2 = O(n²)`. Recursion does not change the order.
 
 **Interview.**
 
@@ -721,10 +741,11 @@ def InsertionSort(seq):
 3. Inner while? → `pos = sliceEnd`; swap left while smaller than the neighbour.
 4. `T(n)`? → insert into length `k` costs up to `k`; sum `n(n−1)/2`.
 5. Best case? → sorted → Θ(n). Selection cannot do that.
+6. Recursive one-liner? → sort prefix of n−1, insert last. `isort(k)` then `insert(k-1)`.
+7. Recurrence? → `T(n)=(n-1)+T(n-1)`, `T(1)=1` → `n(n-1)/2`.
+8. `l[len(l)]`? → IndexError; last index is `len(l)-1`.
 
-**Pitfalls.** Forgetting `pos > 0`; using `<=` and breaking stability; calling this “find the min”.
-
-### Recursive Functions & Induction 
+**Pitfalls.** Forgetting `pos > 0`; using `<=` and breaking stability; calling this “find the min”; inserting `l[len(l)]`; `insert(isort(...), k)` because `isort` returns `None`.
 
 ### Recursive Functions & Induction
 

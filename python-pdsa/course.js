@@ -1067,28 +1067,37 @@ window.PDSA_COURSE = {
               "First paper starts a new stack. Second goes below or above it. Each later paper inserts into the already-sorted stack. That is insertion sort.",
               "Invariant: at the top of the outer loop, seq[0:sliceEnd] is sorted. The job of the iteration is to make seq[0:sliceEnd+1] sorted by sliding seq[sliceEnd] left.",
               "Inserting into a sorted segment of length k takes up to k adjacent swaps in the worst case (new value smaller than everything). The segment grows by 1 each iteration, so costs 1+2+…+(n−1).",
-              "sliceEnd = 0 is a free pass: pos = 0, the while never runs. After that, prefixes 1, 2, …, n grow in order.",
+              "Inductive picture: base — length 0 or 1 is already sorted. Step — sort l[0:len(l)-1], then insert l[len(l)-1] (not l[len(l)], which does not exist).",
+              "isort(seq, k) means “sort the slice seq[0:k]”. Base k <= 1. Otherwise isort(seq, k-1) then insert seq[k-1] into that sorted prefix.",
             ],
             versus: [
               "Selection: pick a min from the right. Insertion: park the next unsorted value into the left. Same O(n²) worst case; insertion is faster on nearly sorted data.",
-              "Iterative insertion (this card) vs recursive isort/insert already under recursion: same sliding, one as a for-loop, one as isort(k) then insert(k−1).",
+              "Iterative for/while vs recursive isort(k): same invariant. Recursion sorts seq[0:k-1], then insert(seq, k-1) slides seq[k-1] into that prefix. Recursion does not change T(n).",
+              "Do not write insert(isort(seq, k), k). isort mutates in place and returns None. Call isort, then insert, as two statements.",
               "Array insert is expensive if you open a gap by shifting — here the while does exactly those shifts, one swap at a time.",
             ],
             code: [
               {
                 title: "Grow seq[0:sliceEnd]; slide seq[sliceEnd] left",
                 source:
-                  "def InsertionSort(seq):\n    for sliceEnd in range(len(seq)):\n        # seq[0:sliceEnd] already sorted\n        pos = sliceEnd\n        while pos > 0 and seq[pos] < seq[pos - 1]:\n            (seq[pos], seq[pos - 1]) = (seq[pos - 1], seq[pos])\n            pos = pos - 1",
+                  "def InsertionSort(seq):\n    for sliceEnd in range(len(seq)):\n        pos = sliceEnd\n        while pos > 0 and seq[pos] < seq[pos - 1]:\n            (seq[pos], seq[pos - 1]) = (seq[pos - 1], seq[pos])\n            pos = pos - 1",
+              },
+              {
+                title: "Recursive: sort prefix, then insert last",
+                source:
+                  "def InsertionSort(seq):\n    isort(seq, len(seq))\n\ndef isort(seq, k):     # sort seq[0:k]\n    if k > 1:\n        isort(seq, k - 1)\n        insert(seq, k - 1)\n\ndef insert(seq, k):    # seq[k] into seq[0:k]\n    pos = k\n    while pos > 0 and seq[pos] < seq[pos - 1]:\n        (seq[pos], seq[pos - 1]) = (seq[pos - 1], seq[pos])\n        pos = pos - 1",
               },
             ],
             pythonBits: [
               "range(len(seq)) includes 0; that iteration is a no-op. Writing range(1, len(seq)) is the same algorithm.",
               "The while test is short-circuit: pos > 0 first, so seq[pos-1] is never read at the left wall.",
               "Tuple swap is the adjacent transposition. pos = pos-1 walks the hole left.",
-              "Stable if you use < not <= : an equal value stops, so earlier equals stay earlier.",
+              "k > 1 is the recursive base: length 0 and 1 are already sorted (isort does nothing).",
+              "The last cell of a prefix of length n is index n-1, never n. l[len(l)] is IndexError.",
             ],
             complexity: [
-              "Worst case (reverse sorted): inserting into a segment of length k costs k steps. T(n)=1+2+…+(n−1)=n(n−1)/2=O(n²). (n²−n)/2 on the slide.",
+              "Worst recursive case: T(n) = (n−1) + T(n−1), T(1)=1. Unwind: (n−1)+(n−2)+…+1 = n(n−1)/2 = O(n²). Same sum as the iterative analysis.",
+              "Worst case (reverse sorted): inserting into a segment of length k costs k steps. T(n)=1+2+…+(n−1)=n(n−1)/2=O(n²).",
               "Best case (already sorted): inner while fails immediately → Θ(n).",
               "Average: still Θ(n²) random swaps. Use this when n is small or the array is almost sorted; not at n=10⁶ (Python 10⁷ budget).",
             ],
@@ -1096,7 +1105,8 @@ window.PDSA_COURSE = {
               "[3, 1, 4, 2], sliceEnd=0: no-op, prefix [3]",
               "sliceEnd=1, pos=1: 1<3 swap → [1, 3, 4, 2]",
               "sliceEnd=2, 4≥3: no swap, prefix [1, 3, 4]",
-              "sliceEnd=3, 2<4 swap, 2<3 swap, 2>1 stop → [1, 2, 3, 4]",
+              "isort(seq, 3): isort(seq, 2) then insert seq[2] into seq[0:2]",
+              "T(4)=(3)+T(3)=(3)+(2)+T(2)=(3)+(2)+(1)+T(1)=6=4·3/2",
             ],
             interview: [
               {
@@ -1116,15 +1126,24 @@ window.PDSA_COURSE = {
                 a: "Worst-case insert into a sorted run of length k costs k. k = 1,2,…,n−1. Sum = n(n−1)/2 = O(n²).",
               },
               {
-                q: "Best case?",
-                a: "Already sorted: each inner while checks once and stops. Θ(n). That is the advantage over selection sort.",
+                q: "Recursive insertion sort in one breath?",
+                a: "Base: length 0 or 1, done. Step: sort the prefix of length n−1, then insert the last element into that sorted prefix. In code: isort(seq, k) if k>1: isort(k−1); insert(k−1).",
+              },
+              {
+                q: "Write the recurrence and its closed form.",
+                a: "T(n)=(n−1)+T(n−1), T(1)=1. Unwinds to (n−1)+…+1 = n(n−1)/2 = O(n²). Recursion did not improve the order.",
+              },
+              {
+                q: "Insert l[len(l)] after sorting the prefix?",
+                a: "No — IndexError. The last value is l[len(l)-1]. The slide’s correction is that −1.",
               },
             ],
             pitfalls: [
               "Using <= in the while and accidentally reversing equal keys (unstable) — or looping forever if you also forget pos = pos-1.",
               "Forgetting pos > 0 and indexing seq[-1].",
               "Quoting only O(n²) and missing that nearly-sorted insertion is linear.",
-              "Confusing this with selection: you are not searching the suffix for a min.",
+              "Writing insert l[len(l)] instead of l[len(l)-1] after sorting the prefix.",
+              "Passing isort’s return value into insert — isort returns None; it sorts in place.",
             ],
           },
         },
@@ -1174,7 +1193,7 @@ window.PDSA_COURSE = {
             pythonBits: [
               "Python's recursion limit is about 1000. InsertionSort(list(range(1000, 0, -1))) raises RecursionError: maximum recursion depth exceeded.",
               "Raise it if you must: import sys; sys.setrecursionlimit(10000). Prefer an iterative rewrite for production.",
-              "l[1:] builds a new list each call, so naive list recursion is also extra memory and time. The insertion-sort version recurses on a length k, not on slices, and mutates in place.",
+              "The insertion-sort version recurses on a length k, not on slices, and mutates in place. Do not insert l[len(l)] — that index does not exist; the last cell is len(l)-1.",
             ],
             complexity: [
               "Recursive insertion sort: T(n) = (n − 1) + T(n − 1), T(1) = 1. Unrolls to 1 + 2 + … + (n − 1) = n(n − 1)/2 = O(n²).",
