@@ -993,8 +993,141 @@ window.PDSA_COURSE = {
             ],
           },
         },
-        { id: "selection-sort", title: "Selection Sort", notes: null },
-        { id: "insertion-sort", title: "Insertion Sort", notes: null },
+        {
+          id: "selection-sort",
+          title: "Selection Sort",
+          topic: "Strategy 1 — select the next minimum, lock it in place",
+          notes: {
+            idea: "Strategy 1: from the remaining unsorted suffix, select the smallest value and swap it into the next prefix slot. Each pass grows a sorted prefix by one. Always looks at the whole suffix, so T(n) is  n+(n−1)+…+1 = O(n²) even on sorted input.",
+            why: [
+              "Exam papers: pick the lowest remaining marks, start (or extend) the new stack. Repeat on what is left. The stack is always the smallest papers so far, in order.",
+              "In an array that is: for start in 0..n−1, find the min of seq[start:], swap it with seq[start]. seq[0:start] is then finished forever.",
+              "Finding the min in a suffix of length k costs up to k comparisons. Suffix lengths are n, n−1, …, 1.",
+            ],
+            versus: [
+              "Selection locks the next output cell. Insertion leaves the prefix sorted but keeps bubbling the new value left — it does not scan for a global min.",
+              "Selection’s comparison count barely depends on the data (always Θ(n²)). Insertion is adaptive: already sorted is about n comparisons.",
+              "Both are O(n²) in the worst case. Neither is the n log n sort the efficiency table was aiming at.",
+            ],
+            code: [
+              {
+                title: "Select min of the suffix, swap into start",
+                source:
+                  "def SelectionSort(seq):\n    for start in range(len(seq)):\n        minpos = start\n        for i in range(start, len(seq)):\n            if seq[i] < seq[minpos]:\n                minpos = i\n        (seq[start], seq[minpos]) = (seq[minpos], seq[start])",
+              },
+            ],
+            pythonBits: [
+              "In-place: only swaps, no extra list. Aliases see the growing sorted prefix.",
+              "The inner loop may use range(start+1, len(seq)); then initialise minpos = start. Same work, one fewer self-compare.",
+              "Stable? Not this swap version: an equal later value can leap over an earlier equal when the min is swapped in.",
+            ],
+            complexity: [
+              "Comparisons: n + (n−1) + … + 1 = n(n+1)/2 = Θ(n²).",
+              "Swaps: at most n (one per outer iteration; a no-op swap when min is already at start).",
+              "Best = average = worst: still quadratic comparisons. Do not quote best-case O(n) for selection sort.",
+            ],
+            trace: [
+              "[3, 1, 4, 2]: start=0 min=1 → [1, 3, 4, 2]",
+              "start=1 min=2 at the end → [1, 2, 4, 3]",
+              "start=2 min=3 → [1, 2, 3, 4]",
+              "start=3 suffix length 1, done",
+            ],
+            interview: [
+              {
+                q: "What is Strategy 1?",
+                a: "Repeatedly select the minimum of what is still unsorted and lock it into the next position of the sorted prefix. Exam-paper version: lowest remaining marks onto the new stack.",
+              },
+              {
+                q: "Write the double loop.",
+                a: "Outer start from 0 to n−1. Inner scan start..n−1 for minpos. Swap seq[start] with seq[minpos].",
+              },
+              {
+                q: "T(n)?",
+                a: "n+(n−1)+…+1 = n(n+1)/2 = O(n²). Same order even if the array is already sorted.",
+              },
+              {
+                q: "How is this different from insertion sort?",
+                a: "Selection hunts a min in the suffix. Insertion inserts seq[sliceEnd] left into an already-sorted prefix. Insertion can be linear on sorted data; selection cannot.",
+              },
+            ],
+            pitfalls: [
+              "Claiming selection sort is O(n) on sorted input — the inner scan still runs.",
+              "Forgetting to swap after finding minpos.",
+              "Starting the inner scan at 0 every time and destroying the prefix you already locked.",
+            ],
+          },
+        },
+        {
+          id: "insertion-sort",
+          title: "Insertion Sort",
+          topic: "Strategy 2 — insert the next value into a growing sorted prefix",
+          notes: {
+            idea: "Strategy 2: keep a sorted stack (prefix). Each new value is inserted into the correct place by walking left. In code, seq[0:sliceEnd] is already sorted; seq[sliceEnd] bubbles left while it is smaller than its neighbour. Worst case T(n)=1+2+…+(n−1)=n(n−1)/2=O(n²).",
+            why: [
+              "First paper starts a new stack. Second goes below or above it. Each later paper inserts into the already-sorted stack. That is insertion sort.",
+              "Invariant: at the top of the outer loop, seq[0:sliceEnd] is sorted. The job of the iteration is to make seq[0:sliceEnd+1] sorted by sliding seq[sliceEnd] left.",
+              "Inserting into a sorted segment of length k takes up to k adjacent swaps in the worst case (new value smaller than everything). The segment grows by 1 each iteration, so costs 1+2+…+(n−1).",
+              "sliceEnd = 0 is a free pass: pos = 0, the while never runs. After that, prefixes 1, 2, …, n grow in order.",
+            ],
+            versus: [
+              "Selection: pick a min from the right. Insertion: park the next unsorted value into the left. Same O(n²) worst case; insertion is faster on nearly sorted data.",
+              "Iterative insertion (this card) vs recursive isort/insert already under recursion: same sliding, one as a for-loop, one as isort(k) then insert(k−1).",
+              "Array insert is expensive if you open a gap by shifting — here the while does exactly those shifts, one swap at a time.",
+            ],
+            code: [
+              {
+                title: "Grow seq[0:sliceEnd]; slide seq[sliceEnd] left",
+                source:
+                  "def InsertionSort(seq):\n    for sliceEnd in range(len(seq)):\n        # seq[0:sliceEnd] already sorted\n        pos = sliceEnd\n        while pos > 0 and seq[pos] < seq[pos - 1]:\n            (seq[pos], seq[pos - 1]) = (seq[pos - 1], seq[pos])\n            pos = pos - 1",
+              },
+            ],
+            pythonBits: [
+              "range(len(seq)) includes 0; that iteration is a no-op. Writing range(1, len(seq)) is the same algorithm.",
+              "The while test is short-circuit: pos > 0 first, so seq[pos-1] is never read at the left wall.",
+              "Tuple swap is the adjacent transposition. pos = pos-1 walks the hole left.",
+              "Stable if you use < not <= : an equal value stops, so earlier equals stay earlier.",
+            ],
+            complexity: [
+              "Worst case (reverse sorted): inserting into a segment of length k costs k steps. T(n)=1+2+…+(n−1)=n(n−1)/2=O(n²). (n²−n)/2 on the slide.",
+              "Best case (already sorted): inner while fails immediately → Θ(n).",
+              "Average: still Θ(n²) random swaps. Use this when n is small or the array is almost sorted; not at n=10⁶ (Python 10⁷ budget).",
+            ],
+            trace: [
+              "[3, 1, 4, 2], sliceEnd=0: no-op, prefix [3]",
+              "sliceEnd=1, pos=1: 1<3 swap → [1, 3, 4, 2]",
+              "sliceEnd=2, 4≥3: no swap, prefix [1, 3, 4]",
+              "sliceEnd=3, 2<4 swap, 2<3 swap, 2>1 stop → [1, 2, 3, 4]",
+            ],
+            interview: [
+              {
+                q: "What is Strategy 2?",
+                a: "Insert each new paper into the correct place in the already-sorted stack. Prefix seq[0:sliceEnd] stays sorted; the next element slides left.",
+              },
+              {
+                q: "State the loop invariant.",
+                a: "Before the body, seq[0:sliceEnd] is sorted. After the while, seq[0:sliceEnd+1] is sorted. sliceEnd runs through every index.",
+              },
+              {
+                q: "Write the inner while.",
+                a: "pos = sliceEnd; while pos > 0 and seq[pos] < seq[pos-1]: swap neighbours; pos = pos-1.",
+              },
+              {
+                q: "Derive T(n)=O(n²).",
+                a: "Worst-case insert into a sorted run of length k costs k. k = 1,2,…,n−1. Sum = n(n−1)/2 = O(n²).",
+              },
+              {
+                q: "Best case?",
+                a: "Already sorted: each inner while checks once and stops. Θ(n). That is the advantage over selection sort.",
+              },
+            ],
+            pitfalls: [
+              "Using <= in the while and accidentally reversing equal keys (unstable) — or looping forever if you also forget pos = pos-1.",
+              "Forgetting pos > 0 and indexing seq[-1].",
+              "Quoting only O(n²) and missing that nearly-sorted insertion is linear.",
+              "Confusing this with selection: you are not searching the suffix for a min.",
+            ],
+          },
+        },
         {
           id: "recursion-core",
           title: "Recursive Functions & Induction",
@@ -1308,6 +1441,36 @@ window.PDSA_COURSE = {
       target: { domainId: "sorting", topicId: "mergesort" },
       label: "Pay n log n to sort",
       concept: "Sorting is the n log n investment that unlocks log n search, the median, duplicate checks, and frequency tables.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "selection-sort" },
+      target: { domainId: "recursion", topicId: "insertion-sort" },
+      label: "Select vs insert",
+      concept: "Strategy 1 locks the next min; Strategy 2 slides the next value into a sorted prefix. Both O(n²) worst case; only insertion is linear when already sorted.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "insertion-sort" },
+      target: { domainId: "recursion", topicId: "recursion-core" },
+      label: "Same insert, two shapes",
+      concept: "Iterative InsertionSort is the for/while form of recursive isort + insert already on the recursion card.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "insertion-sort" },
+      target: { domainId: "recursion", topicId: "efficiency-intro" },
+      label: "O(n²) vs the 10⁷ budget",
+      concept: "n(n−1)/2 swaps in the worst case: fine for small n, hopeless at a million Python steps.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "selection-sort" },
+      target: { domainId: "recursion", topicId: "efficiency-intro" },
+      label: "Always Θ(n²)",
+      concept: "Selection sort’s comparison count does not improve on sorted data — still the triangular sum.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "insertion-sort" },
+      target: { domainId: "recursion", topicId: "list-mutation" },
+      label: "In-place adjacent swaps",
+      concept: "The while-loop tuple swap mutates the same list object; aliases see the prefix grow.",
     },
     {
       source: { domainId: "recursion", topicId: "recursion-core" },

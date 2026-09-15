@@ -5,7 +5,7 @@
 
 Living notebook for core algorithms and language mechanics. The visual knowledge graph in `index.html` connects these conceptual domains; filled topics light up and provide instant interview flashcards.
 
-**Ready topics:** Euclid's remainder algorithm, numeric values (int/float/bool), string slices & immutability, list operations & aliasing, list methods (`append` / `extend` / `remove` / `sort` / `index`), in-place mutation vs new lists, `for`-`else` search (`findpos`), arrays vs linked lists & binary search (`O(log n)` only with `O(1)` index), worst-case `T(n)` and Big-O growth (Python ~`10^7` steps/s), loop repetition with `range()`, function namespaces & execution order, dynamic scanning with `while` (first n primes), and inductive recursion.
+**Ready topics:** Euclid's remainder algorithm, numeric values (int/float/bool), string slices & immutability, list operations & aliasing, list methods (`append` / `extend` / `remove` / `sort` / `index`), in-place mutation vs new lists, `for`-`else` search (`findpos`), arrays vs linked lists & binary search (`O(log n)` only with `O(1)` index), worst-case `T(n)` and Big-O growth (Python ~`10^7` steps/s), selection sort (Strategy 1) and insertion sort (Strategy 2, `n(n−1)/2`), loop repetition with `range()`, function namespaces & execution order, dynamic scanning with `while` (first n primes), and inductive recursion.
 
 ---
 
@@ -678,11 +678,53 @@ def contains(seq, v):
 
 ### Selection Sort
 
-- 
+**One line.** Strategy 1: select the minimum of the remaining suffix and lock it into the next prefix cell. Always `n+(n−1)+…+1 = O(n²)` comparisons.
+
+**Papers.** Lowest remaining marks onto the new stack; repeat.
+
+```python
+def SelectionSort(seq):
+    for start in range(len(seq)):
+        minpos = start
+        for i in range(start, len(seq)):
+            if seq[i] < seq[minpos]:
+                minpos = i
+        (seq[start], seq[minpos]) = (seq[minpos], seq[start])
+```
+
+**Interview.** Always Θ(n²) even if already sorted. One swap per outer step. Not the adaptive cousin of insertion.
 
 ### Insertion Sort
 
-- 
+**One line.** Strategy 2: insert each new value into a growing sorted prefix. Worst case `T(n)=1+2+…+(n−1)=n(n−1)/2=O(n²)`. Already sorted is Θ(n).
+
+**Papers.** First paper starts the stack; each later paper inserts into the correct place.
+
+**Invariant.** At the top of the loop, `seq[0:sliceEnd]` is sorted. Slide `seq[sliceEnd]` left.
+
+```python
+def InsertionSort(seq):
+    for sliceEnd in range(len(seq)):
+        # seq[0:sliceEnd] already sorted
+        pos = sliceEnd
+        while pos > 0 and seq[pos] < seq[pos - 1]:
+            (seq[pos], seq[pos - 1]) = (seq[pos - 1], seq[pos])
+            pos = pos - 1
+```
+
+`sliceEnd = 0` is a no-op. Same sliding as recursive `isort` / `insert`.
+
+**Interview.**
+
+1. Strategy 2? → insert into the sorted stack / prefix.
+2. Invariant? → `seq[0:sliceEnd]` sorted; after the while, prefix one longer.
+3. Inner while? → `pos = sliceEnd`; swap left while smaller than the neighbour.
+4. `T(n)`? → insert into length `k` costs up to `k`; sum `n(n−1)/2`.
+5. Best case? → sorted → Θ(n). Selection cannot do that.
+
+**Pitfalls.** Forgetting `pos > 0`; using `<=` and breaking stability; calling this “find the min”.
+
+### Recursive Functions & Induction 
 
 ### Recursive Functions & Induction
 
