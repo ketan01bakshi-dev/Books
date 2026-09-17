@@ -1254,7 +1254,88 @@ window.PDSA_COURSE = {
       title: "Divide & Conquer Sorting",
       color: "#4a5c7a",
       topics: [
-        { id: "mergesort", title: "Merge Sort Algorithm", notes: null },
+        {
+          id: "mergesort",
+          title: "Merge Sort Algorithm",
+          topic: "Divide in half, sort each half, merge",
+          notes: {
+            idea: "A different strategy from insert-the-next-value: split the array in two equal parts, sort each half, then merge those two sorted lists into one. Merge walks the heads of A and B and always takes the smaller next value. That combine step is linear; the sort will be the n log n algorithm the quadratic sorts were waiting for.",
+            why: [
+              "Insertion and selection grow a prefix by one element. Merge sort splits: left half, right half, then combine. The picture is two sorted runs feeding a third.",
+              "Merging two already-sorted lists A and B into C: compare the current heads, move the smaller into C, repeat. If one list is empty, copy the rest of the other.",
+              "In code, i and j are the unread heads. i+j is how many values have already been written to C. Stop when i+j == m+n.",
+              "To sort A[0:n] into B: if n is 0 or 1, done (copy). Otherwise sort A[0:n//2] into L, sort A[n//2:n] into R, merge L and R into B.",
+            ],
+            versus: [
+              "Insertion: T(n)=(n−1)+T(n−1)=O(n²). Merge sort: two half-size sorts plus a linear merge — T(n)=2T(n/2)+O(n). The closed form (next card) is O(n log n).",
+              "Insertion mutates in place with adjacent swaps. Merge allocates C (and recursive L, R). Extra memory for a better time class.",
+              "Merge needs two sorted inputs. Garbage in, garbage out — merging unsorted halves does not sort.",
+            ],
+            code: [
+              {
+                title: "merge — four cases, one append per step",
+                source:
+                  "def merge(A, B):\n    (C, m, n) = ([], len(A), len(B))\n    (i, j) = (0, 0)\n    while i + j < m + n:\n        if i == m:\n            C.append(B[j]); j = j + 1\n        elif j == n:\n            C.append(A[i]); i = i + 1\n        elif A[i] <= B[j]:\n            C.append(A[i]); i = i + 1\n        else:\n            C.append(B[j]); j = j + 1\n    return C",
+              },
+              {
+                title: "MergeSort — halves, then merge",
+                source:
+                  "def MergeSort(A):\n    n = len(A)\n    if n <= 1:\n        return A[:]\n    mid = n // 2\n    L = MergeSort(A[0:mid])\n    R = MergeSort(A[mid:n])\n    return merge(L, R)",
+              },
+            ],
+            pythonBits: [
+              "i+j < m+n: each loop appends exactly one value, so i+j climbs to m+n and stops. Empty+empty: the while never runs.",
+              "Test i==m before A[i], and j==n before B[j], or you read off the end of an exhausted list.",
+              "A[i] <= B[j] (not <) keeps merge stable: equals come from A first.",
+              "n <= 1, not only n == 1. A[0:0] is empty; if you only stop at 1 you recurse on 0 forever.",
+              "(C, m, n) = ([], len(A), len(B)) is one tuple assignment, same idea as the primes card.",
+            ],
+            complexity: [
+              "merge(A,B) is Θ(m+n): every element is appended once. Two halves of n → Θ(n) combine.",
+              "MergeSort: T(0)=T(1)=Θ(1), T(n)=2T(n/2)+Θ(n). Unwinds (analysis card) to Θ(n log n). Contrast insertion’s n(n−1)/2.",
+              "Extra space: O(n) for C plus the two half-size copies on the way down — not an in-place adjacent-swap sort.",
+            ],
+            trace: [
+              "merge([1,4,7],[2,3,8]): take 1,2,3,4,7,8 — always the smaller head",
+              "merge([],[2,3]) copies B; merge([1],[]) copies A",
+              "MergeSort([4,1,3,2]): L=MergeSort([4,1])=[1,4], R=MergeSort([3,2])=[2,3], merge → [1,2,3,4]",
+              "mid = n//2: n=5 → 2 and 3 (not 2.5). Same // as binary search.",
+            ],
+            interview: [
+              {
+                q: "What is the different strategy?",
+                a: "Split in two equal parts, sort each half, merge the two sorted runs. Not “insert the next paper into a stack”.",
+              },
+              {
+                q: "How do you merge A and B?",
+                a: "If A is empty copy B; if B is empty copy A; else move the smaller head into C. Repeat until both are consumed. i+j counts how many have moved.",
+              },
+              {
+                q: "Write merge’s four cases.",
+                a: "i==m → take B[j]; j==n → take A[i]; A[i]<=B[j] → take A[i]; else take B[j]. Guard empties first.",
+              },
+              {
+                q: "Write MergeSort from the halves.",
+                a: "If n<=1 return a copy. mid=n//2. Recurse on A[0:mid] and A[mid:n]. return merge(L,R).",
+              },
+              {
+                q: "Why is merge linear?",
+                a: "Each iteration writes one element of A or B into C and advances that pointer. Exactly m+n appends.",
+              },
+              {
+                q: "Does this beat insertion sort yet?",
+                a: "Yes in the growth class: 2T(n/2)+O(n) is O(n log n), not O(n²). Full unwind is the analysis card. You pay extra lists.",
+              },
+            ],
+            pitfalls: [
+              "Reading A[i] when i==m (or B[j] when j==n) — order of the ifs matters.",
+              "Stopping only when n==1 and slicing an empty half — infinite recursion on [].",
+              "Using < instead of <= and losing stability.",
+              "Merging unsorted halves and expecting a sorted C.",
+              "Thinking merge sort is in-place like the insertion while-swap.",
+            ],
+          },
+        },
         { id: "mergesort-analysis", title: "Merge Sort Analysis — O(n log n)", notes: null },
         { id: "quicksort", title: "Quick Sort Algorithm", notes: null },
         { id: "quicksort-analysis", title: "Quick Sort Partitioning & Worst Case", notes: null },
@@ -1400,6 +1481,12 @@ window.PDSA_COURSE = {
       target: { domainId: "types", topicId: "lists" },
       label: "Aliases see in-place edits",
       concept: "list2 = list1 plus append/reverse/sort changes list2; list1 = list1 + extra does not.",
+    },
+    {
+      source: { domainId: "recursion", topicId: "insertion-sort" },
+      target: { domainId: "sorting", topicId: "mergesort" },
+      label: "Prefix vs halves",
+      concept: "Insertion grows a sorted prefix by one; merge sort splits in half, sorts both, then merges in linear time.",
     },
     {
       source: { domainId: "recursion", topicId: "recursion-core" },

@@ -50,3 +50,4 @@ Filled topics so far:
 - Arrays vs linked lists & binary search (Inductive Definitions & Recursion)
 - Worst-case T(n), Big-O growth, Python ~10^7 steps/s (Inductive Definitions & Recursion)
 - Selection sort (Strategy 1) and insertion sort (Strategy 2) (Inductive Definitions & Recursion)
+- Merge sort: halves + linear merge (Divide & Conquer Sorting)

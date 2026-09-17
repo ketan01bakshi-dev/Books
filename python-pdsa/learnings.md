@@ -5,7 +5,7 @@
 
 Living notebook for core algorithms and language mechanics. The visual knowledge graph in `index.html` connects these conceptual domains; filled topics light up and provide instant interview flashcards.
 
-**Ready topics:** Euclid's remainder algorithm, numeric values (int/float/bool), string slices & immutability, list operations & aliasing, list methods (`append` / `extend` / `remove` / `sort` / `index`), in-place mutation vs new lists, `for`-`else` search (`findpos`), arrays vs linked lists & binary search (`O(log n)` only with `O(1)` index), worst-case `T(n)` and Big-O growth (Python ~`10^7` steps/s), selection sort (Strategy 1) and insertion sort (Strategy 2, `n(n−1)/2`), loop repetition with `range()`, function namespaces & execution order, dynamic scanning with `while` (first n primes), and inductive recursion.
+**Ready topics:** Euclid's remainder algorithm, numeric values (int/float/bool), string slices & immutability, list operations & aliasing, list methods (`append` / `extend` / `remove` / `sort` / `index`), in-place mutation vs new lists, `for`-`else` search (`findpos`), arrays vs linked lists & binary search (`O(log n)` only with `O(1)` index), worst-case `T(n)` and Big-O growth (Python ~`10^7` steps/s), selection sort (Strategy 1) and insertion sort (Strategy 2, `n(n−1)/2`), merge sort (halves + linear merge), loop repetition with `range()`, function namespaces & execution order, dynamic scanning with `while` (first n primes), and inductive recursion.
 
 ---
 
@@ -846,7 +846,48 @@ def insert(seq, k):  # insert seq[k] into sorted seq[0:k-1]
 
 ### Merge Sort Algorithm
 
-- 
+**One line.** Split in half, sort each half, **merge** the two sorted runs. Merge always takes the smaller head. Combine is linear; the sort is the `n log n` family (analysis next).
+
+**Merge.** If A is empty copy B; if B is empty copy A; else move the smaller head into C. `i+j` is how many have been written.
+
+```python
+def merge(A, B):
+    (C, m, n) = ([], len(A), len(B))
+    (i, j) = (0, 0)
+    while i + j < m + n:
+        if i == m:
+            C.append(B[j]); j = j + 1
+        elif j == n:
+            C.append(A[i]); i = i + 1
+        elif A[i] <= B[j]:
+            C.append(A[i]); i = i + 1
+        else:
+            C.append(B[j]); j = j + 1
+    return C
+
+def MergeSort(A):
+    n = len(A)
+    if n <= 1:
+        return A[:]
+    mid = n // 2
+    L = MergeSort(A[0:mid])
+    R = MergeSort(A[mid:n])
+    return merge(L, R)
+```
+
+Guard empties **before** `A[i]` / `B[j]`. Use `n <= 1` so `[]` does not recurse forever. `<=` keeps the merge stable.
+
+**Interview.**
+
+1. Different strategy? → halves, then merge — not insert-into-prefix.
+2. Merge rule? → smaller head; copy the rest if one list is empty.
+3. Four cases? → `i==m`, `j==n`, `A[i]<=B[j]`, else B.
+4. Why linear? → one append per element, `m+n` times.
+5. vs insertion? → `2T(n/2)+O(n)` not `(n-1)+T(n-1)`; extra lists, not in-place.
+
+**Pitfalls.** Reading past an exhausted list; `n==1` only; merging unsorted halves; thinking it is in-place.
+
+### Merge Sort Analysis — O(n log n) 
 
 ### Merge Sort Analysis — O(n log n)
 
