@@ -521,11 +521,6 @@
     return 0.299*r + 0.587*g + 0.114*b;
   }
 
-  function curvePath(x1,y1,x2,y2){
-    var dx = (x2-x1) * 0.55;
-    return "M "+x1+" "+y1+" C "+(x1+dx)+" "+y1+", "+(x2-dx)+" "+y2+", "+x2+" "+y2;
-  }
-
   var linkedIds = {};
   LINKS.forEach(function(l){ linkedIds[l.from]=true; linkedIds[l.to]=true; });
 
@@ -585,60 +580,134 @@
     if(node.expanded) focusOn(node); else overview();
   }
 
-  // ---------- layout + render (re-run whenever the expanded set changes) ----------
-  var COL_GAP = 90, ROW_GAP = 22, MARGIN = 70;
-  var visible = [];
+  // ---------- radial placement of the top-level branches ----------
+  // Each branch is a spoke at a fixed angle: it and its whole (possibly deep)
+  // subtree are laid out exactly like the old left-to-right tree, then that
+  // whole rigid strip is rotated to point outward at the branch's angle.
+  // Rotation preserves distances, so a branch that doesn't overlap itself
+  // never will; branches only need enough angular room not to collide with
+  // their neighbours, which is sized from each branch's WORST-CASE (fully
+  // expanded) width so the map never overlaps even fully exploded.
+  var COL_GAP = 90, ROW_GAP = 16, MARGIN = 90, BRANCH_GAP = 34;
 
-  function rebuild(){
-    visible = [];
-    var maxDepth = 0;
+  function fullSpan(node){
+    if(!node.children.length) return node.h;
+    var total = 0;
+    node.children.forEach(function(c, i){
+      total += fullSpan(c) + (i < node.children.length-1 ? ROW_GAP : 0);
+    });
+    return Math.max(node.h, total);
+  }
 
-    (function dfs(node, depth, parent){
-      node.depth = depth;
-      node.parent = parent;
-      if(depth > maxDepth) maxDepth = depth;
-      visible.push(node);
-      var kids = (node === TREE || node.expanded) ? node.children : [];
-      kids.forEach(function(c){ dfs(c, depth+1, node); });
-    })(TREE, 0, null);
-
-    nodesLayer.innerHTML = "";
-    svg.innerHTML = "";
-
-    visible.forEach(createEl);
-    visible.forEach(function(node){
+  (function measureEverything(){
+    // temporarily render the whole tree (hidden via #stage{visibility:hidden})
+    // purely to get every node's real rendered size, once.
+    (function createAll(node){
+      createEl(node);
+      node.children.forEach(createAll);
+    })(TREE);
+    (function measure(node){
       node.w = node.el.offsetWidth;
       node.h = node.el.offsetHeight;
-    });
+      node.children.forEach(measure);
+    })(TREE);
+    nodesLayer.innerHTML = "";
+  })();
+
+  var branchTotal = 0;
+  TREE.children.forEach(function(b){
+    b.wFull = fullSpan(b);
+    branchTotal += b.wFull + BRANCH_GAP;
+  });
+  var hubDiag = Math.sqrt(TREE.w*TREE.w + TREE.h*TREE.h) / 2;
+  var maxPillDiag = 0;
+  TREE.children.forEach(function(b){
+    maxPillDiag = Math.max(maxPillDiag, Math.sqrt(b.w*b.w + b.h*b.h) / 2);
+  });
+  var R0 = Math.max(
+    (branchTotal / (2*Math.PI)) * 1.06,
+    hubDiag + maxPillDiag + BRANCH_GAP
+  );
+  var startAngle = -Math.PI/2;
+  var cum = 0;
+  TREE.children.forEach(function(b){
+    var span = (2*Math.PI) * (b.wFull + BRANCH_GAP) / branchTotal;
+    b.angle = startAngle + cum + span/2;
+    cum += span;
+  });
+
+  // ---------- layout + render (re-run whenever the expanded set changes) ----------
+  var visible = [];
+
+  function layoutBranch(branch){
+    var nodes = [];
+    var maxLocalDepth = 0;
+    (function dfs(node, depth, parent){
+      node.localDepth = depth;
+      node.parent = parent;
+      node.branchAngle = branch.angle;
+      if(depth > maxLocalDepth) maxLocalDepth = depth;
+      nodes.push(node);
+      var kids = node.expanded ? node.children : [];
+      kids.forEach(function(c){ dfs(c, depth+1, node); });
+    })(branch, 0, TREE);
 
     var maxW = [];
-    visible.forEach(function(node){ maxW[node.depth] = Math.max(maxW[node.depth]||0, node.w); });
-    var colX = [MARGIN];
-    for(var d=1; d<=maxDepth; d++){ colX[d] = colX[d-1] + maxW[d-1] + COL_GAP; }
-    visible.forEach(function(node){ node.x = colX[node.depth] + node.w/2; });
+    nodes.forEach(function(n){ maxW[n.localDepth] = Math.max(maxW[n.localDepth]||0, n.w); });
+    var colXLocal = [0];
+    for(var d=1; d<=maxLocalDepth; d++){ colXLocal[d] = colXLocal[d-1] + maxW[d-1] + COL_GAP; }
 
-    var globalBottom = MARGIN;
     function place(node, top){
-      var kids = (node === TREE || node.expanded) ? node.children : [];
-      if(!kids.length){
-        node.y = top + node.h/2;
-        globalBottom = Math.max(globalBottom, top + node.h);
-        return node.h;
-      }
+      var kids = node.expanded ? node.children : [];
+      if(!kids.length){ node.tang = top + node.h/2; return node.h; }
       var cursor = top;
       kids.forEach(function(c, i){
         var h = place(c, cursor);
         cursor += h + (i < kids.length-1 ? ROW_GAP : 0);
       });
       var span = cursor - top;
-      node.y = top + span/2;
-      globalBottom = Math.max(globalBottom, top + span);
+      node.tang = top + span/2;
       return Math.max(node.h, span);
     }
-    place(TREE, MARGIN);
+    place(branch, 0);
 
-    var CANVAS_W = colX[maxDepth] + maxW[maxDepth] + MARGIN;
-    var CANVAS_H = globalBottom + MARGIN;
+    var branchTang = branch.tang;
+    nodes.forEach(function(n){
+      n.r = R0 + colXLocal[n.localDepth];
+      n.t = n.tang - branchTang;
+    });
+    return nodes;
+  }
+
+  function toGlobal(angle, r, t, shiftX, shiftY){
+    return {
+      x: shiftX + r*Math.cos(angle) - t*Math.sin(angle),
+      y: shiftY + r*Math.sin(angle) + t*Math.cos(angle)
+    };
+  }
+
+  function rebuild(){
+    visible = [TREE];
+    TREE.r = 0; TREE.t = 0; TREE.branchAngle = 0;
+    TREE.children.forEach(function(branch){
+      visible = visible.concat(layoutBranch(branch));
+    });
+
+    // raw (unshifted) positions, to find the bounding box
+    visible.forEach(function(n){
+      var p = toGlobal(n.branchAngle, n.r, n.t, 0, 0);
+      n.gx = p.x; n.gy = p.y;
+    });
+    var minX=Infinity, minY=Infinity, maxX=-Infinity, maxY=-Infinity;
+    visible.forEach(function(n){
+      minX = Math.min(minX, n.gx-n.w/2); maxX = Math.max(maxX, n.gx+n.w/2);
+      minY = Math.min(minY, n.gy-n.h/2); maxY = Math.max(maxY, n.gy+n.h/2);
+    });
+    var shiftX = MARGIN - minX, shiftY = MARGIN - minY;
+    visible.forEach(function(n){ n.x = n.gx + shiftX; n.y = n.gy + shiftY; });
+
+    var CANVAS_W = (maxX-minX) + MARGIN*2;
+    var CANVAS_H = (maxY-minY) + MARGIN*2;
     stage.style.width = CANVAS_W + "px";
     stage.style.height = CANVAS_H + "px";
     svg.setAttribute("width", CANVAS_W);
@@ -647,17 +716,29 @@
     nodesLayer.style.width = CANVAS_W + "px";
     nodesLayer.style.height = CANVAS_H + "px";
 
+    nodesLayer.innerHTML = "";
+    svg.innerHTML = "";
+    visible.forEach(createEl);
     visible.forEach(function(node){
       node.el.style.left = node.x + "px";
       node.el.style.top = node.y + "px";
     });
 
-    // solid parent -> child curves
+    // solid parent -> child curves, bowed along each branch's own outward
+    // direction, then rotated with it
     visible.forEach(function(node){
       if(!node.parent || node.noEdge) return;
       var p = node.parent;
+      var dr = (node.r - p.r) * 0.55;
+      var localPts = [
+        {r:p.r,      t:p.t},
+        {r:p.r+dr,   t:p.t},
+        {r:node.r-dr,t:node.t},
+        {r:node.r,   t:node.t}
+      ];
+      var g = localPts.map(function(pt){ return toGlobal(node.branchAngle, pt.r, pt.t, shiftX, shiftY); });
       var path = document.createElementNS(svgNS, "path");
-      path.setAttribute("d", curvePath(p.x+p.w/2, p.y, node.x-node.w/2, node.y));
+      path.setAttribute("d", "M "+g[0].x+" "+g[0].y+" C "+g[1].x+" "+g[1].y+", "+g[2].x+" "+g[2].y+", "+g[3].x+" "+g[3].y);
       path.setAttribute("fill", "none");
       path.setAttribute("stroke", node.color);
       path.setAttribute("stroke-width", "2");
@@ -786,6 +867,8 @@
       var hub = downTarget.closest(".hub");
       var pill = downTarget.closest(".pill");
       if(hub){
+        TREE.children.forEach(function(c){ setExpandedDeep(c, false); });
+        rebuild();
         overview();
       } else if(pill){
         var node = byId[pill.dataset.id];
