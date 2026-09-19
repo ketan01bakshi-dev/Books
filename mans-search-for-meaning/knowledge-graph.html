@@ -20,6 +20,7 @@
     --note-bg:#ffffffcc;
     --shadow:0 2px 10px rgba(20,30,26,0.10);
     --accent:#2f7fa0;
+    --focus-ring:#2f7fa0;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -46,6 +47,7 @@
     --hub-border:#c7d1cb;
     --note-bg:#1c242a;
     --shadow:0 4px 18px rgba(0,0,0,0.45);
+    --focus-ring:#7fc4e0;
   }
 
   *{box-sizing:border-box;}
@@ -96,9 +98,13 @@
   .controls{
     display:flex;
     align-items:center;
+    flex-wrap:wrap;
     gap:8px;
+    min-width:0;
   }
-  select, button{
+  header{ min-width:0; }
+  header h1{ min-width:0; }
+  select, button, input{
     font-family:'Archivo',sans-serif;
     font-size:12.5px;
     font-weight:600;
@@ -111,6 +117,176 @@
   }
   button:hover, select:hover{ border-color:var(--accent); }
   button.icon{ width:32px; padding:7px 0; text-align:center; }
+  button.active{ border-color:var(--accent); color:var(--accent); }
+  select:focus-visible, button:focus-visible, input:focus-visible,
+  .pill:focus-visible, .hub:focus-visible{
+    outline:2.5px solid var(--focus-ring);
+    outline-offset:2px;
+  }
+
+  #searchWrap{ position:relative; }
+  #search{
+    font-weight:400;
+    cursor:text;
+    width:150px;
+  }
+  @media (min-width:900px){ #search{ width:210px; } }
+  #searchResults{
+    display:none;
+    position:absolute;
+    top:calc(100% + 6px);
+    left:0;
+    min-width:280px;
+    max-width:360px;
+    max-height:320px;
+    overflow-y:auto;
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:10px;
+    box-shadow:var(--shadow);
+    z-index:20;
+  }
+  #searchResults.open{ display:block; }
+  #searchResults .hit{
+    display:block;
+    width:100%;
+    text-align:left;
+    border:none;
+    border-bottom:1px solid var(--panel-border);
+    border-radius:0;
+    background:none;
+    padding:9px 12px;
+    font-weight:400;
+  }
+  #searchResults .hit:last-child{ border-bottom:none; }
+  #searchResults .hit:hover, #searchResults .hit.active{ background:var(--bg); }
+  #searchResults .hit b{ font-family:'Newsreader',serif; font-weight:600; display:block; margin-bottom:2px; }
+  #searchResults .hit span{ color:var(--ink-dim); font-family:'Newsreader',serif; font-size:12px; }
+  #searchResults .empty{ padding:10px 12px; color:var(--ink-dim); font-weight:400; }
+
+  #breadcrumb{
+    flex:none;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:7px 16px;
+    font-size:12px;
+    color:var(--ink-dim);
+    background:var(--panel);
+    border-bottom:1px solid var(--panel-border);
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+  #breadcrumb:empty{ display:none; }
+  #breadcrumb .crumb{ cursor:pointer; }
+  #breadcrumb .crumb:hover{ color:var(--accent); text-decoration:underline; }
+  #breadcrumb .crumb.current{ color:var(--ink); font-weight:600; cursor:default; }
+  #breadcrumb .crumb.current:hover{ text-decoration:none; }
+  #breadcrumb .sep{ opacity:.5; }
+
+  .item.dimmed{ opacity:.22; }
+  .item{ transition:opacity .35s ease; }
+  .item.entering{ opacity:0; transform:translate(-50%,-50%) scale(.85); }
+  .item.entering.settled{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+    transition:opacity .32s ease, transform .32s cubic-bezier(.2,.7,.3,1.15);
+  }
+  @keyframes pillPulse{
+    0%{ box-shadow:0 0 0 0 var(--pill-c, var(--accent)); }
+    70%{ box-shadow:0 0 0 14px transparent; }
+    100%{ box-shadow:0 0 0 0 transparent; }
+  }
+  .pill.pulse{ animation:pillPulse .7s ease-out; }
+
+  .note::before{
+    content:"\201C";
+    font-family:'Newsreader',serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--note-c, var(--accent));
+    opacity:.55;
+    margin-right:3px;
+  }
+
+  .noteTools{
+    position:absolute;
+    bottom:4px;
+    right:6px;
+    opacity:0;
+    transition:opacity .15s ease;
+  }
+  .item:hover .noteTools, .item:focus-within .noteTools{ opacity:1; }
+  .noteTools button{
+    padding:2px 5px;
+    font-size:11px;
+    border-radius:5px;
+    background:var(--panel);
+  }
+  .annotation{
+    margin-top:7px;
+    padding-top:6px;
+    border-top:1px dashed var(--panel-border);
+    font-family:'Archivo',sans-serif;
+    font-size:12px;
+    color:var(--ink-dim);
+    font-style:italic;
+  }
+  .annotation b{ font-style:normal; color:var(--accent); margin-right:4px; }
+  .annotationEdit{
+    margin-top:7px;
+    width:100%;
+    min-height:52px;
+    resize:vertical;
+    font-family:'Archivo',sans-serif;
+    font-size:12px;
+    padding:6px 8px;
+  }
+
+  #hoverPreview{
+    position:fixed;
+    z-index:30;
+    max-width:260px;
+    padding:8px 11px;
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:8px;
+    box-shadow:var(--shadow);
+    font-family:'Newsreader',serif;
+    font-size:12.5px;
+    line-height:1.45;
+    color:var(--ink-dim);
+    pointer-events:none;
+    display:none;
+  }
+  #hoverPreview.show{ display:block; }
+
+  #minimap{
+    position:absolute;
+    bottom:14px;
+    right:14px;
+    width:150px;
+    height:150px;
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:10px;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    overflow:hidden;
+  }
+  @media (max-width:640px){ #minimap{ width:96px; height:96px; } }
+  #minimap svg{ width:100%; height:100%; display:block; }
+  #minimap .mm-view{ fill:var(--accent); fill-opacity:.14; stroke:var(--accent); stroke-width:2; }
+
+  @media (prefers-reduced-motion: reduce){
+    #stage.animating{ transition:none; }
+    .item{ transition:none; }
+    .item.entering{ opacity:1; transform:translate(-50%,-50%); }
+    .pill.pulse{ animation:none; }
+  }
+  :root[data-motion="reduced"] #stage.animating{ transition:none; }
+  :root[data-motion="reduced"] .item.entering{ opacity:1; transform:translate(-50%,-50%); }
+  :root[data-motion="reduced"] .pill.pulse{ animation:none; }
 
   #viewport{
     position:relative;
@@ -225,13 +401,14 @@
     position:absolute;
     bottom:14px;
     left:14px;
-    right:14px;
+    right:180px;
     display:flex;
     gap:6px;
     flex-wrap:wrap;
     pointer-events:none;
     font-size:10.5px;
   }
+  @media (max-width:640px){ #legend{ right:126px; } }
   #legend span{
     background:var(--panel);
     border:1px solid var(--panel-border);
@@ -240,27 +417,40 @@
     color:var(--ink-dim);
   }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 <header>
   <h1>Man's Search for Meaning</h1>
   <span class="byline">Viktor E. Frankl — a concept map</span>
-  <span class="hint">Drag to pan · scroll to zoom · click any topic to follow it</span>
+  <span class="hint">Drag to pan · scroll to zoom · click a topic to follow it · arrows/Tab to move, Enter to open, Esc to back out</span>
   <div class="controls">
+    <div id="searchWrap">
+      <input id="search" type="text" placeholder="Search quotes & topics…" autocomplete="off" aria-label="Search quotes and topics">
+      <div id="searchResults" role="listbox"></div>
+    </div>
     <select id="jump">
       <option value="">Jump to a theme…</option>
     </select>
+    <button id="expandAll" title="Expand every branch">Expand all</button>
+    <button id="collapseAll" title="Collapse every branch">Collapse all</button>
     <button class="icon" id="zoomOut" title="Zoom out">−</button>
     <button class="icon" id="zoomIn" title="Zoom in">+</button>
     <button id="reset" title="Back to overview">Overview</button>
+    <button id="tour" title="Play a guided tour of every theme">▶ Tour</button>
+    <button id="themeToggle" title="Toggle light / dark theme">Theme: Auto</button>
+    <button id="exportPng" title="Save the current view as an image">Save image</button>
   </div>
 </header>
+<div id="breadcrumb"></div>
 <div id="viewport">
   <div id="stage">
     <svg id="edges"></svg>
     <div id="nodesLayer"></div>
   </div>
   <div id="legend"></div>
+  <div id="minimap" title="Click to jump to that area"><svg id="minimapSvg"></svg></div>
+  <div id="hoverPreview"></div>
 </div>
 
 <script>
@@ -484,16 +674,16 @@
   ]);
 
   var LINKS = [
-    {from:"meaning", to:"happiness", color:ARROW.green},
-    {from:"meaning", to:"spirituality", color:ARROW.green},
-    {from:"spirituality", to:"happiness", color:ARROW.green},
-    {from:"spirituality", to:"response", color:ARROW.green},
-    {from:"suffering", to:"response", color:ARROW.green},
-    {from:"stages", to:"humour", color:ARROW.rust},
-    {from:"stages", to:"coldCuriosity", color:ARROW.rust},
-    {from:"love-goal", to:"road-love", color:ARROW.rose},
-    {from:"triad", to:"suffering", color:ARROW.teal},
-    {from:"decisions", to:"panDeterminism", color:ARROW.amber}
+    {from:"meaning", to:"happiness", color:ARROW.green, label:"meaning ripens into happiness"},
+    {from:"meaning", to:"spirituality", color:ARROW.green, label:"meaning draws on spirituality"},
+    {from:"spirituality", to:"happiness", color:ARROW.green, label:"spirituality ripens into happiness"},
+    {from:"spirituality", to:"response", color:ARROW.green, label:"spirituality shapes the response"},
+    {from:"suffering", to:"response", color:ARROW.green, label:"suffering asks for a response"},
+    {from:"stages", to:"humour", color:ARROW.rust, label:"echoes the grim humour of Stage 1"},
+    {from:"stages", to:"coldCuriosity", color:ARROW.rust, label:"echoes the cold curiosity of Stage 1"},
+    {from:"love-goal", to:"road-love", color:ARROW.rose, label:"one of the three roads to meaning"},
+    {from:"triad", to:"suffering", color:ARROW.teal, label:"suffering is one leg of the tragic triad"},
+    {from:"decisions", to:"panDeterminism", color:ARROW.amber, label:"choice pushes back against determinism"}
   ];
 
   // ---------- one-time indexing over the FULL tree (independent of expand state) ----------
@@ -506,11 +696,21 @@
   var svgNS = "http://www.w3.org/2000/svg";
 
   var byId = {};
-  function indexAll(node){
+  var searchIndex = [];
+  function indexAll(node, staticParent){
     byId[node.id] = node;
-    node.children.forEach(indexAll);
+    // A structural parent link, independent of expand state — rebuild()
+    // only sets .parent on nodes that are currently visible, but search,
+    // deep links and annotations need to walk "up to the hub" regardless
+    // of what's expanded right now.
+    node.staticParent = staticParent || null;
+    var text = node.kind === "topic" ? node.label : (node.paragraphs || []).join(" ");
+    if(node.id !== "root"){
+      searchIndex.push({ node: node, text: text.toLowerCase(), display: node.kind === "topic" ? node.label : text });
+    }
+    node.children.forEach(function(c){ indexAll(c, node); });
   }
-  indexAll(TREE);
+  indexAll(TREE, null);
   TREE.expanded = true;
 
   function luminance(hex){
@@ -523,6 +723,20 @@
 
   var linkedIds = {};
   LINKS.forEach(function(l){ linkedIds[l.from]=true; linkedIds[l.to]=true; });
+
+  // ---------- small persistence helpers (per-viewer convenience only) ----------
+  function storageGet(key){
+    try { return JSON.parse(localStorage.getItem(key)); } catch(e){ return null; }
+  }
+  function storageSet(key, val){
+    try { localStorage.setItem(key, JSON.stringify(val)); } catch(e){ /* private mode, quota, etc. */ }
+  }
+  var ANNOTATIONS_KEY = "msfm_annotations_v1";
+  var STATE_KEY = "msfm_state_v1";
+  var annotations = storageGet(ANNOTATIONS_KEY) || {};
+
+  var prefersReducedMotion = false;
+  try { prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch(e){}
 
   // ---------- jump menu + legend (built once, from the full tree's top-level branches) ----------
   TREE.children.forEach(function(top){
@@ -537,12 +751,54 @@
     legend.appendChild(tag);
   });
 
+  function renderAnnotation(node, el){
+    var old = el.querySelector(".annotation, .annotationEdit");
+    if(old) old.remove();
+    var text = annotations[node.id];
+    if(text){
+      var box = document.createElement("div");
+      box.className = "annotation";
+      var b = document.createElement("b");
+      b.textContent = "Your note:";
+      box.appendChild(b);
+      box.appendChild(document.createTextNode(text));
+      el.appendChild(box);
+    }
+  }
+
+  function openAnnotationEditor(node, el){
+    var old = el.querySelector(".annotation, .annotationEdit");
+    if(old) old.remove();
+    var ta = document.createElement("textarea");
+    ta.className = "annotationEdit";
+    ta.placeholder = "A private note, kept only in this browser…";
+    ta.value = annotations[node.id] || "";
+    ta.addEventListener("click", function(e){ e.stopPropagation(); });
+    ta.addEventListener("pointerdown", function(e){ e.stopPropagation(); });
+    ta.addEventListener("blur", function(){
+      var v = ta.value.trim();
+      if(v) annotations[node.id] = v; else delete annotations[node.id];
+      storageSet(ANNOTATIONS_KEY, annotations);
+      // Deferred: removing the focused element synchronously from within
+      // its own blur handler races Chromium's internal focus cleanup.
+      setTimeout(function(){
+        ta.remove();
+        renderAnnotation(node, el);
+      }, 0);
+    });
+    el.appendChild(ta);
+    ta.focus();
+  }
+
   function createEl(node){
     var el = document.createElement("div");
     el.className = "item";
     el.dataset.id = node.id;
     if(node.id === "root"){
       el.classList.add("hub");
+      el.tabIndex = 0;
+      el.setAttribute("role", "button");
+      el.setAttribute("aria-label", "Man's Search for Meaning — back to overview");
       var lines = node.label.split("\n");
       el.innerHTML = '<div class="t1">'+lines[0]+'</div><div class="t2">'+lines[1]+'</div>';
     } else if(node.kind === "topic"){
@@ -551,19 +807,40 @@
       el.style.color = luminance(node.color) > 0.5 ? "#1b2320" : "#fdfdfc";
       el.style.setProperty("--pill-c", node.color);
       el.textContent = node.label;
+      el.tabIndex = 0;
+      el.setAttribute("role", "button");
       if(node.children.length){
         el.classList.add(node.expanded ? "expanded" : "collapsed");
+        el.setAttribute("aria-expanded", node.expanded ? "true" : "false");
+        el.setAttribute("aria-label", node.label + (node.expanded ? ", expanded" : ", collapsed") );
+      } else {
+        el.setAttribute("aria-label", node.label);
       }
       if(node.linkable || linkedIds[node.id]) el.classList.add("linked");
     } else {
       el.classList.add("note");
       if(node.width){ el.classList.add("wide"); el.style.maxWidth = node.width + "px"; }
       el.style.setProperty("--note-c", node.color);
+      el.setAttribute("role", "note");
       node.paragraphs.forEach(function(p){
         var pEl = document.createElement("p");
         pEl.textContent = p;
         el.appendChild(pEl);
       });
+    }
+    if(node.id !== "root"){
+      var tools = document.createElement("div");
+      tools.className = "noteTools";
+      var pencil = document.createElement("button");
+      pencil.type = "button";
+      pencil.textContent = "✎";
+      pencil.title = "Add a private note";
+      pencil.setAttribute("aria-label", "Add a private note to this card");
+      pencil.addEventListener("click", function(e){ e.stopPropagation(); openAnnotationEditor(node, el); });
+      pencil.addEventListener("pointerdown", function(e){ e.stopPropagation(); });
+      tools.appendChild(pencil);
+      el.appendChild(tools);
+      renderAnnotation(node, el);
     }
     node.el = el;
     nodesLayer.appendChild(el);
@@ -574,10 +851,11 @@
     node.children.forEach(function(c){ setExpandedDeep(c, val); });
   }
 
+  var lastToggledId = null;
   function onPillClick(node){
     setExpandedDeep(node, !node.expanded);
-    rebuild();
-    if(node.expanded) focusOn(node); else overview();
+    lastToggledId = node.id;
+    gotoNode(node.expanded ? node : null);
   }
 
   // ---------- radial placement of the top-level branches ----------
@@ -590,30 +868,13 @@
   // expanded) width so the map never overlaps even fully exploded.
   var COL_GAP = 90, ROW_GAP = 16, MARGIN = 90, BRANCH_GAP = 34;
 
-  (function measureEverything(){
-    // temporarily render the whole tree (hidden via #stage{visibility:hidden})
-    // purely to get every node's real rendered size, once. Sizes never
-    // change after this (collapsed/expanded pills reserve the same width),
-    // so nothing needs re-measuring on later rebuilds.
-    (function createAll(node){
-      createEl(node);
-      node.children.forEach(createAll);
-    })(TREE);
-    (function measure(node){
-      node.w = node.el.offsetWidth;
-      node.h = node.el.offsetHeight;
-      node.children.forEach(measure);
-    })(TREE);
-    nodesLayer.innerHTML = "";
-  })();
-
   // Branches sit at fixed, evenly-spaced angles (a clean symmetric wheel by
-  // default) starting at the top, going clockwise.
+  // default) starting at the top, going clockwise. This only depends on the
+  // branch count, so it's set once, unlike sizes below.
   var startAngle = -Math.PI/2;
   TREE.children.forEach(function(b, i){
     b.angle = startAngle + i * (2*Math.PI / TREE.children.length);
   });
-  var hubDiag = Math.sqrt(TREE.w*TREE.w + TREE.h*TREE.h) / 2;
 
   // ---------- layout + render (re-run whenever the expanded set changes) ----------
   var visible = [];
@@ -640,6 +901,12 @@
       var kids = node.expanded ? node.children : [];
       kids.forEach(function(c){ dfs(c, depth+1, node); });
     })(branch, 0, TREE);
+
+    // Measured fresh every rebuild (not cached) — a card's real height can
+    // change, e.g. once a personal annotation is attached to it, and a
+    // stale size would let it overflow into its neighbours.
+    nodes.forEach(createEl);
+    nodes.forEach(function(n){ n.w = n.el.offsetWidth; n.h = n.el.offsetHeight; });
 
     var maxHalfDiag = [];
     nodes.forEach(function(n){ maxHalfDiag[n.localDepth] = Math.max(maxHalfDiag[n.localDepth]||0, halfDiag(n)); });
@@ -675,7 +942,27 @@
     };
   }
 
+  var previousVisibleIds = {};
+  var focusedNode = null;
+
+  function inFocusPath(node, focus){
+    if(!focus) return true;
+    var p = focus;
+    while(p){ if(p === node) return true; p = p.staticParent; }
+    var q = node;
+    while(q){ if(q === focus) return true; q = q.staticParent; }
+    return false;
+  }
+
   function rebuild(){
+    nodesLayer.innerHTML = "";
+    svg.innerHTML = "";
+
+    createEl(TREE);
+    TREE.w = TREE.el.offsetWidth;
+    TREE.h = TREE.el.offsetHeight;
+    var hubDiag = Math.sqrt(TREE.w*TREE.w + TREE.h*TREE.h) / 2;
+
     var branches = TREE.children.map(function(b){ return { branch: b, res: layoutBranch(b) }; });
     var n = branches.length;
 
@@ -724,16 +1011,38 @@
     nodesLayer.style.width = CANVAS_W + "px";
     nodesLayer.style.height = CANVAS_H + "px";
 
-    nodesLayer.innerHTML = "";
-    svg.innerHTML = "";
-    visible.forEach(createEl);
+    var isNew = {};
+    visible.forEach(function(node){ isNew[node.id] = !previousVisibleIds[node.id]; });
+
     visible.forEach(function(node){
       node.el.style.left = node.x + "px";
       node.el.style.top = node.y + "px";
+      if(!inFocusPath(node, focusedNode)) node.el.classList.add("dimmed");
+      if(isNew[node.id] && node.id !== "root"){
+        node.el.classList.add("entering");
+      }
     });
+    if(!prefersReducedMotion){
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          visible.forEach(function(node){
+            if(node.el.classList.contains("entering")) node.el.classList.add("settled");
+          });
+        });
+      });
+    }
+    if(lastToggledId && byId[lastToggledId] && byId[lastToggledId].el){
+      var pulseEl = byId[lastToggledId].el;
+      pulseEl.classList.remove("pulse");
+      void pulseEl.offsetWidth;
+      pulseEl.classList.add("pulse");
+    }
+    previousVisibleIds = {};
+    visible.forEach(function(node){ previousVisibleIds[node.id] = true; });
 
     // solid parent -> child curves, bowed along each branch's own outward
-    // direction, then rotated with it
+    // direction, then rotated with it — thicker near the hub, tapering out
+    // toward the leaves, so the eye reads the trunk-to-twig hierarchy.
     visible.forEach(function(node){
       if(!node.parent || node.noEdge) return;
       var p = node.parent;
@@ -749,7 +1058,7 @@
       path.setAttribute("d", "M "+g[0].x+" "+g[0].y+" C "+g[1].x+" "+g[1].y+", "+g[2].x+" "+g[2].y+", "+g[3].x+" "+g[3].y);
       path.setAttribute("fill", "none");
       path.setAttribute("stroke", node.color);
-      path.setAttribute("stroke-width", "2");
+      path.setAttribute("stroke-width", Math.max(1.1, 3.2 - node.localDepth*0.5).toFixed(2));
       path.setAttribute("opacity", "0.55");
       svg.appendChild(path);
     });
@@ -794,8 +1103,26 @@
       path.setAttribute("stroke-linecap","round");
       path.setAttribute("marker-end","url(#arrow-"+l.color.replace("#","")+")");
       path.setAttribute("opacity","0.8");
+      if(l.label){
+        var title = document.createElementNS(svgNS, "title");
+        title.textContent = l.label;
+        path.appendChild(title);
+        // a fatter, invisible twin makes the thin dashed line easy to hover
+        var hit = document.createElementNS(svgNS,"path");
+        hit.setAttribute("d", path.getAttribute("d"));
+        hit.setAttribute("fill","none");
+        hit.setAttribute("stroke","transparent");
+        hit.setAttribute("stroke-width","14");
+        var hitTitle = document.createElementNS(svgNS, "title");
+        hitTitle.textContent = l.label;
+        hit.appendChild(hitTitle);
+        svg.appendChild(hit);
+      }
       svg.appendChild(path);
     });
+
+    updateMinimap(shiftX, shiftY, CANVAS_W, CANVAS_H);
+    updateBreadcrumb();
   }
 
   // ---------- pan / zoom ----------
@@ -805,6 +1132,7 @@
   function apply(animate){
     stage.classList.toggle("animating", !!animate);
     stage.style.transform = "translate("+panX+"px,"+panY+"px) scale("+scale+")";
+    refreshMinimapViewport();
   }
 
   function clampScale(s){ return Math.max(0.18, Math.min(1.6, s)); }
@@ -847,12 +1175,321 @@
     fitBounds(b[0],b[1],b[2],b[3], true);
   }
 
+  // ---------- a single funnel for "go look at this" actions ----------
+  // Every affordance that changes what's expanded or in focus (clicking a
+  // pill, the jump menu, search, the tour, breadcrumbs) routes through
+  // here, so dimming, the breadcrumb, the URL and saved state all stay in
+  // sync with no duplicated bookkeeping at each call site.
+  function gotoNode(node){
+    focusedNode = node;
+    rebuild();
+    if(node) focusOn(node); else overview();
+    syncHash();
+    saveState();
+  }
+
+  function collapseAllAndOverview(){
+    TREE.children.forEach(function(c){ setExpandedDeep(c, false); });
+    gotoNode(null);
+  }
+
+  function expandAllAndOverview(){
+    TREE.children.forEach(function(c){ setExpandedDeep(c, true); });
+    gotoNode(null);
+  }
+
+  // ---------- breadcrumb ----------
+  var breadcrumbEl = document.getElementById("breadcrumb");
+  function updateBreadcrumb(){
+    breadcrumbEl.innerHTML = "";
+    if(!focusedNode) return;
+    var chain = [];
+    var p = focusedNode;
+    while(p){ chain.unshift(p); p = p.staticParent; }
+    chain.forEach(function(n, i){
+      if(i > 0){
+        var sep = document.createElement("span");
+        sep.className = "sep";
+        sep.textContent = "›";
+        breadcrumbEl.appendChild(sep);
+      }
+      var c = document.createElement("span");
+      c.className = "crumb" + (i === chain.length-1 ? " current" : "");
+      c.textContent = n.id === "root" ? "Man's Search for Meaning" : (n.kind === "topic" ? n.label : "quote");
+      if(i < chain.length-1){
+        c.tabIndex = 0;
+        c.setAttribute("role","button");
+        c.addEventListener("click", function(){
+          if(n.id === "root") collapseAllAndOverview(); else gotoNode(n);
+        });
+      }
+      breadcrumbEl.appendChild(c);
+    });
+  }
+
+  // ---------- minimap ----------
+  var minimapEl = document.getElementById("minimap");
+  var minimapSvg = document.getElementById("minimapSvg");
+  var mmScale = 1;
+  function updateMinimap(shiftX, shiftY, canvasW, canvasH){
+    mmScale = 100 / Math.max(canvasW, canvasH, 1);
+    minimapSvg.setAttribute("viewBox", "0 0 100 100");
+    minimapSvg.innerHTML = "";
+    var hubDot = document.createElementNS(svgNS, "circle");
+    hubDot.setAttribute("cx", TREE.x*mmScale); hubDot.setAttribute("cy", TREE.y*mmScale);
+    hubDot.setAttribute("r", 3.2);
+    hubDot.setAttribute("fill", "currentColor");
+    hubDot.style.color = "var(--ink)";
+    minimapSvg.appendChild(hubDot);
+    TREE.children.forEach(function(b){
+      var dot = document.createElementNS(svgNS, "circle");
+      dot.setAttribute("cx", b.x*mmScale); dot.setAttribute("cy", b.y*mmScale);
+      dot.setAttribute("r", 2.4);
+      dot.setAttribute("fill", b.color);
+      minimapSvg.appendChild(dot);
+    });
+    refreshMinimapViewport();
+  }
+  function refreshMinimapViewport(){
+    if(!minimapSvg.isConnected) return;
+    measureViewport();
+    var old = minimapSvg.querySelector(".mm-view");
+    if(old) old.remove();
+    var rect = document.createElementNS(svgNS, "rect");
+    rect.setAttribute("class", "mm-view");
+    rect.setAttribute("x", (-panX/scale) * mmScale);
+    rect.setAttribute("y", (-panY/scale) * mmScale);
+    rect.setAttribute("width", Math.max(1, (vw/scale) * mmScale));
+    rect.setAttribute("height", Math.max(1, (vh/scale) * mmScale));
+    minimapSvg.appendChild(rect);
+  }
+  minimapEl.addEventListener("click", function(e){
+    var r = minimapEl.getBoundingClientRect();
+    var canvasX = (e.clientX - r.left) / r.width * 100 / mmScale;
+    var canvasY = (e.clientY - r.top) / r.height * 100 / mmScale;
+    measureViewport();
+    stage.classList.add("animating");
+    panX = vw/2 - canvasX*scale;
+    panY = vh/2 - canvasY*scale;
+    apply(true);
+  });
+
+  // ---------- search ----------
+  var searchInput = document.getElementById("search");
+  var searchResultsEl = document.getElementById("searchResults");
+  function closeSearch(){ searchResultsEl.classList.remove("open"); searchResultsEl.innerHTML = ""; }
+  function pathLabel(node){
+    var p = node.staticParent, parts = [];
+    while(p && p.id !== "root"){ parts.unshift(p.label || ""); p = p.staticParent; }
+    return parts.join(" › ");
+  }
+  function selectSearchHit(node){
+    var p = node.staticParent;
+    while(p){ p.expanded = true; p = p.staticParent; }
+    if(node.kind === "topic") setExpandedDeep(node, true);
+    gotoNode(node);
+    searchInput.value = "";
+    closeSearch();
+  }
+  function runSearch(q){
+    q = q.trim().toLowerCase();
+    searchResultsEl.innerHTML = "";
+    if(!q){ closeSearch(); return; }
+    var hits = searchIndex.filter(function(item){ return item.text.indexOf(q) !== -1; }).slice(0, 20);
+    if(!hits.length){
+      var empty = document.createElement("div");
+      empty.className = "empty";
+      empty.textContent = "No matches.";
+      searchResultsEl.appendChild(empty);
+    } else {
+      hits.forEach(function(item){
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "hit";
+        btn.setAttribute("role", "option");
+        var strong = document.createElement("b");
+        var label = item.node.kind === "topic" ? item.node.label : item.display;
+        strong.textContent = label.length > 90 ? label.slice(0,90) + "…" : label;
+        var sub = document.createElement("span");
+        sub.textContent = pathLabel(item.node) || "Top-level theme";
+        btn.appendChild(strong);
+        btn.appendChild(sub);
+        btn.addEventListener("click", function(){ selectSearchHit(item.node); });
+        searchResultsEl.appendChild(btn);
+      });
+    }
+    searchResultsEl.classList.add("open");
+  }
+  searchInput.addEventListener("input", function(){ runSearch(searchInput.value); });
+  searchInput.addEventListener("focus", function(){ if(searchInput.value) runSearch(searchInput.value); });
+  searchInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+      var first = searchResultsEl.querySelector(".hit");
+      if(first) first.click();
+    } else if(e.key === "Escape"){
+      searchInput.value = "";
+      closeSearch();
+      searchInput.blur();
+    }
+  });
+  document.addEventListener("pointerdown", function(e){
+    if(!document.getElementById("searchWrap").contains(e.target)) closeSearch();
+  });
+
+  // ---------- hover preview (peek at a collapsed branch before opening it) ----------
+  var hoverPreview = document.getElementById("hoverPreview");
+  var hoverTimer = null;
+  function firstQuoteText(node){
+    if(node.kind === "note") return node.paragraphs[0];
+    for(var i=0; i<node.children.length; i++){
+      var t = firstQuoteText(node.children[i]);
+      if(t) return t;
+    }
+    return null;
+  }
+  nodesLayer.addEventListener("mouseover", function(e){
+    var pillEl = e.target.closest(".pill.collapsed");
+    if(!pillEl) return;
+    var node = byId[pillEl.dataset.id];
+    if(!node) return;
+    clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(function(){
+      var text = firstQuoteText(node);
+      if(!text) return;
+      hoverPreview.textContent = text.length > 180 ? text.slice(0,180) + "…" : text;
+      var r = pillEl.getBoundingClientRect();
+      hoverPreview.style.left = Math.min(r.right + 10, window.innerWidth - 270) + "px";
+      hoverPreview.style.top = Math.min(r.top, window.innerHeight - 100) + "px";
+      hoverPreview.classList.add("show");
+    }, 420);
+  });
+  nodesLayer.addEventListener("mouseout", function(e){
+    if(!e.target.closest(".pill.collapsed")) return;
+    clearTimeout(hoverTimer);
+    hoverPreview.classList.remove("show");
+  });
+
+  // ---------- keyboard: Enter/Space toggles, arrows move between topics, Esc backs out ----------
+  nodesLayer.addEventListener("keydown", function(e){
+    if(e.key !== "Enter" && e.key !== " ") return;
+    var pillEl = e.target.closest(".pill");
+    var hubEl = e.target.closest(".hub");
+    if(pillEl){
+      e.preventDefault();
+      var node = byId[pillEl.dataset.id];
+      if(node && node.children.length) onPillClick(node);
+    } else if(hubEl){
+      e.preventDefault();
+      collapseAllAndOverview();
+    }
+  });
+  document.addEventListener("keydown", function(e){
+    if(document.activeElement === searchInput) return;
+    if(e.key === "Escape"){ collapseAllAndOverview(); return; }
+    var moves = { ArrowRight:1, ArrowDown:1, ArrowLeft:-1, ArrowUp:-1 };
+    if(!(e.key in moves)) return;
+    var focusable = Array.prototype.slice.call(nodesLayer.querySelectorAll('[tabindex="0"]'));
+    var idx = focusable.indexOf(document.activeElement);
+    if(idx === -1) return;
+    e.preventDefault();
+    var next = (idx + moves[e.key] + focusable.length) % focusable.length;
+    focusable[next].focus();
+  });
+
+  // ---------- theme ----------
+  var themeBtn = document.getElementById("themeToggle");
+  var currentTheme = "system";
+  function applyTheme(mode){
+    currentTheme = mode;
+    if(mode === "light") document.documentElement.setAttribute("data-theme","light");
+    else if(mode === "dark") document.documentElement.setAttribute("data-theme","dark");
+    else document.documentElement.removeAttribute("data-theme");
+    themeBtn.textContent = "Theme: " + (mode === "light" ? "Light" : mode === "dark" ? "Dark" : "Auto");
+    themeBtn.title = "Theme: " + (mode === "system" ? "matches your system" : mode) + " — click to change";
+  }
+  themeBtn.addEventListener("click", function(){
+    applyTheme(currentTheme === "system" ? "light" : currentTheme === "light" ? "dark" : "system");
+    saveState();
+  });
+
+  // ---------- guided tour ----------
+  var tourBtn = document.getElementById("tour");
+  var tourRunning = false, tourTimer = null;
+  function stopTour(){
+    if(!tourRunning) return;
+    tourRunning = false;
+    clearTimeout(tourTimer);
+    tourBtn.textContent = "▶ Tour";
+  }
+  function startTour(){
+    tourRunning = true;
+    tourBtn.textContent = "■ Stop";
+    var order = TREE.children.slice();
+    var i = 0;
+    function step(){
+      if(!tourRunning) return;
+      if(i >= order.length){ stopTour(); collapseAllAndOverview(); return; }
+      TREE.children.forEach(function(c){ setExpandedDeep(c, c === order[i]); });
+      gotoNode(order[i]);
+      i++;
+      tourTimer = setTimeout(step, 4200);
+    }
+    step();
+  }
+  tourBtn.addEventListener("click", function(){ tourRunning ? stopTour() : startTour(); });
+
+  // ---------- export the current view as an image ----------
+  var exportBtn = document.getElementById("exportPng");
+  function fallbackDownload(blob, filename){
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+  }
+  exportBtn.addEventListener("click", function(){
+    if(typeof html2canvas === "undefined") return; // library still loading; rare
+    exportBtn.disabled = true;
+    html2canvas(viewport, { backgroundColor: getComputedStyle(document.body).backgroundColor }).then(function(canvas){
+      canvas.toBlob(function(blob){
+        exportBtn.disabled = false;
+        if(!blob) return;
+        var filename = "mans-search-for-meaning-map.png";
+        if(window.claude && window.claude.use){
+          window.claude.use("downloads").then(function(downloads){
+            if(downloads) downloads.save({ filename: filename, data: blob }).catch(function(){});
+            else fallbackDownload(blob, filename);
+          }).catch(function(){ fallbackDownload(blob, filename); });
+        } else {
+          fallbackDownload(blob, filename);
+        }
+      }, "image/png");
+    }).catch(function(){ exportBtn.disabled = false; });
+  });
+
+  // ---------- persistence: last-viewed state and a shareable deep link ----------
+  // Per-viewer convenience only — kept in this browser's localStorage and
+  // the URL hash, never synced or read back by Claude.
+  function expandedTopBranchIds(){
+    return TREE.children.filter(function(b){ return b.expanded; }).map(function(b){ return b.id; });
+  }
+  function saveState(){
+    storageSet(STATE_KEY, { expanded: expandedTopBranchIds(), theme: currentTheme });
+  }
+  function syncHash(){
+    try {
+      var url = focusedNode ? "#" + encodeURIComponent(focusedNode.id) : location.pathname + location.search;
+      history.replaceState(null, "", url);
+    } catch(e){}
+  }
+
   // drag, with a movement threshold so a tap-in-place still acts as a click
   // (needed because setPointerCapture on the viewport can swallow the
   // browser's own synthesized click event on the pill underneath).
   var dragging=false, moved=false, startX=0, startY=0, startPanX=0, startPanY=0, downTarget=null;
   var TAP_SLOP = 5;
   viewport.addEventListener("pointerdown", function(e){
+    if(tourRunning) stopTour();
     dragging=true;
     moved=false;
     downTarget=e.target;
@@ -875,9 +1512,7 @@
       var hub = downTarget.closest(".hub");
       var pill = downTarget.closest(".pill");
       if(hub){
-        TREE.children.forEach(function(c){ setExpandedDeep(c, false); });
-        rebuild();
-        overview();
+        collapseAllAndOverview();
       } else if(pill){
         var node = byId[pill.dataset.id];
         if(node && node.children.length) onPillClick(node);
@@ -891,6 +1526,7 @@
   viewport.addEventListener("wheel", function(e){
     e.preventDefault();
     stage.classList.remove("animating");
+    if(tourRunning) stopTour();
     var r = viewport.getBoundingClientRect();
     var mx = e.clientX - r.left, my = e.clientY - r.top;
     var factor = e.deltaY < 0 ? 1.12 : 0.89;
@@ -915,27 +1551,44 @@
     panY = vh/2 - (vh/2-panY)*(ns/scale);
     scale = ns; apply(true);
   });
-  document.getElementById("reset").addEventListener("click", function(){
-    TREE.children.forEach(function(c){ setExpandedDeep(c, false); });
-    rebuild();
-    overview();
-  });
+  document.getElementById("reset").addEventListener("click", function(){ stopTour(); collapseAllAndOverview(); });
+  document.getElementById("expandAll").addEventListener("click", function(){ stopTour(); expandAllAndOverview(); });
+  document.getElementById("collapseAll").addEventListener("click", function(){ stopTour(); collapseAllAndOverview(); });
   jumpSelect.addEventListener("change", function(){
     var id = jumpSelect.value;
     if(id && byId[id]){
+      stopTour();
       setExpandedDeep(byId[id], true);
-      rebuild();
-      focusOn(byId[id]);
+      gotoNode(byId[id]);
     }
     jumpSelect.value = "";
   });
 
-  window.addEventListener("resize", function(){ overview(); });
+  window.addEventListener("resize", function(){ if(focusedNode) focusOn(focusedNode); else overview(); });
+
+  // ---------- initial load: a deep link in the URL wins, then last saved state, then a clean wheel ----------
+  (function restoreInitialState(){
+    var hashId = location.hash ? decodeURIComponent(location.hash.slice(1)) : null;
+    if(hashId && byId[hashId] && byId[hashId].id !== "root"){
+      var node = byId[hashId];
+      var p = node.staticParent;
+      while(p){ p.expanded = true; p = p.staticParent; }
+      if(node.kind === "topic") setExpandedDeep(node, true);
+      focusedNode = node;
+    } else {
+      var saved = storageGet(STATE_KEY);
+      if(saved){
+        if(saved.theme) currentTheme = saved.theme;
+        if(saved.expanded) saved.expanded.forEach(function(id){ if(byId[id]) setExpandedDeep(byId[id], true); });
+      }
+    }
+  })();
+  applyTheme(currentTheme);
 
   rebuild();
   requestAnimationFrame(function(){
     stage.classList.add("ready");
-    overview();
+    if(focusedNode) focusOn(focusedNode); else overview();
   });
 })();
 </script>
