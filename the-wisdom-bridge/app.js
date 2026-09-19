@@ -422,6 +422,7 @@
         y2: 560,
         stroke: "#c4b392",
         "stroke-width": "3",
+        "pointer-events": "none",
       })
     );
 
@@ -435,7 +436,16 @@
       { y: 556, r: 8, id: "life-force" },
     ];
 
-    svg.appendChild(el("circle", { cx: spineX, cy: 372, r: 130, fill: "url(#fieldGlow)", class: "pulse" }));
+    svg.appendChild(
+      el("circle", {
+        cx: spineX,
+        cy: 372,
+        r: 130,
+        fill: "url(#fieldGlow)",
+        class: "pulse",
+        "pointer-events": "none",
+      })
+    );
     [56, 92, 128].forEach((radius, i) => {
       svg.appendChild(
         el("circle", {
@@ -447,6 +457,7 @@
           "stroke-opacity": 0.22 + i * 0.08,
           "stroke-width": i === 2 ? 1.5 : 1,
           class: "pulse",
+          "pointer-events": "none",
         })
       );
     });
@@ -460,8 +471,16 @@
       });
       bindSelect(g, { type: "insight", id: chakra.id, principleId: 4 });
       const active = selected.type === "insight" && selected.id === chakra.id;
+      g.appendChild(
+        el("circle", {
+          cx: spineX,
+          cy: chakra.y,
+          r: chakra.heart ? 48 : 18,
+          fill: "transparent",
+        })
+      );
       if (chakra.heart) {
-        g.appendChild(el("circle", { cx: spineX, cy: chakra.y, r: 36, fill: "url(#heartGlow)" }));
+        g.appendChild(el("circle", { cx: spineX, cy: chakra.y, r: 36, fill: "url(#heartGlow)", "pointer-events": "none" }));
       }
       g.appendChild(
         el("circle", {
@@ -471,9 +490,10 @@
           fill: chakra.heart ? "#a85a3a" : "#fbf6ec",
           stroke: chakra.heart ? "#7a3d32" : "#b0893e",
           "stroke-width": chakra.heart ? 3 : 2,
+          "pointer-events": "none",
         })
       );
-      if (index === 0) {
+          if (index === 0) {
         g.appendChild(
           el("path", {
             d: `M ${spineX} 78 C ${spineX - 8} 110, ${spineX + 8} 130, ${spineX} 148`,
@@ -481,6 +501,7 @@
             stroke: "#b0893e",
             "stroke-width": 2,
             "stroke-dasharray": "4 4",
+            "pointer-events": "none",
           })
         );
       }
@@ -644,10 +665,19 @@
         el("circle", {
           cx: node.x,
           cy: node.y,
+          r: 44,
+          fill: "transparent",
+        })
+      );
+      g.appendChild(
+        el("circle", {
+          cx: node.x,
+          cy: node.y,
           r: active ? 38 : 34,
           fill: "#fbf6ec",
           stroke: "#6b7a4a",
           "stroke-width": 2.2,
+          "pointer-events": "none",
         })
       );
       g.appendChild(

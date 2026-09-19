@@ -169,6 +169,7 @@ svg.heart {
 
 .node {
   cursor: pointer;
+  pointer-events: all;
 }
 
 .node circle {
