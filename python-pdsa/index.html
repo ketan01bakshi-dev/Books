@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Python & Algorithms — Evolving Knowledge Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div>
+          <p class="eyebrow">An evolving knowledge graph</p>
+          <h1>Algorithms & Python Map</h1>
+          <p class="subtitle">
+            Programming, data structures and algorithms — topic-based knowledge map for quick reference & interview prep
+          </p>
+          <p class="author">
+            Living Reference · Foundational concepts & expanding
+          </p>
+        </div>
+        <div class="controls" role="tablist" aria-label="Map views">
+          <button type="button" data-view="map" aria-pressed="true">Knowledge Graph</button>
+          <button type="button" data-view="trace" aria-pressed="false">Trace</button>
+          <button type="button" data-view="journey" aria-pressed="false">Journey</button>
+        </div>
+      </header>
+
+      <main class="stage">
+        <section class="canvas-card" id="canvas-card" aria-label="Visual map">
+          <div class="graph-toolbar" id="graph-toolbar" role="toolbar" aria-label="Graph controls">
+            <button type="button" class="graph-btn" id="toggle-flow" aria-pressed="true" title="Toggle animated data flow pulses">⚡ Flow</button>
+            <button type="button" class="graph-btn" id="toggle-links" aria-pressed="true" title="Toggle cross-concept links">🔗 Cross-links</button>
+            <button type="button" class="graph-btn reset-btn" id="reset-physics" title="Bloom nodes & reset positions">↺ Bloom / Reset</button>
+          </div>
+          <div id="canvas" style="width: 100%; height: 100%;"></div>
+        </section>
+        <aside class="panel" id="panel"></aside>
+      </main>
+
+      <p class="hint">
+        Click any domain to explore topics. Notes live in
+        <code>learnings.md</code> and appear here as you add them. Euclid remainder, types, strings, lists, list methods, in-place mutation, for-else search, arrays vs lists & binary search, Big-O efficiency, selection and insertion sort, merge sort, range, functions, first n primes, and recursion are filled in for interview revision.
+      </p>
+    </div>
+    <script src="course.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

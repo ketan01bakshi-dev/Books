@@ -1,0 +1,1419 @@
+{
+  "id": "python-pdsa",
+  "title": "Algorithms & Python",
+  "subtitle": "Evolving Knowledge Notebook \u2014 Data Structures, Algorithms & Core Python",
+  "nodes": [
+    {
+      "id": "pd:book",
+      "label": "Algorithms & Python",
+      "type": "book",
+      "group": "book"
+    },
+    {
+      "id": "pd:d1",
+      "label": "Number Theory & Greatest Common Divisor",
+      "type": "domain",
+      "group": "domain"
+    },
+    {
+      "id": "pd:t1a",
+      "label": "Simple GCD & Factor Listings",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t1b",
+      "label": "Improving Naive GCD (Reverse Scan)",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t1c",
+      "label": "Euclid's Algorithm for GCD (Remainder Version)",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t1d",
+      "label": "Environment & Interpreter Setup",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:d2",
+      "label": "Core Types & Language Foundations",
+      "type": "domain",
+      "group": "domain"
+    },
+    {
+      "id": "pd:t2a",
+      "label": "Numeric Values \u2014 int, float, bool",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t2b",
+      "label": "Strings \u2014 Slices & Immutability",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t2c",
+      "label": "Lists \u2014 Indexing, Aliasing & Identity",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t2d",
+      "label": "List Methods \u2014 append, extend, remove, sort, index",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t2e",
+      "label": "Repeating n Times \u2014 range()",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t2f",
+      "label": "Functions \u2014 Scope & Call Order",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t2g",
+      "label": "First n Primes \u2014 While Loops & Invariant Progression",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:d3",
+      "label": "Inductive Definitions & Recursion",
+      "type": "domain",
+      "group": "domain"
+    },
+    {
+      "id": "pd:t3a",
+      "label": "Range Slices & Stepping",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t3b",
+      "label": "Manipulating Lists in Memory",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t3c",
+      "label": "Loop Breaking & Early Exit",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t3d",
+      "label": "Arrays vs Lists & Binary Search",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t3e",
+      "label": "Algorithmic Efficiency & Orders of Growth",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t3f",
+      "label": "Selection Sort",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t3g",
+      "label": "Insertion Sort",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t3h",
+      "label": "Recursive Functions & Induction",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:d4",
+      "label": "Divide & Conquer Sorting",
+      "type": "domain",
+      "group": "domain"
+    },
+    {
+      "id": "pd:t4a",
+      "label": "Merge Sort Algorithm",
+      "type": "topic",
+      "group": "topic-filled"
+    },
+    {
+      "id": "pd:t4b",
+      "label": "Merge Sort Analysis \u2014 O(n log n)",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t4c",
+      "label": "Quick Sort Algorithm",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t4d",
+      "label": "Quick Sort Partitioning & Worst Case",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t4e",
+      "label": "Tuples & Dictionaries",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t4f",
+      "label": "Function Arguments & Lambda",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t4g",
+      "label": "List Comprehensions",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:d5",
+      "label": "Exceptions, File I/O & Formatting",
+      "type": "domain",
+      "group": "domain"
+    },
+    {
+      "id": "pd:t5a",
+      "label": "Exception Handling (try-except-finally)",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t5b",
+      "label": "Standard Input and Output",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t5c",
+      "label": "File Operations & Context Managers",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t5d",
+      "label": "String Methods & Formatting",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t5e",
+      "label": "Formatted Output & String Interpolation",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t5f",
+      "label": "Special Names: pass, del(), None",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:d6",
+      "label": "Backtracking & Priority Queues",
+      "type": "domain",
+      "group": "domain"
+    },
+    {
+      "id": "pd:t6a",
+      "label": "Backtracking & N-Queens Problem",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t6b",
+      "label": "Global, Local & Nonlocal Scopes",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t6c",
+      "label": "Permutations Generation",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t6d",
+      "label": "Abstract Stacks & Queues",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t6e",
+      "label": "Priority Queues & Binary Heaps",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:d7",
+      "label": "User-Defined Types & Search Trees",
+      "type": "domain",
+      "group": "domain"
+    },
+    {
+      "id": "pd:t7a",
+      "label": "Abstract Data Types & Object-Oriented Design",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t7b",
+      "label": "Classes, Methods & Objects in Python",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t7c",
+      "label": "User-Defined Linked Lists",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t7d",
+      "label": "Binary Search Trees (Insert, Delete, Search)",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:d8",
+      "label": "Dynamic Programming & Optimization",
+      "type": "domain",
+      "group": "domain"
+    },
+    {
+      "id": "pd:t8a",
+      "label": "Memoization & Dynamic Programming Principles",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t8b",
+      "label": "Grid Paths Optimization",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t8c",
+      "label": "Longest Common Subsequence (LCS)",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t8d",
+      "label": "Matrix Chain Multiplication",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:t8e",
+      "label": "Language Wrap-Up & Paradigm Comparisons",
+      "type": "topic",
+      "group": "topic-empty"
+    },
+    {
+      "id": "pd:c:gcd",
+      "label": "GCD",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:euclid",
+      "label": "Euclid's Algorithm",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:modulo",
+      "label": "% Remainder Operator",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:diff-method",
+      "label": "Difference Method (subtraction)",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:recursive-impl",
+      "label": "Recursive Implementation",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:while-impl",
+      "label": "While-loop Implementation",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:log-complexity",
+      "label": "O(log min(m,n)) Complexity",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:termination",
+      "label": "Termination Property",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:int",
+      "label": "int",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:float",
+      "label": "float",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:mantissa-exp",
+      "label": "Mantissa & Exponent",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:rounding-error",
+      "label": "Floating-Point Rounding Error",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:floordiv",
+      "label": "// Floor Division",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:bool",
+      "label": "bool",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:string",
+      "label": "String",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:slice",
+      "label": "Slice",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:immutability",
+      "label": "Immutability",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:half-open",
+      "label": "Half-open Range Convention",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:list",
+      "label": "List",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:alias",
+      "label": "Alias",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:copy-slice",
+      "label": "Copy via Full Slice [:]",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:identity-is",
+      "label": "Identity (is)",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:equality-eq",
+      "label": "Equality (==)",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:concat",
+      "label": "Concatenation (+)",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:append",
+      "label": "append()",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:extend",
+      "label": "extend()",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:remove",
+      "label": "remove()",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:sort",
+      "label": "sort()",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:index-method",
+      "label": "index()",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:range",
+      "label": "range()",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:for-loop",
+      "label": "for loop",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:local-scope",
+      "label": "Local Scope",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:global-scope",
+      "label": "Global Scope",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:def-order",
+      "label": "Function Definition Order",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:recursion",
+      "label": "Recursion",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:base-case",
+      "label": "Base Case",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:while-loop",
+      "label": "while loop",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:tuple-assign",
+      "label": "Tuple Assignment",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:nprimes",
+      "label": "First n Primes (nprimes)",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:inplace-mutation",
+      "label": "In-place Mutation",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:rebinding",
+      "label": "Rebinding",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:for-else",
+      "label": "for-else",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:break",
+      "label": "break",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:findpos",
+      "label": "findpos()",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:array",
+      "label": "Array",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:linked-list",
+      "label": "Linked List",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:binary-search",
+      "label": "Binary Search",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:o1-index",
+      "label": "O(1) Indexing",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:ologn-complexity",
+      "label": "O(log n) Complexity",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:sorted-precondition",
+      "label": "Sorted Precondition",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:tn",
+      "label": "T(n) \u2014 Time Function",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:bigo",
+      "label": "Big-O Notation",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:worst-case",
+      "label": "Worst Case",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:python-budget",
+      "label": "Python ~10^7 steps/s",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:selection-sort",
+      "label": "Selection Sort",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:on2-complexity",
+      "label": "O(n\u00b2) Complexity",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:insertion-sort",
+      "label": "Insertion Sort",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:sorted-prefix-invariant",
+      "label": "Sorted Prefix Invariant",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:inductive-def",
+      "label": "Inductive Definition",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:recursion-error",
+      "label": "RecursionError",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:recursion-limit",
+      "label": "Recursion Limit (~1000)",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:merge-sort",
+      "label": "Merge Sort",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:divide-conquer",
+      "label": "Divide and Conquer",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:merge-fn",
+      "label": "merge() function",
+      "type": "concept",
+      "group": "concept"
+    },
+    {
+      "id": "pd:c:onlogn-complexity",
+      "label": "O(n log n) Complexity",
+      "type": "concept",
+      "group": "concept"
+    }
+  ],
+  "edges": [
+    {
+      "source": "pd:book",
+      "target": "pd:d1",
+      "relation": "HAS_DOMAIN"
+    },
+    {
+      "source": "pd:d1",
+      "target": "pd:t1a",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d1",
+      "target": "pd:t1b",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d1",
+      "target": "pd:t1c",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d1",
+      "target": "pd:t1d",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:book",
+      "target": "pd:d2",
+      "relation": "HAS_DOMAIN"
+    },
+    {
+      "source": "pd:d2",
+      "target": "pd:t2a",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d2",
+      "target": "pd:t2b",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d2",
+      "target": "pd:t2c",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d2",
+      "target": "pd:t2d",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d2",
+      "target": "pd:t2e",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d2",
+      "target": "pd:t2f",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d2",
+      "target": "pd:t2g",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:book",
+      "target": "pd:d3",
+      "relation": "HAS_DOMAIN"
+    },
+    {
+      "source": "pd:d3",
+      "target": "pd:t3a",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d3",
+      "target": "pd:t3b",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d3",
+      "target": "pd:t3c",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d3",
+      "target": "pd:t3d",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d3",
+      "target": "pd:t3e",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d3",
+      "target": "pd:t3f",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d3",
+      "target": "pd:t3g",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d3",
+      "target": "pd:t3h",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:book",
+      "target": "pd:d4",
+      "relation": "HAS_DOMAIN"
+    },
+    {
+      "source": "pd:d4",
+      "target": "pd:t4a",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d4",
+      "target": "pd:t4b",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d4",
+      "target": "pd:t4c",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d4",
+      "target": "pd:t4d",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d4",
+      "target": "pd:t4e",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d4",
+      "target": "pd:t4f",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d4",
+      "target": "pd:t4g",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:book",
+      "target": "pd:d5",
+      "relation": "HAS_DOMAIN"
+    },
+    {
+      "source": "pd:d5",
+      "target": "pd:t5a",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d5",
+      "target": "pd:t5b",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d5",
+      "target": "pd:t5c",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d5",
+      "target": "pd:t5d",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d5",
+      "target": "pd:t5e",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d5",
+      "target": "pd:t5f",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:book",
+      "target": "pd:d6",
+      "relation": "HAS_DOMAIN"
+    },
+    {
+      "source": "pd:d6",
+      "target": "pd:t6a",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d6",
+      "target": "pd:t6b",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d6",
+      "target": "pd:t6c",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d6",
+      "target": "pd:t6d",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d6",
+      "target": "pd:t6e",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:book",
+      "target": "pd:d7",
+      "relation": "HAS_DOMAIN"
+    },
+    {
+      "source": "pd:d7",
+      "target": "pd:t7a",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d7",
+      "target": "pd:t7b",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d7",
+      "target": "pd:t7c",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d7",
+      "target": "pd:t7d",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:book",
+      "target": "pd:d8",
+      "relation": "HAS_DOMAIN"
+    },
+    {
+      "source": "pd:d8",
+      "target": "pd:t8a",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d8",
+      "target": "pd:t8b",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d8",
+      "target": "pd:t8c",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d8",
+      "target": "pd:t8d",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:d8",
+      "target": "pd:t8e",
+      "relation": "HAS_TOPIC"
+    },
+    {
+      "source": "pd:t1c",
+      "target": "pd:c:euclid",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:euclid",
+      "target": "pd:c:gcd",
+      "relation": "COMPUTES"
+    },
+    {
+      "source": "pd:c:euclid",
+      "target": "pd:c:modulo",
+      "relation": "USES"
+    },
+    {
+      "source": "pd:c:euclid",
+      "target": "pd:c:diff-method",
+      "relation": "FASTER_THAN"
+    },
+    {
+      "source": "pd:c:euclid",
+      "target": "pd:c:log-complexity",
+      "relation": "HAS_COMPLEXITY"
+    },
+    {
+      "source": "pd:c:recursive-impl",
+      "target": "pd:c:euclid",
+      "relation": "IMPLEMENTS"
+    },
+    {
+      "source": "pd:c:while-impl",
+      "target": "pd:c:euclid",
+      "relation": "IMPLEMENTS"
+    },
+    {
+      "source": "pd:c:termination",
+      "target": "pd:c:euclid",
+      "relation": "GUARANTEES_HALTING_OF"
+    },
+    {
+      "source": "pd:t2a",
+      "target": "pd:c:int",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:t2a",
+      "target": "pd:c:float",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:float",
+      "target": "pd:c:mantissa-exp",
+      "relation": "REPRESENTED_BY"
+    },
+    {
+      "source": "pd:c:mantissa-exp",
+      "target": "pd:c:rounding-error",
+      "relation": "CAUSES"
+    },
+    {
+      "source": "pd:c:floordiv",
+      "target": "pd:c:modulo",
+      "relation": "PAIRS_WITH"
+    },
+    {
+      "source": "pd:c:euclid",
+      "target": "pd:c:modulo",
+      "relation": "USES"
+    },
+    {
+      "source": "pd:c:bool",
+      "target": "pd:c:gcd",
+      "relation": "TESTS_DIVISIBILITY_IN"
+    },
+    {
+      "source": "pd:t2b",
+      "target": "pd:c:string",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:string",
+      "target": "pd:c:immutability",
+      "relation": "HAS_PROPERTY"
+    },
+    {
+      "source": "pd:c:slice",
+      "target": "pd:c:half-open",
+      "relation": "FOLLOWS"
+    },
+    {
+      "source": "pd:c:string",
+      "target": "pd:c:slice",
+      "relation": "SUPPORTS"
+    },
+    {
+      "source": "pd:t2c",
+      "target": "pd:c:list",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:list",
+      "target": "pd:c:alias",
+      "relation": "SUBJECT_TO"
+    },
+    {
+      "source": "pd:c:copy-slice",
+      "target": "pd:c:alias",
+      "relation": "BREAKS"
+    },
+    {
+      "source": "pd:c:identity-is",
+      "target": "pd:c:list",
+      "relation": "COMPARES_OBJECT_OF"
+    },
+    {
+      "source": "pd:c:equality-eq",
+      "target": "pd:c:list",
+      "relation": "COMPARES_VALUE_OF"
+    },
+    {
+      "source": "pd:c:concat",
+      "target": "pd:c:list",
+      "relation": "CREATES_NEW"
+    },
+    {
+      "source": "pd:c:list",
+      "target": "pd:c:half-open",
+      "relation": "USES_IN_SLICING"
+    },
+    {
+      "source": "pd:t2d",
+      "target": "pd:c:list",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source": "pd:c:append",
+      "target": "pd:c:list",
+      "relation": "ADDS_SINGLE_ELEMENT_TO"
+    },
+    {
+      "source": "pd:c:extend",
+      "target": "pd:c:list",
+      "relation": "CONCATENATES_IN_PLACE_INTO"
+    },
+    {
+      "source": "pd:c:remove",
+      "target": "pd:c:list",
+      "relation": "DELETES_FIRST_MATCH_FROM"
+    },
+    {
+      "source": "pd:c:sort",
+      "target": "pd:c:list",
+      "relation": "REORDERS_IN_PLACE"
+    },
+    {
+      "source": "pd:c:index-method",
+      "target": "pd:c:list",
+      "relation": "FINDS_LEFTMOST_POSITION_IN"
+    },
+    {
+      "source": "pd:t2e",
+      "target": "pd:c:range",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:range",
+      "target": "pd:c:half-open",
+      "relation": "FOLLOWS"
+    },
+    {
+      "source": "pd:c:for-loop",
+      "target": "pd:c:range",
+      "relation": "ITERATES_WITH"
+    },
+    {
+      "source": "pd:t2f",
+      "target": "pd:c:local-scope",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:local-scope",
+      "target": "pd:c:global-scope",
+      "relation": "SHADOWS"
+    },
+    {
+      "source": "pd:c:def-order",
+      "target": "pd:c:for-loop",
+      "relation": "REQUIRED_BEFORE_CALL"
+    },
+    {
+      "source": "pd:c:recursion",
+      "target": "pd:c:base-case",
+      "relation": "REQUIRES"
+    },
+    {
+      "source": "pd:t2g",
+      "target": "pd:c:nprimes",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:nprimes",
+      "target": "pd:c:while-loop",
+      "relation": "USES"
+    },
+    {
+      "source": "pd:c:tuple-assign",
+      "target": "pd:c:nprimes",
+      "relation": "INITIALIZES_COUNTERS_IN"
+    },
+    {
+      "source": "pd:c:while-loop",
+      "target": "pd:c:for-loop",
+      "relation": "ALTERNATIVE_TO"
+    },
+    {
+      "source": "pd:t3b",
+      "target": "pd:c:inplace-mutation",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:inplace-mutation",
+      "target": "pd:c:alias",
+      "relation": "VISIBLE_THROUGH"
+    },
+    {
+      "source": "pd:c:concat",
+      "target": "pd:c:rebinding",
+      "relation": "CAUSES"
+    },
+    {
+      "source": "pd:c:extend",
+      "target": "pd:c:inplace-mutation",
+      "relation": "IS_A"
+    },
+    {
+      "source": "pd:t3c",
+      "target": "pd:c:findpos",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:findpos",
+      "target": "pd:c:for-else",
+      "relation": "USES"
+    },
+    {
+      "source": "pd:c:for-else",
+      "target": "pd:c:break",
+      "relation": "TRIGGERS_ON_ABSENCE_OF"
+    },
+    {
+      "source": "pd:c:findpos",
+      "target": "pd:c:index-method",
+      "relation": "ALTERNATIVE_TO"
+    },
+    {
+      "source": "pd:t3d",
+      "target": "pd:c:array",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:t3d",
+      "target": "pd:c:binary-search",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:array",
+      "target": "pd:c:o1-index",
+      "relation": "PROVIDES"
+    },
+    {
+      "source": "pd:c:linked-list",
+      "target": "pd:c:o1-index",
+      "relation": "LACKS"
+    },
+    {
+      "source": "pd:c:binary-search",
+      "target": "pd:c:sorted-precondition",
+      "relation": "REQUIRES"
+    },
+    {
+      "source": "pd:c:binary-search",
+      "target": "pd:c:o1-index",
+      "relation": "REQUIRES"
+    },
+    {
+      "source": "pd:c:binary-search",
+      "target": "pd:c:ologn-complexity",
+      "relation": "ACHIEVES"
+    },
+    {
+      "source": "pd:c:binary-search",
+      "target": "pd:c:linked-list",
+      "relation": "INCOMPATIBLE_WITH"
+    },
+    {
+      "source": "pd:c:list",
+      "target": "pd:c:array",
+      "relation": "TREATED_AS"
+    },
+    {
+      "source": "pd:t3e",
+      "target": "pd:c:tn",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:tn",
+      "target": "pd:c:worst-case",
+      "relation": "MEASURED_BY"
+    },
+    {
+      "source": "pd:c:bigo",
+      "target": "pd:c:tn",
+      "relation": "CLASSIFIES"
+    },
+    {
+      "source": "pd:c:python-budget",
+      "target": "pd:c:bigo",
+      "relation": "BOUNDS_FEASIBLE_N_FOR"
+    },
+    {
+      "source": "pd:t3f",
+      "target": "pd:c:selection-sort",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:selection-sort",
+      "target": "pd:c:on2-complexity",
+      "relation": "HAS_COMPLEXITY"
+    },
+    {
+      "source": "pd:c:selection-sort",
+      "target": "pd:c:bigo",
+      "relation": "CLASSIFIED_BY"
+    },
+    {
+      "source": "pd:t3g",
+      "target": "pd:c:insertion-sort",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:insertion-sort",
+      "target": "pd:c:sorted-prefix-invariant",
+      "relation": "MAINTAINS"
+    },
+    {
+      "source": "pd:c:insertion-sort",
+      "target": "pd:c:on2-complexity",
+      "relation": "HAS_COMPLEXITY"
+    },
+    {
+      "source": "pd:c:insertion-sort",
+      "target": "pd:c:selection-sort",
+      "relation": "FASTER_ON_NEARLY_SORTED_INPUT_THAN"
+    },
+    {
+      "source": "pd:t3h",
+      "target": "pd:c:inductive-def",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:inductive-def",
+      "target": "pd:c:recursion",
+      "relation": "BECOMES"
+    },
+    {
+      "source": "pd:c:recursion",
+      "target": "pd:c:recursion-limit",
+      "relation": "BOUNDED_BY"
+    },
+    {
+      "source": "pd:c:recursion-limit",
+      "target": "pd:c:recursion-error",
+      "relation": "CAUSES_ON_OVERFLOW"
+    },
+    {
+      "source": "pd:c:insertion-sort",
+      "target": "pd:c:recursion",
+      "relation": "HAS_RECURSIVE_FORM"
+    },
+    {
+      "source": "pd:c:euclid",
+      "target": "pd:c:recursion",
+      "relation": "HAS_RECURSIVE_FORM"
+    },
+    {
+      "source": "pd:t4a",
+      "target": "pd:c:merge-sort",
+      "relation": "DESCRIBES"
+    },
+    {
+      "source": "pd:c:merge-sort",
+      "target": "pd:c:divide-conquer",
+      "relation": "IS_A"
+    },
+    {
+      "source": "pd:c:merge-sort",
+      "target": "pd:c:merge-fn",
+      "relation": "USES"
+    },
+    {
+      "source": "pd:c:merge-fn",
+      "target": "pd:c:tn",
+      "relation": "RUNS_IN_LINEAR_TIME"
+    },
+    {
+      "source": "pd:c:merge-sort",
+      "target": "pd:c:onlogn-complexity",
+      "relation": "ACHIEVES"
+    },
+    {
+      "source": "pd:c:merge-sort",
+      "target": "pd:c:selection-sort",
+      "relation": "FASTER_AT_SCALE_THAN"
+    },
+    {
+      "source": "pd:c:merge-sort",
+      "target": "pd:c:insertion-sort",
+      "relation": "FASTER_AT_SCALE_THAN"
+    }
+  ]
+}
