@@ -10,10 +10,11 @@ Open the living map: [the-wisdom-bridge/index.html](the-wisdom-bridge/index.html
 
 Capture notes as you read: [the-wisdom-bridge/learnings.md](the-wisdom-bridge/learnings.md)
 
-The map has three views of the same nine principles:
+The map has four views of the same nine principles:
 
 - **Mind map** — the book at the center, principles as branches, chapters unfolding from the one you choose
+- **Heart field** — the first cluster of learnings as one picture: the heart as seat of the soul, and the triad of will, faith, and confidence
 - **Bridge** — the principles as nine pillars spanning what we inherit and what we pass on
 - **Journey** — a readable outline from Principle 1 to 9
 
-Add learnings in `learnings.md`. They will be folded into the visual as they arrive.
+Gold badges mark principles that already hold notes. Add more in `learnings.md` as you read.
