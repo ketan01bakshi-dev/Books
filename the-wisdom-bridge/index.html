@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Wisdom Bridge — Nine Principles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div>
+          <p class="eyebrow">A living map of the book</p>
+          <h1>The Wisdom Bridge</h1>
+          <p class="subtitle">Nine principles to a life that echoes in the hearts of your loved ones</p>
+          <p class="author">Daaji Kamlesh D. Patel</p>
+        </div>
+        <div class="controls" role="tablist" aria-label="Map views">
+          <button type="button" data-view="map" aria-pressed="true">Mind map</button>
+          <button type="button" data-view="heart" aria-pressed="false">Heart field</button>
+          <button type="button" data-view="bridge" aria-pressed="false">Bridge</button>
+          <button type="button" data-view="journey" aria-pressed="false">Journey</button>
+        </div>
+      </header>
+
+      <main class="stage">
+        <section class="canvas-card" id="canvas" aria-label="Visual map"></section>
+        <aside class="panel" id="panel"></aside>
+      </main>
+
+      <p class="hint">
+        Gold badges mark principles with notes. Open <strong>Heart field</strong> to see the first cluster of learnings as one picture: the heart as seat of the soul, and the triad of will, faith, and confidence.
+      </p>
+    </div>
+    <script src="book.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
