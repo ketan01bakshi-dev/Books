@@ -590,18 +590,11 @@
   // expanded) width so the map never overlaps even fully exploded.
   var COL_GAP = 90, ROW_GAP = 16, MARGIN = 90, BRANCH_GAP = 34;
 
-  function fullSpan(node){
-    if(!node.children.length) return node.h;
-    var total = 0;
-    node.children.forEach(function(c, i){
-      total += fullSpan(c) + (i < node.children.length-1 ? ROW_GAP : 0);
-    });
-    return Math.max(node.h, total);
-  }
-
   (function measureEverything(){
     // temporarily render the whole tree (hidden via #stage{visibility:hidden})
-    // purely to get every node's real rendered size, once.
+    // purely to get every node's real rendered size, once. Sizes never
+    // change after this (collapsed/expanded pills reserve the same width),
+    // so nothing needs re-measuring on later rebuilds.
     (function createAll(node){
       createEl(node);
       node.children.forEach(createAll);
@@ -614,30 +607,26 @@
     nodesLayer.innerHTML = "";
   })();
 
-  var branchTotal = 0;
-  TREE.children.forEach(function(b){
-    b.wFull = fullSpan(b);
-    branchTotal += b.wFull + BRANCH_GAP;
+  // Branches sit at fixed, evenly-spaced angles (a clean symmetric wheel by
+  // default) starting at the top, going clockwise.
+  var startAngle = -Math.PI/2;
+  TREE.children.forEach(function(b, i){
+    b.angle = startAngle + i * (2*Math.PI / TREE.children.length);
   });
   var hubDiag = Math.sqrt(TREE.w*TREE.w + TREE.h*TREE.h) / 2;
-  var maxPillDiag = 0;
-  TREE.children.forEach(function(b){
-    maxPillDiag = Math.max(maxPillDiag, Math.sqrt(b.w*b.w + b.h*b.h) / 2);
-  });
-  var R0 = Math.max(
-    (branchTotal / (2*Math.PI)) * 1.06,
-    hubDiag + maxPillDiag + BRANCH_GAP
-  );
-  var startAngle = -Math.PI/2;
-  var cum = 0;
-  TREE.children.forEach(function(b){
-    var span = (2*Math.PI) * (b.wFull + BRANCH_GAP) / branchTotal;
-    b.angle = startAngle + cum + span/2;
-    cum += span;
-  });
 
   // ---------- layout + render (re-run whenever the expanded set changes) ----------
   var visible = [];
+
+  // A node's box stays upright on screen — only its center moves along the
+  // rotated branch — so a gap that's safe for a rightward-pointing branch
+  // isn't automatically safe for a diagonal one (the same physical gap
+  // projects to less clearance on each screen axis once it's not axis
+  // aligned). The rotation-proof fix: size every gap, in every direction,
+  // off each node's full diagonal rather than its width or height. Distance
+  // between centers >= sum of half-diagonals can never overlap, whatever
+  // angle the branch sits at.
+  function halfDiag(n){ return Math.sqrt(n.w*n.w + n.h*n.h) / 2; }
 
   function layoutBranch(branch){
     var nodes = [];
@@ -652,14 +641,14 @@
       kids.forEach(function(c){ dfs(c, depth+1, node); });
     })(branch, 0, TREE);
 
-    var maxW = [];
-    nodes.forEach(function(n){ maxW[n.localDepth] = Math.max(maxW[n.localDepth]||0, n.w); });
+    var maxHalfDiag = [];
+    nodes.forEach(function(n){ maxHalfDiag[n.localDepth] = Math.max(maxHalfDiag[n.localDepth]||0, halfDiag(n)); });
     var colXLocal = [0];
-    for(var d=1; d<=maxLocalDepth; d++){ colXLocal[d] = colXLocal[d-1] + maxW[d-1] + COL_GAP; }
+    for(var d=1; d<=maxLocalDepth; d++){ colXLocal[d] = colXLocal[d-1] + maxHalfDiag[d-1] + maxHalfDiag[d] + COL_GAP; }
 
     function place(node, top){
       var kids = node.expanded ? node.children : [];
-      if(!kids.length){ node.tang = top + node.h/2; return node.h; }
+      if(!kids.length){ var hd = halfDiag(node); node.tang = top + hd; return hd*2; }
       var cursor = top;
       kids.forEach(function(c, i){
         var h = place(c, cursor);
@@ -667,16 +656,16 @@
       });
       var span = cursor - top;
       node.tang = top + span/2;
-      return Math.max(node.h, span);
+      return Math.max(halfDiag(node)*2, span);
     }
-    place(branch, 0);
+    var curSpan = place(branch, 0);
 
     var branchTang = branch.tang;
     nodes.forEach(function(n){
-      n.r = R0 + colXLocal[n.localDepth];
+      n.radiusOffset = colXLocal[n.localDepth];
       n.t = n.tang - branchTang;
     });
-    return nodes;
+    return { nodes: nodes, curSpan: curSpan };
   }
 
   function toGlobal(angle, r, t, shiftX, shiftY){
@@ -687,10 +676,29 @@
   }
 
   function rebuild(){
+    var branches = TREE.children.map(function(b){ return { branch: b, res: layoutBranch(b) }; });
+    var n = branches.length;
+
+    // Radius grows only as far as whatever is CURRENTLY expanded actually
+    // needs: two neighbouring branches at fixed angular separation dTheta
+    // can't collide, at any radius r, once 2*r*sin(dTheta/2) covers their
+    // combined current widths — so the map stays compact by default and
+    // only expands outward around whatever the user just opened.
+    var maxPillHalf = 0;
+    branches.forEach(function(bb){ maxPillHalf = Math.max(maxPillHalf, Math.sqrt(bb.branch.w*bb.branch.w+bb.branch.h*bb.branch.h)/2); });
+    var R0 = hubDiag + maxPillHalf + BRANCH_GAP;
+    for(var i=0; i<n; i++){
+      var a = branches[i], b = branches[(i+1)%n];
+      var dTheta = (i === n-1) ? (a.branch.angle + 2*Math.PI - branches[0].branch.angle) : (b.branch.angle - a.branch.angle);
+      var need = ((a.res.curSpan + b.res.curSpan)/2 + BRANCH_GAP) / (2*Math.sin(dTheta/2));
+      R0 = Math.max(R0, need);
+    }
+
     visible = [TREE];
     TREE.r = 0; TREE.t = 0; TREE.branchAngle = 0;
-    TREE.children.forEach(function(branch){
-      visible = visible.concat(layoutBranch(branch));
+    branches.forEach(function(bb){
+      bb.res.nodes.forEach(function(nd){ nd.r = R0 + nd.radiusOffset; });
+      visible = visible.concat(bb.res.nodes);
     });
 
     // raw (unshifted) positions, to find the bounding box
