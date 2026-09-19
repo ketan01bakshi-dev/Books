@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Books — Knowledge Graphs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.9/standalone/umd/vis-network.min.js"></script>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --border: #2a2f3a;
+    --text: #e6e8ec;
+    --muted: #9aa3af;
+    --accent: #6ea8fe;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+    flex-wrap: wrap;
+  }
+  header h1 { font-size: 16px; margin: 0; font-weight: 600; }
+  header .subtitle { font-size: 12px; color: var(--muted); }
+  select {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  #searchBox {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 13px;
+    width: 200px;
+  }
+  .stat {
+    font-size: 12px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+  }
+  #network {
+    flex: 1;
+    background: var(--bg);
+  }
+  #sidebar {
+    width: 300px;
+    border-left: 1px solid var(--border);
+    background: var(--panel);
+    padding: 16px;
+    overflow-y: auto;
+    font-size: 13px;
+  }
+  #sidebar h2 { font-size: 14px; margin: 0 0 8px; }
+  #sidebar .rel {
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.03);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  #sidebar .rel b { color: var(--accent); }
+  .legend {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    color: var(--muted);
+    padding: 8px 20px;
+    border-top: 1px solid var(--border);
+    background: var(--panel);
+  }
+  .legend span { display: flex; align-items: center; gap: 4px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .empty-hint { color: var(--muted); font-style: italic; }
+</style>
+</head>
+<body>
+<header>
+  <h1>📚 Books — Knowledge Graphs</h1>
+  <select id="graphSelect">
+    <option value="master">Master (all books)</option>
+    <option value="wisdomBridge">The Wisdom Bridge</option>
+    <option value="pythonPdsa">Algorithms &amp; Python</option>
+  </select>
+  <input id="searchBox" placeholder="Find a node..." />
+  <div class="subtitle" id="subtitle"></div>
+  <div class="stat" id="stat"></div>
+</header>
+<main>
+  <div id="network"></div>
+  <div id="sidebar">
+    <h2>Select a node</h2>
+    <div class="empty-hint">Click any node to see its relationships here.</div>
+  </div>
+</main>
+<div class="legend" id="legend"></div>
+
+<script src="data.js"></script>
+<script>
+const GROUP_COLORS = {
+  root:            "#f9a825",
+  book:            "#ef5350",
+  principle:       "#ab47bc",
+  domain:          "#ab47bc",
+  "chapter-filled":"#42a5f5",
+  "chapter-empty": "#37474f",
+  "topic-filled":  "#42a5f5",
+  "topic-empty":   "#37474f",
+  section:         "#66bb6a",
+  concept:         "#ffca28",
+};
+
+function colorFor(group) {
+  return GROUP_COLORS[group] || "#78909c";
+}
+
+let network = null;
+let currentGraph = null;
+
+function buildNetwork(graphKey) {
+  const g = GRAPHS[graphKey];
+  currentGraph = g;
+  document.getElementById("subtitle").textContent = g.subtitle || "";
+  document.getElementById("stat").textContent = g.nodes.length + " nodes · " + g.edges.length + " relations";
+
+  const nodes = new vis.DataSet(g.nodes.map(n => ({
+    id: n.id,
+    label: n.label,
+    title: n.type + (n.group ? " · " + n.group : ""),
+    color: {
+      background: colorFor(n.group),
+      border: colorFor(n.group),
+      highlight: { background: "#fff", border: colorFor(n.group) }
+    },
+    font: { color: "#0f1115", size: n.type === "book" || n.type === "root" ? 20 : (n.type === "principle" || n.type === "domain" ? 16 : 12) },
+    shape: n.type === "concept" ? "dot" : "box",
+    size: n.type === "concept" ? 8 : undefined,
+    borderWidth: 1,
+  })));
+
+  const edges = new vis.DataSet(g.edges.map((e, i) => ({
+    id: i,
+    from: e.source,
+    to: e.target,
+    label: e.relation,
+    font: { size: 9, color: "#9aa3af", strokeWidth: 0, align: "middle" },
+    color: { color: "#3a4150", highlight: "#6ea8fe" },
+    arrows: "to",
+    smooth: { type: "dynamic" },
+  })));
+
+  const container = document.getElementById("network");
+  const options = {
+    physics: {
+      solver: "forceAtlas2Based",
+      forceAtlas2Based: { gravitationalConstant: -60, springLength: 110, springConstant: 0.06, damping: 0.4 },
+      stabilization: { iterations: 200 },
+    },
+    interaction: { hover: true, tooltipDelay: 100 },
+    layout: { improvedLayout: true },
+  };
+
+  if (network) network.destroy();
+  network = new vis.Network(container, { nodes, edges }, options);
+
+  network.on("click", function (params) {
+    if (params.nodes.length > 0) {
+      showRelations(params.nodes[0]);
+    }
+  });
+}
+
+function showRelations(nodeId) {
+  const g = currentGraph;
+  const node = g.nodes.find(n => n.id === nodeId);
+  const sidebar = document.getElementById("sidebar");
+  const rels = g.edges.filter(e => e.source === nodeId || e.target === nodeId);
+  let html = "<h2>" + node.label + "</h2>";
+  html += "<div class='empty-hint'>" + node.type + (node.group ? " · " + node.group : "") + "</div><br/>";
+  if (rels.length === 0) {
+    html += "<div class='empty-hint'>No relationships recorded yet.</div>";
+  }
+  rels.forEach(e => {
+    const outgoing = e.source === nodeId;
+    const otherId = outgoing ? e.target : e.source;
+    const other = g.nodes.find(n => n.id === otherId);
+    const otherLabel = other ? other.label : otherId;
+    if (outgoing) {
+      html += "<div class='rel'>→ <b>" + e.relation + "</b> → " + otherLabel + "</div>";
+    } else {
+      html += "<div class='rel'>← <b>" + e.relation + "</b> ← " + otherLabel + "</div>";
+    }
+  });
+  sidebar.innerHTML = html;
+}
+
+function buildLegend() {
+  const items = [
+    ["Book / Root", "#ef5350"],
+    ["Principle / Domain", "#ab47bc"],
+    ["Chapter / Topic (filled)", "#42a5f5"],
+    ["Chapter / Topic (empty)", "#37474f"],
+    ["Section", "#66bb6a"],
+    ["Concept", "#ffca28"],
+  ];
+  document.getElementById("legend").innerHTML = items.map(
+    ([label, color]) => `<span><span class="dot" style="background:${color}"></span>${label}</span>`
+  ).join("");
+}
+
+document.getElementById("graphSelect").addEventListener("change", (e) => {
+  buildNetwork(e.target.value);
+});
+
+document.getElementById("searchBox").addEventListener("keydown", (e) => {
+  if (e.key !== "Enter") return;
+  const q = e.target.value.trim().toLowerCase();
+  if (!q || !currentGraph) return;
+  const match = currentGraph.nodes.find(n => n.label.toLowerCase().includes(q));
+  if (match) {
+    network.selectNodes([match.id]);
+    network.focus(match.id, { scale: 1.2, animation: true });
+    showRelations(match.id);
+  }
+});
+
+buildLegend();
+buildNetwork("master");
+</script>
+</body>
+</html>
