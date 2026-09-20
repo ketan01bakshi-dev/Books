@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "sourceBooks": ["python-pdsa", "the-wisdom-bridge", "mans-search-for-meaning"],
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What creates a durable sense of meaning or purpose?",
+      "framedBy": "curator",
+      "answeringNodeIds": [
+        "mans-search-for-meaning:topic:three-roads",
+        "the-wisdom-bridge:concept:c5-preparation"
+      ]
+    }
+  ],
+  "vocabularyClusters": [
+    {
+      "id": "vc1",
+      "canonicalTerm": "meaning-through-discipline",
+      "definition": "Meaning/purpose is produced by a deliberate inner practice, not received passively.",
+      "termsByBook": [
+        { "bookId": "mans-search-for-meaning", "nodeId": "mans-search-for-meaning:topic:three-roads", "termAsUsed": "the three roads to meaning (work, love, suffering)" },
+        { "bookId": "the-wisdom-bridge", "nodeId": "the-wisdom-bridge:concept:c5-preparation", "termAsUsed": "preparation" }
+      ]
+    }
+  ],
+  "conflictClusters": [
+    {
+      "id": "cc1",
+      "topic": "Where does meaning originate?",
+      "questionId": "q1",
+      "positions": [
+        { "bookId": "mans-search-for-meaning", "nodeId": "mans-search-for-meaning:topic:tragic", "stance": "Meaning is forged retroactively, through how one responds to unchosen suffering (tragic optimism)." },
+        { "bookId": "the-wisdom-bridge", "nodeId": "the-wisdom-bridge:concept:c5-preparation", "stance": "Meaning/purpose is built proactively, through preparation and eliminating doubt before adversity arrives." }
+      ]
+    }
+  ],
+  "crossEdges": [
+    {
+      "id": "ce1",
+      "source": "mans-search-for-meaning:topic:three-roads",
+      "target": "the-wisdom-bridge:concept:c5-preparation",
+      "relation": "shares_vocabulary_with",
+      "label": "both frame meaning as a discipline, not a discovery"
+    }
+  ]
+}

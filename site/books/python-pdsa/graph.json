@@ -1,0 +1,1701 @@
+{
+  "schemaVersion": "1.0.0",
+  "book": {
+    "id": "python-pdsa",
+    "title": "Algorithms & Python",
+    "author": "Community Notebook (evolving)",
+    "curator": "migrated-from-legacy-prs",
+    "curationStatus": "human-reviewed",
+    "copyrightStatus": "public-domain"
+  },
+  "nodes": [
+    {
+      "id": "python-pdsa:book",
+      "type": "book",
+      "label": "Algorithms & Python",
+      "readingLevel": "elementary"
+    },
+    {
+      "id": "python-pdsa:theme:d1",
+      "type": "theme",
+      "label": "Number Theory & Greatest Common Divisor",
+      "readingLevel": "inspectional",
+      "parentId": "python-pdsa:book"
+    },
+    {
+      "id": "python-pdsa:topic:t1a",
+      "type": "topic",
+      "label": "Simple GCD & Factor Listings",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d1"
+    },
+    {
+      "id": "python-pdsa:topic:t1b",
+      "type": "topic",
+      "label": "Improving Naive GCD (Reverse Scan)",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d1"
+    },
+    {
+      "id": "python-pdsa:topic:t1c",
+      "type": "topic",
+      "label": "Euclid's Algorithm for GCD (Remainder Version)",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d1"
+    },
+    {
+      "id": "python-pdsa:topic:t1d",
+      "type": "topic",
+      "label": "Environment & Interpreter Setup",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d1"
+    },
+    {
+      "id": "python-pdsa:theme:d2",
+      "type": "theme",
+      "label": "Core Types & Language Foundations",
+      "readingLevel": "inspectional",
+      "parentId": "python-pdsa:book"
+    },
+    {
+      "id": "python-pdsa:topic:t2a",
+      "type": "topic",
+      "label": "Numeric Values \u2014 int, float, bool",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d2"
+    },
+    {
+      "id": "python-pdsa:topic:t2b",
+      "type": "topic",
+      "label": "Strings \u2014 Slices & Immutability",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d2"
+    },
+    {
+      "id": "python-pdsa:topic:t2c",
+      "type": "topic",
+      "label": "Lists \u2014 Indexing, Aliasing & Identity",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d2"
+    },
+    {
+      "id": "python-pdsa:topic:t2d",
+      "type": "topic",
+      "label": "List Methods \u2014 append, extend, remove, sort, index",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d2"
+    },
+    {
+      "id": "python-pdsa:topic:t2e",
+      "type": "topic",
+      "label": "Repeating n Times \u2014 range()",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d2"
+    },
+    {
+      "id": "python-pdsa:topic:t2f",
+      "type": "topic",
+      "label": "Functions \u2014 Scope & Call Order",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d2"
+    },
+    {
+      "id": "python-pdsa:topic:t2g",
+      "type": "topic",
+      "label": "First n Primes \u2014 While Loops & Invariant Progression",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d2"
+    },
+    {
+      "id": "python-pdsa:theme:d3",
+      "type": "theme",
+      "label": "Inductive Definitions & Recursion",
+      "readingLevel": "inspectional",
+      "parentId": "python-pdsa:book"
+    },
+    {
+      "id": "python-pdsa:topic:t3a",
+      "type": "topic",
+      "label": "Range Slices & Stepping",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d3"
+    },
+    {
+      "id": "python-pdsa:topic:t3b",
+      "type": "topic",
+      "label": "Manipulating Lists in Memory",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d3"
+    },
+    {
+      "id": "python-pdsa:topic:t3c",
+      "type": "topic",
+      "label": "Loop Breaking & Early Exit",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d3"
+    },
+    {
+      "id": "python-pdsa:topic:t3d",
+      "type": "topic",
+      "label": "Arrays vs Lists & Binary Search",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d3"
+    },
+    {
+      "id": "python-pdsa:topic:t3e",
+      "type": "topic",
+      "label": "Algorithmic Efficiency & Orders of Growth",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d3"
+    },
+    {
+      "id": "python-pdsa:topic:t3f",
+      "type": "topic",
+      "label": "Selection Sort",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d3"
+    },
+    {
+      "id": "python-pdsa:topic:t3g",
+      "type": "topic",
+      "label": "Insertion Sort",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d3"
+    },
+    {
+      "id": "python-pdsa:topic:t3h",
+      "type": "topic",
+      "label": "Recursive Functions & Induction",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d3"
+    },
+    {
+      "id": "python-pdsa:theme:d4",
+      "type": "theme",
+      "label": "Divide & Conquer Sorting",
+      "readingLevel": "inspectional",
+      "parentId": "python-pdsa:book"
+    },
+    {
+      "id": "python-pdsa:topic:t4a",
+      "type": "topic",
+      "label": "Merge Sort Algorithm",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d4"
+    },
+    {
+      "id": "python-pdsa:topic:t4b",
+      "type": "topic",
+      "label": "Merge Sort Analysis \u2014 O(n log n)",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d4"
+    },
+    {
+      "id": "python-pdsa:topic:t4c",
+      "type": "topic",
+      "label": "Quick Sort Algorithm",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d4"
+    },
+    {
+      "id": "python-pdsa:topic:t4d",
+      "type": "topic",
+      "label": "Quick Sort Partitioning & Worst Case",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d4"
+    },
+    {
+      "id": "python-pdsa:topic:t4e",
+      "type": "topic",
+      "label": "Tuples & Dictionaries",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d4"
+    },
+    {
+      "id": "python-pdsa:topic:t4f",
+      "type": "topic",
+      "label": "Function Arguments & Lambda",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d4"
+    },
+    {
+      "id": "python-pdsa:topic:t4g",
+      "type": "topic",
+      "label": "List Comprehensions",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d4"
+    },
+    {
+      "id": "python-pdsa:theme:d5",
+      "type": "theme",
+      "label": "Exceptions, File I/O & Formatting",
+      "readingLevel": "inspectional",
+      "parentId": "python-pdsa:book"
+    },
+    {
+      "id": "python-pdsa:topic:t5a",
+      "type": "topic",
+      "label": "Exception Handling (try-except-finally)",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d5"
+    },
+    {
+      "id": "python-pdsa:topic:t5b",
+      "type": "topic",
+      "label": "Standard Input and Output",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d5"
+    },
+    {
+      "id": "python-pdsa:topic:t5c",
+      "type": "topic",
+      "label": "File Operations & Context Managers",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d5"
+    },
+    {
+      "id": "python-pdsa:topic:t5d",
+      "type": "topic",
+      "label": "String Methods & Formatting",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d5"
+    },
+    {
+      "id": "python-pdsa:topic:t5e",
+      "type": "topic",
+      "label": "Formatted Output & String Interpolation",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d5"
+    },
+    {
+      "id": "python-pdsa:topic:t5f",
+      "type": "topic",
+      "label": "Special Names: pass, del(), None",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d5"
+    },
+    {
+      "id": "python-pdsa:theme:d6",
+      "type": "theme",
+      "label": "Backtracking & Priority Queues",
+      "readingLevel": "inspectional",
+      "parentId": "python-pdsa:book"
+    },
+    {
+      "id": "python-pdsa:topic:t6a",
+      "type": "topic",
+      "label": "Backtracking & N-Queens Problem",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d6"
+    },
+    {
+      "id": "python-pdsa:topic:t6b",
+      "type": "topic",
+      "label": "Global, Local & Nonlocal Scopes",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d6"
+    },
+    {
+      "id": "python-pdsa:topic:t6c",
+      "type": "topic",
+      "label": "Permutations Generation",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d6"
+    },
+    {
+      "id": "python-pdsa:topic:t6d",
+      "type": "topic",
+      "label": "Abstract Stacks & Queues",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d6"
+    },
+    {
+      "id": "python-pdsa:topic:t6e",
+      "type": "topic",
+      "label": "Priority Queues & Binary Heaps",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d6"
+    },
+    {
+      "id": "python-pdsa:theme:d7",
+      "type": "theme",
+      "label": "User-Defined Types & Search Trees",
+      "readingLevel": "inspectional",
+      "parentId": "python-pdsa:book"
+    },
+    {
+      "id": "python-pdsa:topic:t7a",
+      "type": "topic",
+      "label": "Abstract Data Types & Object-Oriented Design",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d7"
+    },
+    {
+      "id": "python-pdsa:topic:t7b",
+      "type": "topic",
+      "label": "Classes, Methods & Objects in Python",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d7"
+    },
+    {
+      "id": "python-pdsa:topic:t7c",
+      "type": "topic",
+      "label": "User-Defined Linked Lists",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d7"
+    },
+    {
+      "id": "python-pdsa:topic:t7d",
+      "type": "topic",
+      "label": "Binary Search Trees (Insert, Delete, Search)",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d7"
+    },
+    {
+      "id": "python-pdsa:theme:d8",
+      "type": "theme",
+      "label": "Dynamic Programming & Optimization",
+      "readingLevel": "inspectional",
+      "parentId": "python-pdsa:book"
+    },
+    {
+      "id": "python-pdsa:topic:t8a",
+      "type": "topic",
+      "label": "Memoization & Dynamic Programming Principles",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d8"
+    },
+    {
+      "id": "python-pdsa:topic:t8b",
+      "type": "topic",
+      "label": "Grid Paths Optimization",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d8"
+    },
+    {
+      "id": "python-pdsa:topic:t8c",
+      "type": "topic",
+      "label": "Longest Common Subsequence (LCS)",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d8"
+    },
+    {
+      "id": "python-pdsa:topic:t8d",
+      "type": "topic",
+      "label": "Matrix Chain Multiplication",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d8"
+    },
+    {
+      "id": "python-pdsa:topic:t8e",
+      "type": "topic",
+      "label": "Language Wrap-Up & Paradigm Comparisons",
+      "readingLevel": "analytical",
+      "parentId": "python-pdsa:theme:d8"
+    },
+    {
+      "id": "python-pdsa:concept:c-gcd",
+      "type": "concept",
+      "label": "GCD",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-euclid",
+      "type": "concept",
+      "label": "Euclid's Algorithm",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-modulo",
+      "type": "concept",
+      "label": "% Remainder Operator",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-diff-method",
+      "type": "concept",
+      "label": "Difference Method (subtraction)",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-recursive-impl",
+      "type": "concept",
+      "label": "Recursive Implementation",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-while-impl",
+      "type": "concept",
+      "label": "While-loop Implementation",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-log-complexity",
+      "type": "concept",
+      "label": "O(log min(m,n)) Complexity",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-termination",
+      "type": "concept",
+      "label": "Termination Property",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-int",
+      "type": "concept",
+      "label": "int",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-float",
+      "type": "concept",
+      "label": "float",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-mantissa-exp",
+      "type": "concept",
+      "label": "Mantissa & Exponent",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-rounding-error",
+      "type": "concept",
+      "label": "Floating-Point Rounding Error",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-floordiv",
+      "type": "concept",
+      "label": "// Floor Division",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-bool",
+      "type": "concept",
+      "label": "bool",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-string",
+      "type": "concept",
+      "label": "String",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-slice",
+      "type": "concept",
+      "label": "Slice",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-immutability",
+      "type": "concept",
+      "label": "Immutability",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-half-open",
+      "type": "concept",
+      "label": "Half-open Range Convention",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-list",
+      "type": "concept",
+      "label": "List",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-alias",
+      "type": "concept",
+      "label": "Alias",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-copy-slice",
+      "type": "concept",
+      "label": "Copy via Full Slice [:]",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-identity-is",
+      "type": "concept",
+      "label": "Identity (is)",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-equality-eq",
+      "type": "concept",
+      "label": "Equality (==)",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-concat",
+      "type": "concept",
+      "label": "Concatenation (+)",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-append",
+      "type": "concept",
+      "label": "append()",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-extend",
+      "type": "concept",
+      "label": "extend()",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-remove",
+      "type": "concept",
+      "label": "remove()",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-sort",
+      "type": "concept",
+      "label": "sort()",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-index-method",
+      "type": "concept",
+      "label": "index()",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-range",
+      "type": "concept",
+      "label": "range()",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-for-loop",
+      "type": "concept",
+      "label": "for loop",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-local-scope",
+      "type": "concept",
+      "label": "Local Scope",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-global-scope",
+      "type": "concept",
+      "label": "Global Scope",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-def-order",
+      "type": "concept",
+      "label": "Function Definition Order",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-recursion",
+      "type": "concept",
+      "label": "Recursion",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-base-case",
+      "type": "concept",
+      "label": "Base Case",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-while-loop",
+      "type": "concept",
+      "label": "while loop",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-tuple-assign",
+      "type": "concept",
+      "label": "Tuple Assignment",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-nprimes",
+      "type": "concept",
+      "label": "First n Primes (nprimes)",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-inplace-mutation",
+      "type": "concept",
+      "label": "In-place Mutation",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-rebinding",
+      "type": "concept",
+      "label": "Rebinding",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-for-else",
+      "type": "concept",
+      "label": "for-else",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-break",
+      "type": "concept",
+      "label": "break",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-findpos",
+      "type": "concept",
+      "label": "findpos()",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-array",
+      "type": "concept",
+      "label": "Array",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-linked-list",
+      "type": "concept",
+      "label": "Linked List",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-binary-search",
+      "type": "concept",
+      "label": "Binary Search",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-o1-index",
+      "type": "concept",
+      "label": "O(1) Indexing",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-ologn-complexity",
+      "type": "concept",
+      "label": "O(log n) Complexity",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-sorted-precondition",
+      "type": "concept",
+      "label": "Sorted Precondition",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-tn",
+      "type": "concept",
+      "label": "T(n) \u2014 Time Function",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-bigo",
+      "type": "concept",
+      "label": "Big-O Notation",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-worst-case",
+      "type": "concept",
+      "label": "Worst Case",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-python-budget",
+      "type": "concept",
+      "label": "Python ~10^7 steps/s",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-selection-sort",
+      "type": "concept",
+      "label": "Selection Sort",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-on2-complexity",
+      "type": "concept",
+      "label": "O(n\u00b2) Complexity",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-insertion-sort",
+      "type": "concept",
+      "label": "Insertion Sort",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-sorted-prefix-invariant",
+      "type": "concept",
+      "label": "Sorted Prefix Invariant",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-inductive-def",
+      "type": "concept",
+      "label": "Inductive Definition",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-recursion-error",
+      "type": "concept",
+      "label": "RecursionError",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-recursion-limit",
+      "type": "concept",
+      "label": "Recursion Limit (~1000)",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-merge-sort",
+      "type": "concept",
+      "label": "Merge Sort",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-divide-conquer",
+      "type": "concept",
+      "label": "Divide and Conquer",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-merge-fn",
+      "type": "concept",
+      "label": "merge() function",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "python-pdsa:concept:c-onlogn-complexity",
+      "type": "concept",
+      "label": "O(n log n) Complexity",
+      "readingLevel": "analytical"
+    }
+  ],
+  "edges": [
+    {
+      "id": "python-pdsa:e0",
+      "source": "python-pdsa:book",
+      "target": "python-pdsa:theme:d1",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e1",
+      "source": "python-pdsa:theme:d1",
+      "target": "python-pdsa:topic:t1a",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e2",
+      "source": "python-pdsa:theme:d1",
+      "target": "python-pdsa:topic:t1b",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e3",
+      "source": "python-pdsa:theme:d1",
+      "target": "python-pdsa:topic:t1c",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e4",
+      "source": "python-pdsa:theme:d1",
+      "target": "python-pdsa:topic:t1d",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e5",
+      "source": "python-pdsa:book",
+      "target": "python-pdsa:theme:d2",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e6",
+      "source": "python-pdsa:theme:d2",
+      "target": "python-pdsa:topic:t2a",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e7",
+      "source": "python-pdsa:theme:d2",
+      "target": "python-pdsa:topic:t2b",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e8",
+      "source": "python-pdsa:theme:d2",
+      "target": "python-pdsa:topic:t2c",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e9",
+      "source": "python-pdsa:theme:d2",
+      "target": "python-pdsa:topic:t2d",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e10",
+      "source": "python-pdsa:theme:d2",
+      "target": "python-pdsa:topic:t2e",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e11",
+      "source": "python-pdsa:theme:d2",
+      "target": "python-pdsa:topic:t2f",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e12",
+      "source": "python-pdsa:theme:d2",
+      "target": "python-pdsa:topic:t2g",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e13",
+      "source": "python-pdsa:book",
+      "target": "python-pdsa:theme:d3",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e14",
+      "source": "python-pdsa:theme:d3",
+      "target": "python-pdsa:topic:t3a",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e15",
+      "source": "python-pdsa:theme:d3",
+      "target": "python-pdsa:topic:t3b",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e16",
+      "source": "python-pdsa:theme:d3",
+      "target": "python-pdsa:topic:t3c",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e17",
+      "source": "python-pdsa:theme:d3",
+      "target": "python-pdsa:topic:t3d",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e18",
+      "source": "python-pdsa:theme:d3",
+      "target": "python-pdsa:topic:t3e",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e19",
+      "source": "python-pdsa:theme:d3",
+      "target": "python-pdsa:topic:t3f",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e20",
+      "source": "python-pdsa:theme:d3",
+      "target": "python-pdsa:topic:t3g",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e21",
+      "source": "python-pdsa:theme:d3",
+      "target": "python-pdsa:topic:t3h",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e22",
+      "source": "python-pdsa:book",
+      "target": "python-pdsa:theme:d4",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e23",
+      "source": "python-pdsa:theme:d4",
+      "target": "python-pdsa:topic:t4a",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e24",
+      "source": "python-pdsa:theme:d4",
+      "target": "python-pdsa:topic:t4b",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e25",
+      "source": "python-pdsa:theme:d4",
+      "target": "python-pdsa:topic:t4c",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e26",
+      "source": "python-pdsa:theme:d4",
+      "target": "python-pdsa:topic:t4d",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e27",
+      "source": "python-pdsa:theme:d4",
+      "target": "python-pdsa:topic:t4e",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e28",
+      "source": "python-pdsa:theme:d4",
+      "target": "python-pdsa:topic:t4f",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e29",
+      "source": "python-pdsa:theme:d4",
+      "target": "python-pdsa:topic:t4g",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e30",
+      "source": "python-pdsa:book",
+      "target": "python-pdsa:theme:d5",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e31",
+      "source": "python-pdsa:theme:d5",
+      "target": "python-pdsa:topic:t5a",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e32",
+      "source": "python-pdsa:theme:d5",
+      "target": "python-pdsa:topic:t5b",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e33",
+      "source": "python-pdsa:theme:d5",
+      "target": "python-pdsa:topic:t5c",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e34",
+      "source": "python-pdsa:theme:d5",
+      "target": "python-pdsa:topic:t5d",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e35",
+      "source": "python-pdsa:theme:d5",
+      "target": "python-pdsa:topic:t5e",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e36",
+      "source": "python-pdsa:theme:d5",
+      "target": "python-pdsa:topic:t5f",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e37",
+      "source": "python-pdsa:book",
+      "target": "python-pdsa:theme:d6",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e38",
+      "source": "python-pdsa:theme:d6",
+      "target": "python-pdsa:topic:t6a",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e39",
+      "source": "python-pdsa:theme:d6",
+      "target": "python-pdsa:topic:t6b",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e40",
+      "source": "python-pdsa:theme:d6",
+      "target": "python-pdsa:topic:t6c",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e41",
+      "source": "python-pdsa:theme:d6",
+      "target": "python-pdsa:topic:t6d",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e42",
+      "source": "python-pdsa:theme:d6",
+      "target": "python-pdsa:topic:t6e",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e43",
+      "source": "python-pdsa:book",
+      "target": "python-pdsa:theme:d7",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e44",
+      "source": "python-pdsa:theme:d7",
+      "target": "python-pdsa:topic:t7a",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e45",
+      "source": "python-pdsa:theme:d7",
+      "target": "python-pdsa:topic:t7b",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e46",
+      "source": "python-pdsa:theme:d7",
+      "target": "python-pdsa:topic:t7c",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e47",
+      "source": "python-pdsa:theme:d7",
+      "target": "python-pdsa:topic:t7d",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e48",
+      "source": "python-pdsa:book",
+      "target": "python-pdsa:theme:d8",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e49",
+      "source": "python-pdsa:theme:d8",
+      "target": "python-pdsa:topic:t8a",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e50",
+      "source": "python-pdsa:theme:d8",
+      "target": "python-pdsa:topic:t8b",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e51",
+      "source": "python-pdsa:theme:d8",
+      "target": "python-pdsa:topic:t8c",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e52",
+      "source": "python-pdsa:theme:d8",
+      "target": "python-pdsa:topic:t8d",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e53",
+      "source": "python-pdsa:theme:d8",
+      "target": "python-pdsa:topic:t8e",
+      "relation": "contains"
+    },
+    {
+      "id": "python-pdsa:e54",
+      "source": "python-pdsa:topic:t1c",
+      "target": "python-pdsa:concept:c-euclid",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e55",
+      "source": "python-pdsa:concept:c-euclid",
+      "target": "python-pdsa:concept:c-gcd",
+      "relation": "relates_to",
+      "label": "computes"
+    },
+    {
+      "id": "python-pdsa:e56",
+      "source": "python-pdsa:concept:c-euclid",
+      "target": "python-pdsa:concept:c-modulo",
+      "relation": "relates_to",
+      "label": "uses"
+    },
+    {
+      "id": "python-pdsa:e57",
+      "source": "python-pdsa:concept:c-euclid",
+      "target": "python-pdsa:concept:c-diff-method",
+      "relation": "relates_to",
+      "label": "faster than"
+    },
+    {
+      "id": "python-pdsa:e58",
+      "source": "python-pdsa:concept:c-euclid",
+      "target": "python-pdsa:concept:c-log-complexity",
+      "relation": "relates_to",
+      "label": "has complexity"
+    },
+    {
+      "id": "python-pdsa:e59",
+      "source": "python-pdsa:concept:c-recursive-impl",
+      "target": "python-pdsa:concept:c-euclid",
+      "relation": "relates_to",
+      "label": "implements"
+    },
+    {
+      "id": "python-pdsa:e60",
+      "source": "python-pdsa:concept:c-while-impl",
+      "target": "python-pdsa:concept:c-euclid",
+      "relation": "relates_to",
+      "label": "implements"
+    },
+    {
+      "id": "python-pdsa:e61",
+      "source": "python-pdsa:concept:c-termination",
+      "target": "python-pdsa:concept:c-euclid",
+      "relation": "relates_to",
+      "label": "guarantees halting of"
+    },
+    {
+      "id": "python-pdsa:e62",
+      "source": "python-pdsa:topic:t2a",
+      "target": "python-pdsa:concept:c-int",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e63",
+      "source": "python-pdsa:topic:t2a",
+      "target": "python-pdsa:concept:c-float",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e64",
+      "source": "python-pdsa:concept:c-float",
+      "target": "python-pdsa:concept:c-mantissa-exp",
+      "relation": "relates_to",
+      "label": "represented by"
+    },
+    {
+      "id": "python-pdsa:e65",
+      "source": "python-pdsa:concept:c-mantissa-exp",
+      "target": "python-pdsa:concept:c-rounding-error",
+      "relation": "relates_to",
+      "label": "causes"
+    },
+    {
+      "id": "python-pdsa:e66",
+      "source": "python-pdsa:concept:c-floordiv",
+      "target": "python-pdsa:concept:c-modulo",
+      "relation": "relates_to",
+      "label": "pairs with"
+    },
+    {
+      "id": "python-pdsa:e67",
+      "source": "python-pdsa:concept:c-euclid",
+      "target": "python-pdsa:concept:c-modulo",
+      "relation": "relates_to",
+      "label": "uses"
+    },
+    {
+      "id": "python-pdsa:e68",
+      "source": "python-pdsa:concept:c-bool",
+      "target": "python-pdsa:concept:c-gcd",
+      "relation": "relates_to",
+      "label": "tests divisibility in"
+    },
+    {
+      "id": "python-pdsa:e69",
+      "source": "python-pdsa:topic:t2b",
+      "target": "python-pdsa:concept:c-string",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e70",
+      "source": "python-pdsa:concept:c-string",
+      "target": "python-pdsa:concept:c-immutability",
+      "relation": "relates_to",
+      "label": "has property"
+    },
+    {
+      "id": "python-pdsa:e71",
+      "source": "python-pdsa:concept:c-slice",
+      "target": "python-pdsa:concept:c-half-open",
+      "relation": "relates_to",
+      "label": "follows"
+    },
+    {
+      "id": "python-pdsa:e72",
+      "source": "python-pdsa:concept:c-string",
+      "target": "python-pdsa:concept:c-slice",
+      "relation": "relates_to",
+      "label": "supports"
+    },
+    {
+      "id": "python-pdsa:e73",
+      "source": "python-pdsa:topic:t2c",
+      "target": "python-pdsa:concept:c-list",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e74",
+      "source": "python-pdsa:concept:c-list",
+      "target": "python-pdsa:concept:c-alias",
+      "relation": "relates_to",
+      "label": "subject to"
+    },
+    {
+      "id": "python-pdsa:e75",
+      "source": "python-pdsa:concept:c-copy-slice",
+      "target": "python-pdsa:concept:c-alias",
+      "relation": "relates_to",
+      "label": "breaks"
+    },
+    {
+      "id": "python-pdsa:e76",
+      "source": "python-pdsa:concept:c-identity-is",
+      "target": "python-pdsa:concept:c-list",
+      "relation": "relates_to",
+      "label": "compares object of"
+    },
+    {
+      "id": "python-pdsa:e77",
+      "source": "python-pdsa:concept:c-equality-eq",
+      "target": "python-pdsa:concept:c-list",
+      "relation": "relates_to",
+      "label": "compares value of"
+    },
+    {
+      "id": "python-pdsa:e78",
+      "source": "python-pdsa:concept:c-concat",
+      "target": "python-pdsa:concept:c-list",
+      "relation": "relates_to",
+      "label": "creates new"
+    },
+    {
+      "id": "python-pdsa:e79",
+      "source": "python-pdsa:concept:c-list",
+      "target": "python-pdsa:concept:c-half-open",
+      "relation": "relates_to",
+      "label": "uses in slicing"
+    },
+    {
+      "id": "python-pdsa:e80",
+      "source": "python-pdsa:topic:t2d",
+      "target": "python-pdsa:concept:c-list",
+      "relation": "relates_to",
+      "label": "operates on"
+    },
+    {
+      "id": "python-pdsa:e81",
+      "source": "python-pdsa:concept:c-append",
+      "target": "python-pdsa:concept:c-list",
+      "relation": "relates_to",
+      "label": "adds single element to"
+    },
+    {
+      "id": "python-pdsa:e82",
+      "source": "python-pdsa:concept:c-extend",
+      "target": "python-pdsa:concept:c-list",
+      "relation": "relates_to",
+      "label": "concatenates in place into"
+    },
+    {
+      "id": "python-pdsa:e83",
+      "source": "python-pdsa:concept:c-remove",
+      "target": "python-pdsa:concept:c-list",
+      "relation": "relates_to",
+      "label": "deletes first match from"
+    },
+    {
+      "id": "python-pdsa:e84",
+      "source": "python-pdsa:concept:c-sort",
+      "target": "python-pdsa:concept:c-list",
+      "relation": "relates_to",
+      "label": "reorders in place"
+    },
+    {
+      "id": "python-pdsa:e85",
+      "source": "python-pdsa:concept:c-index-method",
+      "target": "python-pdsa:concept:c-list",
+      "relation": "relates_to",
+      "label": "finds leftmost position in"
+    },
+    {
+      "id": "python-pdsa:e86",
+      "source": "python-pdsa:topic:t2e",
+      "target": "python-pdsa:concept:c-range",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e87",
+      "source": "python-pdsa:concept:c-range",
+      "target": "python-pdsa:concept:c-half-open",
+      "relation": "relates_to",
+      "label": "follows"
+    },
+    {
+      "id": "python-pdsa:e88",
+      "source": "python-pdsa:concept:c-for-loop",
+      "target": "python-pdsa:concept:c-range",
+      "relation": "relates_to",
+      "label": "iterates with"
+    },
+    {
+      "id": "python-pdsa:e89",
+      "source": "python-pdsa:topic:t2f",
+      "target": "python-pdsa:concept:c-local-scope",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e90",
+      "source": "python-pdsa:concept:c-local-scope",
+      "target": "python-pdsa:concept:c-global-scope",
+      "relation": "relates_to",
+      "label": "shadows"
+    },
+    {
+      "id": "python-pdsa:e91",
+      "source": "python-pdsa:concept:c-def-order",
+      "target": "python-pdsa:concept:c-for-loop",
+      "relation": "relates_to",
+      "label": "required before call"
+    },
+    {
+      "id": "python-pdsa:e92",
+      "source": "python-pdsa:concept:c-recursion",
+      "target": "python-pdsa:concept:c-base-case",
+      "relation": "relates_to",
+      "label": "requires"
+    },
+    {
+      "id": "python-pdsa:e93",
+      "source": "python-pdsa:topic:t2g",
+      "target": "python-pdsa:concept:c-nprimes",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e94",
+      "source": "python-pdsa:concept:c-nprimes",
+      "target": "python-pdsa:concept:c-while-loop",
+      "relation": "relates_to",
+      "label": "uses"
+    },
+    {
+      "id": "python-pdsa:e95",
+      "source": "python-pdsa:concept:c-tuple-assign",
+      "target": "python-pdsa:concept:c-nprimes",
+      "relation": "relates_to",
+      "label": "initializes counters in"
+    },
+    {
+      "id": "python-pdsa:e96",
+      "source": "python-pdsa:concept:c-while-loop",
+      "target": "python-pdsa:concept:c-for-loop",
+      "relation": "relates_to",
+      "label": "alternative to"
+    },
+    {
+      "id": "python-pdsa:e97",
+      "source": "python-pdsa:topic:t3b",
+      "target": "python-pdsa:concept:c-inplace-mutation",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e98",
+      "source": "python-pdsa:concept:c-inplace-mutation",
+      "target": "python-pdsa:concept:c-alias",
+      "relation": "relates_to",
+      "label": "visible through"
+    },
+    {
+      "id": "python-pdsa:e99",
+      "source": "python-pdsa:concept:c-concat",
+      "target": "python-pdsa:concept:c-rebinding",
+      "relation": "relates_to",
+      "label": "causes"
+    },
+    {
+      "id": "python-pdsa:e100",
+      "source": "python-pdsa:concept:c-extend",
+      "target": "python-pdsa:concept:c-inplace-mutation",
+      "relation": "relates_to",
+      "label": "is a"
+    },
+    {
+      "id": "python-pdsa:e101",
+      "source": "python-pdsa:topic:t3c",
+      "target": "python-pdsa:concept:c-findpos",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e102",
+      "source": "python-pdsa:concept:c-findpos",
+      "target": "python-pdsa:concept:c-for-else",
+      "relation": "relates_to",
+      "label": "uses"
+    },
+    {
+      "id": "python-pdsa:e103",
+      "source": "python-pdsa:concept:c-for-else",
+      "target": "python-pdsa:concept:c-break",
+      "relation": "relates_to",
+      "label": "triggers on absence of"
+    },
+    {
+      "id": "python-pdsa:e104",
+      "source": "python-pdsa:concept:c-findpos",
+      "target": "python-pdsa:concept:c-index-method",
+      "relation": "relates_to",
+      "label": "alternative to"
+    },
+    {
+      "id": "python-pdsa:e105",
+      "source": "python-pdsa:topic:t3d",
+      "target": "python-pdsa:concept:c-array",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e106",
+      "source": "python-pdsa:topic:t3d",
+      "target": "python-pdsa:concept:c-binary-search",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e107",
+      "source": "python-pdsa:concept:c-array",
+      "target": "python-pdsa:concept:c-o1-index",
+      "relation": "relates_to",
+      "label": "provides"
+    },
+    {
+      "id": "python-pdsa:e108",
+      "source": "python-pdsa:concept:c-linked-list",
+      "target": "python-pdsa:concept:c-o1-index",
+      "relation": "relates_to",
+      "label": "lacks"
+    },
+    {
+      "id": "python-pdsa:e109",
+      "source": "python-pdsa:concept:c-binary-search",
+      "target": "python-pdsa:concept:c-sorted-precondition",
+      "relation": "relates_to",
+      "label": "requires"
+    },
+    {
+      "id": "python-pdsa:e110",
+      "source": "python-pdsa:concept:c-binary-search",
+      "target": "python-pdsa:concept:c-o1-index",
+      "relation": "relates_to",
+      "label": "requires"
+    },
+    {
+      "id": "python-pdsa:e111",
+      "source": "python-pdsa:concept:c-binary-search",
+      "target": "python-pdsa:concept:c-ologn-complexity",
+      "relation": "relates_to",
+      "label": "achieves"
+    },
+    {
+      "id": "python-pdsa:e112",
+      "source": "python-pdsa:concept:c-binary-search",
+      "target": "python-pdsa:concept:c-linked-list",
+      "relation": "relates_to",
+      "label": "incompatible with"
+    },
+    {
+      "id": "python-pdsa:e113",
+      "source": "python-pdsa:concept:c-list",
+      "target": "python-pdsa:concept:c-array",
+      "relation": "relates_to",
+      "label": "treated as"
+    },
+    {
+      "id": "python-pdsa:e114",
+      "source": "python-pdsa:topic:t3e",
+      "target": "python-pdsa:concept:c-tn",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e115",
+      "source": "python-pdsa:concept:c-tn",
+      "target": "python-pdsa:concept:c-worst-case",
+      "relation": "relates_to",
+      "label": "measured by"
+    },
+    {
+      "id": "python-pdsa:e116",
+      "source": "python-pdsa:concept:c-bigo",
+      "target": "python-pdsa:concept:c-tn",
+      "relation": "relates_to",
+      "label": "classifies"
+    },
+    {
+      "id": "python-pdsa:e117",
+      "source": "python-pdsa:concept:c-python-budget",
+      "target": "python-pdsa:concept:c-bigo",
+      "relation": "relates_to",
+      "label": "bounds feasible n for"
+    },
+    {
+      "id": "python-pdsa:e118",
+      "source": "python-pdsa:topic:t3f",
+      "target": "python-pdsa:concept:c-selection-sort",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e119",
+      "source": "python-pdsa:concept:c-selection-sort",
+      "target": "python-pdsa:concept:c-on2-complexity",
+      "relation": "relates_to",
+      "label": "has complexity"
+    },
+    {
+      "id": "python-pdsa:e120",
+      "source": "python-pdsa:concept:c-selection-sort",
+      "target": "python-pdsa:concept:c-bigo",
+      "relation": "relates_to",
+      "label": "classified by"
+    },
+    {
+      "id": "python-pdsa:e121",
+      "source": "python-pdsa:topic:t3g",
+      "target": "python-pdsa:concept:c-insertion-sort",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e122",
+      "source": "python-pdsa:concept:c-insertion-sort",
+      "target": "python-pdsa:concept:c-sorted-prefix-invariant",
+      "relation": "relates_to",
+      "label": "maintains"
+    },
+    {
+      "id": "python-pdsa:e123",
+      "source": "python-pdsa:concept:c-insertion-sort",
+      "target": "python-pdsa:concept:c-on2-complexity",
+      "relation": "relates_to",
+      "label": "has complexity"
+    },
+    {
+      "id": "python-pdsa:e124",
+      "source": "python-pdsa:concept:c-insertion-sort",
+      "target": "python-pdsa:concept:c-selection-sort",
+      "relation": "relates_to",
+      "label": "faster on nearly sorted input than"
+    },
+    {
+      "id": "python-pdsa:e125",
+      "source": "python-pdsa:topic:t3h",
+      "target": "python-pdsa:concept:c-inductive-def",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e126",
+      "source": "python-pdsa:concept:c-inductive-def",
+      "target": "python-pdsa:concept:c-recursion",
+      "relation": "relates_to",
+      "label": "becomes"
+    },
+    {
+      "id": "python-pdsa:e127",
+      "source": "python-pdsa:concept:c-recursion",
+      "target": "python-pdsa:concept:c-recursion-limit",
+      "relation": "relates_to",
+      "label": "bounded by"
+    },
+    {
+      "id": "python-pdsa:e128",
+      "source": "python-pdsa:concept:c-recursion-limit",
+      "target": "python-pdsa:concept:c-recursion-error",
+      "relation": "relates_to",
+      "label": "causes on overflow"
+    },
+    {
+      "id": "python-pdsa:e129",
+      "source": "python-pdsa:concept:c-insertion-sort",
+      "target": "python-pdsa:concept:c-recursion",
+      "relation": "relates_to",
+      "label": "has recursive form"
+    },
+    {
+      "id": "python-pdsa:e130",
+      "source": "python-pdsa:concept:c-euclid",
+      "target": "python-pdsa:concept:c-recursion",
+      "relation": "relates_to",
+      "label": "has recursive form"
+    },
+    {
+      "id": "python-pdsa:e131",
+      "source": "python-pdsa:topic:t4a",
+      "target": "python-pdsa:concept:c-merge-sort",
+      "relation": "relates_to",
+      "label": "describes"
+    },
+    {
+      "id": "python-pdsa:e132",
+      "source": "python-pdsa:concept:c-merge-sort",
+      "target": "python-pdsa:concept:c-divide-conquer",
+      "relation": "relates_to",
+      "label": "is a"
+    },
+    {
+      "id": "python-pdsa:e133",
+      "source": "python-pdsa:concept:c-merge-sort",
+      "target": "python-pdsa:concept:c-merge-fn",
+      "relation": "relates_to",
+      "label": "uses"
+    },
+    {
+      "id": "python-pdsa:e134",
+      "source": "python-pdsa:concept:c-merge-fn",
+      "target": "python-pdsa:concept:c-tn",
+      "relation": "relates_to",
+      "label": "runs in linear time"
+    },
+    {
+      "id": "python-pdsa:e135",
+      "source": "python-pdsa:concept:c-merge-sort",
+      "target": "python-pdsa:concept:c-onlogn-complexity",
+      "relation": "relates_to",
+      "label": "achieves"
+    },
+    {
+      "id": "python-pdsa:e136",
+      "source": "python-pdsa:concept:c-merge-sort",
+      "target": "python-pdsa:concept:c-selection-sort",
+      "relation": "relates_to",
+      "label": "faster at scale than"
+    },
+    {
+      "id": "python-pdsa:e137",
+      "source": "python-pdsa:concept:c-merge-sort",
+      "target": "python-pdsa:concept:c-insertion-sort",
+      "relation": "relates_to",
+      "label": "faster at scale than"
+    }
+  ]
+}

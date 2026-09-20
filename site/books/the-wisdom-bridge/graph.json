@@ -1,0 +1,876 @@
+{
+  "schemaVersion": "1.0.0",
+  "book": {
+    "id": "the-wisdom-bridge",
+    "title": "The Wisdom Bridge",
+    "author": "Daaji Kamlesh D. Patel",
+    "curator": "migrated-from-legacy-prs",
+    "curationStatus": "human-reviewed",
+    "copyrightStatus": "licensed"
+  },
+  "nodes": [
+    {
+      "id": "the-wisdom-bridge:book",
+      "type": "book",
+      "label": "The Wisdom Bridge",
+      "readingLevel": "elementary"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:dear-parents",
+      "type": "theme",
+      "label": "Dear Parents",
+      "readingLevel": "inspectional"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:p1",
+      "type": "theme",
+      "label": "Principle 1 \u2014 Raising a Child Still Takes a Village",
+      "readingLevel": "inspectional",
+      "parentId": "the-wisdom-bridge:book"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c1",
+      "type": "topic",
+      "label": "Ch.1 A Village Is the People, Not the Place",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p1"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c2",
+      "type": "topic",
+      "label": "Ch.2 Halo Parenting: Rebuilding the Village",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p1"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:p2",
+      "type": "theme",
+      "label": "Principle 2 \u2014 Be Guided by Wisdom. Seek It. Cultivate It. Share It.",
+      "readingLevel": "inspectional",
+      "parentId": "the-wisdom-bridge:book"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c3",
+      "type": "topic",
+      "label": "Ch.3 Wayfinders, Shamans and Grandparents: The Wisdom Bridge",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p2"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c4",
+      "type": "topic",
+      "label": "Ch.4 We All Pay the Price for Lost Wisdom",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p2"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:p3",
+      "type": "theme",
+      "label": "Principle 3 \u2014 Preparation Begins Long before the Children Arrive",
+      "readingLevel": "inspectional",
+      "parentId": "the-wisdom-bridge:book"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c5",
+      "type": "topic",
+      "label": "Ch.5 Becoming a Parent: Approach and Attitude",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p3"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c5-will",
+      "type": "concept",
+      "label": "Will",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c5-faith",
+      "type": "concept",
+      "label": "Faith",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c5-confidence",
+      "type": "concept",
+      "label": "Confidence",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c5-doubt",
+      "type": "concept",
+      "label": "Doubt",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c5-preparation",
+      "type": "concept",
+      "label": "Preparation",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c5-meditation",
+      "type": "concept",
+      "label": "Meditation",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c5-peace-harmony",
+      "type": "concept",
+      "label": "Peace & Harmony",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c6",
+      "type": "topic",
+      "label": "Ch.6 All Parents Are Adopted",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p3"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:p4",
+      "type": "theme",
+      "label": "Principle 4 \u2014 Happy Mothers Make Happy Families",
+      "readingLevel": "inspectional",
+      "parentId": "the-wisdom-bridge:book"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c7",
+      "type": "topic",
+      "label": "Ch.7 D-Day, Dutch Hunger Winter and Epigenetics",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p4"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c8",
+      "type": "topic",
+      "label": "Ch.8 Ashtavakra, Abhimanyu and the Scientific Theory of Foetal Origins",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p4"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c8-heart",
+      "type": "concept",
+      "label": "Heart",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c8-em-field",
+      "type": "concept",
+      "label": "Heart's Electromagnetic Field",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c8-vibratory-field",
+      "type": "concept",
+      "label": "Vibratory Field",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c8-foetus",
+      "type": "concept",
+      "label": "Foetus",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c8-energy-channels",
+      "type": "concept",
+      "label": "Energy Channels",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c8-chakras",
+      "type": "concept",
+      "label": "Seven Chakras (spine)",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c8-brahmarandhra",
+      "type": "concept",
+      "label": "Brahmarandhra",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c8-brain",
+      "type": "concept",
+      "label": "Foetal Brain",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c8-soul",
+      "type": "concept",
+      "label": "Soul",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c8-life-force",
+      "type": "concept",
+      "label": "Life Force",
+      "readingLevel": "analytical"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c9",
+      "type": "topic",
+      "label": "Ch.9 Japanese Fishing Village, Oxytocin and Mother-Child Bonding",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p4"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:p5",
+      "type": "theme",
+      "label": "Principle 5 \u2014 Early Childhood Is the Foundation",
+      "readingLevel": "inspectional",
+      "parentId": "the-wisdom-bridge:book"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c10",
+      "type": "topic",
+      "label": "Ch.10 Early Childhood: The Neural Goldrush and the Art of Relaxed Efforts",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p5"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c11",
+      "type": "topic",
+      "label": "Ch.11 I Once Asked a Three-Year-Old Her Favourite Colour. Her Answer Still Makes Me Smile",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p5"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c12",
+      "type": "topic",
+      "label": "Ch.12 East Meets West, Massage Meets Research: The Story of Touch",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p5"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c13",
+      "type": "topic",
+      "label": "Ch.13 Explore the World Together, See More",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p5"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:p6",
+      "type": "theme",
+      "label": "Principle 6 \u2014 Character Builds Personality",
+      "readingLevel": "inspectional",
+      "parentId": "the-wisdom-bridge:book"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c14",
+      "type": "topic",
+      "label": "Ch.14 Character Is the Foundation of Life: The Role of Parents in Laying the Foundation",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p6"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c15",
+      "type": "topic",
+      "label": "Ch.15 As You Do, So They Learn: The Story of Mirror Neurons",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p6"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c16",
+      "type": "topic",
+      "label": "Ch.16 Interest and Observation Are Twins",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p6"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c17",
+      "type": "topic",
+      "label": "Ch.17 The Strength of Humility",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p6"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:p7",
+      "type": "theme",
+      "label": "Principle 7 \u2014 Youth Are the Future. Guide Them, Don't Break Them.",
+      "readingLevel": "inspectional",
+      "parentId": "the-wisdom-bridge:book"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c18",
+      "type": "topic",
+      "label": "Ch.18 Youth: A Time of Promise and Potential",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p7"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c19",
+      "type": "topic",
+      "label": "Ch.19 Experimentation, Thrill-Seeking and Friendships in Teen Years",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p7"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:p8",
+      "type": "theme",
+      "label": "Principle 8 \u2014 Lifestyle Is an Expression of One's Attitudes",
+      "readingLevel": "inspectional",
+      "parentId": "the-wisdom-bridge:book"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c20",
+      "type": "topic",
+      "label": "Ch.20 Sleep Cycles Are an Investment",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p8"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c21",
+      "type": "topic",
+      "label": "Ch.21 Poverty and Prosperity Paradox",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p8"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c22",
+      "type": "topic",
+      "label": "Ch.22 Conscious Eating Habits",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p8"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:p9",
+      "type": "theme",
+      "label": "Principle 9 \u2014 Discipline Your Love, Not Love Your Discipline",
+      "readingLevel": "inspectional",
+      "parentId": "the-wisdom-bridge:book"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c23",
+      "type": "topic",
+      "label": "Ch.23 Discipline and Guidance for Your Child",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p9"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c24",
+      "type": "topic",
+      "label": "Ch.24 Self-Discipline and the Magic Habit to Cultivate It",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p9"
+    },
+    {
+      "id": "the-wisdom-bridge:topic:c25",
+      "type": "topic",
+      "label": "Ch.25 The Highest Discipline: A Gift from Above",
+      "readingLevel": "analytical",
+      "parentId": "the-wisdom-bridge:theme:p9"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:closing",
+      "type": "theme",
+      "label": "Closing",
+      "readingLevel": "inspectional"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:thankyou",
+      "type": "theme",
+      "label": "Thank You for Your Time",
+      "readingLevel": "inspectional",
+      "parentId": "the-wisdom-bridge:theme:closing"
+    },
+    {
+      "id": "the-wisdom-bridge:theme:appendix",
+      "type": "theme",
+      "label": "Appendix",
+      "readingLevel": "inspectional",
+      "parentId": "the-wisdom-bridge:theme:closing"
+    }
+  ],
+  "edges": [
+    {
+      "id": "the-wisdom-bridge:e0",
+      "source": "the-wisdom-bridge:book",
+      "target": "the-wisdom-bridge:theme:dear-parents",
+      "relation": "relates_to",
+      "label": "opens with"
+    },
+    {
+      "id": "the-wisdom-bridge:e1",
+      "source": "the-wisdom-bridge:book",
+      "target": "the-wisdom-bridge:theme:p1",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e2",
+      "source": "the-wisdom-bridge:theme:p1",
+      "target": "the-wisdom-bridge:topic:c1",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e3",
+      "source": "the-wisdom-bridge:theme:p1",
+      "target": "the-wisdom-bridge:topic:c2",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e4",
+      "source": "the-wisdom-bridge:book",
+      "target": "the-wisdom-bridge:theme:p2",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e5",
+      "source": "the-wisdom-bridge:theme:p2",
+      "target": "the-wisdom-bridge:topic:c3",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e6",
+      "source": "the-wisdom-bridge:theme:p2",
+      "target": "the-wisdom-bridge:topic:c4",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e7",
+      "source": "the-wisdom-bridge:book",
+      "target": "the-wisdom-bridge:theme:p3",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e8",
+      "source": "the-wisdom-bridge:theme:p3",
+      "target": "the-wisdom-bridge:topic:c5",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e9",
+      "source": "the-wisdom-bridge:topic:c5",
+      "target": "the-wisdom-bridge:concept:c5-will",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e10",
+      "source": "the-wisdom-bridge:topic:c5",
+      "target": "the-wisdom-bridge:concept:c5-faith",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e11",
+      "source": "the-wisdom-bridge:topic:c5",
+      "target": "the-wisdom-bridge:concept:c5-confidence",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e12",
+      "source": "the-wisdom-bridge:topic:c5",
+      "target": "the-wisdom-bridge:concept:c5-doubt",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e13",
+      "source": "the-wisdom-bridge:topic:c5",
+      "target": "the-wisdom-bridge:concept:c5-preparation",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e14",
+      "source": "the-wisdom-bridge:topic:c5",
+      "target": "the-wisdom-bridge:concept:c5-meditation",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e15",
+      "source": "the-wisdom-bridge:topic:c5",
+      "target": "the-wisdom-bridge:concept:c5-peace-harmony",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e16",
+      "source": "the-wisdom-bridge:theme:p3",
+      "target": "the-wisdom-bridge:topic:c6",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e17",
+      "source": "the-wisdom-bridge:book",
+      "target": "the-wisdom-bridge:theme:p4",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e18",
+      "source": "the-wisdom-bridge:theme:p4",
+      "target": "the-wisdom-bridge:topic:c7",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e19",
+      "source": "the-wisdom-bridge:theme:p4",
+      "target": "the-wisdom-bridge:topic:c8",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e20",
+      "source": "the-wisdom-bridge:topic:c8",
+      "target": "the-wisdom-bridge:concept:c8-heart",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e21",
+      "source": "the-wisdom-bridge:topic:c8",
+      "target": "the-wisdom-bridge:concept:c8-em-field",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e22",
+      "source": "the-wisdom-bridge:topic:c8",
+      "target": "the-wisdom-bridge:concept:c8-vibratory-field",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e23",
+      "source": "the-wisdom-bridge:topic:c8",
+      "target": "the-wisdom-bridge:concept:c8-foetus",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e24",
+      "source": "the-wisdom-bridge:topic:c8",
+      "target": "the-wisdom-bridge:concept:c8-energy-channels",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e25",
+      "source": "the-wisdom-bridge:topic:c8",
+      "target": "the-wisdom-bridge:concept:c8-chakras",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e26",
+      "source": "the-wisdom-bridge:topic:c8",
+      "target": "the-wisdom-bridge:concept:c8-brahmarandhra",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e27",
+      "source": "the-wisdom-bridge:topic:c8",
+      "target": "the-wisdom-bridge:concept:c8-brain",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e28",
+      "source": "the-wisdom-bridge:topic:c8",
+      "target": "the-wisdom-bridge:concept:c8-soul",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e29",
+      "source": "the-wisdom-bridge:topic:c8",
+      "target": "the-wisdom-bridge:concept:c8-life-force",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e30",
+      "source": "the-wisdom-bridge:theme:p4",
+      "target": "the-wisdom-bridge:topic:c9",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e31",
+      "source": "the-wisdom-bridge:book",
+      "target": "the-wisdom-bridge:theme:p5",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e32",
+      "source": "the-wisdom-bridge:theme:p5",
+      "target": "the-wisdom-bridge:topic:c10",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e33",
+      "source": "the-wisdom-bridge:theme:p5",
+      "target": "the-wisdom-bridge:topic:c11",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e34",
+      "source": "the-wisdom-bridge:theme:p5",
+      "target": "the-wisdom-bridge:topic:c12",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e35",
+      "source": "the-wisdom-bridge:theme:p5",
+      "target": "the-wisdom-bridge:topic:c13",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e36",
+      "source": "the-wisdom-bridge:book",
+      "target": "the-wisdom-bridge:theme:p6",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e37",
+      "source": "the-wisdom-bridge:theme:p6",
+      "target": "the-wisdom-bridge:topic:c14",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e38",
+      "source": "the-wisdom-bridge:theme:p6",
+      "target": "the-wisdom-bridge:topic:c15",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e39",
+      "source": "the-wisdom-bridge:theme:p6",
+      "target": "the-wisdom-bridge:topic:c16",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e40",
+      "source": "the-wisdom-bridge:theme:p6",
+      "target": "the-wisdom-bridge:topic:c17",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e41",
+      "source": "the-wisdom-bridge:book",
+      "target": "the-wisdom-bridge:theme:p7",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e42",
+      "source": "the-wisdom-bridge:theme:p7",
+      "target": "the-wisdom-bridge:topic:c18",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e43",
+      "source": "the-wisdom-bridge:theme:p7",
+      "target": "the-wisdom-bridge:topic:c19",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e44",
+      "source": "the-wisdom-bridge:book",
+      "target": "the-wisdom-bridge:theme:p8",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e45",
+      "source": "the-wisdom-bridge:theme:p8",
+      "target": "the-wisdom-bridge:topic:c20",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e46",
+      "source": "the-wisdom-bridge:theme:p8",
+      "target": "the-wisdom-bridge:topic:c21",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e47",
+      "source": "the-wisdom-bridge:theme:p8",
+      "target": "the-wisdom-bridge:topic:c22",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e48",
+      "source": "the-wisdom-bridge:book",
+      "target": "the-wisdom-bridge:theme:p9",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e49",
+      "source": "the-wisdom-bridge:theme:p9",
+      "target": "the-wisdom-bridge:topic:c23",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e50",
+      "source": "the-wisdom-bridge:theme:p9",
+      "target": "the-wisdom-bridge:topic:c24",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e51",
+      "source": "the-wisdom-bridge:theme:p9",
+      "target": "the-wisdom-bridge:topic:c25",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e52",
+      "source": "the-wisdom-bridge:book",
+      "target": "the-wisdom-bridge:theme:closing",
+      "relation": "relates_to",
+      "label": "closes with"
+    },
+    {
+      "id": "the-wisdom-bridge:e53",
+      "source": "the-wisdom-bridge:theme:closing",
+      "target": "the-wisdom-bridge:theme:thankyou",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e54",
+      "source": "the-wisdom-bridge:theme:closing",
+      "target": "the-wisdom-bridge:theme:appendix",
+      "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e55",
+      "source": "the-wisdom-bridge:concept:c5-will",
+      "target": "the-wisdom-bridge:concept:c5-faith",
+      "relation": "relates_to",
+      "label": "needed alongside"
+    },
+    {
+      "id": "the-wisdom-bridge:e56",
+      "source": "the-wisdom-bridge:concept:c5-will",
+      "target": "the-wisdom-bridge:concept:c5-confidence",
+      "relation": "relates_to",
+      "label": "needed alongside"
+    },
+    {
+      "id": "the-wisdom-bridge:e57",
+      "source": "the-wisdom-bridge:concept:c5-doubt",
+      "target": "the-wisdom-bridge:concept:c5-will",
+      "relation": "relates_to",
+      "label": "poisons"
+    },
+    {
+      "id": "the-wisdom-bridge:e58",
+      "source": "the-wisdom-bridge:concept:c5-doubt",
+      "target": "the-wisdom-bridge:concept:c5-faith",
+      "relation": "relates_to",
+      "label": "affects"
+    },
+    {
+      "id": "the-wisdom-bridge:e59",
+      "source": "the-wisdom-bridge:concept:c5-doubt",
+      "target": "the-wisdom-bridge:concept:c5-confidence",
+      "relation": "relates_to",
+      "label": "affects"
+    },
+    {
+      "id": "the-wisdom-bridge:e60",
+      "source": "the-wisdom-bridge:concept:c5-preparation",
+      "target": "the-wisdom-bridge:concept:c5-doubt",
+      "relation": "relates_to",
+      "label": "eliminates"
+    },
+    {
+      "id": "the-wisdom-bridge:e61",
+      "source": "the-wisdom-bridge:concept:c5-meditation",
+      "target": "the-wisdom-bridge:concept:c5-peace-harmony",
+      "relation": "relates_to",
+      "label": "prepares"
+    },
+    {
+      "id": "the-wisdom-bridge:e62",
+      "source": "the-wisdom-bridge:concept:c5-peace-harmony",
+      "target": "the-wisdom-bridge:concept:c5-doubt",
+      "relation": "relates_to",
+      "label": "overcomes"
+    },
+    {
+      "id": "the-wisdom-bridge:e63",
+      "source": "the-wisdom-bridge:concept:c8-heart",
+      "target": "the-wisdom-bridge:concept:c8-em-field",
+      "relation": "relates_to",
+      "label": "generates"
+    },
+    {
+      "id": "the-wisdom-bridge:e64",
+      "source": "the-wisdom-bridge:concept:c8-em-field",
+      "target": "the-wisdom-bridge:concept:c8-vibratory-field",
+      "relation": "relates_to",
+      "label": "indirectly measures"
+    },
+    {
+      "id": "the-wisdom-bridge:e65",
+      "source": "the-wisdom-bridge:concept:c8-heart",
+      "target": "the-wisdom-bridge:concept:c8-foetus",
+      "relation": "relates_to",
+      "label": "first organ to form in"
+    },
+    {
+      "id": "the-wisdom-bridge:e66",
+      "source": "the-wisdom-bridge:concept:c8-foetus",
+      "target": "the-wisdom-bridge:concept:c8-energy-channels",
+      "relation": "relates_to",
+      "label": "develops"
+    },
+    {
+      "id": "the-wisdom-bridge:e67",
+      "source": "the-wisdom-bridge:concept:c8-energy-channels",
+      "target": "the-wisdom-bridge:concept:c8-life-force",
+      "relation": "relates_to",
+      "label": "carries"
+    },
+    {
+      "id": "the-wisdom-bridge:e68",
+      "source": "the-wisdom-bridge:concept:c8-energy-channels",
+      "target": "the-wisdom-bridge:concept:c8-chakras",
+      "relation": "relates_to",
+      "label": "distributes through"
+    },
+    {
+      "id": "the-wisdom-bridge:e69",
+      "source": "the-wisdom-bridge:concept:c8-brahmarandhra",
+      "target": "the-wisdom-bridge:concept:c8-chakras",
+      "relation": "relates_to",
+      "label": "is one of"
+    },
+    {
+      "id": "the-wisdom-bridge:e70",
+      "source": "the-wisdom-bridge:concept:c8-brahmarandhra",
+      "target": "the-wisdom-bridge:concept:c8-brain",
+      "relation": "relates_to",
+      "label": "located near"
+    },
+    {
+      "id": "the-wisdom-bridge:e71",
+      "source": "the-wisdom-bridge:concept:c8-soul",
+      "target": "the-wisdom-bridge:concept:c8-brahmarandhra",
+      "relation": "relates_to",
+      "label": "enters body through"
+    },
+    {
+      "id": "the-wisdom-bridge:e72",
+      "source": "the-wisdom-bridge:concept:c8-soul",
+      "target": "the-wisdom-bridge:concept:c8-heart",
+      "relation": "relates_to",
+      "label": "resides in"
+    },
+    {
+      "id": "the-wisdom-bridge:e73",
+      "source": "the-wisdom-bridge:concept:c8-heart",
+      "target": "the-wisdom-bridge:concept:c8-soul",
+      "relation": "relates_to",
+      "label": "is seat of"
+    },
+    {
+      "id": "the-wisdom-bridge:e74",
+      "source": "the-wisdom-bridge:concept:c8-heart",
+      "target": "the-wisdom-bridge:concept:c8-life-force",
+      "relation": "relates_to",
+      "label": "channels to all chakras"
+    }
+  ]
+}
