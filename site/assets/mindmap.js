@@ -47,7 +47,13 @@ function kindOf(node, isRoot) {
 // directly under root as a last resort, so nothing is ever dropped.
 // Mutates `usedEdges` with every edge consumed to place a node, so the
 // caller can exclude those from the cross-link ("relates_to") overlay.
-function attachTree(byId, edges, rootId, usedEdges) {
+// `nodeIds` scopes orphan-detection to THIS document's own nodes — required
+// because buildMasterTree() calls this repeatedly against one shared `byId`
+// accumulated across several books; without the scope, every node from an
+// already-processed book looks like an "orphan" of the next book (nothing
+// in ITS edges mentions them) and gets duplicated under the new book's
+// root as a last resort, on top of its real, correct position.
+function attachTree(byId, edges, rootId, usedEdges, nodeIds) {
   const containsEdges = edges.filter((e) => e.relation === "contains");
   containsEdges.forEach((e) => {
     const p = byId[e.source], c = byId[e.target];
@@ -60,7 +66,7 @@ function attachTree(byId, edges, rootId, usedEdges) {
 
   const placed = new Set([rootId, ...containsEdges.map((e) => e.target)]);
   const nonContains = edges.filter((e) => e.relation !== "contains");
-  let orphanIds = Object.keys(byId).filter((id) => !placed.has(id));
+  let orphanIds = nodeIds.filter((id) => !placed.has(id));
 
   let progress = true;
   while (orphanIds.length && progress) {
@@ -96,7 +102,7 @@ function buildBookTree(doc) {
   doc.nodes.forEach((n) => (byId[n.id] = Object.assign({}, n, { children: [], expanded: false })));
   const root = Object.values(byId).find((n) => n.type === "book");
   const usedEdges = new Set();
-  attachTree(byId, doc.edges, root.id, usedEdges);
+  attachTree(byId, doc.edges, root.id, usedEdges, doc.nodes.map((n) => n.id));
   root.expanded = true;
   root.children.forEach((b, i) => assignColor(b, PALETTE[i % PALETTE.length]));
   const links = doc.edges
@@ -115,7 +121,7 @@ async function buildMasterTree(doc, basePath) {
     bookDoc.nodes.forEach((n) => (byId[n.id] = Object.assign({}, n, { children: [], expanded: false })));
     const bookRoot = bookDoc.nodes.find((n) => n.type === "book");
     const usedEdges = new Set();
-    attachTree(byId, bookDoc.edges, bookRoot.id, usedEdges);
+    attachTree(byId, bookDoc.edges, bookRoot.id, usedEdges, bookDoc.nodes.map((n) => n.id));
     bookDoc.edges
       .filter((e) => !usedEdges.has(e))
       .forEach((e) => links.push({ from: e.source, to: e.target, label: e.label || e.relation }));
