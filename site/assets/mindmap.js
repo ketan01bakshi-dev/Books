@@ -30,10 +30,30 @@ function assignColor(node, color) {
   node.children.forEach((c) => assignColor(c, color));
 }
 
-function kindOf(node, isRoot) {
-  if (isRoot) return "hub";
-  if (!node.children.length && (node.type === "quote" || node.type === "example" || (node.content && node.content.length))) return "note";
-  return "pill";
+// Quotes/examples are leaf content, not structure — they never get their own
+// box on the map (that's what made a theme with two quotes look like it
+// "split into two" branches). Their text surfaces only in the detail panel
+// of whichever node they're attached to, via aggregateContent() below.
+function isLeafContent(node) {
+  return node.type === "quote" || node.type === "example";
+}
+
+function structuralChildren(node) {
+  return node.children.filter((c) => !isLeafContent(c));
+}
+
+function hasStructuralChildren(node) {
+  return structuralChildren(node).length > 0;
+}
+
+function aggregateContent(node) {
+  const own = node.content ? [node.content] : [];
+  const leafText = node.children.filter(isLeafContent).map((c) => c.content).filter(Boolean);
+  return own.concat(leafText).join("\n\n");
+}
+
+function kindOf(isRoot) {
+  return isRoot ? "hub" : "pill";
 }
 
 // Builds parent/child links from "contains" edges, then iteratively attaches
@@ -191,7 +211,7 @@ class MindMap {
 
   createEl(node) {
     const isRoot = node === this.root;
-    const kind = kindOf(node, isRoot);
+    const kind = kindOf(isRoot);
     const el = document.createElement("div");
     el.className = "item";
     el.dataset.id = node.id;
@@ -199,31 +219,21 @@ class MindMap {
     if (kind === "hub") {
       el.classList.add("hub");
       el.textContent = node.label;
-    } else if (kind === "pill") {
+    } else {
       el.classList.add("pill");
       const color = node.color || "#999";
       el.style.background = color;
       el.style.color = luminance(color) > 0.6 ? "#1b2320" : "#fdfdfc";
       el.textContent = node.label;
-      if (node.children.length) {
+      if (hasStructuralChildren(node)) {
         el.classList.add("has-children", node.expanded ? "expanded" : "collapsed");
       }
       el.addEventListener("click", (e) => {
         e.stopPropagation();
-        if (node.children.length) {
+        if (hasStructuralChildren(node)) {
           node.expanded = !node.expanded;
           this.rebuild();
         }
-        this.showDetail(node);
-      });
-    } else {
-      el.classList.add("note");
-      el.style.setProperty("--note-c", node.color || "#999");
-      const text = document.createElement("div");
-      text.textContent = node.content || node.label;
-      el.appendChild(text);
-      el.addEventListener("click", (e) => {
-        e.stopPropagation();
         this.showDetail(node);
       });
     }
@@ -233,11 +243,16 @@ class MindMap {
 
   showDetail(node) {
     const el = document.getElementById("detail");
+    const content = aggregateContent(node);
     el.innerHTML = `
       <span class="close">✕</span>
       <div class="type">${node.type || ""}${node.readingLevel ? " · " + node.readingLevel : ""}</div>
       <h2>${node.label}</h2>
-      <p>${node.content || ""}</p>
+      ${content
+        .split("\n\n")
+        .filter(Boolean)
+        .map((p) => `<p>${p}</p>`)
+        .join("")}
     `;
     el.classList.add("open");
     el.querySelector(".close").addEventListener("click", () => el.classList.remove("open"));
@@ -256,7 +271,7 @@ class MindMap {
       node.branchAngle = branch.angle;
       if (depth > maxLocalDepth) maxLocalDepth = depth;
       nodes.push(node);
-      const kids = node.expanded ? node.children : [];
+      const kids = node.expanded ? structuralChildren(node) : [];
       kids.forEach((c) => dfs(c, depth + 1, node));
     })(branch, 0, this.root);
 
@@ -272,7 +287,7 @@ class MindMap {
     for (let d = 1; d <= maxLocalDepth; d++) colXLocal[d] = colXLocal[d - 1] + maxHalfDiag[d - 1] + maxHalfDiag[d] + COL_GAP;
 
     const place = (node, top) => {
-      const kids = node.expanded ? node.children : [];
+      const kids = node.expanded ? structuralChildren(node) : [];
       if (!kids.length) {
         const hd = this.halfDiag(node);
         node.tang = top + hd;
