@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://books.example/schema/master-graph.schema.json",
+  "title": "MasterGraph",
+  "description": "Cross-book synthesis graph — the Syntopical layer of Adler's four levels. Composed from one or more BookGraph documents (schema/book-graph.schema.json) plus purpose-built syntopical nodes/edges that do not belong to any single book. This is the paid/differentiated layer: 'many books, one understanding'.",
+  "type": "object",
+  "required": ["schemaVersion", "sourceBooks", "questions", "vocabularyClusters", "conflictClusters", "crossEdges"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "1.0.0" },
+    "sourceBooks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "book.id values (from BookGraph documents) included in this master graph."
+    },
+    "questions": {
+      "type": "array",
+      "description": "Step 1 of syntopical reading: frame your own question. Each question is a lens the user (or curator) poses, answered by pulling relevant nodes from multiple books.",
+      "items": {
+        "type": "object",
+        "required": ["id", "prompt", "answeringNodeIds"],
+        "properties": {
+          "id": { "type": "string" },
+          "prompt": { "type": "string", "description": "e.g. 'What creates a sense of meaning?'" },
+          "framedBy": { "type": "string", "enum": ["curator", "user", "llm-suggested"] },
+          "answeringNodeIds": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Node ids (namespaced book:type:slug) across one or more BookGraphs that bear on this question."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "vocabularyClusters": {
+      "type": "array",
+      "description": "Step 3 of syntopical reading: build a shared vocabulary. Groups vocabulary-type nodes from different books that name the same or overlapping concept, even under different terms.",
+      "items": {
+        "type": "object",
+        "required": ["id", "canonicalTerm", "termsByBook"],
+        "properties": {
+          "id": { "type": "string" },
+          "canonicalTerm": { "type": "string", "description": "The unifying term the product surfaces, e.g. 'meaning-making'." },
+          "definition": { "type": "string" },
+          "termsByBook": {
+            "type": "array",
+            "description": "How each source book names/frames this concept in its own vocabulary.",
+            "items": {
+              "type": "object",
+              "required": ["bookId", "nodeId", "termAsUsed"],
+              "properties": {
+                "bookId": { "type": "string" },
+                "nodeId": { "type": "string" },
+                "termAsUsed": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "conflictClusters": {
+      "type": "array",
+      "description": "Step 4 of syntopical reading: find the point of conflict. Explicit modeling of where books disagree or emphasize differently on the same question — the highest-value, hardest-to-automate content in the whole product.",
+      "items": {
+        "type": "object",
+        "required": ["id", "topic", "positions"],
+        "properties": {
+          "id": { "type": "string" },
+          "topic": { "type": "string" },
+          "questionId": { "type": "string", "description": "Optional link to a questions[] entry this conflict is about." },
+          "positions": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "required": ["bookId", "nodeId", "stance"],
+              "properties": {
+                "bookId": { "type": "string" },
+                "nodeId": { "type": "string" },
+                "stance": { "type": "string", "description": "One-line summary of this book's position, e.g. 'Suffering is meaningless unless transformed by choice.'" }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "crossEdges": {
+      "type": "array",
+      "description": "Direct node-to-node edges spanning different books, using the answers_question / shares_vocabulary_with / conflicts_with / supports relations from book-graph.schema.json's edge.relation enum.",
+      "items": { "$ref": "book-graph.schema.json#/$defs/edge" }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "book": {
+    "id": "mans-search-for-meaning",
+    "title": "Man's Search for Meaning",
+    "author": "Viktor E. Frankl",
+    "year": 1946,
+    "copyrightStatus": "licensed",
+    "curator": "llm-draft",
+    "curationStatus": "human-reviewed"
+  },
+  "nodes": [
+    { "id": "mans-search-for-meaning:book", "type": "book", "label": "Man's Search for Meaning", "readingLevel": "elementary" },
+    { "id": "mans-search-for-meaning:theme:tragic-optimism", "type": "theme", "label": "Tragic Optimism", "readingLevel": "inspectional", "parentId": "mans-search-for-meaning:book", "tags": ["suffering", "hope"] },
+    { "id": "mans-search-for-meaning:concept:tragic-triad", "type": "concept", "label": "The Tragic Triad", "readingLevel": "analytical", "parentId": "mans-search-for-meaning:theme:tragic-optimism", "content": "Pain, guilt, and death — the three facts of existence tragic optimism must find meaning despite." },
+    { "id": "mans-search-for-meaning:quote:parable-death-teheran", "type": "quote", "label": "Parable of Death in Teheran", "readingLevel": "analytical", "parentId": "mans-search-for-meaning:theme:tragic-optimism", "content": "A rich Persian's servant meets Death in the marketplace...", "citation": { "chapter": "Part Two" } },
+    { "id": "mans-search-for-meaning:vocabulary:logotherapy", "type": "vocabulary", "label": "Logotherapy", "readingLevel": "analytical", "vocabularyTerm": "logotherapy", "content": "Therapy oriented toward finding meaning, via the three roads: work, love, and suffering." }
+  ],
+  "edges": [
+    { "id": "e1", "source": "mans-search-for-meaning:book", "target": "mans-search-for-meaning:theme:tragic-optimism", "relation": "contains" },
+    { "id": "e2", "source": "mans-search-for-meaning:theme:tragic-optimism", "target": "mans-search-for-meaning:concept:tragic-triad", "relation": "contains" },
+    { "id": "e3", "source": "mans-search-for-meaning:theme:tragic-optimism", "target": "mans-search-for-meaning:quote:parable-death-teheran", "relation": "contains" },
+    { "id": "e4", "source": "mans-search-for-meaning:concept:tragic-triad", "target": "mans-search-for-meaning:vocabulary:logotherapy", "relation": "relates_to", "label": "logotherapy is how one responds to the triad" }
+  ]
+}
