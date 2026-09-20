@@ -1,0 +1,21 @@
+{
+  "subjects": [
+    {
+      "id": "coding",
+      "label": "Coding",
+      "description": "Programming, data structures & algorithms.",
+      "bookIds": ["python-pdsa"]
+    },
+    {
+      "id": "human-psychology",
+      "label": "Human Psychology",
+      "description": "Meaning, resilience, and the inner life.",
+      "bookIds": ["the-wisdom-bridge", "mans-search-for-meaning"]
+    }
+  ],
+  "books": {
+    "python-pdsa": { "title": "Algorithms & Python", "author": "Community Notebook (evolving)" },
+    "the-wisdom-bridge": { "title": "The Wisdom Bridge", "author": "Daaji Kamlesh D. Patel" },
+    "mans-search-for-meaning": { "title": "Man's Search for Meaning", "author": "Viktor E. Frankl" }
+  }
+}

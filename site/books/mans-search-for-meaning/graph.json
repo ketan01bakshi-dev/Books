@@ -1,0 +1,1020 @@
+{
+  "schemaVersion": "1.0.0",
+  "book": {
+    "id": "mans-search-for-meaning",
+    "title": "Man's Search for Meaning",
+    "author": "Viktor E. Frankl",
+    "year": 1946,
+    "curator": "migrated-from-legacy-prs",
+    "curationStatus": "human-reviewed",
+    "copyrightStatus": "licensed"
+  },
+  "nodes": [
+    {
+      "id": "mans-search-for-meaning:book",
+      "type": "book",
+      "label": "Man's Search for Meaning",
+      "readingLevel": "elementary"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:decisions",
+      "type": "theme",
+      "label": "Decisions",
+      "readingLevel": "inspectional",
+      "parentId": "mans-search-for-meaning:book"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:decisions-attitude",
+      "type": "quote",
+      "label": "Everything can be taken from a person but one thing: the las",
+      "readingLevel": "analytical",
+      "content": "Everything can be taken from a person but one thing: the last of the human freedoms \u2014 to choose one's own attitude in any given set of circumstances, to choose one's own way.",
+      "parentId": "mans-search-for-meaning:topic:decisions"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:decisions-nietzsche",
+      "type": "quote",
+      "label": "\u201cHe who has a why to live for can bear with almost any how.\u201d",
+      "readingLevel": "analytical",
+      "content": "\u201cHe who has a why to live for can bear with almost any how.\u201d \u2014 Nietzsche, a line Frankl returns to again and again.",
+      "parentId": "mans-search-for-meaning:topic:decisions"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:psychosomatic",
+      "type": "theme",
+      "label": "Psychosomatic",
+      "readingLevel": "inspectional",
+      "parentId": "mans-search-for-meaning:book"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:psycho-1",
+      "type": "quote",
+      "label": "There is a close connection between the state of mind of a m",
+      "readingLevel": "analytical",
+      "content": "There is a close connection between the state of mind of a man \u2014 his courage and hope, or lack of them \u2014 and the state of immunity of his body.",
+      "parentId": "mans-search-for-meaning:topic:psychosomatic"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:psycho-2",
+      "type": "quote",
+      "label": "The body has fewer inhibitions than the mind.",
+      "readingLevel": "analytical",
+      "content": "The body has fewer inhibitions than the mind.",
+      "parentId": "mans-search-for-meaning:topic:psychosomatic"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:fear",
+      "type": "theme",
+      "label": "Fear",
+      "readingLevel": "inspectional",
+      "parentId": "mans-search-for-meaning:book"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:fear-1",
+      "type": "quote",
+      "label": "Fear of a fate can help bring that fate about. An anxious an",
+      "readingLevel": "analytical",
+      "content": "Fear of a fate can help bring that fate about. An anxious anticipation of what is dreaded tends to make the dreaded thing more likely \u2014 the seed of what logotherapy later named anticipatory anxiety.",
+      "parentId": "mans-search-for-meaning:topic:fear"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:meaning",
+      "type": "theme",
+      "label": "Meaning / Purpose",
+      "readingLevel": "inspectional",
+      "parentId": "mans-search-for-meaning:book"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:will-to-meaning",
+      "type": "topic",
+      "label": "Will to Meaning",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:meaning"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:will-to-meaning-q",
+      "type": "quote",
+      "label": "Man's search for meaning is the primary motivation in his li",
+      "readingLevel": "analytical",
+      "content": "Man's search for meaning is the primary motivation in his life \u2014 not a \u201csecondary rationalization\u201d of instinctual drives, as Freud's will to pleasure or Adler's will to power would have the True engine be.",
+      "parentId": "mans-search-for-meaning:topic:will-to-meaning"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:three-roads",
+      "type": "topic",
+      "label": "Three Roads to Meaning",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:meaning"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:road-work",
+      "type": "topic",
+      "label": "By a work or a deed",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:three-roads"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:road-love",
+      "type": "topic",
+      "label": "By experiencing something, or someone",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:three-roads"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:road-suffering",
+      "type": "topic",
+      "label": "By the attitude taken toward unavoidable suffering",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:three-roads"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:existential-vacuum",
+      "type": "topic",
+      "label": "Existential Vacuum",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:meaning"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:existential-vacuum-q",
+      "type": "quote",
+      "label": "A widespread feeling of inner emptiness, most often surfacin",
+      "readingLevel": "analytical",
+      "content": "A widespread feeling of inner emptiness, most often surfacing once the rush of the working week falls away \u2014 Frankl names its weekend form \u201cSunday neurosis.\u201d",
+      "parentId": "mans-search-for-meaning:topic:existential-vacuum"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:self-transcendence",
+      "type": "topic",
+      "label": "Self-Transcendence",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:meaning"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:self-transcendence-q",
+      "type": "quote",
+      "label": "Being human always points beyond itself, toward something or",
+      "readingLevel": "analytical",
+      "content": "Being human always points beyond itself, toward something or someone other than oneself. Self-actualization is only ever a side-effect of that reaching outward, never a target in itself.",
+      "parentId": "mans-search-for-meaning:topic:self-transcendence"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:happiness",
+      "type": "topic",
+      "label": "Happiness",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:meaning"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:response",
+      "type": "topic",
+      "label": "Response",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:meaning"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:suffering",
+      "type": "topic",
+      "label": "Suffering",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:meaning"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:spirituality",
+      "type": "topic",
+      "label": "Spirituality",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:meaning"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:success",
+      "type": "theme",
+      "label": "Success",
+      "readingLevel": "inspectional",
+      "parentId": "mans-search-for-meaning:book"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:success-1",
+      "type": "quote",
+      "label": "Don't aim at success \u2014 the more you make it a target, the mo",
+      "readingLevel": "analytical",
+      "content": "Don't aim at success \u2014 the more you make it a target, the more you are going to miss it. You have to let it happen by not caring about it. Success, like happiness, cannot be pursued; it must ensue, and it only does so as the unintended side-effect of one's dedication to a cause greater than oneself, or as the by-product of one's surrender to a person other than oneself.",
+      "parentId": "mans-search-for-meaning:topic:success"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:success-2",
+      "type": "quote",
+      "label": "Listen to what your conscience commands you to do, and go on",
+      "readingLevel": "analytical",
+      "content": "Listen to what your conscience commands you to do, and go on to carry it out to the best of your knowledge. Then you will live to see that, in the long run \u2014 in the long run, mind you \u2014 success will follow you, precisely because you had forgotten to think of it.",
+      "parentId": "mans-search-for-meaning:topic:success"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:humour",
+      "type": "theme",
+      "label": "Humour",
+      "readingLevel": "inspectional",
+      "parentId": "mans-search-for-meaning:book"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:humour-1",
+      "type": "quote",
+      "label": "Humour was another of the soul's weapons in the fight for se",
+      "readingLevel": "analytical",
+      "content": "Humour was another of the soul's weapons in the fight for self-preservation. Humour, more than almost anything else in the human make-up, can afford an aloofness and an ability to rise above any situation, even if only for a few seconds.",
+      "parentId": "mans-search-for-meaning:topic:humour"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:coldCuriosity",
+      "type": "theme",
+      "label": "Cold Curiosity",
+      "readingLevel": "inspectional",
+      "parentId": "mans-search-for-meaning:book"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:cold-1",
+      "type": "quote",
+      "label": "As a fundamental reaction to certain strange circumstances, ",
+      "readingLevel": "analytical",
+      "content": "As a fundamental reaction to certain strange circumstances, one's mind became somehow detached from its surroundings, which came to be regarded with a kind of objectivity. At that time one cultivated this state of mind as a means of protection.",
+      "parentId": "mans-search-for-meaning:topic:coldCuriosity"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:cold-2",
+      "type": "quote",
+      "label": "We were anxious to know what would happen next, and what the",
+      "readingLevel": "analytical",
+      "content": "We were anxious to know what would happen next, and what the consequence would eventually be.",
+      "parentId": "mans-search-for-meaning:topic:coldCuriosity"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:psychology",
+      "type": "theme",
+      "label": "Psychology",
+      "readingLevel": "inspectional",
+      "parentId": "mans-search-for-meaning:book"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:stages",
+      "type": "topic",
+      "label": "Stages of a Prisoner's Psychological Reaction",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:psychology"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:stage1",
+      "type": "topic",
+      "label": "Stage 1 \u2014 Shock",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:stages"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:phase1",
+      "type": "quote",
+      "label": "Phase 1 \u2014 Delusion of reprieve: the condemned man, immediate",
+      "readingLevel": "analytical",
+      "content": "Phase 1 \u2014 Delusion of reprieve: the condemned man, immediately before his execution, gets the illusion that he may be reprieved at the last minute.",
+      "parentId": "mans-search-for-meaning:topic:stage1"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:phase2",
+      "type": "topic",
+      "label": "Phase 2 \u2014 Overcome by a grim sense of humour, for a few seconds or minutes",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:stage1"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:phase3",
+      "type": "topic",
+      "label": "Phase 3 \u2014 Cold curiosity",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:stage1"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:phase4",
+      "type": "topic",
+      "label": "Phase 4 \u2014 Surprise",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:stage1"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:hopelessness",
+      "type": "topic",
+      "label": "Hopelessness",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:stage1"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:stage2",
+      "type": "topic",
+      "label": "Stage 2 \u2014 Relative Apathy",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:stages"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:stage2-q",
+      "type": "quote",
+      "label": "Apathy \u2014 the blunting of the emotions and the feeling that o",
+      "readingLevel": "analytical",
+      "content": "Apathy \u2014 the blunting of the emotions and the feeling that one could not care any more \u2014 was a necessary mechanism of self-defence, a kind of emotional death. By means of this insensibility the prisoner surrounded himself with a very necessary protective shell. The most painful part of a beating is not the pain itself but the insult it implies.",
+      "parentId": "mans-search-for-meaning:topic:stage2"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:stage3",
+      "type": "topic",
+      "label": "Stage 3 \u2014 Prisoner Psychology After Liberation",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:stages"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:depersonalization",
+      "type": "topic",
+      "label": "Depersonalization",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:stage3"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:dp1",
+      "type": "quote",
+      "label": "Phase 1: everything appeared unreal, unlikely, as in a dream",
+      "readingLevel": "analytical",
+      "content": "Phase 1: everything appeared unreal, unlikely, as in a dream. The capacity to feel pleasure had simply gone, and had to be relearned, slowly.",
+      "parentId": "mans-search-for-meaning:topic:depersonalization"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:dp2",
+      "type": "quote",
+      "label": "Phase 2: a moral deformity, brought on by the sudden release",
+      "readingLevel": "analytical",
+      "content": "Phase 2: a moral deformity, brought on by the sudden release of mental pressure \u2014 bitterness and disillusionment, once the liberated man's expectations met an indifferent world.",
+      "parentId": "mans-search-for-meaning:topic:depersonalization"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:deathInTeheran",
+      "type": "topic",
+      "label": "Death in Teheran",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:psychology"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:death-q",
+      "type": "quote",
+      "label": "A rich and mighty Persian once walked in his garden with one",
+      "readingLevel": "analytical",
+      "content": "A rich and mighty Persian once walked in his garden with one of his servants. The servant cried that he had just encountered Death, who had threatened him. He begged his master for his fastest horse, so that he might ride to Teheran and reach it that same evening. The master consented, and the servant rode off. On returning to his house, the master himself came upon Death, and asked him why he had threatened his servant. \u201cI did not threaten him,\u201d Death replied. \u201cI only showed surprise in still finding him here, when I had planned to meet him tonight \u2014 in Teheran.\u201d",
+      "parentId": "mans-search-for-meaning:topic:deathInTeheran"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:bismarck",
+      "type": "topic",
+      "label": "Words of Bismarck",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:psychology"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:bismarck-q",
+      "type": "quote",
+      "label": "Life is like being at the dentist. You always think that the",
+      "readingLevel": "analytical",
+      "content": "Life is like being at the dentist. You always think that the worst is still to come, and yet it is over already.",
+      "parentId": "mans-search-for-meaning:topic:bismarck"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:spinoza",
+      "type": "topic",
+      "label": "Spinoza, in his Ethics",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:psychology"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:spinoza-q",
+      "type": "quote",
+      "label": "Emotion, which is suffering, ceases to be suffering as soon ",
+      "readingLevel": "analytical",
+      "content": "Emotion, which is suffering, ceases to be suffering as soon as we form a clear and precise picture of it.",
+      "parentId": "mans-search-for-meaning:topic:spinoza"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:rilke",
+      "type": "topic",
+      "label": "Rilke",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:psychology"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:rilke-q",
+      "type": "quote",
+      "label": "How much suffering there is to get through. He spoke of suff",
+      "readingLevel": "analytical",
+      "content": "How much suffering there is to get through. He spoke of suffering the way others speak of getting through work.",
+      "parentId": "mans-search-for-meaning:topic:rilke"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:experienced-q",
+      "type": "quote",
+      "label": "What you have experienced, no power on earth can take from y",
+      "readingLevel": "analytical",
+      "content": "What you have experienced, no power on earth can take from you.",
+      "parentId": "mans-search-for-meaning:topic:psychology"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:principles",
+      "type": "topic",
+      "label": "Principles",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:psychology"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:nothingbutness",
+      "type": "topic",
+      "label": "Nothingbutness",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:principles"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:nb-q",
+      "type": "quote",
+      "label": "The theory that man is nothing but the result of biological,",
+      "readingLevel": "analytical",
+      "content": "The theory that man is nothing but the result of biological, psychological, and sociological conditions \u2014 the product of heredity and environment. This theory denies that man is free.",
+      "parentId": "mans-search-for-meaning:topic:nothingbutness"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:panDeterminism",
+      "type": "topic",
+      "label": "Pan-determinism",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:principles"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:pd-q",
+      "type": "quote",
+      "label": "The view of man that disregards his capacity to take a stand",
+      "readingLevel": "analytical",
+      "content": "The view of man that disregards his capacity to take a stand toward any conditions whatsoever. Frankl's own view: man is not fully conditioned and determined, but rather determines himself \u2014 whether he gives in to conditions, or stands up to them.",
+      "parentId": "mans-search-for-meaning:topic:panDeterminism"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:freedom-resp",
+      "type": "quote",
+      "label": "Freedom is only the negative aspect of the whole phenomenon,",
+      "readingLevel": "analytical",
+      "content": "Freedom is only the negative aspect of the whole phenomenon, whose positive aspect is responsibleness.",
+      "parentId": "mans-search-for-meaning:topic:principles"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:innermost-core",
+      "type": "quote",
+      "label": "The innermost core of a patient's personality is not even to",
+      "readingLevel": "analytical",
+      "content": "The innermost core of a patient's personality is not even touched by a psychosis.",
+      "parentId": "mans-search-for-meaning:topic:principles"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:tragic",
+      "type": "theme",
+      "label": "Tragic Optimism",
+      "readingLevel": "inspectional",
+      "parentId": "mans-search-for-meaning:book"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:triad",
+      "type": "topic",
+      "label": "The Tragic Triad",
+      "readingLevel": "analytical",
+      "parentId": "mans-search-for-meaning:topic:tragic"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:triad-q",
+      "type": "quote",
+      "label": "Pain, guilt, and death \u2014 the three facts of existence that o",
+      "readingLevel": "analytical",
+      "content": "Pain, guilt, and death \u2014 the three facts of existence that optimism cannot pretend away. Tragic optimism means staying capable of turning suffering into achievement, guilt into a chance to change for the better, and life's transience into a spur toward responsible action.",
+      "parentId": "mans-search-for-meaning:topic:triad"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:second-time",
+      "type": "quote",
+      "label": "Live as if you were living already for the second time, and ",
+      "readingLevel": "analytical",
+      "content": "Live as if you were living already for the second time, and as if you had acted the first time as wrongly as you are about to act now!",
+      "parentId": "mans-search-for-meaning:topic:tragic"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:defiant-spirit",
+      "type": "quote",
+      "label": "Even in the most extreme circumstances, a person keeps what ",
+      "readingLevel": "analytical",
+      "content": "Even in the most extreme circumstances, a person keeps what Frankl calls the defiant power of the human spirit \u2014 the capacity to rise above outward fate.",
+      "parentId": "mans-search-for-meaning:topic:tragic"
+    },
+    {
+      "id": "mans-search-for-meaning:topic:love",
+      "type": "theme",
+      "label": "Love",
+      "readingLevel": "inspectional",
+      "parentId": "mans-search-for-meaning:book"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:love-goal",
+      "type": "quote",
+      "label": "Love is the ultimate and the highest goal to which man can a",
+      "readingLevel": "analytical",
+      "content": "Love is the ultimate and the highest goal to which man can aspire. The salvation of man is through love and in love.",
+      "parentId": "mans-search-for-meaning:topic:love"
+    },
+    {
+      "id": "mans-search-for-meaning:quote:tilly",
+      "type": "quote",
+      "label": "Marching through the icy dark toward the work site, Frankl h",
+      "readingLevel": "analytical",
+      "content": "Marching through the icy dark toward the work site, Frankl held a mental image of his wife's face \u2014 proof to himself that love reaches its deepest meaning even when it is left with nothing to hold on to but the beloved's inner presence.",
+      "parentId": "mans-search-for-meaning:topic:love"
+    }
+  ],
+  "edges": [
+    {
+      "id": "mans-search-for-meaning:e1",
+      "source": "mans-search-for-meaning:book",
+      "target": "mans-search-for-meaning:topic:decisions",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e2",
+      "source": "mans-search-for-meaning:topic:decisions",
+      "target": "mans-search-for-meaning:quote:decisions-attitude",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e3",
+      "source": "mans-search-for-meaning:topic:decisions",
+      "target": "mans-search-for-meaning:quote:decisions-nietzsche",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e4",
+      "source": "mans-search-for-meaning:book",
+      "target": "mans-search-for-meaning:topic:psychosomatic",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e5",
+      "source": "mans-search-for-meaning:topic:psychosomatic",
+      "target": "mans-search-for-meaning:quote:psycho-1",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e6",
+      "source": "mans-search-for-meaning:topic:psychosomatic",
+      "target": "mans-search-for-meaning:quote:psycho-2",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e7",
+      "source": "mans-search-for-meaning:book",
+      "target": "mans-search-for-meaning:topic:fear",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e8",
+      "source": "mans-search-for-meaning:topic:fear",
+      "target": "mans-search-for-meaning:quote:fear-1",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e9",
+      "source": "mans-search-for-meaning:book",
+      "target": "mans-search-for-meaning:topic:meaning",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e10",
+      "source": "mans-search-for-meaning:topic:meaning",
+      "target": "mans-search-for-meaning:topic:will-to-meaning",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e11",
+      "source": "mans-search-for-meaning:topic:will-to-meaning",
+      "target": "mans-search-for-meaning:quote:will-to-meaning-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e12",
+      "source": "mans-search-for-meaning:topic:meaning",
+      "target": "mans-search-for-meaning:topic:three-roads",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e13",
+      "source": "mans-search-for-meaning:topic:three-roads",
+      "target": "mans-search-for-meaning:topic:road-work",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e14",
+      "source": "mans-search-for-meaning:topic:three-roads",
+      "target": "mans-search-for-meaning:topic:road-love",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e15",
+      "source": "mans-search-for-meaning:topic:three-roads",
+      "target": "mans-search-for-meaning:topic:road-suffering",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e16",
+      "source": "mans-search-for-meaning:topic:meaning",
+      "target": "mans-search-for-meaning:topic:existential-vacuum",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e17",
+      "source": "mans-search-for-meaning:topic:existential-vacuum",
+      "target": "mans-search-for-meaning:quote:existential-vacuum-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e18",
+      "source": "mans-search-for-meaning:topic:meaning",
+      "target": "mans-search-for-meaning:topic:self-transcendence",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e19",
+      "source": "mans-search-for-meaning:topic:self-transcendence",
+      "target": "mans-search-for-meaning:quote:self-transcendence-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e20",
+      "source": "mans-search-for-meaning:topic:meaning",
+      "target": "mans-search-for-meaning:topic:happiness",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e21",
+      "source": "mans-search-for-meaning:topic:meaning",
+      "target": "mans-search-for-meaning:topic:response",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e22",
+      "source": "mans-search-for-meaning:topic:meaning",
+      "target": "mans-search-for-meaning:topic:suffering",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e23",
+      "source": "mans-search-for-meaning:topic:meaning",
+      "target": "mans-search-for-meaning:topic:spirituality",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e24",
+      "source": "mans-search-for-meaning:book",
+      "target": "mans-search-for-meaning:topic:success",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e25",
+      "source": "mans-search-for-meaning:topic:success",
+      "target": "mans-search-for-meaning:quote:success-1",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e26",
+      "source": "mans-search-for-meaning:topic:success",
+      "target": "mans-search-for-meaning:quote:success-2",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e27",
+      "source": "mans-search-for-meaning:book",
+      "target": "mans-search-for-meaning:topic:humour",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e28",
+      "source": "mans-search-for-meaning:topic:humour",
+      "target": "mans-search-for-meaning:quote:humour-1",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e29",
+      "source": "mans-search-for-meaning:book",
+      "target": "mans-search-for-meaning:topic:coldCuriosity",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e30",
+      "source": "mans-search-for-meaning:topic:coldCuriosity",
+      "target": "mans-search-for-meaning:quote:cold-1",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e31",
+      "source": "mans-search-for-meaning:topic:coldCuriosity",
+      "target": "mans-search-for-meaning:quote:cold-2",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e32",
+      "source": "mans-search-for-meaning:book",
+      "target": "mans-search-for-meaning:topic:psychology",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e33",
+      "source": "mans-search-for-meaning:topic:psychology",
+      "target": "mans-search-for-meaning:topic:stages",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e34",
+      "source": "mans-search-for-meaning:topic:stages",
+      "target": "mans-search-for-meaning:topic:stage1",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e35",
+      "source": "mans-search-for-meaning:topic:stage1",
+      "target": "mans-search-for-meaning:quote:phase1",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e36",
+      "source": "mans-search-for-meaning:topic:stage1",
+      "target": "mans-search-for-meaning:topic:phase2",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e37",
+      "source": "mans-search-for-meaning:topic:stage1",
+      "target": "mans-search-for-meaning:topic:phase3",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e38",
+      "source": "mans-search-for-meaning:topic:stage1",
+      "target": "mans-search-for-meaning:topic:phase4",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e39",
+      "source": "mans-search-for-meaning:topic:stage1",
+      "target": "mans-search-for-meaning:topic:hopelessness",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e40",
+      "source": "mans-search-for-meaning:topic:stages",
+      "target": "mans-search-for-meaning:topic:stage2",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e41",
+      "source": "mans-search-for-meaning:topic:stage2",
+      "target": "mans-search-for-meaning:quote:stage2-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e42",
+      "source": "mans-search-for-meaning:topic:stages",
+      "target": "mans-search-for-meaning:topic:stage3",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e43",
+      "source": "mans-search-for-meaning:topic:stage3",
+      "target": "mans-search-for-meaning:topic:depersonalization",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e44",
+      "source": "mans-search-for-meaning:topic:depersonalization",
+      "target": "mans-search-for-meaning:quote:dp1",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e45",
+      "source": "mans-search-for-meaning:topic:depersonalization",
+      "target": "mans-search-for-meaning:quote:dp2",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e46",
+      "source": "mans-search-for-meaning:topic:psychology",
+      "target": "mans-search-for-meaning:topic:deathInTeheran",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e47",
+      "source": "mans-search-for-meaning:topic:deathInTeheran",
+      "target": "mans-search-for-meaning:quote:death-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e48",
+      "source": "mans-search-for-meaning:topic:psychology",
+      "target": "mans-search-for-meaning:topic:bismarck",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e49",
+      "source": "mans-search-for-meaning:topic:bismarck",
+      "target": "mans-search-for-meaning:quote:bismarck-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e50",
+      "source": "mans-search-for-meaning:topic:psychology",
+      "target": "mans-search-for-meaning:topic:spinoza",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e51",
+      "source": "mans-search-for-meaning:topic:spinoza",
+      "target": "mans-search-for-meaning:quote:spinoza-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e52",
+      "source": "mans-search-for-meaning:topic:psychology",
+      "target": "mans-search-for-meaning:topic:rilke",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e53",
+      "source": "mans-search-for-meaning:topic:rilke",
+      "target": "mans-search-for-meaning:quote:rilke-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e54",
+      "source": "mans-search-for-meaning:topic:psychology",
+      "target": "mans-search-for-meaning:quote:experienced-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e55",
+      "source": "mans-search-for-meaning:topic:psychology",
+      "target": "mans-search-for-meaning:topic:principles",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e56",
+      "source": "mans-search-for-meaning:topic:principles",
+      "target": "mans-search-for-meaning:topic:nothingbutness",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e57",
+      "source": "mans-search-for-meaning:topic:nothingbutness",
+      "target": "mans-search-for-meaning:quote:nb-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e58",
+      "source": "mans-search-for-meaning:topic:principles",
+      "target": "mans-search-for-meaning:topic:panDeterminism",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e59",
+      "source": "mans-search-for-meaning:topic:panDeterminism",
+      "target": "mans-search-for-meaning:quote:pd-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e60",
+      "source": "mans-search-for-meaning:topic:principles",
+      "target": "mans-search-for-meaning:quote:freedom-resp",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e61",
+      "source": "mans-search-for-meaning:topic:principles",
+      "target": "mans-search-for-meaning:quote:innermost-core",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e62",
+      "source": "mans-search-for-meaning:book",
+      "target": "mans-search-for-meaning:topic:tragic",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e63",
+      "source": "mans-search-for-meaning:topic:tragic",
+      "target": "mans-search-for-meaning:topic:triad",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e64",
+      "source": "mans-search-for-meaning:topic:triad",
+      "target": "mans-search-for-meaning:quote:triad-q",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e65",
+      "source": "mans-search-for-meaning:topic:tragic",
+      "target": "mans-search-for-meaning:quote:second-time",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e66",
+      "source": "mans-search-for-meaning:topic:tragic",
+      "target": "mans-search-for-meaning:quote:defiant-spirit",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e67",
+      "source": "mans-search-for-meaning:book",
+      "target": "mans-search-for-meaning:topic:love",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e68",
+      "source": "mans-search-for-meaning:topic:love",
+      "target": "mans-search-for-meaning:quote:love-goal",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e69",
+      "source": "mans-search-for-meaning:topic:love",
+      "target": "mans-search-for-meaning:quote:tilly",
+      "relation": "contains"
+    },
+    {
+      "id": "mans-search-for-meaning:e70",
+      "source": "mans-search-for-meaning:topic:meaning",
+      "target": "mans-search-for-meaning:topic:happiness",
+      "relation": "relates_to",
+      "label": "meaning ripens into happiness"
+    },
+    {
+      "id": "mans-search-for-meaning:e71",
+      "source": "mans-search-for-meaning:topic:meaning",
+      "target": "mans-search-for-meaning:topic:spirituality",
+      "relation": "relates_to",
+      "label": "meaning draws on spirituality"
+    },
+    {
+      "id": "mans-search-for-meaning:e72",
+      "source": "mans-search-for-meaning:topic:spirituality",
+      "target": "mans-search-for-meaning:topic:happiness",
+      "relation": "relates_to",
+      "label": "spirituality ripens into happiness"
+    },
+    {
+      "id": "mans-search-for-meaning:e73",
+      "source": "mans-search-for-meaning:topic:spirituality",
+      "target": "mans-search-for-meaning:topic:response",
+      "relation": "relates_to",
+      "label": "spirituality shapes the response"
+    },
+    {
+      "id": "mans-search-for-meaning:e74",
+      "source": "mans-search-for-meaning:topic:suffering",
+      "target": "mans-search-for-meaning:topic:response",
+      "relation": "relates_to",
+      "label": "suffering asks for a response"
+    },
+    {
+      "id": "mans-search-for-meaning:e75",
+      "source": "mans-search-for-meaning:topic:stages",
+      "target": "mans-search-for-meaning:topic:humour",
+      "relation": "relates_to",
+      "label": "echoes the grim humour of Stage 1"
+    },
+    {
+      "id": "mans-search-for-meaning:e76",
+      "source": "mans-search-for-meaning:topic:stages",
+      "target": "mans-search-for-meaning:topic:coldCuriosity",
+      "relation": "relates_to",
+      "label": "echoes the cold curiosity of Stage 1"
+    },
+    {
+      "id": "mans-search-for-meaning:e77",
+      "source": "mans-search-for-meaning:quote:love-goal",
+      "target": "mans-search-for-meaning:topic:road-love",
+      "relation": "relates_to",
+      "label": "one of the three roads to meaning"
+    },
+    {
+      "id": "mans-search-for-meaning:e78",
+      "source": "mans-search-for-meaning:topic:triad",
+      "target": "mans-search-for-meaning:topic:suffering",
+      "relation": "relates_to",
+      "label": "suffering is one leg of the tragic triad"
+    },
+    {
+      "id": "mans-search-for-meaning:e79",
+      "source": "mans-search-for-meaning:topic:decisions",
+      "target": "mans-search-for-meaning:topic:panDeterminism",
+      "relation": "relates_to",
+      "label": "choice pushes back against determinism"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://books.example/schema/book-graph.schema.json",
+  "title": "BookGraph",
+  "description": "Standardized schema for a single book's explorable knowledge graph. Node and edge vocabulary is organized around Mortimer Adler's four levels of reading (How to Read a Book): Elementary (raw content), Inspectional (overview/skim), Analytical (deep single-book structure), Syntopical (cross-book synthesis — see master-graph.schema.json, which composes this file's output across books).",
+  "type": "object",
+  "required": ["schemaVersion", "book", "nodes", "edges"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0",
+      "description": "Bump on breaking changes to node/edge shape."
+    },
+    "book": {
+      "type": "object",
+      "required": ["id", "title", "author"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Stable slug, e.g. 'mans-search-for-meaning'. Used as the node-id namespace prefix.",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "year": { "type": "integer" },
+        "isbn": { "type": "string" },
+        "copyrightStatus": {
+          "type": "string",
+          "enum": ["public-domain", "licensed", "fair-use-commentary", "unreviewed"],
+          "description": "Legal review flag. 'unreviewed' should block publishing to a paid tier."
+        },
+        "curator": {
+          "type": "string",
+          "description": "Who authored/reviewed this graph (person, or 'llm-draft' pending human review)."
+        },
+        "curationStatus": {
+          "type": "string",
+          "enum": ["draft", "llm-generated", "human-reviewed", "published"]
+        },
+        "sourceEditions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Which edition/translation the page/chapter refs below point to."
+        }
+      },
+      "additionalProperties": false
+    },
+    "nodes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/node" }
+    },
+    "edges": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/edge" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "readingLevel": {
+      "type": "string",
+      "enum": ["elementary", "inspectional", "analytical", "syntopical"],
+      "description": "Which Adler level this node primarily serves. Drives progressive disclosure: inspectional-only view shows themes; analytical view expands to concept/quote/example; syntopical nodes only ever appear in the master graph, never a single-book view."
+    },
+    "node": {
+      "type": "object",
+      "required": ["id", "type", "label", "readingLevel"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Globally unique, e.g. 'mans-search-for-meaning:theme:tragic-optimism'."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["book", "theme", "topic", "concept", "quote", "example", "vocabulary"],
+          "description": "book: single root node. theme: top-level branch (Adler-inspectional unit, e.g. a principle/chapter cluster). topic: sub-idea under a theme. concept: fine-grained idea (analytical depth). quote: verbatim text with citation. example: illustrative anecdote/case. vocabulary: a term this book uses in a load-bearing way (feeds syntopical vocabulary-building)."
+        },
+        "label": { "type": "string", "maxLength": 120 },
+        "readingLevel": { "$ref": "#/$defs/readingLevel" },
+        "content": {
+          "type": "string",
+          "description": "Body text: paraphrase for concept/topic, verbatim text for quote."
+        },
+        "citation": {
+          "type": "object",
+          "properties": {
+            "chapter": { "type": "string" },
+            "page": { "type": "string" },
+            "section": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "vocabularyTerm": {
+          "type": "string",
+          "description": "For type=vocabulary: the canonical term (e.g. 'logotherapy', 'preparation'). Used by the master graph to detect shared/overlapping vocabulary across books."
+        },
+        "parentId": {
+          "type": "string",
+          "description": "Id of the containing node (book->theme->topic->concept hierarchy). Root 'book' node omits this."
+        },
+        "position": {
+          "type": "object",
+          "description": "Optional pre-computed layout hint; renderer may ignore and force-layout instead.",
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" }
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Free-form topical tags for search/filter (e.g. ['psychology', 'freedom'])."
+        }
+      },
+      "additionalProperties": false
+    },
+    "edge": {
+      "type": "object",
+      "required": ["id", "source", "target", "relation"],
+      "properties": {
+        "id": { "type": "string" },
+        "source": { "type": "string", "description": "Node id." },
+        "target": { "type": "string", "description": "Node id." },
+        "relation": {
+          "type": "string",
+          "enum": [
+            "contains",
+            "relates_to",
+            "supports",
+            "conflicts_with",
+            "answers_question",
+            "shares_vocabulary_with"
+          ],
+          "description": "contains: hierarchy edge (book->theme->topic->concept), rendered as solid tree lines. relates_to: same-book thematic association (dotted, per the Frankl PR's cross-link arrows). supports/conflicts_with: the author's own stated agreement/tension between two ideas *within this book*. answers_question / shares_vocabulary_with: reserved for use by the master graph when composing multiple BookGraphs; a single-book graph should rarely need them."
+        },
+        "label": {
+          "type": "string",
+          "description": "Optional short gloss on the relation, e.g. 'both trace back to freedom of will'."
+        },
+        "directed": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "sourceBooks": ["mans-search-for-meaning", "the-wisdom-bridge"],
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What creates a durable sense of meaning or purpose?",
+      "framedBy": "curator",
+      "answeringNodeIds": [
+        "mans-search-for-meaning:vocabulary:logotherapy",
+        "the-wisdom-bridge:topic:preparation-eliminates-doubt"
+      ]
+    }
+  ],
+  "vocabularyClusters": [
+    {
+      "id": "vc1",
+      "canonicalTerm": "meaning-through-discipline",
+      "definition": "The idea that meaning/purpose is produced by a deliberate inner practice, not received passively.",
+      "termsByBook": [
+        { "bookId": "mans-search-for-meaning", "nodeId": "mans-search-for-meaning:vocabulary:logotherapy", "termAsUsed": "logotherapy" },
+        { "bookId": "the-wisdom-bridge", "nodeId": "the-wisdom-bridge:topic:preparation-eliminates-doubt", "termAsUsed": "preparation" }
+      ]
+    }
+  ],
+  "conflictClusters": [
+    {
+      "id": "cc1",
+      "topic": "Where does meaning originate?",
+      "questionId": "q1",
+      "positions": [
+        { "bookId": "mans-search-for-meaning", "nodeId": "mans-search-for-meaning:concept:tragic-triad", "stance": "Meaning is forged retroactively, through how one responds to unchosen suffering." },
+        { "bookId": "the-wisdom-bridge", "nodeId": "the-wisdom-bridge:topic:preparation-eliminates-doubt", "stance": "Meaning/purpose is built proactively, through preparation and meditation before adversity arrives." }
+      ]
+    }
+  ],
+  "crossEdges": [
+    {
+      "id": "ce1",
+      "source": "mans-search-for-meaning:vocabulary:logotherapy",
+      "target": "the-wisdom-bridge:topic:preparation-eliminates-doubt",
+      "relation": "shares_vocabulary_with",
+      "label": "both frame meaning as a discipline, not a discovery"
+    }
+  ]
+}
