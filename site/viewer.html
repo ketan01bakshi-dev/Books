@@ -3,19 +3,29 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Book Graph Viewer</title>
-<link rel="stylesheet" href="assets/viewer.css" />
-<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<title>Book Mind Map</title>
+<link rel="stylesheet" href="assets/mindmap.css" />
 </head>
 <body>
 <header>
   <a class="back" href="index.html">← Library</a>
   <h1 id="title">Loading…</h1>
   <span class="meta" id="meta"></span>
-  <input id="search" type="text" placeholder="Search nodes…" />
+  <input id="search" type="text" placeholder="Search, then press Enter…" />
+  <span class="hint">Click a node to expand/collapse · drag to pan · scroll to zoom</span>
 </header>
-<div id="graph"></div>
+<div id="viewport">
+  <div id="stage">
+    <svg id="edges"></svg>
+    <div id="nodesLayer"></div>
+  </div>
+</div>
+<div id="controls">
+  <button id="zoomOut" title="Zoom out">−</button>
+  <button id="zoomReset" title="Reset view">⤾</button>
+  <button id="zoomIn" title="Zoom in">+</button>
+</div>
 <div id="detail"></div>
-<script src="assets/viewer.js"></script>
+<script src="assets/mindmap.js"></script>
 </body>
 </html>
