@@ -141,6 +141,34 @@
       "parentId": "the-wisdom-bridge:theme:p4"
     },
     {
+      "id": "the-wisdom-bridge:concept:c7-epigenetics",
+      "type": "concept",
+      "label": "Epigenetics",
+      "readingLevel": "analytical",
+      "content": "The study of how external/environmental factors can turn genes on or off without changing the underlying DNA sequence."
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c7-methylation",
+      "type": "concept",
+      "label": "Methylation",
+      "readingLevel": "analytical",
+      "content": "The biological process by which external factors switch genes on or off."
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c7-garbhini-vyakaran",
+      "type": "concept",
+      "label": "Garbhini Vyakaran (Charak Samhita)",
+      "readingLevel": "analytical",
+      "content": "A section of the ancient Ayurvedic text Charak Samhita on the development of the embryo and post-conception care: prescriptions for diet (aahara), daily routine and activities (vihar), and medicines (aushad), including recommended foods per month, massage, exercise, air/sunlight/moonlight exposure, aromas, and music for the expectant mother."
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c7-parent-health",
+      "type": "concept",
+      "label": "Parents' Health Shapes the Child",
+      "readingLevel": "analytical",
+      "content": "A parent's physical, emotional, and spiritual health is more strongly associated with the child's health than family income, family structure, parents' education, or the child's sex, age, or race."
+    },
+    {
       "id": "the-wisdom-bridge:topic:c8",
       "type": "topic",
       "label": "Ch.8 Ashtavakra, Abhimanyu and the Scientific Theory of Foetal Origins",
@@ -586,6 +614,55 @@
       "source": "the-wisdom-bridge:theme:p4",
       "target": "the-wisdom-bridge:topic:c9",
       "relation": "contains"
+    },
+    {
+      "id": "the-wisdom-bridge:e75",
+      "source": "the-wisdom-bridge:topic:c7",
+      "target": "the-wisdom-bridge:concept:c7-epigenetics",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e76",
+      "source": "the-wisdom-bridge:topic:c7",
+      "target": "the-wisdom-bridge:concept:c7-methylation",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e77",
+      "source": "the-wisdom-bridge:topic:c7",
+      "target": "the-wisdom-bridge:concept:c7-garbhini-vyakaran",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e78",
+      "source": "the-wisdom-bridge:topic:c7",
+      "target": "the-wisdom-bridge:concept:c7-parent-health",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e79",
+      "source": "the-wisdom-bridge:concept:c7-methylation",
+      "target": "the-wisdom-bridge:concept:c7-epigenetics",
+      "relation": "relates_to",
+      "label": "is the mechanism of"
+    },
+    {
+      "id": "the-wisdom-bridge:e80",
+      "source": "the-wisdom-bridge:concept:c7-garbhini-vyakaran",
+      "target": "the-wisdom-bridge:concept:c7-epigenetics",
+      "relation": "relates_to",
+      "label": "ancient precursor to"
+    },
+    {
+      "id": "the-wisdom-bridge:e81",
+      "source": "the-wisdom-bridge:concept:c7-parent-health",
+      "target": "the-wisdom-bridge:concept:c7-epigenetics",
+      "relation": "relates_to",
+      "label": "operates through"
     },
     {
       "id": "the-wisdom-bridge:e31",

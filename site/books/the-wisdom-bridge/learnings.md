@@ -46,7 +46,14 @@ This is the living notebook for the book. Capture what stays with you as you rea
 
 ### Chapter 7. D-Day, Dutch Hunger Winter and Epigenetics
 
-- 
+- Research in epigenetics shows that external factors can turn genes on or off. This process is called methylation.
+- Epigenetics is showing us new ways of understanding the relationship between one's environment and one's genes.
+- Research shows that epigenetic changes are reversible.
+- In Charak Samhita, an ancient Ayurvedic text, there is a section called Garbhini Vyakaran — meaning development of the embryo. It is the palm-leaf version of "what to expect when you're expecting."
+- The post-conception care detailed in the text offers prescriptions for diet (aahara), daily routine and activities (vihar), and medicines (aushad). Everything from recommended foods for each month, types of massages and exercises, air quality, sunlight, moonlight, aromas, and even music for the expectant mother are described.
+- In Indian society, the tradition of sending the expectant mother to her parents' home reflects an understanding of epigenetic influence.
+- The physical, emotional, and spiritual health of the parents affects their children. A parent's health is more strongly associated with the child's health than many other factors, including family income, family structure, parents' level of education, and the child's sex, age, or race.
+- Our elders intuited this knowledge and recognized that healthy mothers build healthy nations. Happy mothers make happy families.
 
 ### Chapter 8. Ashtavakra, Abhimanyu and the Scientific Theory of Foetal Origins
 
