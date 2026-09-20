@@ -328,21 +328,46 @@ class MindMap {
       }
     }
 
-    let visible = [this.root];
-    this.root.r = 0;
-    this.root.t = 0;
-    this.root.branchAngle = 0;
-    branches.forEach((bb) => {
-      bb.res.nodes.forEach((nd) => (nd.r = R0 + nd.radiusOffset));
-      visible = visible.concat(bb.res.nodes);
-    });
+    // The adjacent-branch check above only compares each branch's aggregate
+    // span, which can still under-count clearance between deep nodes of
+    // non-adjacent branches in an asymmetric tree. Belt-and-suspenders: lay
+    // out at that R0, check every pair for actual bounding-box overlap, and
+    // if any remain, push everything out a bit further and retry.
+    let visible, minX, minY, maxX, maxY;
+    for (let attempt = 0; attempt < 25; attempt++) {
+      visible = [this.root];
+      this.root.r = 0;
+      this.root.t = 0;
+      this.root.branchAngle = 0;
+      branches.forEach((bb) => {
+        bb.res.nodes.forEach((nd) => (nd.r = R0 + nd.radiusOffset));
+        visible = visible.concat(bb.res.nodes);
+      });
 
-    visible.forEach((nd) => {
-      const p = this.toGlobal(nd.branchAngle, nd.r, nd.t, 0, 0);
-      nd.gx = p.x;
-      nd.gy = p.y;
-    });
-    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      visible.forEach((nd) => {
+        const p = this.toGlobal(nd.branchAngle, nd.r, nd.t, 0, 0);
+        nd.gx = p.x;
+        nd.gy = p.y;
+      });
+
+      let overlapFound = false;
+      for (let i = 0; i < visible.length && !overlapFound; i++) {
+        for (let j = i + 1; j < visible.length; j++) {
+          const a = visible[i], b = visible[j];
+          if (Math.abs(a.gx - b.gx) < (a.w + b.w) / 2 && Math.abs(a.gy - b.gy) < (a.h + b.h) / 2) {
+            overlapFound = true;
+            break;
+          }
+        }
+      }
+      if (!overlapFound || attempt === 24) break;
+      R0 += 60;
+    }
+
+    minX = Infinity;
+    minY = Infinity;
+    maxX = -Infinity;
+    maxY = -Infinity;
     visible.forEach((nd) => {
       minX = Math.min(minX, nd.gx - nd.w / 2);
       maxX = Math.max(maxX, nd.gx + nd.w / 2);
