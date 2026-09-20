@@ -36,21 +36,71 @@ function kindOf(node, isRoot) {
   return "pill";
 }
 
+// Builds parent/child links from "contains" edges, then iteratively attaches
+// every remaining node ("orphans") to whichever endpoint of ANY other edge
+// already has a place in the tree. This matters a lot in practice: a
+// concept is often linked to its topic via a semantic relation like
+// USES/DESCRIBES/COMPUTES rather than a hierarchy edge, and without this
+// fallback those nodes have no parent at all and silently never render —
+// in python-pdsa that was 54% of all nodes. Anything still unreachable
+// after that (no edge to the rest of the graph whatsoever) is attached
+// directly under root as a last resort, so nothing is ever dropped.
+// Mutates `usedEdges` with every edge consumed to place a node, so the
+// caller can exclude those from the cross-link ("relates_to") overlay.
+function attachTree(byId, edges, rootId, usedEdges) {
+  const containsEdges = edges.filter((e) => e.relation === "contains");
+  containsEdges.forEach((e) => {
+    const p = byId[e.source], c = byId[e.target];
+    if (p && c) {
+      p.children.push(c);
+      c.parentId = p.id;
+    }
+    usedEdges.add(e);
+  });
+
+  const placed = new Set([rootId, ...containsEdges.map((e) => e.target)]);
+  const nonContains = edges.filter((e) => e.relation !== "contains");
+  let orphanIds = Object.keys(byId).filter((id) => !placed.has(id));
+
+  let progress = true;
+  while (orphanIds.length && progress) {
+    progress = false;
+    const stillOrphan = [];
+    orphanIds.forEach((oid) => {
+      const edge = nonContains.find(
+        (e) => !usedEdges.has(e) && ((e.source === oid && placed.has(e.target)) || (e.target === oid && placed.has(e.source)))
+      );
+      if (edge && byId[edge.source === oid ? edge.target : edge.source]) {
+        const parentId = edge.source === oid ? edge.target : edge.source;
+        byId[parentId].children.push(byId[oid]);
+        byId[oid].parentId = parentId;
+        placed.add(oid);
+        usedEdges.add(edge);
+        progress = true;
+        return;
+      }
+      stillOrphan.push(oid);
+    });
+    orphanIds = stillOrphan;
+  }
+
+  orphanIds.forEach((oid) => {
+    byId[rootId].children.push(byId[oid]);
+    byId[oid].parentId = rootId;
+  });
+}
+
 // ---------- build tree from a single book-graph.schema.json document ----------
 function buildBookTree(doc) {
   const byId = {};
   doc.nodes.forEach((n) => (byId[n.id] = Object.assign({}, n, { children: [], expanded: false })));
-  doc.edges
-    .filter((e) => e.relation === "contains")
-    .forEach((e) => {
-      const p = byId[e.source], c = byId[e.target];
-      if (p && c) p.children.push(c);
-    });
   const root = Object.values(byId).find((n) => n.type === "book");
+  const usedEdges = new Set();
+  attachTree(byId, doc.edges, root.id, usedEdges);
   root.expanded = true;
   root.children.forEach((b, i) => assignColor(b, PALETTE[i % PALETTE.length]));
   const links = doc.edges
-    .filter((e) => e.relation !== "contains")
+    .filter((e) => !usedEdges.has(e))
     .map((e) => ({ from: e.source, to: e.target, label: e.label || e.relation }));
   return { root, byId, links };
 }
@@ -59,16 +109,16 @@ function buildBookTree(doc) {
 async function buildMasterTree(doc, basePath) {
   const byId = {};
   const bookBranches = [];
+  const links = [];
   for (const bookId of doc.sourceBooks) {
     const bookDoc = await fetch(`${basePath}/books/${bookId}/graph.json`).then((r) => r.json());
     bookDoc.nodes.forEach((n) => (byId[n.id] = Object.assign({}, n, { children: [], expanded: false })));
-    bookDoc.edges
-      .filter((e) => e.relation === "contains")
-      .forEach((e) => {
-        const p = byId[e.source], c = byId[e.target];
-        if (p && c) p.children.push(c);
-      });
     const bookRoot = bookDoc.nodes.find((n) => n.type === "book");
+    const usedEdges = new Set();
+    attachTree(byId, bookDoc.edges, bookRoot.id, usedEdges);
+    bookDoc.edges
+      .filter((e) => !usedEdges.has(e))
+      .forEach((e) => links.push({ from: e.source, to: e.target, label: e.label || e.relation }));
     bookBranches.push(byId[bookRoot.id]);
   }
 
@@ -100,7 +150,6 @@ async function buildMasterTree(doc, basePath) {
   byId[root.id] = root;
   root.children.forEach((b, i) => assignColor(b, PALETTE[i % PALETTE.length]));
 
-  const links = [];
   doc.questions.forEach((q) => q.answeringNodeIds.forEach((nid) => links.push({ from: q.id, to: nid, label: "answers" })));
   doc.vocabularyClusters.forEach((vc) => vc.termsByBook.forEach((t) => links.push({ from: vc.id, to: t.nodeId, label: t.termAsUsed })));
   doc.conflictClusters.forEach((cc) => cc.positions.forEach((p) => links.push({ from: cc.id, to: p.nodeId, label: p.stance ? truncate(p.stance, 30) : "" })));
@@ -474,6 +523,7 @@ async function main() {
   document.getElementById("meta").textContent = isMaster ? `${doc.sourceBooks.length} book(s)` : `by ${doc.book.author}`;
 
   const map = new MindMap(document.getElementById("stage"), root, byId, links);
+  window.__mindmap = map; // exposed for debugging / automated checks
 
   document.getElementById("search").addEventListener("keydown", (e) => {
     if (e.key === "Enter" && e.target.value.trim()) map.search(e.target.value.trim());
