@@ -83,6 +83,13 @@ header .hint { color: var(--ink-dim); font-size: 12px; margin-left: auto; }
   max-width: 240px;
 }
 .item.entering { opacity: 0; }
+.item.dimmed { opacity: 0.25; }
+
+/* dashed cross-link paths: dimmed = not touching the hovered node,
+   active = touching it (see MindMap.setNodeHover in mindmap.js) */
+path.crosslink { transition: opacity 0.15s ease, stroke-width 0.15s ease; }
+path.crosslink.dimmed { opacity: 0.08 !important; }
+path.crosslink.active { opacity: 1 !important; stroke-width: 2.6px !important; }
 
 .hub {
   background: var(--hub-bg);
