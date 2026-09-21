@@ -271,6 +271,20 @@
       "parentId": "the-wisdom-bridge:theme:p4"
     },
     {
+      "id": "the-wisdom-bridge:concept:c9-oxytocin",
+      "type": "concept",
+      "label": "Oxytocin (the Love Hormone)",
+      "readingLevel": "analytical",
+      "content": "Oxytocin is released generously in lovers and new parents. Brain scans of lovers and new mothers show overlapping regions light up."
+    },
+    {
+      "id": "the-wisdom-bridge:concept:c9-early-synchrony",
+      "type": "concept",
+      "label": "Early Synchrony",
+      "readingLevel": "analytical",
+      "content": "Our ability to engage in relationships with partners, friends, strangers, and eventually the next generation as a parent is set by the experience of synchrony during the first few months of life."
+    },
+    {
       "id": "the-wisdom-bridge:theme:p5",
       "type": "theme",
       "label": "Principle 5 \u2014 Early Childhood Is the Foundation",
@@ -754,6 +768,27 @@
       "target": "the-wisdom-bridge:concept:c7-chronic-stress",
       "relation": "relates_to",
       "label": "shortened by"
+    },
+    {
+      "id": "the-wisdom-bridge:e91",
+      "source": "the-wisdom-bridge:topic:c9",
+      "target": "the-wisdom-bridge:concept:c9-oxytocin",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e92",
+      "source": "the-wisdom-bridge:topic:c9",
+      "target": "the-wisdom-bridge:concept:c9-early-synchrony",
+      "relation": "relates_to",
+      "label": "discusses"
+    },
+    {
+      "id": "the-wisdom-bridge:e93",
+      "source": "the-wisdom-bridge:concept:c9-oxytocin",
+      "target": "the-wisdom-bridge:concept:c9-early-synchrony",
+      "relation": "relates_to",
+      "label": "mediates"
     },
     {
       "id": "the-wisdom-bridge:e31",

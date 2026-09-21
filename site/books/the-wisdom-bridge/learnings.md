@@ -74,7 +74,9 @@ This is the living notebook for the book. Capture what stays with you as you rea
 
 ### Chapter 9. Japanese Fishing Village, Oxytocin and Mother-Child Bonding
 
-- 
+- Oxytocin, also known as the love hormone, is released generously in lovers and new parents.
+- In some research projects, teams compared brain scans of two categories of people — lovers and new mothers. The scans showed that the brain regions that lit up for lovers and the brain regions that lit up for new mothers overlapped.
+- Our ability to engage in other relationships — with partners, with friends, with strangers, and eventually parenting the next generation — is set by the experience of synchrony we experienced during the first few months of life.
 
 ## Principle 5 — Early Childhood Is the Foundation
 
