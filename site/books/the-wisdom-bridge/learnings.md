@@ -54,6 +54,12 @@ This is the living notebook for the book. Capture what stays with you as you rea
 - In Indian society, the tradition of sending the expectant mother to her parents' home reflects an understanding of epigenetic influence.
 - The physical, emotional, and spiritual health of the parents affects their children. A parent's health is more strongly associated with the child's health than many other factors, including family income, family structure, parents' level of education, and the child's sex, age, or race.
 - Our elders intuited this knowledge and recognized that healthy mothers build healthy nations. Happy mothers make happy families.
+- The type of stress where one is always on guard is called chronic stress. Chronic stress is known to cause issues related to high blood pressure, suppression of immunity, damage to muscle tissue, and poor mental health.
+- The effects of chronic stress on the fetus also include lower weight at birth and longer-term effects including personality disorders, cardiovascular issues, and diabetes.
+- In medicine, burnout is defined as a state of emotional, mental, and often physical exhaustion brought upon by prolonged or repeated stress.
+- In a research study on burnout, it was found that in a short period of time, meditation lowered stress in a statistically significant way. Not only did stress levels reduce, but the length of telomeres increased, especially in the younger population.
+- Telomeres are cap-shaped sections of DNA found at the end of chromosomes. The length of telomeres indicates well-being — longer telomeres are a good sign.
+- Create a nurturing environment wherever you are. Thoughts, actions, and intentions create an environment. Meditation at home creates a wonderful environment.
 
 ### Chapter 8. Ashtavakra, Abhimanyu and the Scientific Theory of Foetal Origins
 
