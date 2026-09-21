@@ -107,6 +107,14 @@
       "parentId": "tmt-triple-self-motivation:theme:application"
     },
     {
+      "id": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "type": "topic",
+      "label": "Medicine for Students Under Mental Stress",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:application",
+      "content": "Meditation and yoga is a medicine for students who are under mental stress."
+    },
+    {
       "id": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "type": "concept",
       "label": "Panchkosh Sanjeevan Vidya",
@@ -727,6 +735,26 @@
       "target": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
       "relation": "relates_to",
       "label": "is the lived experience of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e66",
+      "source": "tmt-triple-self-motivation:theme:application",
+      "target": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e67",
+      "source": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "target": "tmt-triple-self-motivation:vocabulary:yoga",
+      "relation": "relates_to",
+      "label": "prescribes"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e68",
+      "source": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "target": "tmt-triple-self-motivation:theme:meditation-practice",
+      "relation": "relates_to",
+      "label": "prescribes"
     }
   ]
 }
