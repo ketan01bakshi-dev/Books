@@ -262,6 +262,22 @@
       "content": "One of the components of Sanjeevan Vidya, alongside Pranopchar and Panchkosh."
     },
     {
+      "id": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "type": "concept",
+      "label": "Breath–Mind Link",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "When breathing is distracted or unstable, the mind also gets distracted."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "type": "concept",
+      "label": "The Yogi's Supreme Happiness",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "When the mind is focused away from material activities through the practice of yoga, one can see this self with a pure mind and rejoice in inner bliss. The yogi with a peaceful mind, free from impurities, attains supreme happiness."
+    },
+    {
       "id": "tmt-triple-self-motivation:topic:taittiriya-upanishad",
       "type": "topic",
       "label": "Taittiriya Upanishad",
@@ -664,6 +680,53 @@
       "target": "tmt-triple-self-motivation:concept:mind-senses",
       "relation": "relates_to",
       "label": "when chanted with devotion, regulates"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e59",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e60",
+      "source": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "target": "tmt-triple-self-motivation:topic:breathing",
+      "relation": "relates_to",
+      "label": "grounds the practice of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e61",
+      "source": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "target": "tmt-triple-self-motivation:vocabulary:yoga",
+      "relation": "relates_to",
+      "label": "stable breath enables"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e62",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e63",
+      "source": "tmt-triple-self-motivation:vocabulary:yoga",
+      "target": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "relation": "relates_to",
+      "label": "bears the fruit of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e64",
+      "source": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "target": "tmt-triple-self-motivation:concept:atman-brahman",
+      "relation": "relates_to",
+      "label": "reveals the pure self as"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e65",
+      "source": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "target": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "relation": "relates_to",
+      "label": "is the lived experience of"
     }
   ]
 }
