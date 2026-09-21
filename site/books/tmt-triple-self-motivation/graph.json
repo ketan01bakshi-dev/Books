@@ -107,6 +107,59 @@
       "parentId": "tmt-triple-self-motivation:theme:application"
     },
     {
+      "id": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "type": "concept",
+      "label": "Panchkosh Sanjeevan Vidya",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:meditation-practice",
+      "content": "The revitalization-of-the-five-koshas technique used in TMT's meditation pillar: a yogic-philosophy practice that awakens the inner life-force through wisdom, by working through the five koshas (sheaths) that layer the human being — Annamaya, Pranamaya, Manomaya, Vijnanamaya and Anandamaya kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "type": "vocabulary",
+      "label": "Annamaya Kosha",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "vocabularyTerm": "Annamaya Kosha",
+      "content": "The physical/food sheath — the body sustained by food; the outermost of the five koshas."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "type": "vocabulary",
+      "label": "Pranamaya Kosha",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "vocabularyTerm": "Pranamaya Kosha",
+      "content": "The vital/energy sheath — the layer of life-force (prana) that animates the physical body."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "type": "vocabulary",
+      "label": "Manomaya Kosha",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "vocabularyTerm": "Manomaya Kosha",
+      "content": "The mental sheath — the layer of mind, thoughts and emotions."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "type": "vocabulary",
+      "label": "Vijnanamaya Kosha",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "vocabularyTerm": "Vijnanamaya Kosha",
+      "content": "The wisdom/intellect sheath — the layer of discernment and higher knowing that guides right action."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "type": "vocabulary",
+      "label": "Anandamaya Kosha",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "vocabularyTerm": "Anandamaya Kosha",
+      "content": "The bliss sheath — the innermost layer, experienced as pure joy/bliss, where the inner life-force is fully awakened."
+    },
+    {
       "id": "tmt-triple-self-motivation:vocabulary:tmt",
       "type": "vocabulary",
       "label": "TMT",
@@ -246,6 +299,77 @@
       "target": "tmt-triple-self-motivation:vocabulary:tmt",
       "relation": "relates_to",
       "label": "coins"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e22",
+      "source": "tmt-triple-self-motivation:theme:meditation-practice",
+      "target": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e23",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e24",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e25",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e26",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e27",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e28",
+      "source": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "relation": "relates_to",
+      "label": "awakening moves inward to"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e29",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "relation": "relates_to",
+      "label": "awakening moves inward to"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e30",
+      "source": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "relation": "relates_to",
+      "label": "awakening moves inward to"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e31",
+      "source": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "relation": "relates_to",
+      "label": "awakening moves inward to"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e32",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "supports",
+      "label": "is the meditation method taught in"
     }
   ]
 }
