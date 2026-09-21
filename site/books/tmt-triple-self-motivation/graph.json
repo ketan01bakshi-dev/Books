@@ -1,0 +1,251 @@
+{
+  "schemaVersion": "1.0.0",
+  "book": {
+    "id": "tmt-triple-self-motivation",
+    "title": "TMT: Triple Self Motivation Meditation Technique",
+    "author": "Dr. Babasaheb (Pradeep) Taranekar",
+    "curator": "llm-draft",
+    "curationStatus": "draft",
+    "copyrightStatus": "unreviewed"
+  },
+  "nodes": [
+    {
+      "id": "tmt-triple-self-motivation:book",
+      "type": "book",
+      "label": "TMT: Triple Self Motivation Meditation Technique",
+      "readingLevel": "elementary"
+    },
+    {
+      "id": "tmt-triple-self-motivation:theme:foundations",
+      "type": "theme",
+      "label": "Foundations of Self-Motivation",
+      "readingLevel": "inspectional",
+      "parentId": "tmt-triple-self-motivation:book"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:what-is-motivation",
+      "type": "topic",
+      "label": "What Drives Self-Motivation",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:foundations"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:barriers",
+      "type": "topic",
+      "label": "Barriers That Drain Motivation",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:foundations"
+    },
+    {
+      "id": "tmt-triple-self-motivation:theme:triple-technique",
+      "type": "theme",
+      "label": "The Triple Technique (TMT)",
+      "readingLevel": "inspectional",
+      "parentId": "tmt-triple-self-motivation:book"
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:pillar-mind",
+      "type": "concept",
+      "label": "Pillar 1 — Mind Conditioning",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:triple-technique"
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "type": "concept",
+      "label": "Pillar 2 — Meditation Practice",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:triple-technique"
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:pillar-action",
+      "type": "concept",
+      "label": "Pillar 3 — Sustained Action",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:triple-technique"
+    },
+    {
+      "id": "tmt-triple-self-motivation:theme:meditation-practice",
+      "type": "theme",
+      "label": "Meditation as a Daily Practice",
+      "readingLevel": "inspectional",
+      "parentId": "tmt-triple-self-motivation:book"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:breathing",
+      "type": "topic",
+      "label": "Breath Awareness",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:meditation-practice"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:visualization",
+      "type": "topic",
+      "label": "Visualization Toward Goals",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:meditation-practice"
+    },
+    {
+      "id": "tmt-triple-self-motivation:theme:application",
+      "type": "theme",
+      "label": "Applying TMT in Daily Life",
+      "readingLevel": "inspectional",
+      "parentId": "tmt-triple-self-motivation:book"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:habits",
+      "type": "topic",
+      "label": "Building Motivation Habits",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:application"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:setbacks",
+      "type": "topic",
+      "label": "Staying Motivated Through Setbacks",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:application"
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:tmt",
+      "type": "vocabulary",
+      "label": "TMT",
+      "readingLevel": "analytical",
+      "vocabularyTerm": "Triple Motivation Technique",
+      "content": "The book's core coined term for the three-pillar method (mind conditioning, meditation, sustained action) it teaches for building lasting self-motivation."
+    }
+  ],
+  "edges": [
+    {
+      "id": "tmt-triple-self-motivation:e1",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:theme:foundations",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e2",
+      "source": "tmt-triple-self-motivation:theme:foundations",
+      "target": "tmt-triple-self-motivation:topic:what-is-motivation",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e3",
+      "source": "tmt-triple-self-motivation:theme:foundations",
+      "target": "tmt-triple-self-motivation:topic:barriers",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e4",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:theme:triple-technique",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e5",
+      "source": "tmt-triple-self-motivation:theme:triple-technique",
+      "target": "tmt-triple-self-motivation:concept:pillar-mind",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e6",
+      "source": "tmt-triple-self-motivation:theme:triple-technique",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e7",
+      "source": "tmt-triple-self-motivation:theme:triple-technique",
+      "target": "tmt-triple-self-motivation:concept:pillar-action",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e8",
+      "source": "tmt-triple-self-motivation:concept:pillar-mind",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "relates_to",
+      "label": "prepares the ground for"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e9",
+      "source": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "target": "tmt-triple-self-motivation:concept:pillar-action",
+      "relation": "relates_to",
+      "label": "sustains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e10",
+      "source": "tmt-triple-self-motivation:topic:barriers",
+      "target": "tmt-triple-self-motivation:concept:pillar-mind",
+      "relation": "conflicts_with",
+      "label": "undermines without"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e11",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:theme:meditation-practice",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e12",
+      "source": "tmt-triple-self-motivation:theme:meditation-practice",
+      "target": "tmt-triple-self-motivation:topic:breathing",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e13",
+      "source": "tmt-triple-self-motivation:theme:meditation-practice",
+      "target": "tmt-triple-self-motivation:topic:visualization",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e14",
+      "source": "tmt-triple-self-motivation:topic:breathing",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "supports"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e15",
+      "source": "tmt-triple-self-motivation:topic:visualization",
+      "target": "tmt-triple-self-motivation:concept:pillar-mind",
+      "relation": "supports"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e16",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:theme:application",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e17",
+      "source": "tmt-triple-self-motivation:theme:application",
+      "target": "tmt-triple-self-motivation:topic:habits",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e18",
+      "source": "tmt-triple-self-motivation:theme:application",
+      "target": "tmt-triple-self-motivation:topic:setbacks",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e19",
+      "source": "tmt-triple-self-motivation:topic:habits",
+      "target": "tmt-triple-self-motivation:concept:pillar-action",
+      "relation": "supports"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e20",
+      "source": "tmt-triple-self-motivation:topic:setbacks",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "relates_to",
+      "label": "recovers through"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e21",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:vocabulary:tmt",
+      "relation": "relates_to",
+      "label": "coins"
+    }
+  ]
+}

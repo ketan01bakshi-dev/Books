@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "sourceBooks": ["python-pdsa", "the-wisdom-bridge", "mans-search-for-meaning"],
+  "sourceBooks": ["python-pdsa", "the-wisdom-bridge", "mans-search-for-meaning", "tmt-triple-self-motivation"],
   "questions": [
     {
       "id": "q1",
@@ -9,6 +9,16 @@
       "answeringNodeIds": [
         "mans-search-for-meaning:topic:three-roads",
         "the-wisdom-bridge:concept:c5-preparation"
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": "What sustains motivation once the initial drive fades?",
+      "framedBy": "curator",
+      "answeringNodeIds": [
+        "mans-search-for-meaning:topic:will-to-meaning",
+        "the-wisdom-bridge:concept:c5-meditation",
+        "tmt-triple-self-motivation:concept:pillar-action"
       ]
     }
   ],
@@ -21,6 +31,16 @@
         { "bookId": "mans-search-for-meaning", "nodeId": "mans-search-for-meaning:topic:three-roads", "termAsUsed": "the three roads to meaning (work, love, suffering)" },
         { "bookId": "the-wisdom-bridge", "nodeId": "the-wisdom-bridge:concept:c5-preparation", "termAsUsed": "preparation" }
       ]
+    },
+    {
+      "id": "vc2",
+      "canonicalTerm": "inner-practice-sustains-drive",
+      "definition": "A repeated, deliberate inner practice (not a one-time insight) is what keeps motivation or meaning alive over time.",
+      "termsByBook": [
+        { "bookId": "mans-search-for-meaning", "nodeId": "mans-search-for-meaning:topic:will-to-meaning", "termAsUsed": "will to meaning" },
+        { "bookId": "the-wisdom-bridge", "nodeId": "the-wisdom-bridge:concept:c5-meditation", "termAsUsed": "meditation" },
+        { "bookId": "tmt-triple-self-motivation", "nodeId": "tmt-triple-self-motivation:concept:pillar-meditation", "termAsUsed": "meditation practice (Pillar 2 of TMT)" }
+      ]
     }
   ],
   "conflictClusters": [
@@ -32,6 +52,16 @@
         { "bookId": "mans-search-for-meaning", "nodeId": "mans-search-for-meaning:topic:tragic", "stance": "Meaning is forged retroactively, through how one responds to unchosen suffering (tragic optimism)." },
         { "bookId": "the-wisdom-bridge", "nodeId": "the-wisdom-bridge:concept:c5-preparation", "stance": "Meaning/purpose is built proactively, through preparation and eliminating doubt before adversity arrives." }
       ]
+    },
+    {
+      "id": "cc2",
+      "topic": "Where does lasting motivation come from once initial resolve fades?",
+      "questionId": "q2",
+      "positions": [
+        { "bookId": "mans-search-for-meaning", "nodeId": "mans-search-for-meaning:topic:will-to-meaning", "stance": "Motivation is sustained by an existential will oriented toward a specific meaning, not by willpower alone." },
+        { "bookId": "the-wisdom-bridge", "nodeId": "the-wisdom-bridge:concept:c5-meditation", "stance": "Motivation is sustained by meditation that produces inner peace and harmony, which in turn removes doubt." },
+        { "bookId": "tmt-triple-self-motivation", "nodeId": "tmt-triple-self-motivation:concept:pillar-action", "stance": "Motivation is sustained mechanically through a three-pillar loop: mind conditioning feeds meditation, which feeds repeated action, which reinforces the mind." }
+      ]
     }
   ],
   "crossEdges": [
@@ -41,6 +71,20 @@
       "target": "the-wisdom-bridge:concept:c5-preparation",
       "relation": "shares_vocabulary_with",
       "label": "both frame meaning as a discipline, not a discovery"
+    },
+    {
+      "id": "ce2",
+      "source": "the-wisdom-bridge:concept:c5-meditation",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "shares_vocabulary_with",
+      "label": "both use meditation as the practice that removes doubt and stabilizes drive"
+    },
+    {
+      "id": "ce3",
+      "source": "mans-search-for-meaning:topic:will-to-meaning",
+      "target": "tmt-triple-self-motivation:concept:pillar-mind",
+      "relation": "shares_vocabulary_with",
+      "label": "both locate the root of motivation in an oriented inner will/mind, not external reward"
     }
   ]
 }
