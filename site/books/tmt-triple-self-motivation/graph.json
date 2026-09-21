@@ -166,6 +166,74 @@
       "readingLevel": "analytical",
       "vocabularyTerm": "Triple Motivation Technique",
       "content": "The book's core coined term for the three-pillar method (mind conditioning, meditation, sustained action) it teaches for building lasting self-motivation."
+    },
+    {
+      "id": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "type": "theme",
+      "label": "Scriptural Roots — Atharvaveda & Vedanta",
+      "readingLevel": "inspectional",
+      "parentId": "tmt-triple-self-motivation:book"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "type": "topic",
+      "label": "Atharvaveda — Shaunaka Samhita",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "The Shaunaka Samhita of the Atharvaveda elaborately discusses karmaja vyadhi (disease arising from one's own karma) and gives a detailed, precise account of Sanjeevani Vidya and Devi Chikitsa (divine healing) as its treatment."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:karmaja-vyadhi",
+      "type": "vocabulary",
+      "label": "Karmaja Vyadhi",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "vocabularyTerm": "Karmaja Vyadhi",
+      "content": "Disease/affliction described in the Atharvaveda's Shaunaka Samhita as arising from one's own past karma."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "type": "concept",
+      "label": "Devi Chikitsa (Divine Healing)",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "content": "The divine-healing treatment the ancient rishis prescribed for karmaja vyadhi: mantra, tantra, yoga, yajna, tapa, herbal remedies and water-based treatments are all referred to as divine treatments; Panchakarma is cited as one such example.",
+      "tags": ["mantra", "tantra", "yoga", "yajna", "tapa", "herbal-remedies", "water-based-treatments"]
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:panchakarma",
+      "type": "vocabulary",
+      "label": "Panchakarma",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "vocabularyTerm": "Panchakarma",
+      "content": "One example of the divine treatments (Devi Chikitsa) referred to by the ancient rishis."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "type": "concept",
+      "label": "Sanjeevan Vidya",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "The knowledge of Sanjeevan Vidya, part of Upanishad and Vedanta literature, encompasses Pranopchar, Panchkosh and Gayatri Tantra."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:pranopchar",
+      "type": "vocabulary",
+      "label": "Pranopchar",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "vocabularyTerm": "Pranopchar",
+      "content": "One of the components of Sanjeevan Vidya, alongside Panchkosh and Gayatri Tantra."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:gayatri-tantra",
+      "type": "vocabulary",
+      "label": "Gayatri Tantra",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "vocabularyTerm": "Gayatri Tantra",
+      "content": "One of the components of Sanjeevan Vidya, alongside Pranopchar and Panchkosh."
     }
   ],
   "edges": [
@@ -370,6 +438,75 @@
       "target": "tmt-triple-self-motivation:concept:pillar-meditation",
       "relation": "supports",
       "label": "is the meditation method taught in"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e33",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e34",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e35",
+      "source": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "target": "tmt-triple-self-motivation:vocabulary:karmaja-vyadhi",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e36",
+      "source": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "target": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e37",
+      "source": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "target": "tmt-triple-self-motivation:vocabulary:karmaja-vyadhi",
+      "relation": "relates_to",
+      "label": "is the prescribed treatment for"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e38",
+      "source": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "target": "tmt-triple-self-motivation:vocabulary:panchakarma",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e39",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e40",
+      "source": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:pranopchar",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e41",
+      "source": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "relation": "relates_to",
+      "label": "encompasses Panchkosh as"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e42",
+      "source": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:gayatri-tantra",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e43",
+      "source": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "target": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "relation": "relates_to",
+      "label": "provides detailed knowledge of"
     }
   ]
 }
