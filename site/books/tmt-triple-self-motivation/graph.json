@@ -129,7 +129,7 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "vocabularyTerm": "Annamaya Kosha",
-      "content": "The physical/food sheath — the body sustained by food; the outermost of the five koshas."
+      "content": "The physical/food sheath — the physical body itself, made by the food we eat; the outermost of the five koshas."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
@@ -138,7 +138,52 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "vocabularyTerm": "Pranamaya Kosha",
-      "content": "The vital/energy sheath — the layer of life-force (prana) that animates the physical body."
+      "content": "The vital/energy sheath — vital air and energy that resides inside our body, within the Annamaya Kosha. This kosha gets purified through the Panch Pranas, namely Prana, Apana, Vyana, Samana and Udana."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:prana",
+      "type": "vocabulary",
+      "label": "Prana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Prana",
+      "content": "One of the Panch Pranas (five vital airs) that purify the Pranamaya Kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:apana",
+      "type": "vocabulary",
+      "label": "Apana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Apana",
+      "content": "One of the Panch Pranas (five vital airs) that purify the Pranamaya Kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:vyana",
+      "type": "vocabulary",
+      "label": "Vyana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Vyana",
+      "content": "One of the Panch Pranas (five vital airs) that purify the Pranamaya Kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:samana",
+      "type": "vocabulary",
+      "label": "Samana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Samana",
+      "content": "One of the Panch Pranas (five vital airs) that purify the Pranamaya Kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:udana",
+      "type": "vocabulary",
+      "label": "Udana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Udana",
+      "content": "One of the Panch Pranas (five vital airs) that purify the Pranamaya Kosha."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
@@ -147,7 +192,7 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "vocabularyTerm": "Manomaya Kosha",
-      "content": "The mental sheath — the layer of mind, thoughts and emotions."
+      "content": "The mental sheath — the layer of mind, thoughts and emotions. It gets purified through chanting, meditation, contemplation and reflection."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
@@ -156,7 +201,7 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "vocabularyTerm": "Vijnanamaya Kosha",
-      "content": "The wisdom/intellect sheath — the layer of discernment and higher knowing that guides right action."
+      "content": "The wisdom/intellect sheath — the layer of discernment and higher knowing that guides right action. It gets purified through intellect, logical reasoning, curiosity and intellectual thinking."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
@@ -165,7 +210,7 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "vocabularyTerm": "Anandamaya Kosha",
-      "content": "The bliss sheath — the innermost layer, experienced as pure joy/bliss, where the inner life-force is fully awakened. The Upanishads describe it as the kosha that follows the first four; identifying/experiencing it is the highest development of an individual's personality and the most refined state of being."
+      "content": "The bliss sheath — the innermost layer, experienced as pure joy/bliss, where the inner life-force is fully awakened. The Upanishads describe it as the kosha that follows the first four; identifying/experiencing it is the highest development of an individual's personality and the most refined state of being. In healthy students, it indicates an enthusiastic and blissful state of mind."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:tmt",
@@ -861,6 +906,57 @@
       "target": "tmt-triple-self-motivation:concept:pillar-meditation",
       "relation": "supports",
       "label": "is achieved through"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e79",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:prana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e80",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:apana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e81",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:vyana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e82",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:samana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e83",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:udana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e84",
+      "source": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "relation": "relates_to",
+      "label": "houses the vital air/energy of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e85",
+      "source": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:mantra",
+      "relation": "relates_to",
+      "label": "is purified by chanting"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e86",
+      "source": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "target": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "relation": "relates_to",
+      "label": "marks the healthy, blissful state that resolves"
     }
   ]
 }
