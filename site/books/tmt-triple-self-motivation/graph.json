@@ -210,6 +210,32 @@
       "content": "One example of the divine treatments (Devi Chikitsa) referred to by the ancient rishis."
     },
     {
+      "id": "tmt-triple-self-motivation:vocabulary:mantra",
+      "type": "vocabulary",
+      "label": "Mantra",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "vocabularyTerm": "Mantra",
+      "content": "That by repetition of which one can influence the mind."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:yoga",
+      "type": "vocabulary",
+      "label": "Yoga",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "vocabularyTerm": "Yoga",
+      "content": "Stilling or regulating the fluctuations or modifications of the mind."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:mind-senses",
+      "type": "concept",
+      "label": "Mind's Hold Over the Senses",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "The mind influences our senses, pulling them toward outward worldly objects."
+    },
+    {
       "id": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
       "type": "concept",
       "label": "Sanjeevan Vidya",
@@ -258,6 +284,15 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
       "content": "Goddess Gayatri is described as five-headed, signifying the Panchkoshas. Through the specialized method of Gayatri Upasana, one can achieve purification, healing and revitalization of the Panchkoshas — one of the most important aspects of spiritual development."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:gayatri-mantra",
+      "type": "vocabulary",
+      "label": "Gayatri Mantra",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "vocabularyTerm": "Gayatri Mantra",
+      "content": "The mantra which, when chanted with devotion, can influence and hence regulate the senses."
     }
   ],
   "edges": [
@@ -584,6 +619,51 @@
       "target": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "relation": "supports",
       "label": "purifies, heals and revitalizes"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e52",
+      "source": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "target": "tmt-triple-self-motivation:vocabulary:mantra",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e53",
+      "source": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "target": "tmt-triple-self-motivation:vocabulary:yoga",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e54",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e55",
+      "source": "tmt-triple-self-motivation:vocabulary:yoga",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "relates_to",
+      "label": "stills the fluctuations behind"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e56",
+      "source": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "target": "tmt-triple-self-motivation:vocabulary:gayatri-mantra",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e57",
+      "source": "tmt-triple-self-motivation:vocabulary:gayatri-mantra",
+      "target": "tmt-triple-self-motivation:vocabulary:mantra",
+      "relation": "relates_to",
+      "label": "is an instance of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e58",
+      "source": "tmt-triple-self-motivation:vocabulary:gayatri-mantra",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "relates_to",
+      "label": "when chanted with devotion, regulates"
     }
   ]
 }
