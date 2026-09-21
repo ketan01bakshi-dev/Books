@@ -157,15 +157,15 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "vocabularyTerm": "Anandamaya Kosha",
-      "content": "The bliss sheath — the innermost layer, experienced as pure joy/bliss, where the inner life-force is fully awakened."
+      "content": "The bliss sheath — the innermost layer, experienced as pure joy/bliss, where the inner life-force is fully awakened. The Upanishads describe it as the kosha that follows the first four; identifying/experiencing it is the highest development of an individual's personality and the most refined state of being."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:tmt",
       "type": "vocabulary",
       "label": "TMT",
       "readingLevel": "analytical",
-      "vocabularyTerm": "Triple Motivation Technique",
-      "content": "The book's core coined term for the three-pillar method (mind conditioning, meditation, sustained action) it teaches for building lasting self-motivation."
+      "vocabularyTerm": "13 Minute Therapy",
+      "content": "The full form of the book's title acronym: TMT stands for 13 Minute Therapy."
     },
     {
       "id": "tmt-triple-self-motivation:theme:scriptural-roots",
@@ -234,6 +234,30 @@
       "parentId": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
       "vocabularyTerm": "Gayatri Tantra",
       "content": "One of the components of Sanjeevan Vidya, alongside Pranopchar and Panchkosh."
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:taittiriya-upanishad",
+      "type": "topic",
+      "label": "Taittiriya Upanishad",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "The Taittiriya Upanishad gives detailed account of the Panch Koshas that encapsulate a being's inner, pure consciousness."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:atman-brahman",
+      "type": "concept",
+      "label": "Atman / Brahman Within the Koshas",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:topic:taittiriya-upanishad",
+      "content": "The Atman — pure consciousness, one with Brahman — resides inside the five koshas. One must detach from each kosha in turn to identify one's true self."
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "type": "topic",
+      "label": "Gayatri Upasana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "Goddess Gayatri is described as five-headed, signifying the Panchkoshas. Through the specialized method of Gayatri Upasana, one can achieve purification, healing and revitalization of the Panchkoshas — one of the most important aspects of spiritual development."
     }
   ],
   "edges": [
@@ -507,6 +531,59 @@
       "target": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
       "relation": "relates_to",
       "label": "provides detailed knowledge of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e44",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:topic:taittiriya-upanishad",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e45",
+      "source": "tmt-triple-self-motivation:topic:taittiriya-upanishad",
+      "target": "tmt-triple-self-motivation:concept:atman-brahman",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e46",
+      "source": "tmt-triple-self-motivation:topic:taittiriya-upanishad",
+      "target": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "relation": "relates_to",
+      "label": "is the source text for"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e47",
+      "source": "tmt-triple-self-motivation:concept:atman-brahman",
+      "target": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "relation": "relates_to",
+      "label": "dwells within, reached by detaching from each"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e48",
+      "source": "tmt-triple-self-motivation:concept:atman-brahman",
+      "target": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "relation": "relates_to",
+      "label": "most refined state reached through"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e49",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e50",
+      "source": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "target": "tmt-triple-self-motivation:vocabulary:gayatri-tantra",
+      "relation": "relates_to",
+      "label": "is practiced through"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e51",
+      "source": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "target": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "relation": "supports",
+      "label": "purifies, heals and revitalizes"
     }
   ]
 }
