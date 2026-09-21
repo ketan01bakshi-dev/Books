@@ -278,6 +278,47 @@
       "content": "When breathing is distracted or unstable, the mind also gets distracted."
     },
     {
+      "id": "tmt-triple-self-motivation:concept:swasthya",
+      "type": "concept",
+      "label": "Definition of Perfect Health (Swasthya)",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "One is in perfect health when Vata, Pitta and Kapha, the digestive system, bones and all other body tissues are in perfect condition, and one is satisfied or content, with the senses turned inward instead of chasing worldly objects."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:tridosha",
+      "type": "vocabulary",
+      "label": "Vata, Pitta, Kapha (Tridosha)",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:swasthya",
+      "vocabularyTerm": "Tridosha",
+      "content": "The three bodily humors — Vata, Pitta and Kapha — whose perfect condition, along with the digestive system, bones and other tissues, marks physical health."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:karma-yoga",
+      "type": "concept",
+      "label": "Karma Yoga Without Attachment",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:swasthya",
+      "content": "One whose mind has control over their senses is considered healthy; one who can control their senses through their mind and practices karma yoga without any attachments is considered to be healthy."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:impure-mind-disease",
+      "type": "concept",
+      "label": "Impure Mind Aggravates Disease",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:swasthya",
+      "content": "An impure mind aggravates chronic mental health issues."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:meditation-cure",
+      "type": "concept",
+      "label": "Meditating on Pure Consciousness Removes Disease",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:swasthya",
+      "content": "By meditating upon the pure consciousness that resides in us all, diseases, defects and disorders are removed."
+    },
+    {
       "id": "tmt-triple-self-motivation:concept:yogi-bliss",
       "type": "concept",
       "label": "The Yogi's Supreme Happiness",
@@ -755,6 +796,71 @@
       "target": "tmt-triple-self-motivation:theme:meditation-practice",
       "relation": "relates_to",
       "label": "prescribes"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e69",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:concept:swasthya",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e70",
+      "source": "tmt-triple-self-motivation:concept:swasthya",
+      "target": "tmt-triple-self-motivation:vocabulary:tridosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e71",
+      "source": "tmt-triple-self-motivation:concept:swasthya",
+      "target": "tmt-triple-self-motivation:concept:karma-yoga",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e72",
+      "source": "tmt-triple-self-motivation:concept:swasthya",
+      "target": "tmt-triple-self-motivation:concept:impure-mind-disease",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e73",
+      "source": "tmt-triple-self-motivation:concept:swasthya",
+      "target": "tmt-triple-self-motivation:concept:meditation-cure",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e74",
+      "source": "tmt-triple-self-motivation:concept:swasthya",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "relates_to",
+      "label": "requires control over"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e75",
+      "source": "tmt-triple-self-motivation:concept:karma-yoga",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "relates_to",
+      "label": "controls through the mind, without attachment"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e76",
+      "source": "tmt-triple-self-motivation:concept:impure-mind-disease",
+      "target": "tmt-triple-self-motivation:concept:meditation-cure",
+      "relation": "conflicts_with",
+      "label": "is remedied by"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e77",
+      "source": "tmt-triple-self-motivation:concept:meditation-cure",
+      "target": "tmt-triple-self-motivation:concept:atman-brahman",
+      "relation": "relates_to",
+      "label": "meditates upon"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e78",
+      "source": "tmt-triple-self-motivation:concept:meditation-cure",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "supports",
+      "label": "is achieved through"
     }
   ]
 }
