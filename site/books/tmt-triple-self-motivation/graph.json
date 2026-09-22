@@ -245,7 +245,16 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "vocabularyTerm": "Anandamaya Kosha",
-      "content": "The bliss sheath — the innermost layer, experienced as pure joy/bliss, where the inner life-force is fully awakened. The Upanishads describe it as the kosha that follows the first four; identifying/experiencing it is the highest development of an individual's personality and the most refined state of being. In healthy students, it indicates an enthusiastic and blissful state of mind."
+      "content": "The bliss sheath — the innermost layer, experienced as pure joy/bliss, where the inner life-force is fully awakened. The Upanishads describe it as the kosha that follows the first four; identifying/experiencing it is the highest development of an individual's personality and the most refined state of being. In healthy students, it indicates an enthusiastic and blissful state of mind. It is purified through self-study."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:self-study",
+      "type": "vocabulary",
+      "label": "Self-Study",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "vocabularyTerm": "Self-Study",
+      "content": "Through self-study, one can purify the Anandamaya Kosha. Self-study enhances mental strength and virtuous nature, and positively influences one's stream of thoughts."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:tmt",
@@ -1051,6 +1060,19 @@
       "source": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
       "target": "tmt-triple-self-motivation:vocabulary:dhyana-mudra",
       "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e96",
+      "source": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:self-study",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e97",
+      "source": "tmt-triple-self-motivation:vocabulary:self-study",
+      "target": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "relation": "relates_to",
+      "label": "enhances mental strength and virtuous nature toward"
     }
   ]
 }
