@@ -129,7 +129,16 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "vocabularyTerm": "Annamaya Kosha",
-      "content": "The physical/food sheath — the physical body itself, made by the food we eat; the outermost of the five koshas."
+      "content": "The physical/food sheath — the physical body itself, made by the food we eat; the outermost of the five koshas. It is purified by pure/Sattvic food."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:sattvic-food",
+      "type": "vocabulary",
+      "label": "Sattvic Food",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "vocabularyTerm": "Sattvic Food",
+      "content": "Pure/Sattvic food purifies the Annamaya Kosha. It also enhances sattva guna, which in turn enhances the intellect."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
@@ -138,7 +147,24 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "vocabularyTerm": "Pranamaya Kosha",
-      "content": "The vital/energy sheath — vital air and energy that resides inside our body, within the Annamaya Kosha. This kosha gets purified through the Panch Pranas, namely Prana, Apana, Vyana, Samana and Udana."
+      "content": "The vital/energy sheath — vital air and energy that resides inside our body, within the Annamaya Kosha. This kosha gets purified through the Panch Pranas, namely Prana, Apana, Vyana, Samana and Udana, and through Pranayama and the sound practice Swaropasana."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:pranayama",
+      "type": "concept",
+      "label": "Pranayama",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "content": "Pranayama purifies and controls breathing. Purified and controlled breathing regulates and stabilizes a restless mind and intellect."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:swaropasana",
+      "type": "vocabulary",
+      "label": "Swaropasana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Swaropasana",
+      "content": "Prolonged chanting of Om is an effective sound therapy; practicing Om is the sound practice Swaropasana, which purifies the Pranamaya Kosha."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:prana",
@@ -192,7 +218,7 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "vocabularyTerm": "Manomaya Kosha",
-      "content": "The mental sheath — the layer of mind, thoughts and emotions. It gets purified through chanting, meditation, contemplation and reflection."
+      "content": "The mental sheath — the layer of mind, thoughts and emotions. It gets purified through chanting, meditation, contemplation and reflection, and specifically through chanting of the Gayatri Mantra. Through mind purification, one attains intellect purification, which in turn makes the student focused and strong-willed."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
@@ -201,7 +227,16 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
       "vocabularyTerm": "Vijnanamaya Kosha",
-      "content": "The wisdom/intellect sheath — the layer of discernment and higher knowing that guides right action. It gets purified through intellect, logical reasoning, curiosity and intellectual thinking."
+      "content": "The wisdom/intellect sheath — the layer of discernment and higher knowing that guides right action. It gets purified through intellect, logical reasoning, curiosity and intellectual thinking, and through Dhyana Mudra. A pure Vijnanamaya Kosha enhances consciousness and discriminatory intelligence."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:dhyana-mudra",
+      "type": "vocabulary",
+      "label": "Dhyana Mudra",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "vocabularyTerm": "Dhyana Mudra",
+      "content": "The meditation hand-gesture practice that purifies the Vijnanamaya Kosha; a pure Vijnanamaya Kosha enhances consciousness and discriminatory intelligence."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
@@ -957,6 +992,65 @@
       "target": "tmt-triple-self-motivation:topic:students-mental-stress",
       "relation": "relates_to",
       "label": "marks the healthy, blissful state that resolves"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e87",
+      "source": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:sattvic-food",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e88",
+      "source": "tmt-triple-self-motivation:vocabulary:sattvic-food",
+      "target": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "relation": "relates_to",
+      "label": "sattva guna enhances the intellect of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e89",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:concept:pranayama",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e90",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:swaropasana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e91",
+      "source": "tmt-triple-self-motivation:concept:pranayama",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "relates_to",
+      "label": "regulates and stabilizes the restless mind behind"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e92",
+      "source": "tmt-triple-self-motivation:vocabulary:swaropasana",
+      "target": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "relation": "supports",
+      "label": "purifies via prolonged Om chanting"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e93",
+      "source": "tmt-triple-self-motivation:vocabulary:gayatri-mantra",
+      "target": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "relation": "relates_to",
+      "label": "purifies through chanting"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e94",
+      "source": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "target": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "relation": "relates_to",
+      "label": "purification makes the student focused and strong-willed"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e95",
+      "source": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:dhyana-mudra",
+      "relation": "contains"
     }
   ]
 }
