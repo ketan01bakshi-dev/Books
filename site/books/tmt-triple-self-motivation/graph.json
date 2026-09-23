@@ -1,0 +1,1171 @@
+{
+  "schemaVersion": "1.0.0",
+  "book": {
+    "id": "tmt-triple-self-motivation",
+    "title": "TMT: Triple Self Motivation Meditation Technique",
+    "author": "Dr. Babasaheb (Pradeep) Taranekar",
+    "curator": "llm-draft",
+    "curationStatus": "draft",
+    "copyrightStatus": "unreviewed"
+  },
+  "nodes": [
+    {
+      "id": "tmt-triple-self-motivation:book",
+      "type": "book",
+      "label": "TMT: Triple Self Motivation Meditation Technique",
+      "readingLevel": "elementary"
+    },
+    {
+      "id": "tmt-triple-self-motivation:theme:foundations",
+      "type": "theme",
+      "label": "Foundations of Self-Motivation",
+      "readingLevel": "inspectional",
+      "parentId": "tmt-triple-self-motivation:book"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:what-is-motivation",
+      "type": "topic",
+      "label": "What Drives Self-Motivation",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:foundations"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:barriers",
+      "type": "topic",
+      "label": "Barriers That Drain Motivation",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:foundations"
+    },
+    {
+      "id": "tmt-triple-self-motivation:theme:triple-technique",
+      "type": "theme",
+      "label": "The Triple Technique (TMT)",
+      "readingLevel": "inspectional",
+      "parentId": "tmt-triple-self-motivation:book"
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:pillar-mind",
+      "type": "concept",
+      "label": "Pillar 1 — Mind Conditioning",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:triple-technique"
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "type": "concept",
+      "label": "Pillar 2 — Meditation Practice",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:triple-technique"
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:pillar-action",
+      "type": "concept",
+      "label": "Pillar 3 — Sustained Action",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:triple-technique"
+    },
+    {
+      "id": "tmt-triple-self-motivation:theme:meditation-practice",
+      "type": "theme",
+      "label": "Meditation as a Daily Practice",
+      "readingLevel": "inspectional",
+      "parentId": "tmt-triple-self-motivation:book"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:breathing",
+      "type": "topic",
+      "label": "Breath Awareness",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:meditation-practice"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:visualization",
+      "type": "topic",
+      "label": "Visualization Toward Goals",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:meditation-practice"
+    },
+    {
+      "id": "tmt-triple-self-motivation:theme:application",
+      "type": "theme",
+      "label": "Applying TMT in Daily Life",
+      "readingLevel": "inspectional",
+      "parentId": "tmt-triple-self-motivation:book"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:habits",
+      "type": "topic",
+      "label": "Building Motivation Habits",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:application"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:setbacks",
+      "type": "topic",
+      "label": "Staying Motivated Through Setbacks",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:application"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "type": "topic",
+      "label": "Medicine for Students Under Mental Stress",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:application",
+      "content": "Meditation and yoga is a medicine for students who are under mental stress."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "type": "concept",
+      "label": "Panchkosh Sanjeevan Vidya",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:meditation-practice",
+      "content": "The revitalization-of-the-five-koshas technique used in TMT's meditation pillar: a yogic-philosophy practice that awakens the inner life-force through wisdom, by working through the five koshas (sheaths) that layer the human being — Annamaya, Pranamaya, Manomaya, Vijnanamaya and Anandamaya kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "type": "concept",
+      "label": "Mantra Yoga",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:meditation-practice",
+      "content": "Mantra Yoga helps students achieve easy rhythm (Sulabh Lay) and sound meditation (Nad Yoga), which in turn develop stable, rhythmic breathing and a composed mind. Through Lay and Nad, students can enhance their intellect sharpness, mental peace and blissful state."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:sulabh-lay",
+      "type": "vocabulary",
+      "label": "Sulabh Lay (Easy Rhythm)",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "vocabularyTerm": "Sulabh Lay",
+      "content": "Easy rhythm achieved through Mantra Yoga; together with Nad Yoga, it develops stable, rhythmic breathing and a composed mind."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:nad-yoga",
+      "type": "vocabulary",
+      "label": "Nad Yoga (Sound Meditation)",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "vocabularyTerm": "Nad Yoga",
+      "content": "Sound meditation achieved through Mantra Yoga; together with Sulabh Lay, it develops stable, rhythmic breathing and a composed mind."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "type": "vocabulary",
+      "label": "Annamaya Kosha",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "vocabularyTerm": "Annamaya Kosha",
+      "content": "The physical/food sheath — the physical body itself, made by the food we eat; the outermost of the five koshas. It is purified by pure/Sattvic food."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:sattvic-food",
+      "type": "vocabulary",
+      "label": "Sattvic Food",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "vocabularyTerm": "Sattvic Food",
+      "content": "Pure/Sattvic food purifies the Annamaya Kosha. It also enhances sattva guna, which in turn enhances the intellect."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "type": "vocabulary",
+      "label": "Pranamaya Kosha",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "vocabularyTerm": "Pranamaya Kosha",
+      "content": "The vital/energy sheath — vital air and energy that resides inside our body, within the Annamaya Kosha. This kosha gets purified through the Panch Pranas, namely Prana, Apana, Vyana, Samana and Udana, and through Pranayama and the sound practice Swaropasana."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:pranayama",
+      "type": "concept",
+      "label": "Pranayama",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "content": "Pranayama purifies and controls breathing. Purified and controlled breathing regulates and stabilizes a restless mind and intellect."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:swaropasana",
+      "type": "vocabulary",
+      "label": "Swaropasana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Swaropasana",
+      "content": "Prolonged chanting of Om is an effective sound therapy; practicing Om is the sound practice Swaropasana, which purifies the Pranamaya Kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:prana",
+      "type": "vocabulary",
+      "label": "Prana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Prana",
+      "content": "One of the Panch Pranas (five vital airs) that purify the Pranamaya Kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:apana",
+      "type": "vocabulary",
+      "label": "Apana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Apana",
+      "content": "One of the Panch Pranas (five vital airs) that purify the Pranamaya Kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:vyana",
+      "type": "vocabulary",
+      "label": "Vyana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Vyana",
+      "content": "One of the Panch Pranas (five vital airs) that purify the Pranamaya Kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:samana",
+      "type": "vocabulary",
+      "label": "Samana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Samana",
+      "content": "One of the Panch Pranas (five vital airs) that purify the Pranamaya Kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:udana",
+      "type": "vocabulary",
+      "label": "Udana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "vocabularyTerm": "Udana",
+      "content": "One of the Panch Pranas (five vital airs) that purify the Pranamaya Kosha."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "type": "vocabulary",
+      "label": "Manomaya Kosha",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "vocabularyTerm": "Manomaya Kosha",
+      "content": "The mental sheath — the layer of mind, thoughts and emotions. It gets purified through chanting, meditation, contemplation and reflection, and specifically through chanting of the Gayatri Mantra. Through mind purification, one attains intellect purification, which in turn makes the student focused and strong-willed."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "type": "vocabulary",
+      "label": "Vijnanamaya Kosha",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "vocabularyTerm": "Vijnanamaya Kosha",
+      "content": "The wisdom/intellect sheath — the layer of discernment and higher knowing that guides right action. It gets purified through intellect, logical reasoning, curiosity and intellectual thinking, and through Dhyana Mudra. A pure Vijnanamaya Kosha enhances consciousness and discriminatory intelligence."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:dhyana-mudra",
+      "type": "vocabulary",
+      "label": "Dhyana Mudra",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "vocabularyTerm": "Dhyana Mudra",
+      "content": "The meditation hand-gesture practice that purifies the Vijnanamaya Kosha; a pure Vijnanamaya Kosha enhances consciousness and discriminatory intelligence. Dhyana Mudra also helps create a balance between gastric force and the life-giving prana."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "type": "vocabulary",
+      "label": "Anandamaya Kosha",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "vocabularyTerm": "Anandamaya Kosha",
+      "content": "The bliss sheath — the innermost layer, experienced as pure joy/bliss, where the inner life-force is fully awakened. The Upanishads describe it as the kosha that follows the first four; identifying/experiencing it is the highest development of an individual's personality and the most refined state of being. In healthy students, it indicates an enthusiastic and blissful state of mind. It is purified through self-study."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:self-study",
+      "type": "vocabulary",
+      "label": "Self-Study",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "vocabularyTerm": "Self-Study",
+      "content": "Through self-study, one can purify the Anandamaya Kosha. Self-study enhances mental strength and virtuous nature, and positively influences one's stream of thoughts."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:tmt",
+      "type": "vocabulary",
+      "label": "TMT",
+      "readingLevel": "analytical",
+      "vocabularyTerm": "13 Minute Therapy",
+      "content": "The full form of the book's title acronym: TMT stands for 13 Minute Therapy."
+    },
+    {
+      "id": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "type": "theme",
+      "label": "Scriptural Roots — Atharvaveda & Vedanta",
+      "readingLevel": "inspectional",
+      "parentId": "tmt-triple-self-motivation:book"
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "type": "topic",
+      "label": "Atharvaveda — Shaunaka Samhita",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "The Shaunaka Samhita of the Atharvaveda elaborately discusses karmaja vyadhi (disease arising from one's own karma) and gives a detailed, precise account of Sanjeevani Vidya and Devi Chikitsa (divine healing) as its treatment."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:karmaja-vyadhi",
+      "type": "vocabulary",
+      "label": "Karmaja Vyadhi",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "vocabularyTerm": "Karmaja Vyadhi",
+      "content": "Disease/affliction described in the Atharvaveda's Shaunaka Samhita as arising from one's own past karma."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "type": "concept",
+      "label": "Devi Chikitsa (Divine Healing)",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "content": "The divine-healing treatment the ancient rishis prescribed for karmaja vyadhi: mantra, tantra, yoga, yajna, tapa, herbal remedies and water-based treatments are all referred to as divine treatments; Panchakarma is cited as one such example.",
+      "tags": ["mantra", "tantra", "yoga", "yajna", "tapa", "herbal-remedies", "water-based-treatments"]
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:panchakarma",
+      "type": "vocabulary",
+      "label": "Panchakarma",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "vocabularyTerm": "Panchakarma",
+      "content": "One example of the divine treatments (Devi Chikitsa) referred to by the ancient rishis."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:mantra",
+      "type": "vocabulary",
+      "label": "Mantra",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "vocabularyTerm": "Mantra",
+      "content": "That by repetition of which one can influence the mind."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:yoga",
+      "type": "vocabulary",
+      "label": "Yoga",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "vocabularyTerm": "Yoga",
+      "content": "Stilling or regulating the fluctuations or modifications of the mind."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:mind-senses",
+      "type": "concept",
+      "label": "Mind's Hold Over the Senses",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "The mind influences our senses, pulling them toward outward worldly objects."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "type": "concept",
+      "label": "Sanjeevan Vidya",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "The knowledge of Sanjeevan Vidya, part of Upanishad and Vedanta literature, encompasses Pranopchar, Panchkosh and Gayatri Tantra."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:pranopchar",
+      "type": "vocabulary",
+      "label": "Pranopchar",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "vocabularyTerm": "Pranopchar",
+      "content": "One of the components of Sanjeevan Vidya, alongside Panchkosh and Gayatri Tantra."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:gayatri-tantra",
+      "type": "vocabulary",
+      "label": "Gayatri Tantra",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "vocabularyTerm": "Gayatri Tantra",
+      "content": "One of the components of Sanjeevan Vidya, alongside Pranopchar and Panchkosh."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "type": "concept",
+      "label": "Breath–Mind Link",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "When breathing is distracted or unstable, the mind also gets distracted."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:swasthya",
+      "type": "concept",
+      "label": "Definition of Perfect Health (Swasthya)",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "One is in perfect health when Vata, Pitta and Kapha, the digestive system, bones and all other body tissues are in perfect condition, and one is satisfied or content, with the senses turned inward instead of chasing worldly objects."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:tridosha",
+      "type": "vocabulary",
+      "label": "Vata, Pitta, Kapha (Tridosha)",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:swasthya",
+      "vocabularyTerm": "Tridosha",
+      "content": "The three bodily humors — Vata, Pitta and Kapha — whose perfect condition, along with the digestive system, bones and other tissues, marks physical health."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:karma-yoga",
+      "type": "concept",
+      "label": "Karma Yoga Without Attachment",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:swasthya",
+      "content": "One whose mind has control over their senses is considered healthy; one who can control their senses through their mind and practices karma yoga without any attachments is considered to be healthy."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:impure-mind-disease",
+      "type": "concept",
+      "label": "Impure Mind Aggravates Disease",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:swasthya",
+      "content": "An impure mind aggravates chronic mental health issues."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:meditation-cure",
+      "type": "concept",
+      "label": "Meditating on Pure Consciousness Removes Disease",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:swasthya",
+      "content": "By meditating upon the pure consciousness that resides in us all, diseases, defects and disorders are removed."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "type": "concept",
+      "label": "The Yogi's Supreme Happiness",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "When the mind is focused away from material activities through the practice of yoga, one can see this self with a pure mind and rejoice in inner bliss. The yogi with a peaceful mind, free from impurities, attains supreme happiness."
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:taittiriya-upanishad",
+      "type": "topic",
+      "label": "Taittiriya Upanishad",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "The Taittiriya Upanishad gives detailed account of the Panch Koshas that encapsulate a being's inner, pure consciousness."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:atman-brahman",
+      "type": "concept",
+      "label": "Atman / Brahman Within the Koshas",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:topic:taittiriya-upanishad",
+      "content": "The Atman — pure consciousness, one with Brahman — resides inside the five koshas. One must detach from each kosha in turn to identify one's true self."
+    },
+    {
+      "id": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "type": "topic",
+      "label": "Gayatri Upasana",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "Goddess Gayatri is described as five-headed, signifying the Panchkoshas. Through the specialized method of Gayatri Upasana, one can achieve purification, healing and revitalization of the Panchkoshas — one of the most important aspects of spiritual development."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:gayatri-mantra",
+      "type": "vocabulary",
+      "label": "Gayatri Mantra",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "vocabularyTerm": "Gayatri Mantra",
+      "content": "The mantra which, when chanted with devotion, can influence and hence regulate the senses."
+    }
+  ],
+  "edges": [
+    {
+      "id": "tmt-triple-self-motivation:e1",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:theme:foundations",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e2",
+      "source": "tmt-triple-self-motivation:theme:foundations",
+      "target": "tmt-triple-self-motivation:topic:what-is-motivation",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e3",
+      "source": "tmt-triple-self-motivation:theme:foundations",
+      "target": "tmt-triple-self-motivation:topic:barriers",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e4",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:theme:triple-technique",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e5",
+      "source": "tmt-triple-self-motivation:theme:triple-technique",
+      "target": "tmt-triple-self-motivation:concept:pillar-mind",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e6",
+      "source": "tmt-triple-self-motivation:theme:triple-technique",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e7",
+      "source": "tmt-triple-self-motivation:theme:triple-technique",
+      "target": "tmt-triple-self-motivation:concept:pillar-action",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e8",
+      "source": "tmt-triple-self-motivation:concept:pillar-mind",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "relates_to",
+      "label": "prepares the ground for"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e9",
+      "source": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "target": "tmt-triple-self-motivation:concept:pillar-action",
+      "relation": "relates_to",
+      "label": "sustains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e10",
+      "source": "tmt-triple-self-motivation:topic:barriers",
+      "target": "tmt-triple-self-motivation:concept:pillar-mind",
+      "relation": "conflicts_with",
+      "label": "undermines without"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e11",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:theme:meditation-practice",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e12",
+      "source": "tmt-triple-self-motivation:theme:meditation-practice",
+      "target": "tmt-triple-self-motivation:topic:breathing",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e13",
+      "source": "tmt-triple-self-motivation:theme:meditation-practice",
+      "target": "tmt-triple-self-motivation:topic:visualization",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e14",
+      "source": "tmt-triple-self-motivation:topic:breathing",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "supports"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e15",
+      "source": "tmt-triple-self-motivation:topic:visualization",
+      "target": "tmt-triple-self-motivation:concept:pillar-mind",
+      "relation": "supports"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e16",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:theme:application",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e17",
+      "source": "tmt-triple-self-motivation:theme:application",
+      "target": "tmt-triple-self-motivation:topic:habits",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e18",
+      "source": "tmt-triple-self-motivation:theme:application",
+      "target": "tmt-triple-self-motivation:topic:setbacks",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e19",
+      "source": "tmt-triple-self-motivation:topic:habits",
+      "target": "tmt-triple-self-motivation:concept:pillar-action",
+      "relation": "supports"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e20",
+      "source": "tmt-triple-self-motivation:topic:setbacks",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "relates_to",
+      "label": "recovers through"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e21",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:vocabulary:tmt",
+      "relation": "relates_to",
+      "label": "coins"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e22",
+      "source": "tmt-triple-self-motivation:theme:meditation-practice",
+      "target": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e23",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e24",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e25",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e26",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e27",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e28",
+      "source": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "relation": "relates_to",
+      "label": "awakening moves inward to"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e29",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "relation": "relates_to",
+      "label": "awakening moves inward to"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e30",
+      "source": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "relation": "relates_to",
+      "label": "awakening moves inward to"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e31",
+      "source": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "relation": "relates_to",
+      "label": "awakening moves inward to"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e32",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "supports",
+      "label": "is the meditation method taught in"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e33",
+      "source": "tmt-triple-self-motivation:book",
+      "target": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e34",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e35",
+      "source": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "target": "tmt-triple-self-motivation:vocabulary:karmaja-vyadhi",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e36",
+      "source": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "target": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e37",
+      "source": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "target": "tmt-triple-self-motivation:vocabulary:karmaja-vyadhi",
+      "relation": "relates_to",
+      "label": "is the prescribed treatment for"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e38",
+      "source": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "target": "tmt-triple-self-motivation:vocabulary:panchakarma",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e39",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e40",
+      "source": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:pranopchar",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e41",
+      "source": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "relation": "relates_to",
+      "label": "encompasses Panchkosh as"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e42",
+      "source": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:vocabulary:gayatri-tantra",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e43",
+      "source": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
+      "target": "tmt-triple-self-motivation:concept:sanjeevan-vidya",
+      "relation": "relates_to",
+      "label": "provides detailed knowledge of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e44",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:topic:taittiriya-upanishad",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e45",
+      "source": "tmt-triple-self-motivation:topic:taittiriya-upanishad",
+      "target": "tmt-triple-self-motivation:concept:atman-brahman",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e46",
+      "source": "tmt-triple-self-motivation:topic:taittiriya-upanishad",
+      "target": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "relation": "relates_to",
+      "label": "is the source text for"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e47",
+      "source": "tmt-triple-self-motivation:concept:atman-brahman",
+      "target": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "relation": "relates_to",
+      "label": "dwells within, reached by detaching from each"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e48",
+      "source": "tmt-triple-self-motivation:concept:atman-brahman",
+      "target": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "relation": "relates_to",
+      "label": "most refined state reached through"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e49",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e50",
+      "source": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "target": "tmt-triple-self-motivation:vocabulary:gayatri-tantra",
+      "relation": "relates_to",
+      "label": "is practiced through"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e51",
+      "source": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "target": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "relation": "supports",
+      "label": "purifies, heals and revitalizes"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e52",
+      "source": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "target": "tmt-triple-self-motivation:vocabulary:mantra",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e53",
+      "source": "tmt-triple-self-motivation:concept:devi-chikitsa",
+      "target": "tmt-triple-self-motivation:vocabulary:yoga",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e54",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e55",
+      "source": "tmt-triple-self-motivation:vocabulary:yoga",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "relates_to",
+      "label": "stills the fluctuations behind"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e56",
+      "source": "tmt-triple-self-motivation:topic:gayatri-upasana",
+      "target": "tmt-triple-self-motivation:vocabulary:gayatri-mantra",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e57",
+      "source": "tmt-triple-self-motivation:vocabulary:gayatri-mantra",
+      "target": "tmt-triple-self-motivation:vocabulary:mantra",
+      "relation": "relates_to",
+      "label": "is an instance of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e58",
+      "source": "tmt-triple-self-motivation:vocabulary:gayatri-mantra",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "relates_to",
+      "label": "when chanted with devotion, regulates"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e59",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e60",
+      "source": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "target": "tmt-triple-self-motivation:topic:breathing",
+      "relation": "relates_to",
+      "label": "grounds the practice of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e61",
+      "source": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "target": "tmt-triple-self-motivation:vocabulary:yoga",
+      "relation": "relates_to",
+      "label": "stable breath enables"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e62",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e63",
+      "source": "tmt-triple-self-motivation:vocabulary:yoga",
+      "target": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "relation": "relates_to",
+      "label": "bears the fruit of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e64",
+      "source": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "target": "tmt-triple-self-motivation:concept:atman-brahman",
+      "relation": "relates_to",
+      "label": "reveals the pure self as"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e65",
+      "source": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "target": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "relation": "relates_to",
+      "label": "is the lived experience of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e66",
+      "source": "tmt-triple-self-motivation:theme:application",
+      "target": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e67",
+      "source": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "target": "tmt-triple-self-motivation:vocabulary:yoga",
+      "relation": "relates_to",
+      "label": "prescribes"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e68",
+      "source": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "target": "tmt-triple-self-motivation:theme:meditation-practice",
+      "relation": "relates_to",
+      "label": "prescribes"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e69",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:concept:swasthya",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e70",
+      "source": "tmt-triple-self-motivation:concept:swasthya",
+      "target": "tmt-triple-self-motivation:vocabulary:tridosha",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e71",
+      "source": "tmt-triple-self-motivation:concept:swasthya",
+      "target": "tmt-triple-self-motivation:concept:karma-yoga",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e72",
+      "source": "tmt-triple-self-motivation:concept:swasthya",
+      "target": "tmt-triple-self-motivation:concept:impure-mind-disease",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e73",
+      "source": "tmt-triple-self-motivation:concept:swasthya",
+      "target": "tmt-triple-self-motivation:concept:meditation-cure",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e74",
+      "source": "tmt-triple-self-motivation:concept:swasthya",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "relates_to",
+      "label": "requires control over"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e75",
+      "source": "tmt-triple-self-motivation:concept:karma-yoga",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "relates_to",
+      "label": "controls through the mind, without attachment"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e76",
+      "source": "tmt-triple-self-motivation:concept:impure-mind-disease",
+      "target": "tmt-triple-self-motivation:concept:meditation-cure",
+      "relation": "conflicts_with",
+      "label": "is remedied by"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e77",
+      "source": "tmt-triple-self-motivation:concept:meditation-cure",
+      "target": "tmt-triple-self-motivation:concept:atman-brahman",
+      "relation": "relates_to",
+      "label": "meditates upon"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e78",
+      "source": "tmt-triple-self-motivation:concept:meditation-cure",
+      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "relation": "supports",
+      "label": "is achieved through"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e79",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:prana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e80",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:apana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e81",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:vyana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e82",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:samana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e83",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:udana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e84",
+      "source": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "relation": "relates_to",
+      "label": "houses the vital air/energy of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e85",
+      "source": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:mantra",
+      "relation": "relates_to",
+      "label": "is purified by chanting"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e86",
+      "source": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "target": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "relation": "relates_to",
+      "label": "marks the healthy, blissful state that resolves"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e87",
+      "source": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:sattvic-food",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e88",
+      "source": "tmt-triple-self-motivation:vocabulary:sattvic-food",
+      "target": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "relation": "relates_to",
+      "label": "sattva guna enhances the intellect of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e89",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:concept:pranayama",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e90",
+      "source": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:swaropasana",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e91",
+      "source": "tmt-triple-self-motivation:concept:pranayama",
+      "target": "tmt-triple-self-motivation:concept:mind-senses",
+      "relation": "relates_to",
+      "label": "regulates and stabilizes the restless mind behind"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e92",
+      "source": "tmt-triple-self-motivation:vocabulary:swaropasana",
+      "target": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "relation": "supports",
+      "label": "purifies via prolonged Om chanting"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e93",
+      "source": "tmt-triple-self-motivation:vocabulary:gayatri-mantra",
+      "target": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "relation": "relates_to",
+      "label": "purifies through chanting"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e94",
+      "source": "tmt-triple-self-motivation:vocabulary:manomaya-kosha",
+      "target": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "relation": "relates_to",
+      "label": "purification makes the student focused and strong-willed"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e95",
+      "source": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:dhyana-mudra",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e96",
+      "source": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
+      "target": "tmt-triple-self-motivation:vocabulary:self-study",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e97",
+      "source": "tmt-triple-self-motivation:vocabulary:self-study",
+      "target": "tmt-triple-self-motivation:concept:yogi-bliss",
+      "relation": "relates_to",
+      "label": "enhances mental strength and virtuous nature toward"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e98",
+      "source": "tmt-triple-self-motivation:vocabulary:dhyana-mudra",
+      "target": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "relation": "relates_to",
+      "label": "balances gastric force with the life-giving prana of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e99",
+      "source": "tmt-triple-self-motivation:theme:meditation-practice",
+      "target": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e100",
+      "source": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "target": "tmt-triple-self-motivation:vocabulary:sulabh-lay",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e101",
+      "source": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "target": "tmt-triple-self-motivation:vocabulary:nad-yoga",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e102",
+      "source": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "target": "tmt-triple-self-motivation:vocabulary:mantra",
+      "relation": "relates_to",
+      "label": "applies"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e103",
+      "source": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "target": "tmt-triple-self-motivation:vocabulary:yoga",
+      "relation": "relates_to",
+      "label": "applies"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e104",
+      "source": "tmt-triple-self-motivation:vocabulary:sulabh-lay",
+      "target": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "relation": "relates_to",
+      "label": "develops stable, rhythmic breathing and a composed mind"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e105",
+      "source": "tmt-triple-self-motivation:vocabulary:nad-yoga",
+      "target": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "relation": "relates_to",
+      "label": "develops stable, rhythmic breathing and a composed mind"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e106",
+      "source": "tmt-triple-self-motivation:vocabulary:nad-yoga",
+      "target": "tmt-triple-self-motivation:vocabulary:swaropasana",
+      "relation": "relates_to",
+      "label": "both are sound-based practices"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e107",
+      "source": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "target": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "relation": "relates_to",
+      "label": "enhances students' intellect sharpness, mental peace and bliss"
+    }
+  ]
+}

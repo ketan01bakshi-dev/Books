@@ -10,12 +10,13 @@
       "id": "human-psychology",
       "label": "Human Psychology",
       "description": "Meaning, resilience, and the inner life.",
-      "bookIds": ["the-wisdom-bridge", "mans-search-for-meaning"]
+      "bookIds": ["the-wisdom-bridge", "mans-search-for-meaning", "tmt-triple-self-motivation"]
     }
   ],
   "books": {
     "python-pdsa": { "title": "Algorithms & Python", "author": "Community Notebook (evolving)" },
     "the-wisdom-bridge": { "title": "The Wisdom Bridge", "author": "Daaji Kamlesh D. Patel" },
-    "mans-search-for-meaning": { "title": "Man's Search for Meaning", "author": "Viktor E. Frankl" }
+    "mans-search-for-meaning": { "title": "Man's Search for Meaning", "author": "Viktor E. Frankl" },
+    "tmt-triple-self-motivation": { "title": "TMT: Triple Self Motivation Meditation Technique", "author": "Dr. Babasaheb (Pradeep) Taranekar" }
   }
 }
