@@ -123,6 +123,32 @@
       "content": "The revitalization-of-the-five-koshas technique used in TMT's meditation pillar: a yogic-philosophy practice that awakens the inner life-force through wisdom, by working through the five koshas (sheaths) that layer the human being — Annamaya, Pranamaya, Manomaya, Vijnanamaya and Anandamaya kosha."
     },
     {
+      "id": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "type": "concept",
+      "label": "Mantra Yoga",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:meditation-practice",
+      "content": "Mantra Yoga helps students achieve easy rhythm (Sulabh Lay) and sound meditation (Nad Yoga), which in turn develop stable, rhythmic breathing and a composed mind. Through Lay and Nad, students can enhance their intellect sharpness, mental peace and blissful state."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:sulabh-lay",
+      "type": "vocabulary",
+      "label": "Sulabh Lay (Easy Rhythm)",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "vocabularyTerm": "Sulabh Lay",
+      "content": "Easy rhythm achieved through Mantra Yoga; together with Nad Yoga, it develops stable, rhythmic breathing and a composed mind."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:nad-yoga",
+      "type": "vocabulary",
+      "label": "Nad Yoga (Sound Meditation)",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "vocabularyTerm": "Nad Yoga",
+      "content": "Sound meditation achieved through Mantra Yoga; together with Sulabh Lay, it develops stable, rhythmic breathing and a composed mind."
+    },
+    {
       "id": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
       "type": "vocabulary",
       "label": "Annamaya Kosha",
@@ -236,7 +262,7 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:vocabulary:vijnanamaya-kosha",
       "vocabularyTerm": "Dhyana Mudra",
-      "content": "The meditation hand-gesture practice that purifies the Vijnanamaya Kosha; a pure Vijnanamaya Kosha enhances consciousness and discriminatory intelligence."
+      "content": "The meditation hand-gesture practice that purifies the Vijnanamaya Kosha; a pure Vijnanamaya Kosha enhances consciousness and discriminatory intelligence. Dhyana Mudra also helps create a balance between gastric force and the life-giving prana."
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:anandamaya-kosha",
@@ -1073,6 +1099,73 @@
       "target": "tmt-triple-self-motivation:concept:yogi-bliss",
       "relation": "relates_to",
       "label": "enhances mental strength and virtuous nature toward"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e98",
+      "source": "tmt-triple-self-motivation:vocabulary:dhyana-mudra",
+      "target": "tmt-triple-self-motivation:vocabulary:pranamaya-kosha",
+      "relation": "relates_to",
+      "label": "balances gastric force with the life-giving prana of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e99",
+      "source": "tmt-triple-self-motivation:theme:meditation-practice",
+      "target": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e100",
+      "source": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "target": "tmt-triple-self-motivation:vocabulary:sulabh-lay",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e101",
+      "source": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "target": "tmt-triple-self-motivation:vocabulary:nad-yoga",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e102",
+      "source": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "target": "tmt-triple-self-motivation:vocabulary:mantra",
+      "relation": "relates_to",
+      "label": "applies"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e103",
+      "source": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "target": "tmt-triple-self-motivation:vocabulary:yoga",
+      "relation": "relates_to",
+      "label": "applies"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e104",
+      "source": "tmt-triple-self-motivation:vocabulary:sulabh-lay",
+      "target": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "relation": "relates_to",
+      "label": "develops stable, rhythmic breathing and a composed mind"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e105",
+      "source": "tmt-triple-self-motivation:vocabulary:nad-yoga",
+      "target": "tmt-triple-self-motivation:concept:breath-mind-link",
+      "relation": "relates_to",
+      "label": "develops stable, rhythmic breathing and a composed mind"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e106",
+      "source": "tmt-triple-self-motivation:vocabulary:nad-yoga",
+      "target": "tmt-triple-self-motivation:vocabulary:swaropasana",
+      "relation": "relates_to",
+      "label": "both are sound-based practices"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e107",
+      "source": "tmt-triple-self-motivation:concept:mantra-yoga",
+      "target": "tmt-triple-self-motivation:topic:students-mental-stress",
+      "relation": "relates_to",
+      "label": "enhances students' intellect sharpness, mental peace and bliss"
     }
   ]
 }
