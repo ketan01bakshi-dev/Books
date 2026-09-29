@@ -123,6 +123,50 @@
       "content": "The revitalization-of-the-five-koshas technique used in TMT's meditation pillar: a yogic-philosophy practice that awakens the inner life-force through wisdom, by working through the five koshas (sheaths) that layer the human being — Annamaya, Pranamaya, Manomaya, Vijnanamaya and Anandamaya kosha."
     },
     {
+      "id": "tmt-triple-self-motivation:concept:kosha-refinement",
+      "type": "concept",
+      "label": "Refining the Panch Koshas for Personality Development",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "content": "The Panch Koshas are the five layers of our body; they need refinement for the personality development of individuals and of the community."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:five-daily-practices",
+      "type": "concept",
+      "label": "Five Daily Practices to Get Closer to Nature",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:application",
+      "content": "Five things to do daily so as to get closer to nature: Jap, Tap, Yog, Yagna, and self-study and revision.",
+      "tags": ["jap", "tap", "yog", "yagna", "self-study"]
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:jap",
+      "type": "vocabulary",
+      "label": "Jap",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:five-daily-practices",
+      "vocabularyTerm": "Jap",
+      "content": "One of the five daily practices to get closer to nature."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:tap",
+      "type": "vocabulary",
+      "label": "Tap",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:five-daily-practices",
+      "vocabularyTerm": "Tap",
+      "content": "One of the five daily practices to get closer to nature."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:yagna",
+      "type": "vocabulary",
+      "label": "Yagna",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:five-daily-practices",
+      "vocabularyTerm": "Yagna",
+      "content": "One of the five daily practices to get closer to nature."
+    },
+    {
       "id": "tmt-triple-self-motivation:concept:mantra-yoga",
       "type": "concept",
       "label": "Mantra Yoga",
@@ -1166,6 +1210,57 @@
       "target": "tmt-triple-self-motivation:topic:students-mental-stress",
       "relation": "relates_to",
       "label": "enhances students' intellect sharpness, mental peace and bliss"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e108",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:concept:kosha-refinement",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e109",
+      "source": "tmt-triple-self-motivation:theme:application",
+      "target": "tmt-triple-self-motivation:concept:five-daily-practices",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e110",
+      "source": "tmt-triple-self-motivation:concept:five-daily-practices",
+      "target": "tmt-triple-self-motivation:vocabulary:jap",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e111",
+      "source": "tmt-triple-self-motivation:concept:five-daily-practices",
+      "target": "tmt-triple-self-motivation:vocabulary:tap",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e112",
+      "source": "tmt-triple-self-motivation:concept:five-daily-practices",
+      "target": "tmt-triple-self-motivation:vocabulary:yagna",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e113",
+      "source": "tmt-triple-self-motivation:concept:five-daily-practices",
+      "target": "tmt-triple-self-motivation:vocabulary:yoga",
+      "relation": "relates_to",
+      "label": "includes daily Yog"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e114",
+      "source": "tmt-triple-self-motivation:concept:five-daily-practices",
+      "target": "tmt-triple-self-motivation:vocabulary:self-study",
+      "relation": "relates_to",
+      "label": "includes daily self-study and revision"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e115",
+      "source": "tmt-triple-self-motivation:concept:five-daily-practices",
+      "target": "tmt-triple-self-motivation:concept:kosha-refinement",
+      "relation": "supports",
+      "label": "daily means of refining the koshas"
     }
   ]
 }
