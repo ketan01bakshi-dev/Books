@@ -137,7 +137,13 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:theme:application",
       "content": "Five things to do daily so as to get closer to nature: Jap, Tap, Yog, Yagna, and self-study and revision.",
-      "tags": ["jap", "tap", "yog", "yagna", "self-study"]
+      "tags": [
+        "jap",
+        "tap",
+        "yog",
+        "yagna",
+        "self-study"
+      ]
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:jap",
@@ -365,7 +371,15 @@
       "readingLevel": "analytical",
       "parentId": "tmt-triple-self-motivation:topic:atharvaveda-shaunaka",
       "content": "The divine-healing treatment the ancient rishis prescribed for karmaja vyadhi: mantra, tantra, yoga, yajna, tapa, herbal remedies and water-based treatments are all referred to as divine treatments; Panchakarma is cited as one such example.",
-      "tags": ["mantra", "tantra", "yoga", "yajna", "tapa", "herbal-remedies", "water-based-treatments"]
+      "tags": [
+        "mantra",
+        "tantra",
+        "yoga",
+        "yajna",
+        "tapa",
+        "herbal-remedies",
+        "water-based-treatments"
+      ]
     },
     {
       "id": "tmt-triple-self-motivation:vocabulary:panchakarma",
@@ -517,6 +531,115 @@
       "parentId": "tmt-triple-self-motivation:topic:gayatri-upasana",
       "vocabularyTerm": "Gayatri Mantra",
       "content": "The mantra which, when chanted with devotion, can influence and hence regulate the senses."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:five-elements",
+      "type": "concept",
+      "label": "Five Elements of the Body",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "content": "Our body is a composition of five elements of nature — Earth, Water, Air, Fire and Space. This is agreed upon by both Western and Ayurvedic systems."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:element-earth",
+      "type": "vocabulary",
+      "label": "Earth",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:five-elements",
+      "vocabularyTerm": "Earth (element)",
+      "content": "Muscles, bones, skin and other physical elements of the body."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:element-water",
+      "type": "vocabulary",
+      "label": "Water",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:five-elements",
+      "vocabularyTerm": "Water (element)",
+      "content": "Blood, water and other fluids of the body."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:element-air",
+      "type": "vocabulary",
+      "label": "Air",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:five-elements",
+      "vocabularyTerm": "Air (element)",
+      "content": "The respiratory system, muscular movement, and the tendency to expand and contract."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:element-fire",
+      "type": "vocabulary",
+      "label": "Fire",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:five-elements",
+      "vocabularyTerm": "Fire (element)",
+      "content": "Body heat, and the biochemical and bioelectric energy generated from different enzymes and the digestive system."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:element-space",
+      "type": "vocabulary",
+      "label": "Space",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:five-elements",
+      "vocabularyTerm": "Space (element)",
+      "content": "The space existing at every level within the body's systems, from the molecular to the muscular."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:layers-of-consciousness",
+      "type": "concept",
+      "label": "Koshas as Layers of Consciousness",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "content": "According to Vedic science and philosophy, our body is a combination of five layers of consciousness — Annamaya, Pranamaya, Manomaya, Vijnanamaya and Anandamaya Kosha — which are covered and overlapped around the main energy centres (Shakti Kendras) in our body."
+    },
+    {
+      "id": "tmt-triple-self-motivation:vocabulary:shakti-kendras",
+      "type": "vocabulary",
+      "label": "Shakti Kendras",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:layers-of-consciousness",
+      "vocabularyTerm": "Shakti Kendras",
+      "content": "The main energy centres in our body, around which the five koshas are covered and overlapped."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:kosha-nourishment",
+      "type": "concept",
+      "label": "What Each Kosha Feeds On",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "content": "Each kosha feeds upon different elements of human nature, society and the environment around us. Thus any good or bad influence, or pollution of any kind, affects that layer of the body and the person themselves."
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:health-and-purusharthas",
+      "type": "concept",
+      "label": "Health and the Four Aims of Life",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:swasthya",
+      "content": "Only a healthy and fit person can walk the path of Dharma, Artha, Kama and Moksha.",
+      "tags": [
+        "dharma",
+        "artha",
+        "kama",
+        "moksha"
+      ]
+    },
+    {
+      "id": "tmt-triple-self-motivation:concept:refinement-prerequisite",
+      "type": "concept",
+      "label": "Refinement as the First Requirement of Every Path",
+      "readingLevel": "analytical",
+      "parentId": "tmt-triple-self-motivation:concept:kosha-refinement",
+      "content": "Anyone who aspires to progress in bhakti (devotion), gyan (universal knowledge), karma yoga, sannyasa (renunciation) or even science, under the guidance of their guru and following any kind of upasana, must first get all five koshas refined, purified and stabilized. The first step of this process is the refinement and rejuvenation of the Annamaya Kosha.",
+      "tags": [
+        "bhakti",
+        "gyan",
+        "karma-yoga",
+        "sannyasa",
+        "science",
+        "guru",
+        "upasana"
+      ]
     }
   ],
   "edges": [
@@ -1261,6 +1384,107 @@
       "target": "tmt-triple-self-motivation:concept:kosha-refinement",
       "relation": "supports",
       "label": "daily means of refining the koshas"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e116",
+      "source": "tmt-triple-self-motivation:theme:scriptural-roots",
+      "target": "tmt-triple-self-motivation:concept:five-elements",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e117",
+      "source": "tmt-triple-self-motivation:concept:five-elements",
+      "target": "tmt-triple-self-motivation:vocabulary:element-earth",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e118",
+      "source": "tmt-triple-self-motivation:concept:five-elements",
+      "target": "tmt-triple-self-motivation:vocabulary:element-water",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e119",
+      "source": "tmt-triple-self-motivation:concept:five-elements",
+      "target": "tmt-triple-self-motivation:vocabulary:element-air",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e120",
+      "source": "tmt-triple-self-motivation:concept:five-elements",
+      "target": "tmt-triple-self-motivation:vocabulary:element-fire",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e121",
+      "source": "tmt-triple-self-motivation:concept:five-elements",
+      "target": "tmt-triple-self-motivation:vocabulary:element-space",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e122",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:concept:layers-of-consciousness",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e123",
+      "source": "tmt-triple-self-motivation:concept:layers-of-consciousness",
+      "target": "tmt-triple-self-motivation:vocabulary:shakti-kendras",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e124",
+      "source": "tmt-triple-self-motivation:concept:five-elements",
+      "target": "tmt-triple-self-motivation:concept:layers-of-consciousness",
+      "relation": "relates_to",
+      "label": "physical composition complemented by the Vedic view of"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e125",
+      "source": "tmt-triple-self-motivation:concept:panchkosh-sanjeevan-vidya",
+      "target": "tmt-triple-self-motivation:concept:kosha-nourishment",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e126",
+      "source": "tmt-triple-self-motivation:concept:kosha-nourishment",
+      "target": "tmt-triple-self-motivation:concept:kosha-refinement",
+      "relation": "relates_to",
+      "label": "explains the need for"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e127",
+      "source": "tmt-triple-self-motivation:concept:swasthya",
+      "target": "tmt-triple-self-motivation:concept:health-and-purusharthas",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e128",
+      "source": "tmt-triple-self-motivation:concept:kosha-refinement",
+      "target": "tmt-triple-self-motivation:concept:refinement-prerequisite",
+      "relation": "contains"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e129",
+      "source": "tmt-triple-self-motivation:concept:refinement-prerequisite",
+      "target": "tmt-triple-self-motivation:vocabulary:annamaya-kosha",
+      "relation": "relates_to",
+      "label": "begins with refining and rejuvenating"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e130",
+      "source": "tmt-triple-self-motivation:concept:refinement-prerequisite",
+      "target": "tmt-triple-self-motivation:concept:karma-yoga",
+      "relation": "relates_to",
+      "label": "is a prerequisite for progress in"
+    },
+    {
+      "id": "tmt-triple-self-motivation:e131",
+      "source": "tmt-triple-self-motivation:concept:health-and-purusharthas",
+      "target": "tmt-triple-self-motivation:concept:kosha-refinement",
+      "relation": "relates_to",
+      "label": "motivates"
     }
   ]
 }
