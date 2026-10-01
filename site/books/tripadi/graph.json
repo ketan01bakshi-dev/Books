@@ -705,6 +705,50 @@
       "parentId": "tripadi:concept:five-fold-practice",
       "vocabularyTerm": "Laya",
       "content": "In the state of concentration or yog nidra (yogic sleep), the process of trying to relax and stabilize the mind and body."
+    },
+    {
+      "id": "tripadi:concept:pranamaya-wellbeing",
+      "type": "concept",
+      "label": "Pranamaya Kosha and Wellbeing",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:vocabulary:pranamaya-kosha",
+      "content": "Problems of the Pranamaya Kosha such as fatigue, anxiety, acidity and constipation can be addressed by managing the micro-environment we live in, along with some diet management. The side effects of noise pollution and depression can be addressed by musical healing therapy, and prayer healing and pranic healing (pranayama) can help cure many problems."
+    },
+    {
+      "id": "tripadi:vocabulary:vastu-dosh-chikitsa",
+      "type": "vocabulary",
+      "label": "Vastu Dosh Chikitsa",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:pranamaya-wellbeing",
+      "vocabularyTerm": "Vastu Dosh Chikitsa",
+      "content": "Micro-environmental system management: structural or internal modification of the place we live in and its surroundings, along with some diet management. It addresses problems like fatigue, anxiety, acidity and constipation."
+    },
+    {
+      "id": "tripadi:vocabulary:musical-healing",
+      "type": "vocabulary",
+      "label": "Musical Healing Therapy",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:pranamaya-wellbeing",
+      "vocabularyTerm": "Musical Healing Therapy",
+      "content": "Healing through music, which addresses the side effects of noise pollution and depression."
+    },
+    {
+      "id": "tripadi:vocabulary:prayer-healing",
+      "type": "vocabulary",
+      "label": "Prayer Healing",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:pranamaya-wellbeing",
+      "vocabularyTerm": "Prayer Healing",
+      "content": "Healing through prayer, which can help cure many problems."
+    },
+    {
+      "id": "tripadi:vocabulary:pranic-healing",
+      "type": "vocabulary",
+      "label": "Pranic Healing",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:pranamaya-wellbeing",
+      "vocabularyTerm": "Pranic Healing",
+      "content": "Healing through pranayama and prana, which can help cure many problems."
     }
   ],
   "edges": [
@@ -1641,6 +1685,71 @@
       "target": "tripadi:vocabulary:sulabh-lay",
       "relation": "relates_to",
       "label": "relates to the rhythm of"
+    },
+    {
+      "id": "tripadi:e146",
+      "source": "tripadi:vocabulary:pranamaya-kosha",
+      "target": "tripadi:concept:pranamaya-wellbeing",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e147",
+      "source": "tripadi:concept:pranamaya-wellbeing",
+      "target": "tripadi:concept:annamaya-wellbeing",
+      "relation": "relates_to",
+      "label": "also addresses acidity and constipation, like"
+    },
+    {
+      "id": "tripadi:e148",
+      "source": "tripadi:concept:pranamaya-wellbeing",
+      "target": "tripadi:vocabulary:vastu-dosh-chikitsa",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e149",
+      "source": "tripadi:concept:pranamaya-wellbeing",
+      "target": "tripadi:vocabulary:musical-healing",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e150",
+      "source": "tripadi:vocabulary:musical-healing",
+      "target": "tripadi:vocabulary:practice-naad",
+      "relation": "relates_to",
+      "label": "sound-based healing, like"
+    },
+    {
+      "id": "tripadi:e151",
+      "source": "tripadi:concept:pranamaya-wellbeing",
+      "target": "tripadi:vocabulary:prayer-healing",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e152",
+      "source": "tripadi:vocabulary:prayer-healing",
+      "target": "tripadi:vocabulary:mantra",
+      "relation": "relates_to",
+      "label": "relates to"
+    },
+    {
+      "id": "tripadi:e153",
+      "source": "tripadi:concept:pranamaya-wellbeing",
+      "target": "tripadi:vocabulary:pranic-healing",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e154",
+      "source": "tripadi:vocabulary:pranic-healing",
+      "target": "tripadi:concept:pranayama",
+      "relation": "relates_to",
+      "label": "works through"
+    },
+    {
+      "id": "tripadi:e155",
+      "source": "tripadi:vocabulary:pranic-healing",
+      "target": "tripadi:vocabulary:pranopchar",
+      "relation": "relates_to",
+      "label": "prana-based healing, like"
     }
   ]
 }
