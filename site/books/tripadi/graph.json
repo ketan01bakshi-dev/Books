@@ -749,6 +749,50 @@
       "parentId": "tripadi:concept:pranamaya-wellbeing",
       "vocabularyTerm": "Pranic Healing",
       "content": "Healing through pranayama and prana, which can help cure many problems."
+    },
+    {
+      "id": "tripadi:concept:manomaya-wellbeing",
+      "type": "concept",
+      "label": "Manomaya Kosha and Wellbeing",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:vocabulary:manomaya-kosha",
+      "content": "Even when a person is physically and mentally healthy, they also need to maintain good cultural, educational, social, religious and spiritual health."
+    },
+    {
+      "id": "tripadi:vocabulary:cultural-health",
+      "type": "vocabulary",
+      "label": "Cultural Health",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:manomaya-wellbeing",
+      "vocabularyTerm": "Cultural Health",
+      "content": "The opportunity to develop different forms of talents and skills."
+    },
+    {
+      "id": "tripadi:vocabulary:educational-health",
+      "type": "vocabulary",
+      "label": "Educational Health",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:manomaya-wellbeing",
+      "vocabularyTerm": "Educational Health",
+      "content": "Scope and access to learn in new academic and educational streams, and the right guidance to excel in our aspirations for knowledge."
+    },
+    {
+      "id": "tripadi:vocabulary:social-health",
+      "type": "vocabulary",
+      "label": "Social Health",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:manomaya-wellbeing",
+      "vocabularyTerm": "Social Health",
+      "content": "Access to grow and develop a social circle, and to be part of a group of inspiring, encouraging, caring and like-minded people."
+    },
+    {
+      "id": "tripadi:vocabulary:religious-health",
+      "type": "vocabulary",
+      "label": "Religious Health",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:manomaya-wellbeing",
+      "vocabularyTerm": "Religious Health",
+      "content": "Not only the opportunity to perform and take part in religious activities, ceremonies and celebrations, but also getting rid of existing religious misinterpretations."
     }
   ],
   "edges": [
@@ -1750,6 +1794,57 @@
       "target": "tripadi:vocabulary:pranopchar",
       "relation": "relates_to",
       "label": "prana-based healing, like"
+    },
+    {
+      "id": "tripadi:e156",
+      "source": "tripadi:vocabulary:manomaya-kosha",
+      "target": "tripadi:concept:manomaya-wellbeing",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e157",
+      "source": "tripadi:concept:manomaya-wellbeing",
+      "target": "tripadi:concept:pranamaya-wellbeing",
+      "relation": "relates_to",
+      "label": "builds beyond physical and mental health addressed in"
+    },
+    {
+      "id": "tripadi:e158",
+      "source": "tripadi:concept:manomaya-wellbeing",
+      "target": "tripadi:concept:swasthya",
+      "relation": "supports",
+      "label": "widens the definition of health in"
+    },
+    {
+      "id": "tripadi:e159",
+      "source": "tripadi:concept:manomaya-wellbeing",
+      "target": "tripadi:vocabulary:cultural-health",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e160",
+      "source": "tripadi:concept:manomaya-wellbeing",
+      "target": "tripadi:vocabulary:educational-health",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e161",
+      "source": "tripadi:concept:manomaya-wellbeing",
+      "target": "tripadi:vocabulary:social-health",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e162",
+      "source": "tripadi:concept:manomaya-wellbeing",
+      "target": "tripadi:vocabulary:religious-health",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e163",
+      "source": "tripadi:vocabulary:educational-health",
+      "target": "tripadi:vocabulary:self-study",
+      "relation": "relates_to",
+      "label": "pursued through"
     }
   ]
 }
