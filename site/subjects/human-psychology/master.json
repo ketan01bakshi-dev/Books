@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "sourceBooks": ["the-wisdom-bridge", "mans-search-for-meaning", "tmt-triple-self-motivation"],
+  "sourceBooks": ["the-wisdom-bridge", "mans-search-for-meaning", "tripadi"],
   "questions": [
     {
       "id": "q1",
@@ -18,7 +18,7 @@
       "answeringNodeIds": [
         "mans-search-for-meaning:topic:will-to-meaning",
         "the-wisdom-bridge:concept:c5-meditation",
-        "tmt-triple-self-motivation:concept:pillar-action"
+        "tripadi:concept:pillar-action"
       ]
     }
   ],
@@ -39,7 +39,7 @@
       "termsByBook": [
         { "bookId": "mans-search-for-meaning", "nodeId": "mans-search-for-meaning:topic:will-to-meaning", "termAsUsed": "will to meaning" },
         { "bookId": "the-wisdom-bridge", "nodeId": "the-wisdom-bridge:concept:c5-meditation", "termAsUsed": "meditation" },
-        { "bookId": "tmt-triple-self-motivation", "nodeId": "tmt-triple-self-motivation:concept:pillar-meditation", "termAsUsed": "meditation practice (Pillar 2 of TMT)" }
+        { "bookId": "tripadi", "nodeId": "tripadi:concept:pillar-meditation", "termAsUsed": "meditation practice (Pillar 2 of TMT)" }
       ]
     }
   ],
@@ -60,7 +60,7 @@
       "positions": [
         { "bookId": "mans-search-for-meaning", "nodeId": "mans-search-for-meaning:topic:will-to-meaning", "stance": "Motivation is sustained by an existential will oriented toward a specific meaning, not by willpower alone." },
         { "bookId": "the-wisdom-bridge", "nodeId": "the-wisdom-bridge:concept:c5-meditation", "stance": "Motivation is sustained by meditation that produces inner peace and harmony, which in turn removes doubt." },
-        { "bookId": "tmt-triple-self-motivation", "nodeId": "tmt-triple-self-motivation:concept:pillar-action", "stance": "Motivation is sustained mechanically through a three-pillar loop: mind conditioning feeds meditation, which feeds repeated action, which reinforces the mind." }
+        { "bookId": "tripadi", "nodeId": "tripadi:concept:pillar-action", "stance": "Motivation is sustained mechanically through a three-pillar loop: mind conditioning feeds meditation, which feeds repeated action, which reinforces the mind." }
       ]
     }
   ],
@@ -75,14 +75,14 @@
     {
       "id": "ce2",
       "source": "the-wisdom-bridge:concept:c5-meditation",
-      "target": "tmt-triple-self-motivation:concept:pillar-meditation",
+      "target": "tripadi:concept:pillar-meditation",
       "relation": "shares_vocabulary_with",
       "label": "both use meditation as the practice that removes doubt and stabilizes drive"
     },
     {
       "id": "ce3",
       "source": "mans-search-for-meaning:topic:will-to-meaning",
-      "target": "tmt-triple-self-motivation:concept:pillar-mind",
+      "target": "tripadi:concept:pillar-mind",
       "relation": "shares_vocabulary_with",
       "label": "both locate the root of motivation in an oriented inner will/mind, not external reward"
     }
