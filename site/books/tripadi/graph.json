@@ -640,6 +640,71 @@
         "guru",
         "upasana"
       ]
+    },
+    {
+      "id": "tripadi:concept:annamaya-wellbeing",
+      "type": "concept",
+      "label": "Annamaya Kosha and Wellbeing",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:vocabulary:annamaya-kosha",
+      "content": "The Annamaya Kosha is the physical body, nourished, in a good or bad way, by the food we eat, the liquids we drink, the way we live and move around, and mostly by the actions and physical work we do. Even a small problem or imbalance in the digestive system may result in acidity, constipation or another illness, with visible effects on a person's overall health, mood and behaviour, seen as dullness and discomfort. The physical body, its systems and their balance are tightly coupled with a person's health and behaviour."
+    },
+    {
+      "id": "tripadi:concept:five-fold-practice",
+      "type": "concept",
+      "label": "Mantra, Mudra, Swar, Naad and Laya",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:annamaya-wellbeing",
+      "content": "To address the relationship between a person and their physical body, the practice is based on five elements: Mantra, Mudra, Swar, Naad and Laya. Together they form an Ayurveda-based Panchakarma treatment for psychological and physical wellbeing."
+    },
+    {
+      "id": "tripadi:vocabulary:practice-mantra",
+      "type": "vocabulary",
+      "label": "Mantra (practice)",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-fold-practice",
+      "vocabularyTerm": "Mantra",
+      "content": "Recitation of any mantra, during which one stabilizes the breathing and performs dhyan (meditation and concentration)."
+    },
+    {
+      "id": "tripadi:vocabulary:practice-mudra",
+      "type": "vocabulary",
+      "label": "Mudra (Hand Gesture)",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-fold-practice",
+      "vocabularyTerm": "Mudra",
+      "content": "During the mantra meditation one can hold Shankh Mudra or Apanvayu Mudra. A mudra holds an essence that activates and stabilizes the effect of the mantra recitation.",
+      "tags": [
+        "shankh-mudra",
+        "apanvayu-mudra"
+      ]
+    },
+    {
+      "id": "tripadi:vocabulary:practice-swar",
+      "type": "vocabulary",
+      "label": "Swar",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-fold-practice",
+      "vocabularyTerm": "Swar",
+      "content": "Different forms of pranayama."
+    },
+    {
+      "id": "tripadi:vocabulary:practice-naad",
+      "type": "vocabulary",
+      "label": "Naad",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-fold-practice",
+      "vocabularyTerm": "Naad",
+      "content": "Practising the different forms of Omkar (Om) recitation."
+    },
+    {
+      "id": "tripadi:vocabulary:practice-laya",
+      "type": "vocabulary",
+      "label": "Laya",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-fold-practice",
+      "vocabularyTerm": "Laya",
+      "content": "In the state of concentration or yog nidra (yogic sleep), the process of trying to relax and stabilize the mind and body."
     }
   ],
   "edges": [
@@ -1485,6 +1550,97 @@
       "target": "tripadi:concept:kosha-refinement",
       "relation": "relates_to",
       "label": "motivates"
+    },
+    {
+      "id": "tripadi:e132",
+      "source": "tripadi:vocabulary:annamaya-kosha",
+      "target": "tripadi:concept:annamaya-wellbeing",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e133",
+      "source": "tripadi:concept:annamaya-wellbeing",
+      "target": "tripadi:vocabulary:tridosha",
+      "relation": "relates_to",
+      "label": "digestive balance underpins health, as in"
+    },
+    {
+      "id": "tripadi:e134",
+      "source": "tripadi:concept:annamaya-wellbeing",
+      "target": "tripadi:concept:five-fold-practice",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e135",
+      "source": "tripadi:concept:five-fold-practice",
+      "target": "tripadi:vocabulary:panchakarma",
+      "relation": "relates_to",
+      "label": "is an Ayurveda-based form of"
+    },
+    {
+      "id": "tripadi:e136",
+      "source": "tripadi:concept:five-fold-practice",
+      "target": "tripadi:vocabulary:practice-mantra",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e137",
+      "source": "tripadi:vocabulary:practice-mantra",
+      "target": "tripadi:vocabulary:mantra",
+      "relation": "relates_to",
+      "label": "applies"
+    },
+    {
+      "id": "tripadi:e138",
+      "source": "tripadi:concept:five-fold-practice",
+      "target": "tripadi:vocabulary:practice-mudra",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e139",
+      "source": "tripadi:vocabulary:practice-mudra",
+      "target": "tripadi:vocabulary:dhyana-mudra",
+      "relation": "relates_to",
+      "label": "is a hand gesture, like"
+    },
+    {
+      "id": "tripadi:e140",
+      "source": "tripadi:concept:five-fold-practice",
+      "target": "tripadi:vocabulary:practice-swar",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e141",
+      "source": "tripadi:vocabulary:practice-swar",
+      "target": "tripadi:concept:pranayama",
+      "relation": "relates_to",
+      "label": "consists of forms of"
+    },
+    {
+      "id": "tripadi:e142",
+      "source": "tripadi:concept:five-fold-practice",
+      "target": "tripadi:vocabulary:practice-naad",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e143",
+      "source": "tripadi:vocabulary:practice-naad",
+      "target": "tripadi:vocabulary:swaropasana",
+      "relation": "relates_to",
+      "label": "Omkar recitation, as in"
+    },
+    {
+      "id": "tripadi:e144",
+      "source": "tripadi:concept:five-fold-practice",
+      "target": "tripadi:vocabulary:practice-laya",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e145",
+      "source": "tripadi:vocabulary:practice-laya",
+      "target": "tripadi:vocabulary:sulabh-lay",
+      "relation": "relates_to",
+      "label": "relates to the rhythm of"
     }
   ]
 }
