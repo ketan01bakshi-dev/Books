@@ -897,6 +897,14 @@
       "parentId": "tripadi:concept:when-to-perform-yagnas",
       "vocabularyTerm": "Jap-Yagna",
       "content": "Practising continuous Jap while following normal minimum discipline."
+    },
+    {
+      "id": "tripadi:concept:anandamaya-wellbeing",
+      "type": "concept",
+      "label": "Anandamaya Kosha and Well-being (आनंदमय कोश)",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:vocabulary:anandamaya-kosha",
+      "content": "Anandmay Kosh is associated with nature. When the spiritual inclination of one's soul starts harmonizing with the pure form of nature and piousness, one starts experiencing the everlasting natural joy within. Finding peace within ourselves, and finding it in nature around us, lets us truly explore ourselves beyond the boundaries of personal capacities and unite with nature. This state of unity is the source of an everlasting spring of joy, peace and serenity within."
     }
   ],
   "edges": [
@@ -2112,6 +2120,33 @@
       "target": "tripadi:vocabulary:self-study",
       "relation": "relates_to",
       "label": "a form of"
+    },
+    {
+      "id": "tripadi:e189",
+      "source": "tripadi:vocabulary:anandamaya-kosha",
+      "target": "tripadi:concept:anandamaya-wellbeing",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e190",
+      "source": "tripadi:concept:anandamaya-wellbeing",
+      "target": "tripadi:concept:vijnanamaya-wellbeing",
+      "relation": "relates_to",
+      "label": "goes beyond the inner joy sought in"
+    },
+    {
+      "id": "tripadi:e191",
+      "source": "tripadi:concept:anandamaya-wellbeing",
+      "target": "tripadi:concept:kosha-nourishment",
+      "relation": "relates_to",
+      "label": "is fed by nature, as in"
+    },
+    {
+      "id": "tripadi:e192",
+      "source": "tripadi:concept:anandamaya-wellbeing",
+      "target": "tripadi:concept:yogi-bliss",
+      "relation": "relates_to",
+      "label": "everlasting joy, like"
     }
   ]
 }
