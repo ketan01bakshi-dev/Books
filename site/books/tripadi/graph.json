@@ -793,6 +793,110 @@
       "parentId": "tripadi:concept:manomaya-wellbeing",
       "vocabularyTerm": "Religious Health",
       "content": "Not only the opportunity to perform and take part in religious activities, ceremonies and celebrations, but also getting rid of existing religious misinterpretations."
+    },
+    {
+      "id": "tripadi:concept:vijnanamaya-wellbeing",
+      "type": "concept",
+      "label": "Vidnyanmay Kosha and Well-being",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:vocabulary:vijnanamaya-kosha",
+      "content": "Vidnyanmay Kosha is a special state of knowledge. After achieving physical, psychological and social stability and favourable conditions, a person deeply desires a different kind of intellectual satisfaction. They are drawn to a subtle and special knowledge, to experience the inherent joy arising from within: the joy of giving and of creating value to make the world a better place to live. Such people develop a research attitude, and then even a common person can be seen doing wonderful things."
+    },
+    {
+      "id": "tripadi:concept:real-concept-of-yagna",
+      "type": "concept",
+      "label": "The Real Concept of Yagya-Yaag",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:vijnanamaya-wellbeing",
+      "content": "Due to misinterpreted traditions and beliefs, and lack of knowledge about confusing religious ideas and rituals, a vast group of people, especially women, are deprived of participating in Yagya-Yaag, auspicious rituals and Pujas, and performing Shraadha. So it is important to take to the masses the real concept of Yagya-Yaag: not just religious ritual practice, but a Vedic and scientific approach developed and evolved for overall health rejuvenation."
+    },
+    {
+      "id": "tripadi:concept:five-yagnas",
+      "type": "concept",
+      "label": "The Five Yagnas of Tripadi Parivar",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:vijnanamaya-wellbeing",
+      "content": "Tripadi Parivar has evolved and promoted five types of Yagnas for individuals, and for society to take part in as groups, for the purification and enhancement of the Vidnyanmay Kosha. Shri Nana Maharaj Ved Pathshala and its students are always ready to support, teach and help anyone interested in performing them. On an individual level, any of these Yagnas can be performed on the scale of a normal Satya Narayan Puja with minimal resources, which is a special feature of these Yagnas."
+    },
+    {
+      "id": "tripadi:vocabulary:datta-yaag",
+      "type": "vocabulary",
+      "label": "Datta-Yaag",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-yagnas",
+      "vocabularyTerm": "Datta-Yaag",
+      "content": "A Vaastu shuddhi karak (virtual refinement) oriented Yaag, the first one started. It was promoted and established as a simple alternative to Vaastu-Shanti (housewarming) and Udak-Shanti (ritualist pacification and warming)."
+    },
+    {
+      "id": "tripadi:vocabulary:ganesh-yaag",
+      "type": "vocabulary",
+      "label": "Ganesh-Yaag",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-yagnas",
+      "vocabularyTerm": "Ganesh-Yaag",
+      "content": "Established especially for women in society, for their upliftment and enlightenment, bringing them to the path of worship and giving them the right to perform rituals and Yagnas. It is based on Atharva-shirsha recitals."
+    },
+    {
+      "id": "tripadi:vocabulary:dhanvantari-yaag",
+      "type": "vocabulary",
+      "label": "Dhanvantari-Yaag",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-yagnas",
+      "vocabularyTerm": "Dhanvantari-Yaag",
+      "content": "In Vedic science a Yagna is not just about sacrifice: it is a sacrifice of special medicinal herbs, plants and contents. The rising smoke serves as medicinal inhaling therapy. The ashes have pharmaceutical, medicinal and agricultural value. Teertha, water activated with special mantras, helps in Teertha Jal Chikitsa (water-based medicinal treatment). The fire kept burning for the whole Yagna helps as sweat therapy. These are basic elements of Ayurveda, so Dhanvantari-Yaag is promoted as a medium for overall health treatment and rejuvenation."
+    },
+    {
+      "id": "tripadi:vocabulary:govardhan-yaag",
+      "type": "vocabulary",
+      "label": "Govardhan-Yaag",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-yagnas",
+      "vocabularyTerm": "Govardhan-Yaag",
+      "content": "Evolved for farmers and agriculture, to improve soil health and fertility. It is based on Vedic mantras related to agriculture and soil, and on sacrificing medicinal herbs so that the smoke and ashes of the homa improve soil fertility and keep the agricultural land hygienic. It is promoted with direct participation from farmers and their families."
+    },
+    {
+      "id": "tripadi:vocabulary:pitru-yaag",
+      "type": "vocabulary",
+      "label": "Goshthi Shraadha (Pitru-Yaag)",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-yagnas",
+      "vocabularyTerm": "Goshthi Shraadha",
+      "content": "Established for the confusion people have about Shraadha Paksh, and for when no purohit Brahmin is available to guide the Shraadha Vidhi. It was established especially to give women the right to perform it: due to misinterpretations of the shastras, they were for a long time considered not eligible to perform the Shraadha Vidhi for their loved ones and family members."
+    },
+    {
+      "id": "tripadi:concept:when-to-perform-yagnas",
+      "type": "concept",
+      "label": "When to Perform the Yagnas",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-yagnas",
+      "content": "These Yagnas can be performed and managed easily on the completion of any Parayan, Purashcharan or Jap-Yagna."
+    },
+    {
+      "id": "tripadi:vocabulary:parayan",
+      "type": "vocabulary",
+      "label": "Parayan",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:when-to-perform-yagnas",
+      "vocabularyTerm": "Parayan",
+      "content": "Reading and recital of a religious text."
+    },
+    {
+      "id": "tripadi:vocabulary:purashcharan",
+      "type": "vocabulary",
+      "label": "Purashcharan",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:when-to-perform-yagnas",
+      "vocabularyTerm": "Purashcharan",
+      "content": "Jap of a mantra to a targeted number, following the required discipline."
+    },
+    {
+      "id": "tripadi:vocabulary:jap-yagna",
+      "type": "vocabulary",
+      "label": "Jap-Yagna",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:when-to-perform-yagnas",
+      "vocabularyTerm": "Jap-Yagna",
+      "content": "Practising continuous Jap while following normal minimum discipline."
     }
   ],
   "edges": [
@@ -1845,6 +1949,169 @@
       "target": "tripadi:vocabulary:self-study",
       "relation": "relates_to",
       "label": "pursued through"
+    },
+    {
+      "id": "tripadi:e164",
+      "source": "tripadi:vocabulary:vijnanamaya-kosha",
+      "target": "tripadi:concept:vijnanamaya-wellbeing",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e165",
+      "source": "tripadi:concept:vijnanamaya-wellbeing",
+      "target": "tripadi:concept:manomaya-wellbeing",
+      "relation": "relates_to",
+      "label": "follows the stability built in"
+    },
+    {
+      "id": "tripadi:e166",
+      "source": "tripadi:concept:vijnanamaya-wellbeing",
+      "target": "tripadi:concept:real-concept-of-yagna",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e167",
+      "source": "tripadi:concept:real-concept-of-yagna",
+      "target": "tripadi:vocabulary:religious-health",
+      "relation": "supports",
+      "label": "removes the misinterpretations named in"
+    },
+    {
+      "id": "tripadi:e168",
+      "source": "tripadi:concept:real-concept-of-yagna",
+      "target": "tripadi:vocabulary:yagna",
+      "relation": "relates_to",
+      "label": "explains"
+    },
+    {
+      "id": "tripadi:e169",
+      "source": "tripadi:concept:vijnanamaya-wellbeing",
+      "target": "tripadi:concept:five-yagnas",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e170",
+      "source": "tripadi:concept:real-concept-of-yagna",
+      "target": "tripadi:concept:five-yagnas",
+      "relation": "supports",
+      "label": "is put into practice by"
+    },
+    {
+      "id": "tripadi:e171",
+      "source": "tripadi:concept:five-yagnas",
+      "target": "tripadi:vocabulary:datta-yaag",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e172",
+      "source": "tripadi:vocabulary:datta-yaag",
+      "target": "tripadi:vocabulary:vastu-dosh-chikitsa",
+      "relation": "relates_to",
+      "label": "refines the living space, like"
+    },
+    {
+      "id": "tripadi:e173",
+      "source": "tripadi:concept:five-yagnas",
+      "target": "tripadi:vocabulary:ganesh-yaag",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e174",
+      "source": "tripadi:vocabulary:ganesh-yaag",
+      "target": "tripadi:vocabulary:religious-health",
+      "relation": "supports",
+      "label": "gives women the right to take part, supporting"
+    },
+    {
+      "id": "tripadi:e175",
+      "source": "tripadi:concept:five-yagnas",
+      "target": "tripadi:vocabulary:dhanvantari-yaag",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e176",
+      "source": "tripadi:vocabulary:dhanvantari-yaag",
+      "target": "tripadi:vocabulary:panchakarma",
+      "relation": "relates_to",
+      "label": "uses Ayurvedic elements, like"
+    },
+    {
+      "id": "tripadi:e177",
+      "source": "tripadi:vocabulary:dhanvantari-yaag",
+      "target": "tripadi:vocabulary:mantra",
+      "relation": "relates_to",
+      "label": "activates Teertha water with"
+    },
+    {
+      "id": "tripadi:e178",
+      "source": "tripadi:concept:five-yagnas",
+      "target": "tripadi:vocabulary:govardhan-yaag",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e179",
+      "source": "tripadi:vocabulary:govardhan-yaag",
+      "target": "tripadi:concept:five-elements",
+      "relation": "relates_to",
+      "label": "cares for earth, one of the"
+    },
+    {
+      "id": "tripadi:e180",
+      "source": "tripadi:concept:five-yagnas",
+      "target": "tripadi:vocabulary:pitru-yaag",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e181",
+      "source": "tripadi:vocabulary:pitru-yaag",
+      "target": "tripadi:vocabulary:religious-health",
+      "relation": "supports",
+      "label": "corrects scriptural misinterpretation, supporting"
+    },
+    {
+      "id": "tripadi:e182",
+      "source": "tripadi:concept:five-yagnas",
+      "target": "tripadi:concept:when-to-perform-yagnas",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e183",
+      "source": "tripadi:concept:when-to-perform-yagnas",
+      "target": "tripadi:vocabulary:parayan",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e184",
+      "source": "tripadi:concept:when-to-perform-yagnas",
+      "target": "tripadi:vocabulary:purashcharan",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e185",
+      "source": "tripadi:concept:when-to-perform-yagnas",
+      "target": "tripadi:vocabulary:jap-yagna",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e186",
+      "source": "tripadi:vocabulary:purashcharan",
+      "target": "tripadi:vocabulary:jap",
+      "relation": "relates_to",
+      "label": "a disciplined form of"
+    },
+    {
+      "id": "tripadi:e187",
+      "source": "tripadi:vocabulary:jap-yagna",
+      "target": "tripadi:vocabulary:jap",
+      "relation": "relates_to",
+      "label": "a continuous form of"
+    },
+    {
+      "id": "tripadi:e188",
+      "source": "tripadi:vocabulary:parayan",
+      "target": "tripadi:vocabulary:self-study",
+      "relation": "relates_to",
+      "label": "a form of"
     }
   ]
 }
