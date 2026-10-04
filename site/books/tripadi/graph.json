@@ -905,6 +905,59 @@
       "readingLevel": "analytical",
       "parentId": "tripadi:vocabulary:anandamaya-kosha",
       "content": "Anandmay Kosh is associated with nature. When the spiritual inclination of one's soul starts harmonizing with the pure form of nature and piousness, one starts experiencing the everlasting natural joy within. Finding peace within ourselves, and finding it in nature around us, lets us truly explore ourselves beyond the boundaries of personal capacities and unite with nature. This state of unity is the source of an everlasting spring of joy, peace and serenity within."
+    },
+    {
+      "id": "tripadi:concept:five-fold-development",
+      "type": "concept",
+      "label": "Modern Scientific Approach to Five-fold Development",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:panchkosh-sanjeevan-vidya",
+      "content": "For all-round development and a healthy life, the health of different components, distributed in five categories (physical, artho-chemical, mental, socio-cultural and environmental), should be in good shape."
+    },
+    {
+      "id": "tripadi:vocabulary:physical-health",
+      "type": "vocabulary",
+      "label": "Physical Health",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-fold-development",
+      "vocabularyTerm": "Physical Health",
+      "content": "Physical Health: one of the five categories of components whose health is needed for all-round development."
+    },
+    {
+      "id": "tripadi:vocabulary:artho-chemical-health",
+      "type": "vocabulary",
+      "label": "Artho-chemical Health",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-fold-development",
+      "vocabularyTerm": "Artho-chemical Health",
+      "content": "Artho-chemical Health: one of the five categories of components whose health is needed for all-round development."
+    },
+    {
+      "id": "tripadi:vocabulary:mental-health",
+      "type": "vocabulary",
+      "label": "Mental Health",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-fold-development",
+      "vocabularyTerm": "Mental Health",
+      "content": "Mental Health: one of the five categories of components whose health is needed for all-round development."
+    },
+    {
+      "id": "tripadi:vocabulary:socio-cultural-health",
+      "type": "vocabulary",
+      "label": "Socio-cultural Health",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-fold-development",
+      "vocabularyTerm": "Socio-cultural Health",
+      "content": "Socio-cultural Health: one of the five categories of components whose health is needed for all-round development."
+    },
+    {
+      "id": "tripadi:vocabulary:environmental-health",
+      "type": "vocabulary",
+      "label": "Environmental Health",
+      "readingLevel": "analytical",
+      "parentId": "tripadi:concept:five-fold-development",
+      "vocabularyTerm": "Environmental Health",
+      "content": "Environmental Health: one of the five categories of components whose health is needed for all-round development."
     }
   ],
   "edges": [
@@ -2147,6 +2200,84 @@
       "target": "tripadi:concept:yogi-bliss",
       "relation": "relates_to",
       "label": "everlasting joy, like"
+    },
+    {
+      "id": "tripadi:e193",
+      "source": "tripadi:concept:panchkosh-sanjeevan-vidya",
+      "target": "tripadi:concept:five-fold-development",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e194",
+      "source": "tripadi:concept:five-fold-development",
+      "target": "tripadi:concept:swasthya",
+      "relation": "supports",
+      "label": "a modern framing of health, as in"
+    },
+    {
+      "id": "tripadi:e195",
+      "source": "tripadi:concept:five-fold-development",
+      "target": "tripadi:vocabulary:physical-health",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e196",
+      "source": "tripadi:vocabulary:physical-health",
+      "target": "tripadi:concept:annamaya-wellbeing",
+      "relation": "relates_to",
+      "label": "the body's health, as in"
+    },
+    {
+      "id": "tripadi:e197",
+      "source": "tripadi:concept:five-fold-development",
+      "target": "tripadi:vocabulary:artho-chemical-health",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e198",
+      "source": "tripadi:concept:five-fold-development",
+      "target": "tripadi:vocabulary:mental-health",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e199",
+      "source": "tripadi:vocabulary:mental-health",
+      "target": "tripadi:vocabulary:manomaya-kosha",
+      "relation": "relates_to",
+      "label": "health of the mind, as in"
+    },
+    {
+      "id": "tripadi:e200",
+      "source": "tripadi:concept:five-fold-development",
+      "target": "tripadi:vocabulary:socio-cultural-health",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e201",
+      "source": "tripadi:vocabulary:socio-cultural-health",
+      "target": "tripadi:concept:manomaya-wellbeing",
+      "relation": "relates_to",
+      "label": "covers the cultural and social health of"
+    },
+    {
+      "id": "tripadi:e202",
+      "source": "tripadi:concept:five-fold-development",
+      "target": "tripadi:vocabulary:environmental-health",
+      "relation": "contains"
+    },
+    {
+      "id": "tripadi:e203",
+      "source": "tripadi:vocabulary:environmental-health",
+      "target": "tripadi:concept:anandamaya-wellbeing",
+      "relation": "relates_to",
+      "label": "harmony with nature, as in"
+    },
+    {
+      "id": "tripadi:e204",
+      "source": "tripadi:vocabulary:environmental-health",
+      "target": "tripadi:vocabulary:vastu-dosh-chikitsa",
+      "relation": "relates_to",
+      "label": "managed through the micro-environment, as in"
     }
   ]
 }
