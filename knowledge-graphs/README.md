@@ -8,6 +8,6 @@ Three branches radiate from the "Books" hub — one per book — and each opens 
 - [The Wisdom Bridge](../the-wisdom-bridge/knowledge-graph.html) — Daaji Kamlesh D. Patel's nine principles
 - [Algorithms & Python](../python-pdsa/knowledge-graph.html) — the eight domains of the evolving notebook
 
-All of each book's own dotted association arrows carry over, plus a handful of cross-book links drawing thematic connections between the three (tragic optimism and preparation both turning a hard feeling into something workable; the heart as the seat of meaning in both Frankl and Daaji; a chosen attitude and an inductive definition both being a decision applied to itself).
+All of each book's own dotted association arrows carry over, plus a handful of cross-book links drawing thematic connections between the three: tragic optimism and preparation both turning a hard feeling into something workable; the heart as the seat of meaning in both Frankl and Daaji; will as a precondition rather than an outcome in both Frankl's will to meaning and Daaji's will-faith-confidence triad; and a staged psychological progression (Frankl's stages of a prisoner's reaction) mirroring the staged structure of an inductive definition, where each stage presupposes the one before it.
 
 Open `index.html` in a browser: drag to pan, scroll to zoom, click any topic to expand or collapse it, or use the theme picker to jump straight to a book or theme. `master.json` is the original graph-database export the three books' knowledge graphs were combined from.
