@@ -11,6 +11,14 @@ const PALETTE = [
   "#2f8f8a", "#a5457a", "#6b7a2f", "#3a5fc4", "#a58a2f",
 ];
 
+// A separate palette for dashed cross-links, so a convergent hub of many
+// association lines (e.g. several ideas all linking back to one theme) can
+// still be told apart by color instead of reading as one tangled knot.
+const CROSSLINK_PALETTE = [
+  "#2f8f8a", "#c0562f", "#3b6ea5", "#a5457a", "#6b7a2f",
+  "#9457a5", "#3a5fc4", "#c47f2c", "#4f9d69", "#a58a2f",
+];
+
 const COL_GAP = 90, ROW_GAP = 16, MARGIN = 90, BRANCH_GAP = 34;
 
 function qs(name) {
@@ -237,6 +245,8 @@ class MindMap {
         this.showDetail(node);
       });
     }
+    el.addEventListener("mouseenter", () => this.setNodeHover(node, true));
+    el.addEventListener("mouseleave", () => this.setNodeHover(node, false));
     node.el = el;
     this.nodesLayer.appendChild(el);
   }
@@ -436,38 +446,95 @@ class MindMap {
       this.svg.appendChild(path);
     });
 
-    // dashed cross-links, only when both ends currently visible
+    // Dashed cross-links, only when both ends currently visible. Several of
+    // these often converge on the same hub node (e.g. many ideas all
+    // relating back to one theme) — a single muted color there reads as one
+    // tangled knot, so each link gets its own color from CROSSLINK_PALETTE,
+    // alternating bow direction/magnitude by index to fan overlapping ones
+    // apart, plus an arrowhead for direction. Hovering any node highlights
+    // only the crossings touching it (see setupHoverHighlight()).
     const visibleSet = {};
     visible.forEach((nd) => (visibleSet[nd.id] = true));
+    this.crossLinksByNode = {};
+    const defs = document.createElementNS(this.svgNS, "defs");
+    this.svg.appendChild(defs);
+    let linkIndex = 0;
     this.links.forEach((l) => {
       if (!visibleSet[l.from] || !visibleSet[l.to]) return;
       const a = this.byId[l.from], b = this.byId[l.to];
       if (!a || !b || !a.x || !b.x) return;
+      const color = CROSSLINK_PALETTE[linkIndex % CROSSLINK_PALETTE.length];
       const x1 = a.x, y1 = a.y, x2 = b.x, y2 = b.y;
       const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
       const dx = x2 - x1, dy = y2 - y1;
       const len = Math.sqrt(dx * dx + dy * dy) || 1;
       const nx = -dy / len, ny = dx / len;
-      const bow = Math.min(70, len * 0.28);
+      const sign = linkIndex % 2 === 0 ? 1 : -1;
+      const bow = sign * Math.min(90, len * 0.22 + (linkIndex % 5) * 14);
       const cx = mx + nx * bow, cy = my + ny * bow;
+
+      const markerId = `arrow-${linkIndex}`;
+      const marker = document.createElementNS(this.svgNS, "marker");
+      marker.setAttribute("id", markerId);
+      marker.setAttribute("markerWidth", "7");
+      marker.setAttribute("markerHeight", "7");
+      marker.setAttribute("refX", "5.5");
+      marker.setAttribute("refY", "3.5");
+      marker.setAttribute("orient", "auto");
+      const arrowShape = document.createElementNS(this.svgNS, "polygon");
+      arrowShape.setAttribute("points", "0,0 7,3.5 0,7");
+      arrowShape.setAttribute("fill", color);
+      marker.appendChild(arrowShape);
+      defs.appendChild(marker);
+
       const path = document.createElementNS(this.svgNS, "path");
       path.setAttribute("d", `M ${x1} ${y1} Q ${cx} ${cy} ${x2} ${y2}`);
       path.setAttribute("fill", "none");
-      path.setAttribute("stroke", "#8a7a4a");
-      path.setAttribute("stroke-width", "1.6");
+      path.setAttribute("stroke", color);
+      path.setAttribute("stroke-width", "1.8");
       path.setAttribute("stroke-dasharray", "1 6");
       path.setAttribute("stroke-linecap", "round");
-      path.setAttribute("opacity", "0.85");
+      path.setAttribute("opacity", "0.8");
+      path.setAttribute("marker-end", `url(#${markerId})`);
+      path.classList.add("crosslink");
       if (l.label) {
         const title = document.createElementNS(this.svgNS, "title");
         title.textContent = l.label;
         path.appendChild(title);
       }
       this.svg.appendChild(path);
+
+      if (!this.crossLinksByNode[l.from]) this.crossLinksByNode[l.from] = [];
+      if (!this.crossLinksByNode[l.to]) this.crossLinksByNode[l.to] = [];
+      this.crossLinksByNode[l.from].push(path);
+      this.crossLinksByNode[l.to].push(path);
+      linkIndex++;
     });
 
     this.visible = visible;
     this.centerIfFirst();
+  }
+
+  setNodeHover(node, hovering) {
+    const ownLinks = this.crossLinksByNode[node.id] || [];
+    if (!ownLinks.length) return; // no cross-links touch this node; nothing to highlight
+    const linkedIds = new Set([node.id]);
+    (this.crossLinksByNode[node.id] || []).forEach((path) => {
+      path.classList.toggle("active", hovering);
+    });
+    this.svg.querySelectorAll("path.crosslink").forEach((path) => {
+      if (!(this.crossLinksByNode[node.id] || []).includes(path)) {
+        path.classList.toggle("dimmed", hovering);
+      }
+    });
+    this.links.forEach((l) => {
+      if (l.from === node.id) linkedIds.add(l.to);
+      if (l.to === node.id) linkedIds.add(l.from);
+    });
+    this.visible.forEach((nd) => {
+      if (!nd.el) return;
+      nd.el.classList.toggle("dimmed", hovering && !linkedIds.has(nd.id));
+    });
   }
 
   centerIfFirst() {
