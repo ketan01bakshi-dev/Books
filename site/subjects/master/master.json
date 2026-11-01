@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "sourceBooks": ["python-pdsa", "the-wisdom-bridge", "mans-search-for-meaning", "tripadi"],
+  "sourceBooks": ["python-pdsa", "the-wisdom-bridge", "mans-search-for-meaning", "tripadi", "do-the-hard-things-first"],
   "questions": [
     {
       "id": "q1",
@@ -19,6 +19,15 @@
         "mans-search-for-meaning:topic:will-to-meaning",
         "the-wisdom-bridge:concept:c5-meditation",
         "tripadi:concept:pillar-action"
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": "How do you act on what matters when it feels hard?",
+      "framedBy": "curator",
+      "answeringNodeIds": [
+        "do-the-hard-things-first:c-frog",
+        "do-the-hard-things-first:c-cue"
       ]
     }
   ],

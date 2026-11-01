@@ -11,12 +11,19 @@
       "label": "Human Psychology",
       "description": "Meaning, resilience, and the inner life.",
       "bookIds": ["the-wisdom-bridge", "mans-search-for-meaning", "tripadi"]
+    },
+    {
+      "id": "productivity",
+      "label": "Productivity & Habits",
+      "description": "Procrastination, focus, and the habits of doing difficult work.",
+      "bookIds": ["do-the-hard-things-first"]
     }
   ],
   "books": {
     "python-pdsa": { "title": "Algorithms & Python", "author": "Community Notebook (evolving)" },
     "the-wisdom-bridge": { "title": "The Wisdom Bridge", "author": "Daaji Kamlesh D. Patel" },
     "mans-search-for-meaning": { "title": "Man's Search for Meaning", "author": "Viktor E. Frankl" },
-    "tripadi": { "title": "Tripadi", "author": "Dr. Babasaheb (Pradeep) Taranekar" }
+    "tripadi": { "title": "Tripadi", "author": "Dr. Babasaheb (Pradeep) Taranekar" },
+    "do-the-hard-things-first": { "title": "Do the Hard Things First", "author": "Scott Allen" }
   }
 }
