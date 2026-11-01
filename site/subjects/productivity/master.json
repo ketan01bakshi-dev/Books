@@ -9,8 +9,8 @@
       "prompt": "Why do we avoid difficult work, and what breaks the pattern?",
       "framedBy": "curator",
       "answeringNodeIds": [
-        "do-the-hard-things-first:c-discomfort",
-        "do-the-hard-things-first:c-frog"
+        "do-the-hard-things-first:fear-discomfort",
+        "do-the-hard-things-first:step-daily1"
       ]
     },
     {
@@ -18,8 +18,8 @@
       "prompt": "How do you make doing hard things a lasting habit?",
       "framedBy": "curator",
       "answeringNodeIds": [
-        "do-the-hard-things-first:c-cue",
-        "do-the-hard-things-first:c-consistency"
+        "do-the-hard-things-first:step-timeblock",
+        "do-the-hard-things-first:step-calendar"
       ]
     }
   ],
@@ -31,8 +31,8 @@
       "termsByBook": [
         {
           "bookId": "do-the-hard-things-first",
-          "nodeId": "do-the-hard-things-first:c-frog",
-          "termAsUsed": "do the hard thing first"
+          "nodeId": "do-the-hard-things-first:step-daily1",
+          "termAsUsed": "Prioritize Your Daily #1 Item"
         }
       ]
     }

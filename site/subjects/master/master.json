@@ -26,8 +26,8 @@
       "prompt": "How do you act on what matters when it feels hard?",
       "framedBy": "curator",
       "answeringNodeIds": [
-        "do-the-hard-things-first:c-frog",
-        "do-the-hard-things-first:c-cue"
+        "do-the-hard-things-first:step-daily1",
+        "do-the-hard-things-first:step-timeblock"
       ]
     }
   ],
