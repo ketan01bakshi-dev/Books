@@ -1,0 +1,345 @@
+{
+  "schemaVersion": "1.0.0",
+  "book": {
+    "id": "do-the-hard-things-first",
+    "title": "Do the Hard Things First",
+    "author": "Scott Allen",
+    "curator": "llm-draft",
+    "curationStatus": "llm-generated",
+    "copyrightStatus": "unreviewed"
+  },
+  "nodes": [
+    {
+      "id": "do-the-hard-things-first:book",
+      "type": "book",
+      "label": "Do the Hard Things First",
+      "readingLevel": "elementary"
+    },
+    {
+      "id": "do-the-hard-things-first:t-procrastination",
+      "type": "theme",
+      "label": "Why We Procrastinate",
+      "readingLevel": "inspectional",
+      "parentId": "do-the-hard-things-first:book"
+    },
+    {
+      "id": "do-the-hard-things-first:c-discomfort",
+      "type": "concept",
+      "label": "Avoidance is about feelings, not time",
+      "readingLevel": "analytical",
+      "content": "Procrastination is a short-term mood-repair strategy: we dodge the discomfort a task triggers (boredom, doubt, fear of failure) and pay for it later.",
+      "parentId": "do-the-hard-things-first:t-procrastination"
+    },
+    {
+      "id": "do-the-hard-things-first:c-cost",
+      "type": "concept",
+      "label": "The hidden cost of delay",
+      "readingLevel": "analytical",
+      "content": "Putting off hard work doesn't remove it; it adds stress, shrinks the time left, and lowers the quality of the eventual result.",
+      "parentId": "do-the-hard-things-first:t-procrastination"
+    },
+    {
+      "id": "do-the-hard-things-first:c-easy-trap",
+      "type": "concept",
+      "label": "The 'easy first' trap",
+      "readingLevel": "analytical",
+      "content": "Clearing small, easy tasks feels productive but spends your best energy on low-value work.",
+      "parentId": "do-the-hard-things-first:t-procrastination"
+    },
+    {
+      "id": "do-the-hard-things-first:t-eat-frog",
+      "type": "theme",
+      "label": "Do the Hard Thing First",
+      "readingLevel": "inspectional",
+      "parentId": "do-the-hard-things-first:book"
+    },
+    {
+      "id": "do-the-hard-things-first:c-frog",
+      "type": "concept",
+      "label": "Identify your hardest, highest-impact task",
+      "readingLevel": "analytical",
+      "content": "Each day, pick the one task that is both difficult and most consequential, and start there (the 'eat the frog' idea).",
+      "parentId": "do-the-hard-things-first:t-eat-frog"
+    },
+    {
+      "id": "do-the-hard-things-first:c-morning",
+      "type": "concept",
+      "label": "Use your peak energy",
+      "readingLevel": "analytical",
+      "content": "Schedule difficult work when willpower and focus are highest, usually early in the day, before decisions and interruptions drain them.",
+      "parentId": "do-the-hard-things-first:t-eat-frog"
+    },
+    {
+      "id": "do-the-hard-things-first:c-relief",
+      "type": "concept",
+      "label": "The relief and momentum payoff",
+      "readingLevel": "analytical",
+      "content": "Finishing the hardest task first removes dread from the rest of the day and creates momentum.",
+      "parentId": "do-the-hard-things-first:t-eat-frog"
+    },
+    {
+      "id": "do-the-hard-things-first:t-habit",
+      "type": "theme",
+      "label": "Building the Habit",
+      "readingLevel": "inspectional",
+      "parentId": "do-the-hard-things-first:book"
+    },
+    {
+      "id": "do-the-hard-things-first:c-cue",
+      "type": "concept",
+      "label": "Cue, routine, reward",
+      "readingLevel": "analytical",
+      "content": "Make hard-work-first automatic by attaching it to a fixed cue and a consistent routine, then rewarding completion.",
+      "parentId": "do-the-hard-things-first:t-habit"
+    },
+    {
+      "id": "do-the-hard-things-first:c-start-small",
+      "type": "concept",
+      "label": "Start small to start at all",
+      "readingLevel": "analytical",
+      "content": "Lower the activation energy: commit to a tiny first step or a short timed session; starting is usually the hardest part.",
+      "parentId": "do-the-hard-things-first:t-habit"
+    },
+    {
+      "id": "do-the-hard-things-first:c-consistency",
+      "type": "concept",
+      "label": "Consistency over intensity",
+      "readingLevel": "analytical",
+      "content": "A modest daily repetition builds the habit faster than occasional heroic effort.",
+      "parentId": "do-the-hard-things-first:t-habit"
+    },
+    {
+      "id": "do-the-hard-things-first:t-focus",
+      "type": "theme",
+      "label": "Focus and Planning",
+      "readingLevel": "inspectional",
+      "parentId": "do-the-hard-things-first:book"
+    },
+    {
+      "id": "do-the-hard-things-first:c-plan",
+      "type": "concept",
+      "label": "Plan the night before",
+      "readingLevel": "analytical",
+      "content": "Decide tomorrow's hard task in advance so there is no negotiation in the morning.",
+      "parentId": "do-the-hard-things-first:t-focus"
+    },
+    {
+      "id": "do-the-hard-things-first:c-chunk",
+      "type": "concept",
+      "label": "Break big tasks into steps",
+      "readingLevel": "analytical",
+      "content": "Divide a daunting task into concrete, bite-sized actions so the next step is always obvious.",
+      "parentId": "do-the-hard-things-first:t-focus"
+    },
+    {
+      "id": "do-the-hard-things-first:c-distraction",
+      "type": "concept",
+      "label": "Protect focus from distraction",
+      "readingLevel": "analytical",
+      "content": "Remove phones, notifications and open tabs during the hard-task block; single-task rather than multitask.",
+      "parentId": "do-the-hard-things-first:t-focus"
+    },
+    {
+      "id": "do-the-hard-things-first:t-mindset",
+      "type": "theme",
+      "label": "Mindset and Self-Discipline",
+      "readingLevel": "inspectional",
+      "parentId": "do-the-hard-things-first:book"
+    },
+    {
+      "id": "do-the-hard-things-first:c-discomfort-tolerance",
+      "type": "concept",
+      "label": "Build tolerance for discomfort",
+      "readingLevel": "analytical",
+      "content": "Discomfort is a normal signal, not a stop sign; practice acting while uncomfortable and the tolerance grows.",
+      "parentId": "do-the-hard-things-first:t-mindset"
+    },
+    {
+      "id": "do-the-hard-things-first:c-self-talk",
+      "type": "concept",
+      "label": "Reframe self-talk",
+      "readingLevel": "analytical",
+      "content": "Replace 'I don't feel like it' with commitments tied to identity and long-term goals.",
+      "parentId": "do-the-hard-things-first:t-mindset"
+    },
+    {
+      "id": "do-the-hard-things-first:c-accountability",
+      "type": "concept",
+      "label": "Use accountability and rewards",
+      "readingLevel": "analytical",
+      "content": "Tell someone your commitment, track streaks, and reward yourself after completing the hard work.",
+      "parentId": "do-the-hard-things-first:t-mindset"
+    }
+  ],
+  "edges": [
+    {
+      "id": "do-the-hard-things-first:e0",
+      "source": "do-the-hard-things-first:book",
+      "target": "do-the-hard-things-first:t-procrastination",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e1",
+      "source": "do-the-hard-things-first:t-procrastination",
+      "target": "do-the-hard-things-first:c-discomfort",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e2",
+      "source": "do-the-hard-things-first:t-procrastination",
+      "target": "do-the-hard-things-first:c-cost",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e3",
+      "source": "do-the-hard-things-first:t-procrastination",
+      "target": "do-the-hard-things-first:c-easy-trap",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e4",
+      "source": "do-the-hard-things-first:book",
+      "target": "do-the-hard-things-first:t-eat-frog",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e5",
+      "source": "do-the-hard-things-first:t-eat-frog",
+      "target": "do-the-hard-things-first:c-frog",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e6",
+      "source": "do-the-hard-things-first:t-eat-frog",
+      "target": "do-the-hard-things-first:c-morning",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e7",
+      "source": "do-the-hard-things-first:t-eat-frog",
+      "target": "do-the-hard-things-first:c-relief",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e8",
+      "source": "do-the-hard-things-first:book",
+      "target": "do-the-hard-things-first:t-habit",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e9",
+      "source": "do-the-hard-things-first:t-habit",
+      "target": "do-the-hard-things-first:c-cue",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e10",
+      "source": "do-the-hard-things-first:t-habit",
+      "target": "do-the-hard-things-first:c-start-small",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e11",
+      "source": "do-the-hard-things-first:t-habit",
+      "target": "do-the-hard-things-first:c-consistency",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e12",
+      "source": "do-the-hard-things-first:book",
+      "target": "do-the-hard-things-first:t-focus",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e13",
+      "source": "do-the-hard-things-first:t-focus",
+      "target": "do-the-hard-things-first:c-plan",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e14",
+      "source": "do-the-hard-things-first:t-focus",
+      "target": "do-the-hard-things-first:c-chunk",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e15",
+      "source": "do-the-hard-things-first:t-focus",
+      "target": "do-the-hard-things-first:c-distraction",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e16",
+      "source": "do-the-hard-things-first:book",
+      "target": "do-the-hard-things-first:t-mindset",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e17",
+      "source": "do-the-hard-things-first:t-mindset",
+      "target": "do-the-hard-things-first:c-discomfort-tolerance",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e18",
+      "source": "do-the-hard-things-first:t-mindset",
+      "target": "do-the-hard-things-first:c-self-talk",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e19",
+      "source": "do-the-hard-things-first:t-mindset",
+      "target": "do-the-hard-things-first:c-accountability",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e20",
+      "source": "do-the-hard-things-first:c-discomfort",
+      "target": "do-the-hard-things-first:c-discomfort-tolerance",
+      "relation": "relates_to",
+      "label": "the problem and its remedy"
+    },
+    {
+      "id": "do-the-hard-things-first:e21",
+      "source": "do-the-hard-things-first:c-easy-trap",
+      "target": "do-the-hard-things-first:c-frog",
+      "relation": "relates_to",
+      "label": "the trap that the core rule corrects"
+    },
+    {
+      "id": "do-the-hard-things-first:e22",
+      "source": "do-the-hard-things-first:c-morning",
+      "target": "do-the-hard-things-first:c-plan",
+      "relation": "relates_to",
+      "label": "peak-energy block works best when decided in advance"
+    },
+    {
+      "id": "do-the-hard-things-first:e23",
+      "source": "do-the-hard-things-first:c-start-small",
+      "target": "do-the-hard-things-first:c-chunk",
+      "relation": "relates_to",
+      "label": "small first step needs a chunked task"
+    },
+    {
+      "id": "do-the-hard-things-first:e24",
+      "source": "do-the-hard-things-first:c-cue",
+      "target": "do-the-hard-things-first:c-consistency",
+      "relation": "relates_to",
+      "label": "automaticity comes from repetition"
+    },
+    {
+      "id": "do-the-hard-things-first:e25",
+      "source": "do-the-hard-things-first:c-relief",
+      "target": "do-the-hard-things-first:c-accountability",
+      "relation": "relates_to",
+      "label": "rewards reinforce the momentum loop"
+    },
+    {
+      "id": "do-the-hard-things-first:e26",
+      "source": "do-the-hard-things-first:c-cost",
+      "target": "do-the-hard-things-first:c-frog",
+      "relation": "relates_to",
+      "label": "cost of delay motivates doing it first"
+    }
+  ]
+}

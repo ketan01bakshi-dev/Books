@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "sourceBooks": [
+    "do-the-hard-things-first"
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why do we avoid difficult work, and what breaks the pattern?",
+      "framedBy": "curator",
+      "answeringNodeIds": [
+        "do-the-hard-things-first:c-discomfort",
+        "do-the-hard-things-first:c-frog"
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": "How do you make doing hard things a lasting habit?",
+      "framedBy": "curator",
+      "answeringNodeIds": [
+        "do-the-hard-things-first:c-cue",
+        "do-the-hard-things-first:c-consistency"
+      ]
+    }
+  ],
+  "vocabularyClusters": [
+    {
+      "id": "vc1",
+      "canonicalTerm": "hardest-task-first",
+      "definition": "Deliberately starting the day with the most difficult, highest-impact task.",
+      "termsByBook": [
+        {
+          "bookId": "do-the-hard-things-first",
+          "nodeId": "do-the-hard-things-first:c-frog",
+          "termAsUsed": "do the hard thing first"
+        }
+      ]
+    }
+  ],
+  "conflictClusters": [],
+  "crossEdges": []
+}
