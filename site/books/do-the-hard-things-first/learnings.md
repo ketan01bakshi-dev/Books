@@ -3,75 +3,111 @@
 > How to Win Over Procrastination and Master the Habit of Doing Difficult Work
 > Scott Allen
 
-Living notebook. The draft map in `graph.json` is a thematic skeleton (LLM-generated, not yet checked against the text); replace it with chapter-accurate nodes as you read.
+Living notebook. Structure follows the book's contents page (page numbers in brackets).
 
-## Why We Procrastinate
+## Introduction
 
-### Avoidance is about feelings, not time
-
-- 
-
-### The hidden cost of delay
+### Why We Do Hard Things Last [1]
 
 - 
 
-### The 'easy first' trap
+### What You'll Learn in Doing the Hard Things First [1]
 
 - 
 
-## Do the Hard Thing First
+## Part I: Breaking Fear, Minimizing Excuses, and the Science of Delaying Gratification [9]
 
-### Identify your hardest, highest-impact task
-
-- 
-
-### Use your peak energy
+### Coping Mechanisms and Procrastination [9]
 
 - 
 
-### The relief and momentum payoff
+### The Cost of Self-Sabotage [19]
 
 - 
 
-## Building the Habit
-
-### Cue, routine, reward
+### Fear #1: The Fear of Commitment [30]
 
 - 
 
-### Start small to start at all
+### Fear #2: The Fear of the Unknown [33]
 
 - 
 
-### Consistency over intensity
+### Fear #3: The Fear of Discomfort [36]
 
 - 
 
-## Focus and Planning
-
-### Plan the night before
+### Fear #4: The Fear of Decision-Making [41]
 
 - 
 
-### Break big tasks into steps
+### Fear #5: The Fear of Criticism or Negative Feedback [45]
 
 - 
 
-### Protect focus from distraction
+### Taking Control of Your Procrastinating Mind [49]
 
 - 
 
-## Mindset and Self-Discipline
-
-### Build tolerance for discomfort
+### Ten Reasons We Delay Doing the Work [53]
 
 - 
 
-### Reframe self-talk
+## Part II: Practical Steps for Doing the Hard Things First [67]
+
+### Step 1: Take Total Ownership for Behavior Change [69]
 
 - 
 
-### Use accountability and rewards
+### Step 2: Make Your List of Things-to-get-done [76]
+
+- 
+
+### Step 3: Decide You're Doing It... Now [81]
+
+- 
+
+### Step 4: Write It Down. Five Times. [84]
+
+- 
+
+### Step 5: Time Block Five Minutes to Start Doing It [87]
+
+- 
+
+### Step 6: Tell Someone (You're Doing It) [90]
+
+- 
+
+### Step 7: Put it On Your Calendar [94]
+
+- 
+
+### Step 8: Visualize Doing the Hard Thing First [97]
+
+- 
+
+### Step 9: Close Your Open Loops [101]
+
+- 
+
+### Step 10: Prioritize Your Daily #1 Item [104]
+
+- 
+
+### Step 11: Train Your Brain to Interrupt Sudden “Impulse Snaps” [108]
+
+- 
+
+### Step 12: Automate Repetitive Tasks [112]
+
+- 
+
+### Step 13: Delegate Tasks You Don't want to Do (or Can't do) [117]
+
+- 
+
+### Step 14: Identify Your Constraints (Bottlenecks) [121]
 
 - 
 
