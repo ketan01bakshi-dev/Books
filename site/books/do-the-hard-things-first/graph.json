@@ -3,7 +3,7 @@
   "book": {
     "id": "do-the-hard-things-first",
     "title": "Do the Hard Things First",
-    "author": "Scott Allen",
+    "author": "Scott Allan",
     "curator": "llm-draft (structure from the book's printed contents page)",
     "curationStatus": "draft",
     "copyrightStatus": "unreviewed"
@@ -304,6 +304,289 @@
         "page": "121"
       },
       "parentId": "do-the-hard-things-first:t-part2"
+    },
+    {
+      "id": "do-the-hard-things-first:step-smallaction",
+      "type": "topic",
+      "label": "Step 15: Begin with One Small Action",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "124"
+      },
+      "parentId": "do-the-hard-things-first:t-part2"
+    },
+    {
+      "id": "do-the-hard-things-first:step-pareto",
+      "type": "topic",
+      "label": "Step 16: Adopt the Law of 80/20",
+      "readingLevel": "analytical",
+      "parentId": "do-the-hard-things-first:t-part2"
+    },
+    {
+      "id": "do-the-hard-things-first:step-weekly",
+      "type": "topic",
+      "label": "Step 17: Schedule a One-Hour Weekly Review Session",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "131"
+      },
+      "parentId": "do-the-hard-things-first:t-part2"
+    },
+    {
+      "id": "do-the-hard-things-first:step-distractions",
+      "type": "topic",
+      "label": "Step 18: Control Your Distractions (and Manage Shiny Object Syndrome)",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "136"
+      },
+      "parentId": "do-the-hard-things-first:t-part2"
+    },
+    {
+      "id": "do-the-hard-things-first:step-commitdevices",
+      "type": "topic",
+      "label": "Step 19: Create Future Commitment Devices",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "143"
+      },
+      "parentId": "do-the-hard-things-first:t-part2"
+    },
+    {
+      "id": "do-the-hard-things-first:step-visualtriggers",
+      "type": "topic",
+      "label": "Step 20: Program Your Environment with Motivational Visual Triggers",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "148"
+      },
+      "parentId": "do-the-hard-things-first:t-part2"
+    },
+    {
+      "id": "do-the-hard-things-first:step-reward",
+      "type": "topic",
+      "label": "Step 21: Reward Your Best Work",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "153"
+      },
+      "parentId": "do-the-hard-things-first:t-part2"
+    },
+    {
+      "id": "do-the-hard-things-first:step-premack",
+      "type": "topic",
+      "label": "Step 22: Employ the Premack Principle (and Temptation Bundling)",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "156"
+      },
+      "parentId": "do-the-hard-things-first:t-part2"
+    },
+    {
+      "id": "do-the-hard-things-first:t-part3",
+      "type": "theme",
+      "label": "Part III: Breaking Negative Behavior",
+      "readingLevel": "inspectional",
+      "citation": {
+        "page": "160"
+      },
+      "parentId": "do-the-hard-things-first:book"
+    },
+    {
+      "id": "do-the-hard-things-first:p3-conditioning",
+      "type": "topic",
+      "label": "Breaking Your Negative Conditioning",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "163"
+      },
+      "parentId": "do-the-hard-things-first:t-part3"
+    },
+    {
+      "id": "do-the-hard-things-first:p3-anxiety",
+      "type": "topic",
+      "label": "Breaking Anxiety and Overwhelm",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "166"
+      },
+      "parentId": "do-the-hard-things-first:t-part3"
+    },
+    {
+      "id": "do-the-hard-things-first:p3-selftalk",
+      "type": "topic",
+      "label": "Breaking Your Limiting Self-Talk",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "171"
+      },
+      "parentId": "do-the-hard-things-first:t-part3"
+    },
+    {
+      "id": "do-the-hard-things-first:t-part4",
+      "type": "theme",
+      "label": "Part IV: Do Hard Things Everyday",
+      "readingLevel": "inspectional",
+      "citation": {
+        "page": "181"
+      },
+      "parentId": "do-the-hard-things-first:book"
+    },
+    {
+      "id": "do-the-hard-things-first:p4-health",
+      "type": "topic",
+      "label": "Do Hard Things for Your Health",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "183"
+      },
+      "parentId": "do-the-hard-things-first:t-part4"
+    },
+    {
+      "id": "do-the-hard-things-first:p4-home",
+      "type": "topic",
+      "label": "Do Hard Things Around Your Home",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "186"
+      },
+      "parentId": "do-the-hard-things-first:t-part4"
+    },
+    {
+      "id": "do-the-hard-things-first:p4-workspace",
+      "type": "topic",
+      "label": "Do the Hard Things Around Your Workspace",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "189"
+      },
+      "parentId": "do-the-hard-things-first:t-part4"
+    },
+    {
+      "id": "do-the-hard-things-first:p4-relationships",
+      "type": "topic",
+      "label": "Do the Hard Things in Your Personal Relationships",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "197"
+      },
+      "parentId": "do-the-hard-things-first:t-part4"
+    },
+    {
+      "id": "do-the-hard-things-first:p4-finances",
+      "type": "topic",
+      "label": "Do Hard Things for Your Finances",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "203"
+      },
+      "parentId": "do-the-hard-things-first:t-part4"
+    },
+    {
+      "id": "do-the-hard-things-first:t-final",
+      "type": "theme",
+      "label": "Final Thoughts on Doing the Hard Things First",
+      "readingLevel": "inspectional",
+      "citation": {
+        "page": "209"
+      },
+      "parentId": "do-the-hard-things-first:book"
+    },
+    {
+      "id": "do-the-hard-things-first:learn-smallwins",
+      "type": "concept",
+      "label": "Build up a list of small wins so you can defeat anxiety and overwhelm",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "1"
+      },
+      "parentId": "do-the-hard-things-first:c-intro-learn"
+    },
+    {
+      "id": "do-the-hard-things-first:learn-bottleneck-wasters",
+      "type": "concept",
+      "label": "Break your fear of taking action by systematically removing bottleneck time-wasters and distraction",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "1"
+      },
+      "parentId": "do-the-hard-things-first:c-intro-learn"
+    },
+    {
+      "id": "do-the-hard-things-first:learn-decision-fatigue",
+      "type": "concept",
+      "label": "Construct your environment to eliminate decision fatigue",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "1"
+      },
+      "parentId": "do-the-hard-things-first:c-intro-learn"
+    },
+    {
+      "id": "do-the-hard-things-first:learn-commitment-devices",
+      "type": "concept",
+      "label": "Create commitment devices and hold yourself accountable to getting hard work done",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "1"
+      },
+      "parentId": "do-the-hard-things-first:c-intro-learn"
+    },
+    {
+      "id": "do-the-hard-things-first:learn-responsibility",
+      "type": "concept",
+      "label": "Take responsibility for your life and forgive yourself for procrastination behavior",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "1"
+      },
+      "parentId": "do-the-hard-things-first:c-intro-learn"
+    },
+    {
+      "id": "do-the-hard-things-first:learn-one-thing",
+      "type": "concept",
+      "label": "Prioritize your tasks by laser focusing on one thing per day (and ignoring the rest)",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "1"
+      },
+      "parentId": "do-the-hard-things-first:c-intro-learn"
+    },
+    {
+      "id": "do-the-hard-things-first:learn-single-focus",
+      "type": "concept",
+      "label": "Master your priorities by single-focusing on what matters most",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "1"
+      },
+      "parentId": "do-the-hard-things-first:c-intro-learn"
+    },
+    {
+      "id": "do-the-hard-things-first:learn-impulse-snaps",
+      "type": "concept",
+      "label": "Train your brain to master attention by interrupting sudden “impulse snaps”",
+      "readingLevel": "analytical",
+      "citation": {
+        "page": "1"
+      },
+      "parentId": "do-the-hard-things-first:c-intro-learn"
+    },
+    {
+      "id": "do-the-hard-things-first:q-mood-repair",
+      "type": "quote",
+      "label": "Procrastination as short-term mood repair",
+      "readingLevel": "analytical",
+      "parentId": "do-the-hard-things-first:t-part1",
+      "content": "The primary driving force behind procrastination is the prioritization of short-term mood repair and emotion regulation over long-term achievement and well-being."
+    },
+    {
+      "id": "do-the-hard-things-first:q-fear-success",
+      "type": "quote",
+      "label": "Procrastination as fear of success",
+      "readingLevel": "analytical",
+      "parentId": "do-the-hard-things-first:t-part1",
+      "content": "Procrastination is the fear of success. People procrastinate because they are afraid of the success that they know will result if they move ahead now. Because success is heavy, carries a responsibility with it."
     }
   ],
   "edges": [
@@ -483,48 +766,292 @@
     },
     {
       "id": "do-the-hard-things-first:e29",
+      "source": "do-the-hard-things-first:t-part2",
+      "target": "do-the-hard-things-first:step-smallaction",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e30",
+      "source": "do-the-hard-things-first:t-part2",
+      "target": "do-the-hard-things-first:step-pareto",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e31",
+      "source": "do-the-hard-things-first:t-part2",
+      "target": "do-the-hard-things-first:step-weekly",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e32",
+      "source": "do-the-hard-things-first:t-part2",
+      "target": "do-the-hard-things-first:step-distractions",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e33",
+      "source": "do-the-hard-things-first:t-part2",
+      "target": "do-the-hard-things-first:step-commitdevices",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e34",
+      "source": "do-the-hard-things-first:t-part2",
+      "target": "do-the-hard-things-first:step-visualtriggers",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e35",
+      "source": "do-the-hard-things-first:t-part2",
+      "target": "do-the-hard-things-first:step-reward",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e36",
+      "source": "do-the-hard-things-first:t-part2",
+      "target": "do-the-hard-things-first:step-premack",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e37",
+      "source": "do-the-hard-things-first:book",
+      "target": "do-the-hard-things-first:t-part3",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e38",
+      "source": "do-the-hard-things-first:t-part3",
+      "target": "do-the-hard-things-first:p3-conditioning",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e39",
+      "source": "do-the-hard-things-first:t-part3",
+      "target": "do-the-hard-things-first:p3-anxiety",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e40",
+      "source": "do-the-hard-things-first:t-part3",
+      "target": "do-the-hard-things-first:p3-selftalk",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e41",
+      "source": "do-the-hard-things-first:book",
+      "target": "do-the-hard-things-first:t-part4",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e42",
+      "source": "do-the-hard-things-first:t-part4",
+      "target": "do-the-hard-things-first:p4-health",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e43",
+      "source": "do-the-hard-things-first:t-part4",
+      "target": "do-the-hard-things-first:p4-home",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e44",
+      "source": "do-the-hard-things-first:t-part4",
+      "target": "do-the-hard-things-first:p4-workspace",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e45",
+      "source": "do-the-hard-things-first:t-part4",
+      "target": "do-the-hard-things-first:p4-relationships",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e46",
+      "source": "do-the-hard-things-first:t-part4",
+      "target": "do-the-hard-things-first:p4-finances",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e47",
+      "source": "do-the-hard-things-first:book",
+      "target": "do-the-hard-things-first:t-final",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e48",
+      "source": "do-the-hard-things-first:c-intro-learn",
+      "target": "do-the-hard-things-first:learn-smallwins",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e49",
+      "source": "do-the-hard-things-first:c-intro-learn",
+      "target": "do-the-hard-things-first:learn-bottleneck-wasters",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e50",
+      "source": "do-the-hard-things-first:c-intro-learn",
+      "target": "do-the-hard-things-first:learn-decision-fatigue",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e51",
+      "source": "do-the-hard-things-first:c-intro-learn",
+      "target": "do-the-hard-things-first:learn-commitment-devices",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e52",
+      "source": "do-the-hard-things-first:c-intro-learn",
+      "target": "do-the-hard-things-first:learn-responsibility",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e53",
+      "source": "do-the-hard-things-first:c-intro-learn",
+      "target": "do-the-hard-things-first:learn-one-thing",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e54",
+      "source": "do-the-hard-things-first:c-intro-learn",
+      "target": "do-the-hard-things-first:learn-single-focus",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e55",
+      "source": "do-the-hard-things-first:c-intro-learn",
+      "target": "do-the-hard-things-first:learn-impulse-snaps",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e56",
+      "source": "do-the-hard-things-first:t-part1",
+      "target": "do-the-hard-things-first:q-mood-repair",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e57",
+      "source": "do-the-hard-things-first:t-part1",
+      "target": "do-the-hard-things-first:q-fear-success",
+      "relation": "contains"
+    },
+    {
+      "id": "do-the-hard-things-first:e58",
+      "source": "do-the-hard-things-first:learn-smallwins",
+      "target": "do-the-hard-things-first:step-smallaction",
+      "relation": "relates_to",
+      "label": "intro promise and the step that delivers it"
+    },
+    {
+      "id": "do-the-hard-things-first:e59",
+      "source": "do-the-hard-things-first:learn-smallwins",
+      "target": "do-the-hard-things-first:p3-anxiety",
+      "relation": "relates_to",
+      "label": "small wins vs. anxiety and overwhelm"
+    },
+    {
+      "id": "do-the-hard-things-first:e60",
+      "source": "do-the-hard-things-first:learn-bottleneck-wasters",
+      "target": "do-the-hard-things-first:step-bottlenecks",
+      "relation": "relates_to",
+      "label": "intro promise and its step"
+    },
+    {
+      "id": "do-the-hard-things-first:e61",
+      "source": "do-the-hard-things-first:learn-decision-fatigue",
+      "target": "do-the-hard-things-first:step-visualtriggers",
+      "relation": "relates_to",
+      "label": "environment design"
+    },
+    {
+      "id": "do-the-hard-things-first:e62",
+      "source": "do-the-hard-things-first:learn-commitment-devices",
+      "target": "do-the-hard-things-first:step-commitdevices",
+      "relation": "relates_to",
+      "label": "intro promise and its step"
+    },
+    {
+      "id": "do-the-hard-things-first:e63",
+      "source": "do-the-hard-things-first:learn-responsibility",
+      "target": "do-the-hard-things-first:step-ownership",
+      "relation": "relates_to",
+      "label": "intro promise and its step"
+    },
+    {
+      "id": "do-the-hard-things-first:e64",
+      "source": "do-the-hard-things-first:learn-one-thing",
+      "target": "do-the-hard-things-first:step-daily1",
+      "relation": "relates_to",
+      "label": "intro promise and its step"
+    },
+    {
+      "id": "do-the-hard-things-first:e65",
+      "source": "do-the-hard-things-first:learn-impulse-snaps",
+      "target": "do-the-hard-things-first:step-impulse",
+      "relation": "relates_to",
+      "label": "intro promise and its step"
+    },
+    {
+      "id": "do-the-hard-things-first:e66",
+      "source": "do-the-hard-things-first:q-mood-repair",
+      "target": "do-the-hard-things-first:c-coping",
+      "relation": "relates_to",
+      "label": "mood repair as the root of coping/avoidance"
+    },
+    {
+      "id": "do-the-hard-things-first:e67",
+      "source": "do-the-hard-things-first:step-reward",
+      "target": "do-the-hard-things-first:step-premack",
+      "relation": "relates_to",
+      "label": "reward structures"
+    },
+    {
+      "id": "do-the-hard-things-first:e68",
       "source": "do-the-hard-things-first:fear-commitment",
       "target": "do-the-hard-things-first:step-now",
       "relation": "relates_to",
       "label": "title-level link: commitment fear vs. deciding now"
     },
     {
-      "id": "do-the-hard-things-first:e30",
+      "id": "do-the-hard-things-first:e69",
       "source": "do-the-hard-things-first:fear-discomfort",
       "target": "do-the-hard-things-first:step-timeblock",
       "relation": "relates_to",
       "label": "title-level link: discomfort vs. a five-minute start"
     },
     {
-      "id": "do-the-hard-things-first:e31",
+      "id": "do-the-hard-things-first:e70",
       "source": "do-the-hard-things-first:fear-decision",
       "target": "do-the-hard-things-first:step-daily1",
       "relation": "relates_to",
       "label": "title-level link: decision fatigue vs. one daily #1 item"
     },
     {
-      "id": "do-the-hard-things-first:e32",
+      "id": "do-the-hard-things-first:e71",
       "source": "do-the-hard-things-first:fear-criticism",
       "target": "do-the-hard-things-first:step-tell",
       "relation": "relates_to",
       "label": "title-level link: external feedback vs. telling someone"
     },
     {
-      "id": "do-the-hard-things-first:e33",
+      "id": "do-the-hard-things-first:e72",
       "source": "do-the-hard-things-first:c-ten",
       "target": "do-the-hard-things-first:t-part2",
       "relation": "relates_to",
       "label": "excuses give way to practical steps"
     },
     {
-      "id": "do-the-hard-things-first:e34",
+      "id": "do-the-hard-things-first:e73",
       "source": "do-the-hard-things-first:step-list",
       "target": "do-the-hard-things-first:step-daily1",
       "relation": "relates_to",
       "label": "list feeds the daily #1 choice"
     },
     {
-      "id": "do-the-hard-things-first:e35",
+      "id": "do-the-hard-things-first:e74",
       "source": "do-the-hard-things-first:step-calendar",
       "target": "do-the-hard-things-first:step-timeblock",
       "relation": "relates_to",

@@ -1,7 +1,7 @@
 # Do the Hard Things First — Learnings
 
 > How to Win Over Procrastination and Master the Habit of Doing Difficult Work
-> Scott Allen
+> Scott Allan
 
 Living notebook. Structure follows the book's contents page (page numbers in brackets).
 
@@ -108,6 +108,78 @@ Living notebook. Structure follows the book's contents page (page numbers in bra
 - 
 
 ### Step 14: Identify Your Constraints (Bottlenecks) [121]
+
+- 
+
+### Step 15: Begin with One Small Action [124]
+
+- 
+
+### Step 16: Adopt the Law of 80/20
+
+- 
+
+### Step 17: Schedule a One-Hour Weekly Review Session [131]
+
+- 
+
+### Step 18: Control Your Distractions (and Manage Shiny Object Syndrome) [136]
+
+- 
+
+### Step 19: Create Future Commitment Devices [143]
+
+- 
+
+### Step 20: Program Your Environment with Motivational Visual Triggers [148]
+
+- 
+
+### Step 21: Reward Your Best Work [153]
+
+- 
+
+### Step 22: Employ the Premack Principle (and Temptation Bundling) [156]
+
+- 
+
+## Part III: Breaking Negative Behavior [160]
+
+### Breaking Your Negative Conditioning [163]
+
+- 
+
+### Breaking Anxiety and Overwhelm [166]
+
+- 
+
+### Breaking Your Limiting Self-Talk [171]
+
+- 
+
+## Part IV: Do Hard Things Everyday [181]
+
+### Do Hard Things for Your Health [183]
+
+- 
+
+### Do Hard Things Around Your Home [186]
+
+- 
+
+### Do the Hard Things Around Your Workspace [189]
+
+- 
+
+### Do the Hard Things in Your Personal Relationships [197]
+
+- 
+
+### Do Hard Things for Your Finances [203]
+
+- 
+
+## Final Thoughts on Doing the Hard Things First [209]
 
 - 
 
